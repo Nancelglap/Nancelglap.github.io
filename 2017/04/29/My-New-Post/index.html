@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/29/My-New-Post/index.html">
 <meta property="og:site_name" content="Nancelglap的博客">
 <meta property="og:description" content="有关laravel的函数">
-<meta property="og:updated_time" content="2017-04-29T12:44:56.000Z">
+<meta property="og:updated_time" content="2017-04-30T02:03:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="laravel函数">
 <meta name="twitter:description" content="有关laravel的函数">
@@ -59,7 +59,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -95,11 +95,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>有关laravel的函数</strong><br><a id="more"></a></p>
-<p><strong>old()函数</strong><br><code>old</code>函数获取一次性从Session获取的值，如果有第二个参数，则代表函数当第一个参数不存在时取第二个参数</p>
+<h2 id="old-函数"><a href="#old-函数" class="headerlink" title="old( )函数"></a><strong>old( )函数</strong></h2><p><code>old</code>函数获取一次性从Session获取的值，如果有第二个参数，则代表函数当第一个参数不存在时取第二个参数</p>
 <blockquote>
 <p>当表单被填充但是验证失败需要返回原始输入数据</p>
 </blockquote>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//$fields为默认值的关联数组</span></div><div class="line">$data = [];</div><div class="line"><span class="keyword">foreach</span> (<span class="keyword">$this</span>-&gt;fields <span class="keyword">as</span> $field =&gt; $default)&#123;</div><div class="line">    $data[$field] = old($field, $default);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="array-except-函数"><a href="#array-except-函数" class="headerlink" title="array_except( )函数"></a><strong>array_except( )函数</strong></h2><p><code>array_except</code>方法从数组中移除给定键值对，第二个参数为<code>[&#39;键名&#39;]</code><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$array = array_except($array, [<span class="string">'price'</span>]);   <span class="comment">//移除array数组以`price`为键的键值对</span></div></pre></td></tr></table></figure></p>
+<h2 id="array-keys-函数"><a href="#array-keys-函数" class="headerlink" title="array_keys( )函数"></a><strong>array_keys( )函数</strong></h2><p><code>array_keys</code>函数返回包含数组中所有<code>键名</code>的一个新数组<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$a = $array(<span class="string">"name"</span>=&gt;<span class="string">"lee"</span>, <span class="string">"sex"</span>=&gt;<span class="string">"male"</span>);</div><div class="line">$b = array_keys($a);    <span class="comment">//b为array([0]=&gt;name, [1]=&gt;sex)</span></div></pre></td></tr></table></figure></p>
+<h2 id="withSuccess-函数"><a href="#withSuccess-函数" class="headerlink" title="withSuccess( )函数"></a><strong>withSuccess( )函数</strong></h2><p><code>withSuccess</code>函数参数为一个字符串语句，在重定向<code>redirect( )</code>后使用，在相应的视图文件中可用Session类获取<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//在控制器中</span></div><div class="line">    redirect(<span class="string">'/path'</span>) -&gt; withSuccess(<span class="string">'Succeed.'</span>);</div><div class="line"><span class="comment">//在视图文件中</span></div><div class="line">    Session::has(<span class="string">'success'</span>);    <span class="comment">//判断是否存在</span></div><div class="line">    Session::get(<span class="string">'success'</span>);    <span class="comment">//获取控制器中withSuccess()中的字符串</span></div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -132,7 +135,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Kategorier</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/笔记/">笔记</a></li></ul>
     </div>
@@ -161,7 +164,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Arkiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
     </div>
@@ -171,7 +174,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Siste innlegg</h3>
     <div class="widget">
       <ul>
         
