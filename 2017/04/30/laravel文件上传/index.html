@@ -3,17 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Nancelglap的博客</title>
+  <title>laravel文件上传 | Nancelglap的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="广工无名小卒">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Nancelglap的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="1.在blade文件中的表格指定文件上传的name1234&amp;lt;form method=&quot;POST&quot; action=&quot;url&quot; enctype=&quot;multipart/form-data&quot;&amp;gt;&amp;lt;input type=&quot;hidden&quot; name=&quot;_token&quot; value=&quot;&amp;#123;&amp;#123;csrf_token()&amp;#125;&amp;#125;&quot;&amp;gt;&amp;lt;input type=&quot;">
+<meta name="keywords" content="laravel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="laravel文件上传">
+<meta property="og:url" content="http://yoursite.com/2017/04/30/laravel文件上传/index.html">
 <meta property="og:site_name" content="Nancelglap的博客">
-<meta property="og:description" content="广工无名小卒">
+<meta property="og:description" content="1.在blade文件中的表格指定文件上传的name1234&amp;lt;form method=&quot;POST&quot; action=&quot;url&quot; enctype=&quot;multipart/form-data&quot;&amp;gt;&amp;lt;input type=&quot;hidden&quot; name=&quot;_token&quot; value=&quot;&amp;#123;&amp;#123;csrf_token()&amp;#125;&amp;#125;&quot;&amp;gt;&amp;lt;input type=&quot;">
+<meta property="og:updated_time" content="2017-04-30T16:45:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nancelglap的博客">
-<meta name="twitter:description" content="广工无名小卒">
+<meta name="twitter:title" content="laravel文件上传">
+<meta name="twitter:description" content="1.在blade文件中的表格指定文件上传的name1234&amp;lt;form method=&quot;POST&quot; action=&quot;url&quot; enctype=&quot;multipart/form-data&quot;&amp;gt;&amp;lt;input type=&quot;hidden&quot; name=&quot;_token&quot; value=&quot;&amp;#123;&amp;#123;csrf_token()&amp;#125;&amp;#125;&quot;&amp;gt;&amp;lt;input type=&quot;">
   
     <link rel="alternate" href="/atom.xml" title="Nancelglap的博客" type="application/atom+xml">
   
@@ -66,9 +68,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-laravel文件上传" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-laravel文件上传" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/04/30/laravel文件上传/" class="article-date">
   <time datetime="2017-04-30T13:21:06.000Z" itemprop="datePublished">2017-04-30</time>
@@ -85,8 +85,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/30/laravel文件上传/">laravel文件上传</a>
+    <h1 class="article-title" itemprop="name">
+      laravel文件上传
     </h1>
   
 
@@ -109,148 +109,23 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Route相关" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/30/Route相关/" class="article-date">
-  <time datetime="2017-04-30T12:21:49.000Z" itemprop="datePublished">2017-04-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/笔记/">笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2017/04/30/Route相关/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
+          Route相关
+        
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/30/Route相关/">Route相关</a>
-    </h1>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="项目中一般不用Route-resource"><a href="#项目中一般不用Route-resource" class="headerlink" title="项目中一般不用Route::resource( )"></a><strong>项目中一般不用Route::resource( )</strong></h2><p>Http方法<code>patch</code>对应Controller的<code>update</code>函数<br>Http方法<code>delete</code>对应Controller的<code>destory</code>函数<br>Http方法<code>post</code>对应Controller的<code>store</code>函数<br>Http方法<code>get</code>且路径为<code>/path/create</code>对应Controller的<code>create</code>函数<br><em>特殊:get</em>路径为<code>/path/{参数}/edit</code>对应Controller的<code>edit</code>函数</p>
-<hr>
-<h2 id="部分资源路由（Resource）"><a href="#部分资源路由（Resource）" class="headerlink" title="部分资源路由（Resource）"></a><strong>部分资源路由（Resource）</strong></h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Route::resource(<span class="string">'new'</span>, <span class="string">'newController'</span>, [<span class="string">'only'</span>=&gt;[<span class="string">'index'</span>, <span class="string">'show'</span>]]);   <span class="comment">//只处理index和show方法</span></div><div class="line">Route::resource(<span class="string">'new'</span>, <span class="string">'newController'</span>, [<span class="string">'except'</span>=&gt;[<span class="string">'create'</span>, <span class="string">'store'</span>]]);   <span class="comment">//处理除了create和store的方法</span></div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/30/Route相关/" data-id="cj24xh4qw0000ct8iffumol7z" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Route/">Route</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-Blade-Warning" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/29/Blade-Warning/" class="article-date">
-  <time datetime="2017-04-29T13:06:20.000Z" itemprop="datePublished">2017-04-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/笔记/">笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/29/Blade-Warning/">Blade Warning</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>Blade模板中的注意事项</strong></p>
-<ol>
-<li>如果从Controller传过来的数组为一维关联数组，可以直接用数组中的键作为变量</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/29/Blade-Warning/" data-id="cj24xh4rv0001ct8iu5c1qn2x" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blade/">blade</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-My-New-Post" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/29/My-New-Post/" class="article-date">
-  <time datetime="2017-04-29T04:28:00.000Z" itemprop="datePublished">2017-04-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/笔记/">笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/29/My-New-Post/">laravel函数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>有关laravel的函数</strong><br>
-        
-          <p class="article-more-link">
-            <a href="/2017/04/29/My-New-Post/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/29/My-New-Post/" data-id="cj24xh4s40005ct8ih18pv4mc" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blade/">blade</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 </section>
         
