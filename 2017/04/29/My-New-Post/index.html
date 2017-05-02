@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/29/My-New-Post/index.html">
 <meta property="og:site_name" content="Nancelglap的博客">
 <meta property="og:description" content="有关laravel的函数">
-<meta property="og:updated_time" content="2017-05-01T02:12:53.000Z">
+<meta property="og:updated_time" content="2017-05-02T08:12:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Laravel 函数">
 <meta name="twitter:description" content="有关laravel的函数">
@@ -57,9 +57,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -106,11 +106,13 @@
 <h2 id="array-keys-函数"><a href="#array-keys-函数" class="headerlink" title="array_keys( )函数"></a><strong>array_keys( )函数</strong></h2><p><code>array_keys</code>函数返回包含数组中所有<code>键名</code>的一个新数组<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$a = $array(<span class="string">"name"</span>=&gt;<span class="string">"lee"</span>, <span class="string">"sex"</span>=&gt;<span class="string">"male"</span>);</div><div class="line">$b = array_keys($a);    <span class="comment">//b为array([0]=&gt;name, [1]=&gt;sex)</span></div></pre></td></tr></table></figure></p>
 <hr>
 <h2 id="withSuccess-函数"><a href="#withSuccess-函数" class="headerlink" title="withSuccess( )函数"></a><strong>withSuccess( )函数</strong></h2><p><code>withSuccess</code>函数参数为一个字符串语句，在重定向<code>redirect( )</code>后使用，在相应的视图文件中可用Session类获取<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//在控制器中</span></div><div class="line">    redirect(<span class="string">'/path'</span>) -&gt; withSuccess(<span class="string">'Succeed.'</span>);</div><div class="line"><span class="comment">//在视图文件中</span></div><div class="line">    Session::has(<span class="string">'success'</span>);    <span class="comment">//判断是否存在</span></div><div class="line">    Session::get(<span class="string">'success'</span>);    <span class="comment">//获取控制器中withSuccess()中的字符串</span></div></pre></td></tr></table></figure></p>
+<h2 id="strstr-函数"><a href="#strstr-函数" class="headerlink" title="strstr( )函数"></a><strong>strstr( )函数</strong></h2><p><code>strstr</code>函数查找第二个参数在第一个参数中第一次出现位置，并返回字符串剩余的部分<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">echo</span> strstr(<span class="string">'I love China.'</span>, <span class="string">'love'</span>);</div><div class="line"><span class="comment">//输出'love China'</span></div></pre></td></tr></table></figure></p>
+<h2 id="strtotime-函数"><a href="#strtotime-函数" class="headerlink" title="strtotime( )函数"></a><strong>strtotime( )函数</strong></h2><p><code>strtotime</code>返回Unix时间戳<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">strtotime(date(<span class="string">'Y-m-d H:i:s'</span>, time()));</div></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/29/My-New-Post/" data-id="cj26xvf970004lk8i7uwvlb4n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/29/My-New-Post/" data-id="cj27bsrwy00049f8iukdg34nl" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blade/">blade</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li></ul>
@@ -123,7 +125,7 @@
   
   
     <a href="/2017/04/29/Blade-Warning/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">Blade 相关</div>
     </a>
   
@@ -138,7 +140,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Catégories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li></ul>
     </div>
@@ -148,9 +150,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eloquent/">Eloquent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Route/">Route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blade/">blade</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/">laravel</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Controller/">Controller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eloquent/">Eloquent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Route/">Route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blade/">blade</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/">laravel</a></li></ul>
     </div>
   </div>
 
@@ -158,9 +160,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Eloquent/" style="font-size: 10px;">Eloquent</a> <a href="/tags/Route/" style="font-size: 10px;">Route</a> <a href="/tags/blade/" style="font-size: 15px;">blade</a> <a href="/tags/laravel/" style="font-size: 20px;">laravel</a>
+      <a href="/tags/Controller/" style="font-size: 10px;">Controller</a> <a href="/tags/Eloquent/" style="font-size: 10px;">Eloquent</a> <a href="/tags/Route/" style="font-size: 10px;">Route</a> <a href="/tags/blade/" style="font-size: 15px;">blade</a> <a href="/tags/laravel/" style="font-size: 20px;">laravel</a>
     </div>
   </div>
 
@@ -177,16 +179,20 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/05/02/数据的增删改/">数据的增删改</a>
+          </li>
         
           <li>
             <a href="/2017/05/02/Eloquent-关系/">Eloquent 关系</a>
           </li>
         
           <li>
-            <a href="/2017/04/30/laravel文件上传/">Laravel 文件上传</a>
+            <a href="/2017/04/30/laravel文件上传/">Laravel 文件上传处理</a>
           </li>
         
           <li>
@@ -195,10 +201,6 @@
         
           <li>
             <a href="/2017/04/29/Blade-Warning/">Blade 相关</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/29/My-New-Post/">Laravel 函数</a>
           </li>
         
       </ul>
@@ -214,7 +216,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Nancelglap<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
