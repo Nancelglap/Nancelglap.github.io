@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/02/数据的增删改/index.html">
 <meta property="og:site_name" content="Nancelglap的博客">
 <meta property="og:description" content="Controller中 store, destory, update方法">
-<meta property="og:updated_time" content="2017-05-02T09:07:49.000Z">
+<meta property="og:updated_time" content="2017-05-02T09:10:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据的增删改">
 <meta name="twitter:description" content="Controller中 store, destory, update方法">
@@ -57,9 +57,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -101,7 +101,7 @@
 <blockquote>
 <p>第一种：覆盖</p>
 </blockquote>
-<p><strong>先不取出上传文件，后面处理后再加入数组，以下省略文件验证代码，详见<a href="2017/04/30/laravel文件上传/#more">larval文件上传</a></strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">modelName</span>;</div><div class="line"><span class="keyword">use</span> <span class="title">File</span>;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">update</span><span class="params">(newRquest $request, $id)</span></span></div><div class="line">&#123;</div><div class="line">    $new_data = $request-&gt;except(<span class="string">'_token'</span>, <span class="string">'filename'</span>);</div><div class="line">    $file = $request -&gt; file(<span class="string">'filename'</span>);</div><div class="line">    $file -&gt; move(<span class="string">'/path'</span>, <span class="string">'fileNewName.extension'</span>);</div><div class="line">    File::delete(<span class="string">'/path/fileName'</span>);</div><div class="line"></div><div class="line">    $raw_data = modelName::findOrFail($id);</div><div class="line">    $raw_data -&gt; update($new_data);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>先不取出上传文件，后面处理后再加入数组，以下省略文件验证代码，详见<a href="">larval文件上传</a></strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">modelName</span>;</div><div class="line"><span class="keyword">use</span> <span class="title">File</span>;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">update</span><span class="params">(newRquest $request, $id)</span></span></div><div class="line">&#123;</div><div class="line">    $new_data = $request-&gt;except(<span class="string">'_token'</span>, <span class="string">'filename'</span>);</div><div class="line">    $file = $request -&gt; file(<span class="string">'filename'</span>);</div><div class="line">    $file -&gt; move(<span class="string">'/path'</span>, <span class="string">'fileNewName.extension'</span>);</div><div class="line">    File::delete(<span class="string">'/path/fileName'</span>);</div><div class="line"></div><div class="line">    $raw_data = modelName::findOrFail($id);</div><div class="line">    $raw_data -&gt; update($new_data);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>第二种：逐条更新</p>
 </blockquote>
@@ -110,7 +110,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/02/数据的增删改/" data-id="cj27bsrx400069f8ipc4shuol" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/05/02/数据的增删改/" data-id="cj27bsrx400069f8ipc4shuol" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Controller/">Controller</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li></ul>
@@ -122,7 +122,7 @@
 <nav id="article-nav">
   
     <a href="/2017/05/02/Eloquent-关系/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Récent</strong>
+      <strong class="article-nav-caption">Nieuwer</strong>
       <div class="article-nav-title">
         
           Eloquent 关系
@@ -142,7 +142,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Catégories</h3>
+    <h3 class="widget-title">Categorieën</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li></ul>
     </div>
@@ -152,7 +152,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Labels</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Controller/">Controller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eloquent/">Eloquent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Route/">Route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blade/">blade</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/">laravel</a></li></ul>
     </div>
@@ -162,7 +162,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/Controller/" style="font-size: 10px;">Controller</a> <a href="/tags/Eloquent/" style="font-size: 10px;">Eloquent</a> <a href="/tags/Route/" style="font-size: 10px;">Route</a> <a href="/tags/blade/" style="font-size: 15px;">blade</a> <a href="/tags/laravel/" style="font-size: 20px;">laravel</a>
     </div>
@@ -171,7 +171,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
     </div>
@@ -181,7 +181,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
         
@@ -218,7 +218,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Nancelglap<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
