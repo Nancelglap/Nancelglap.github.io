@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/02/Eloquent-关系/index.html">
 <meta property="og:site_name" content="Nancelglap的博客">
 <meta property="og:description" content="Eloquent 一对一等关系">
-<meta property="og:updated_time" content="2017-05-02T02:49:30.000Z">
+<meta property="og:updated_time" content="2017-05-02T07:33:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Eloquent 关系">
 <meta name="twitter:description" content="Eloquent 一对一等关系">
@@ -116,7 +116,7 @@
 <p>Eloquent自动判断<code>Comment模型</code>的外键，默认某列中名称有<code>_id</code>后缀为外键<br><strong>访问关联方法（用法）：</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Post</span>;</div><div class="line">$comments = App\Post::find(<span class="number">1</span>)-&gt;comments;    <span class="comment">//先用find找到一个用户，再调用函数</span></div><div class="line"></div><div class="line"><span class="keyword">foreach</span>($comments <span class="keyword">as</span> $comment)&#123;</div><div class="line">    <span class="comment">//</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p><strong>增加约束条件</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$comments = App\Post::find(<span class="number">1</span>)-&gt;comments()-&gt;where()-&gt;first;</div></pre></td></tr></table></figure></p>
 <p>通过第二个参数，第三个参数自定义外键和主键<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> <span class="keyword">$this</span>-&gt;hasMany(<span class="string">'App\Comment'</span>, <span class="string">'foreign_key'</span>, <span class="string">'local_key'</span>);</div></pre></td></tr></table></figure></p>
-<p>更多详见 <a href="laravelacademy.org/post/6996.html">link</a></p>
+<p>更多详见 <code>laravelacademy.org/post/6996.html</code></p>
 
       
     </div>
