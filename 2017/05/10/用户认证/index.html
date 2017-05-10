@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/10/用户认证/index.html">
 <meta property="og:site_name" content="Nancelglap的博客">
 <meta property="og:description" content="一、auth.php文件配置(修改auth验证的表)  在guards数组中的每一项都是一个角色，默认的有web和api两种，这就表示了当前有这两种角色会使用到认证系统。driver就是表示这个认证要怎么去保存用户状态，一般是保存在session中，provider就是告诉Laravel你的用户信息保存在哪一张表里面，driver就是告诉了要使用那种方式来操作数据库。  二、具体运用  方法一：">
-<meta property="og:updated_time" content="2017-05-10T14:37:06.000Z">
+<meta property="og:updated_time" content="2017-05-10T15:20:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用户认证">
 <meta name="twitter:description" content="一、auth.php文件配置(修改auth验证的表)  在guards数组中的每一项都是一个角色，默认的有web和api两种，这就表示了当前有这两种角色会使用到认证系统。driver就是表示这个认证要怎么去保存用户状态，一般是保存在session中，provider就是告诉Laravel你的用户信息保存在哪一张表里面，driver就是告诉了要使用那种方式来操作数据库。  二、具体运用  方法一：">
@@ -57,9 +57,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -104,10 +104,12 @@
 <h2 id="方法一：在Controller中增加middleware键值对"><a href="#方法一：在Controller中增加middleware键值对" class="headerlink" title="方法一：在Controller中增加middleware键值对"></a><strong>方法一：在Controller中增加<code>middleware</code>键值对</strong></h2><p>当路由中使用了保护路由：<code>&#39;middleware&#39; =&gt; &#39;auth&#39;</code>，此路由需先经过路由的路径名为’/login’执行后才跳转到此路由执行<br><strong>可以对路由组使用此中间件，以下组内所有路由的访问都需先经过路由路径为’/login’的认证</strong><br><strong>路由中的路径必须是根目录下的’/login’</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//如果路径前面再加任何的前缀就会出错'/admin/path'</span></div><div class="line">Route::get(<span class="string">'/login'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> view(<span class="string">'auth.login'</span>);    </div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Route::group([<span class="string">'namespace'</span>=&gt;<span class="string">'Admin'</span>, <span class="string">'middleware'</span>=&gt;<span class="string">'auth'</span>], <span class="function"><span class="keyword">function</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    Route::get(<span class="string">'admin/path1'</span>, <span class="string">'UploadController@method1'</span>);</div><div class="line">    Route::get(<span class="string">'admin/path2'</span>, <span class="string">'UploadController@method2'</span>);</div><div class="line">    Route::get(<span class="string">'admin/path3'</span>, <span class="string">'UploadController@method3'</span>);</div><div class="line">    Route::get(<span class="string">'admin/path4'</span>, <span class="string">'UploadController@method4'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="方法二：在控制器中增加构造方法-construct"><a href="#方法二：在控制器中增加构造方法-construct" class="headerlink" title="方法二：在控制器中增加构造方法__construct"></a><strong>方法二：在控制器中增加构造方法<code>__construct</code></strong></h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">$this</span>-&gt;middleware(<span class="string">'auth'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a><strong>补充</strong></h2><p>返回经过JWTAuth认证后的实例<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Route::get(<span class="string">'/user'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Request $request)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> $request-&gt;user();</div><div class="line">&#125;)-&gt;middleware(<span class="string">'jwt.api.auth'</span>);</div></pre></td></tr></table></figure></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/10/用户认证/" data-id="cj2j39sii000gcz8icqidy5l7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/10/用户认证/" data-id="cj2j39sii000gcz8icqidy5l7" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/auth/">auth</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/middleware/">middleware</a></li></ul>
@@ -119,7 +121,7 @@
 <nav id="article-nav">
   
     <a href="/2017/05/10/JWT-dingo/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Récent</strong>
       <div class="article-nav-title">
         
           JWT + dingo
@@ -139,7 +141,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Catégories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note-of-Linux-shell-脚本攻略/">note of "Linux shell 脚本攻略"</a></li></ul>
     </div>
@@ -149,7 +151,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Controller/">Controller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eloquent/">Eloquent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JWT/">JWT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JWTAuth/">JWTAuth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Route/">Route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terminal/">Terminal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auth/">auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blade/">blade</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dingo/">dingo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/middleware/">middleware</a></li></ul>
     </div>
@@ -159,7 +161,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/tags/Controller/" style="font-size: 10px;">Controller</a> <a href="/tags/Eloquent/" style="font-size: 10px;">Eloquent</a> <a href="/tags/JWT/" style="font-size: 10px;">JWT</a> <a href="/tags/JWTAuth/" style="font-size: 10px;">JWTAuth</a> <a href="/tags/Route/" style="font-size: 10px;">Route</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/auth/" style="font-size: 10px;">auth</a> <a href="/tags/blade/" style="font-size: 15px;">blade</a> <a href="/tags/dingo/" style="font-size: 15px;">dingo</a> <a href="/tags/laravel/" style="font-size: 20px;">laravel</a> <a href="/tags/middleware/" style="font-size: 10px;">middleware</a>
     </div>
@@ -178,7 +180,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -215,7 +217,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Nancelglap<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
