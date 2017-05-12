@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/10/JWT-dingo/index.html">
 <meta property="og:site_name" content="Nancelglap的博客">
 <meta property="og:description" content="laravel 中JWT(Json Web Token)和dingo的使用">
-<meta property="og:updated_time" content="2017-05-10T14:38:31.000Z">
+<meta property="og:updated_time" content="2017-05-12T10:19:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JWT + dingo">
 <meta name="twitter:description" content="laravel 中JWT(Json Web Token)和dingo的使用">
@@ -126,8 +126,8 @@
 <h2 id="安装方法-2-1"><a href="#安装方法-2-1" class="headerlink" title="安装方法 2"></a><strong>安装方法 2</strong></h2><p>修改<code>composer.json</code>文件，执行<code>composer update</code>把最后一个版本的包加入项目中<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"required"</span>: &#123;</div><div class="line">    <span class="string">"tymon/jwt-auth"</span>:<span class="string">"0.5.*"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>二、配置</p>
-<h2 id="1、在config-app-php中注册相应的Service-Provider"><a href="#1、在config-app-php中注册相应的Service-Provider" class="headerlink" title="1、在config/app.php中注册相应的Service Provider"></a><strong>1、在<code>config/app.php</code>中注册相应的Service Provider</strong></h2></blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">'providers'</span>=&gt;[</div><div class="line">        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,</div><div class="line">    ]</div></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="1、在config-app-php中注册相应的Service-Provider"><a href="#1、在config-app-php中注册相应的Service-Provider" class="headerlink" title="1、在config/app.php中注册相应的Service Provider"></a><strong>1、在<code>config/app.php</code>中注册相应的Service Provider</strong></h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">'providers'</span>=&gt;[</div><div class="line">        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,</div><div class="line">    ]</div></pre></td></tr></table></figure>
 <h2 id="2、注册jwt-Facades"><a href="#2、注册jwt-Facades" class="headerlink" title="2、注册jwt Facades"></a><strong>2、注册jwt Facades</strong></h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">'aliases'</span>=&gt;[</div><div class="line">        <span class="string">'JWTAuth'</span>=&gt; Tymon\JWTAuth\Facades\JWTAuth::class,</div><div class="line">        <span class="string">'JWTFactory'</span>=&gt; Tymon\JWTAuth\Facades\JWTFactory::class,</div><div class="line">    ]</div></pre></td></tr></table></figure>
 <h2 id="3、更新配置文件"><a href="#3、更新配置文件" class="headerlink" title="3、更新配置文件"></a><strong>3、更新配置文件</strong></h2><p><code>php artisan vendor:publish --provider=&quot;Tymon\JWTAuth\Providers\JWTAuthServiceProvider&quot;</code></p>
 <h2 id="4、生成jwt-php文件中数组的secret键成对应的值"><a href="#4、生成jwt-php文件中数组的secret键成对应的值" class="headerlink" title="4、生成jwt.php文件中数组的secret键成对应的值"></a><strong>4、生成jwt.php文件中数组的secret键成对应的值</strong></h2><p><code>php artisan jwt:generate</code></p>
