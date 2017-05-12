@@ -3,17 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Nancelglap的博客</title>
+  <title>安装LEMP环境 | Nancelglap的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="广工无名小卒">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Nancelglap的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="在mac/linux上安装LEMP环境">
+<meta name="keywords" content="mysql,php,nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安装LEMP环境">
+<meta property="og:url" content="http://yoursite.com/2017/05/12/安装LEMP环境/index.html">
 <meta property="og:site_name" content="Nancelglap的博客">
-<meta property="og:description" content="广工无名小卒">
+<meta property="og:description" content="在mac/linux上安装LEMP环境">
+<meta property="og:updated_time" content="2017-05-12T12:32:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nancelglap的博客">
-<meta name="twitter:description" content="广工无名小卒">
+<meta name="twitter:title" content="安装LEMP环境">
+<meta name="twitter:description" content="在mac/linux上安装LEMP环境">
   
     <link rel="alternate" href="/atom.xml" title="Nancelglap的博客" type="application/atom+xml">
   
@@ -66,215 +68,73 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/05/12/安装LEMP环境/" class="archive-article-date">
-  <time datetime="2017-05-12T12:04:53.000Z" itemprop="datePublished">May 12</time>
+        <section id="main"><article id="post-安装LEMP环境" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/12/安装LEMP环境/" class="article-date">
+  <time datetime="2017-05-12T12:04:53.000Z" itemprop="datePublished">2017-05-12</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/note/">note</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/12/安装LEMP环境/">安装LEMP环境</a>
+    <h1 class="article-title" itemprop="name">
+      安装LEMP环境
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/05/12/在购买的VPS上配置环境运行Laravel/" class="archive-article-date">
-  <time datetime="2017-05-12T12:01:26.000Z" itemprop="datePublished">May 12</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/12/在购买的VPS上配置环境运行Laravel/">在购买的VPS上配置环境运行Laravel</a>
-    </h1>
-  
+        <p>在mac/linux上安装LEMP环境<br><a id="more"></a><br>购买远程服务器VPS：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## **1、先登录远程服务器**</div></pre></td></tr></table></figure></p>
+<p>ssh root@ip address<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">查看服务器</div></pre></td></tr></table></figure></p>
+<p>lsb_release -a<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## **2、更新apt-get**</div></pre></td></tr></table></figure></p>
+<p>sudo apt-get<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## **3、安装语言包**</div><div class="line">避免系统语言引起的冲突问题</div></pre></td></tr></table></figure></p>
+<p>sudo apt-get install -y language-pace-en-base<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## **4、设置语言**</div></pre></td></tr></table></figure></p>
+<p>locale-gen en_US.UTF-8<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## **5、安装常用工具**</div></pre></td></tr></table></figure></p>
+<p>sudo apt-get install - y vim htop git    //htop查看机器cup等用了多，git用于部署项目<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## **6、安装php7（通过添加ppa方式安装）**</div></pre></td></tr></table></figure></p>
+<p>sudo apt-get install -y software-properties-common<br>sudo LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php<br>sudo apt-get update<br>apt-cache php7.1    //查找php7.1包</p>
+<p>sudo apt-get install -y php7.1<br>php -v      //查看版本<br>sudo apt-get install -y php7.1-mysql<br>sudo apt-get install -y php7.1-fpm<br>sudo apt-get install -y php7.1-curl php7.1-xml php7.1-mcrypt php7.1-json php7.1-gd php7.1-mbstring</p>
+<p>//安装mysql<br>sudo apt-get install mysql-server-5.6</p>
+<p>//安装nginx<br>sudo apt-get install nginx<br>//通过购买的服务器ip地址访问nginx<br>```</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/05/10/用户认证/" class="archive-article-date">
-  <time datetime="2017-05-10T14:12:12.000Z" itemprop="datePublished">May 10</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/用户认证/">用户认证</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/05/10/JWT-dingo/" class="archive-article-date">
-  <time datetime="2017-05-10T12:01:07.000Z" itemprop="datePublished">May 10</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/12/安装LEMP环境/" data-id="cj2ltpp5k000n7v8id2sgn2in" class="article-share-link">Partager</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/JWT-dingo/">JWT + dingo</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/05/10/Shell脚本相关/" class="archive-article-date">
-  <time datetime="2017-05-10T08:39:54.000Z" itemprop="datePublished">May 10</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/Shell脚本相关/">Shell脚本相关</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05/12/在购买的VPS上配置环境运行Laravel/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          在购买的VPS上配置环境运行Laravel
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/05/06/创建token/" class="archive-article-date">
-  <time datetime="2017-05-06T13:49:41.000Z" itemprop="datePublished">May 6</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/06/创建token/">token的创建</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/05/02/数据的增删改/" class="archive-article-date">
-  <time datetime="2017-05-02T08:20:01.000Z" itemprop="datePublished">May 2</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/02/数据的增删改/">数据的增删改</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/05/02/Eloquent-关系/" class="archive-article-date">
-  <time datetime="2017-05-02T01:28:10.000Z" itemprop="datePublished">May 2</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/02/Eloquent-关系/">Eloquent 关系</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/30/laravel文件上传/" class="archive-article-date">
-  <time datetime="2017-04-30T13:21:06.000Z" itemprop="datePublished">Apr 30</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/30/laravel文件上传/">Laravel 文件上传处理</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/30/Route相关/" class="archive-article-date">
-  <time datetime="2017-04-30T12:21:49.000Z" itemprop="datePublished">Apr 30</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/30/Route相关/">Route 相关</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">__('next') &raquo;</a>
-  </nav>
 </section>
         
           <aside id="sidebar">
