@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/12/在购买的VPS上配置环境运行Laravel/index.html">
 <meta property="og:site_name" content="Nancelglap的博客">
 <meta property="og:description" content="php + nginx + mysql">
-<meta property="og:updated_time" content="2017-05-12T13:55:02.000Z">
+<meta property="og:updated_time" content="2017-05-12T14:17:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在购买的VPS上配置环境运行Laravel">
 <meta name="twitter:description" content="php + nginx + mysql">
@@ -59,7 +59,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -110,9 +110,10 @@
 </blockquote>
 <p><strong>（1）回到本地创建Laravel项目</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">laravel new ProjectName</div></pre></td></tr></table></figure></p>
 <p><strong>（2）在github创建新项目</strong></p>
-<p><strong>（3）上传项目</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">cd ProjectName/</div><div class="line"></div><div class="line">git init</div><div class="line">git add .</div><div class="line">git commit -m&quot;Install Laravel&quot;</div><div class="line"></div><div class="line">git remote add origin git@github.com:UserName/ProjectName.git   //UserName为自己的github用户名，ProjectName为在github创建的项目名</div><div class="line">git push -u origin master</div></pre></td></tr></table></figure></p>
+<p><strong>（3）上传项目</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">cd ProjectName/</div><div class="line"></div><div class="line">git init</div><div class="line">git add .</div><div class="line">git commit -m &quot;更改描述&quot;</div><div class="line"></div><div class="line">git remote add origin git@github.com:UserName/ProjectName.git   //UserName为自己的github用户名，ProjectName为在github创建的项目名</div><div class="line">git push -u origin master</div></pre></td></tr></table></figure></p>
 <p><strong>（4）刷新github就可看见代码</strong></p>
 <h2 id="8、用git将github上的代码克隆到服务器"><a href="#8、用git将github上的代码克隆到服务器" class="headerlink" title="8、用git将github上的代码克隆到服务器"></a><strong>8、用git将github上的代码克隆到服务器</strong></h2><p><strong>开发的话如果有更新就先将代码推送到gtihub，再从服务器拉取代码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git pull    //更新github上的代码</div><div class="line">//ssh登录远程服务器后，切到www目录</div><div class="line">git clone git项目地址</div></pre></td></tr></table></figure></p>
+<p><strong>更新项目</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git commit -m &quot;描述内容&quot;     //只有更改文件的目录才会改描述内容</div><div class="line">git push origin master</div></pre></td></tr></table></figure></p>
 <h2 id="9、安装composer"><a href="#9、安装composer" class="headerlink" title="9、安装composer"></a><strong>9、安装composer</strong></h2><blockquote>
 <p>地址<code>www.getcomposer.org/download/</code></p>
 </blockquote>
@@ -126,7 +127,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/12/在购买的VPS上配置环境运行Laravel/" data-id="cj2ltpp5m000q7v8igznf7220" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/12/在购买的VPS上配置环境运行Laravel/" data-id="cj2ltpp5m000q7v8igznf7220" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/">VPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/server/">server</a></li></ul>
@@ -138,7 +139,7 @@
 <nav id="article-nav">
   
     <a href="/2017/05/10/用户认证/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Nieuwer</strong>
       <div class="article-nav-title">
         
           用户认证
@@ -148,7 +149,7 @@
   
   
     <a href="/2017/05/12/安装LEMP环境/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ouder</strong>
       <div class="article-nav-title">安装LEMP环境</div>
     </a>
   
@@ -163,7 +164,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Categorieën</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note-of-Linux-shell-脚本攻略/">note of "Linux shell 脚本攻略"</a></li></ul>
     </div>
@@ -173,7 +174,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Labels</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Controller/">Controller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eloquent/">Eloquent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JWT/">JWT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JWTAuth/">JWTAuth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Route/">Route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terminal/">Terminal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPS/">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auth/">auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blade/">blade</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dingo/">dingo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/middleware/">middleware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server/">server</a></li></ul>
     </div>
@@ -192,7 +193,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
     </div>
@@ -202,7 +203,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
         
