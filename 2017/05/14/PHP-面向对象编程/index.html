@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>PHP 面向对象编程 | Nancelglap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="PHP 面向对象相关">
+<meta name="keywords" content="php,OOP,面向对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP 面向对象编程">
+<meta property="og:url" content="http://yoursite.com/2017/05/14/PHP-面向对象编程/index.html">
+<meta property="og:site_name" content="Nancelglap">
+<meta property="og:description" content="PHP 面向对象相关">
+<meta property="og:updated_time" content="2017-05-14T08:51:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP 面向对象编程">
+<meta name="twitter:description" content="PHP 面向对象相关">
+  
+    <link rel="alternate" href="/atom.xml" title="Nancelglap" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Nancelglap</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不想正经</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-PHP-面向对象编程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/14/PHP-面向对象编程/" class="article-date">
+  <time datetime="2017-05-14T08:19:52.000Z" itemprop="datePublished">2017-05-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/note/">note</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PHP 面向对象编程
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PHP 面向对象相关<br><a id="more"></a></p>
+<blockquote>
+<p>final关键字</p>
+</blockquote>
+<h2 id="final关键字只能用来标记类和方法"><a href="#final关键字只能用来标记类和方法" class="headerlink" title="final关键字只能用来标记类和方法"></a><strong>final关键字只能用来标记类和方法</strong></h2><p><strong>1、final标记的类不能被继承</strong><br><strong>2、final标记的方法不能被子类覆盖，是最终版本</strong></p>
+<blockquote>
+<p>__call()方法</p>
+</blockquote>
+<h2 id="当调用对象内部方法不存在时自动调用，第一个参数为不存在的函数名，第二个参数把这个方法里的参数作为数组形式传进来"><a href="#当调用对象内部方法不存在时自动调用，第一个参数为不存在的函数名，第二个参数把这个方法里的参数作为数组形式传进来" class="headerlink" title="当调用对象内部方法不存在时自动调用，第一个参数为不存在的函数名，第二个参数把这个方法里的参数作为数组形式传进来"></a><strong>当调用对象内部方法不存在时自动调用，第一个参数为不存在的函数名，第二个参数把这个方法里的参数作为数组形式传进来</strong></h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span> </span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__call</span><span class="params">($function_name, $args)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">echo</span> $function_name;</div><div class="line">        print_r($args);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">$test = <span class="keyword">new</span> test();</div><div class="line">$test -&gt; hello(<span class="string">'you'</span>, <span class="string">'are'</span>, <span class="string">'sb'</span>);</div><div class="line"></div><div class="line"><span class="comment">//程序不会退出继续执行</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"11111"</span>;</div></pre></td></tr></table></figure>
+<p>上述的输出结果为<code>hello Array([0] =&gt; you [1] =&gt; are [2] =&gt; sb)</code></p>
+<blockquote>
+<p>static 和 const</p>
+</blockquote>
+<h2 id="1、static"><a href="#1、static" class="headerlink" title="1、static"></a>1、static</h2><p>（1）<strong>static的成员在类第一次被加载的时候分配空间，被实例化的对象共用，属于类，无法用<code>$this</code>访问</strong><br>（2）在类内部访问<code>static成员</code><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>::$变量名      <span class="comment">//有'$'</span></div></pre></td></tr></table></figure></p>
+<p>（3）在类外部访问<code>static成员</code><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ClassName::$变量名     <span class="comment">//有'$'</span></div></pre></td></tr></table></figure></p>
+<h2 id="2、const"><a href="#2、const" class="headerlink" title="2、const"></a>2、const</h2><p>（1）<strong>const为在类内部定义常量的方法</strong><br>（2）在类内部访问<code>const属性</code><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>::变量名       <span class="comment">//没有'$'</span></div></pre></td></tr></table></figure></p>
+<p>（3）在类外部访问<code>const属性</code><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ClassName::变量名      <span class="comment">//没有'$'</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>public、protected、private</p>
+</blockquote>
+<p>1、public声明的成员可以在<em>任何位置</em>调用<br>2、protected声明的成员只有在<em>类的内部</em>还有<em>子类</em>中可以调用<br>3、private声明的成员只有在<em>类的内部</em>可以调用<br>4、调用方法为<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">$this</span> -&gt; name;      <span class="comment">//调用成员属性</span></div><div class="line"><span class="keyword">$this</span> -&gt; <span class="function"><span class="keyword">function</span><span class="params">()</span></span>;    <span class="comment">//调用成员方法</span></div></pre></td></tr></table></figure></p>
+<h2 id="注：子类的权限只能大于等于父类"><a href="#注：子类的权限只能大于等于父类" class="headerlink" title="注：子类的权限只能大于等于父类"></a><strong>注：子类的权限只能大于等于父类</strong></h2><blockquote>
+<p>接口（Interface）</p>
+</blockquote>
+<h2 id="定义：类里面所有的方法都为抽象方法的类称为接口"><a href="#定义：类里面所有的方法都为抽象方法的类称为接口" class="headerlink" title="定义：类里面所有的方法都为抽象方法的类称为接口"></a><strong>定义：类里面所有的方法都为抽象方法的类称为接口</strong></h2><p><strong>1、接口内不能声明变量，但可以声明常量constant</strong><br><strong>2、所有成员都是public权限</strong><br><strong>3、声明接口使用关键字<code>interface</code></strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">One</span> </span>&#123;</div><div class="line">    <span class="comment">//定义一个常量</span></div><div class="line">    <span class="keyword">const</span> constant = <span class="string">'constant value'</span>;</div><div class="line"></div><div class="line">    <span class="comment">//定义一个抽象方法"fun1"</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">fun1</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">//定义了抽象方法"fun2"</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">fun2</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<p><strong>4、定义接口的子类实现接口中全部抽象方法使用关键字<code>implements</code></strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Three</span> <span class="keyword">implements</span> <span class="title">One</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fun1</span><span class="params">()</span> </span>&#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fun2</span><span class="params">()</span> </span>&#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<p><strong>5、子类必须实现所有的抽象方法才能被实例化</strong><br><strong>6、一个类可以实现多个接口</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Four</span> <span class="keyword">implements</span> <span class="title">interface1</span>, <span class="title">interface2</span>, ... </span>&#123;</div><div class="line">    <span class="comment">//必须把所有接口中的方法都实现才可以实例化对象</span></div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<p><strong>7、在继承一个类的同时实现多个接口，先继承再实现</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Four</span> <span class="keyword">extends</span> <span class="title">ClassName1</span> <span class="keyword">implements</span> <span class="title">interface1</span>, <span class="title">interface2</span>, ... </span>&#123;</div><div class="line">    <span class="comment">//所有接口中的方法都要实现才可以实例化对象</span></div><div class="line">    ...</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/14/PHP-面向对象编程/" data-id="cj2ogr6i90001x98ir7mqqk4k" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OOP/">OOP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05/13/git相关操作/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          git相关操作
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note-of-Linux-shell-脚本攻略/">note of "Linux shell 脚本攻略"</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Controller/">Controller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Domain/">Domain</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eloquent/">Eloquent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JWT/">JWT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JWTAuth/">JWTAuth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOP/">OOP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Route/">Route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terminal/">Terminal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPS/">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auth/">auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blade/">blade</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dingo/">dingo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/middleware/">middleware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server/">server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Controller/" style="font-size: 10px;">Controller</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/Eloquent/" style="font-size: 10px;">Eloquent</a> <a href="/tags/JWT/" style="font-size: 10px;">JWT</a> <a href="/tags/JWTAuth/" style="font-size: 10px;">JWTAuth</a> <a href="/tags/OOP/" style="font-size: 10px;">OOP</a> <a href="/tags/Route/" style="font-size: 10px;">Route</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/auth/" style="font-size: 10px;">auth</a> <a href="/tags/blade/" style="font-size: 13.33px;">blade</a> <a href="/tags/dingo/" style="font-size: 13.33px;">dingo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/laravel/" style="font-size: 20px;">laravel</a> <a href="/tags/middleware/" style="font-size: 10px;">middleware</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/php/" style="font-size: 13.33px;">php</a> <a href="/tags/server/" style="font-size: 16.67px;">server</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/14/PHP-面向对象编程/">PHP 面向对象编程</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/13/git相关操作/">git相关操作</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/13/VPS上配置和域名解析/">VPS上配置和域名解析</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/12/安装LEMP环境/">安装LEMP环境</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/12/在购买的VPS上配置环境运行Laravel/">在购买的VPS上配置环境运行Laravel</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Nancelglap<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
