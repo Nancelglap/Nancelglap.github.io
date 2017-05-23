@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>token的创建 | Nancelglap</title>
+  <title>JWT验证 | Nancelglap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="用户登录的时候服务器返回相应用户的token给客户端，接下来用户的每次请求都会发送token给服务器端验证身份">
 <meta name="keywords" content="laravel,JWTAuth,dingo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="token的创建">
+<meta property="og:title" content="JWT验证">
 <meta property="og:url" content="http://yoursite.com/2017/05/06/创建token/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="用户登录的时候服务器返回相应用户的token给客户端，接下来用户的每次请求都会发送token给服务器端验证身份">
-<meta property="og:updated_time" content="2017-05-23T14:50:31.000Z">
+<meta property="og:updated_time" content="2017-05-23T14:51:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="token的创建">
+<meta name="twitter:title" content="JWT验证">
 <meta name="twitter:description" content="用户登录的时候服务器返回相应用户的token给客户端，接下来用户的每次请求都会发送token给服务器端验证身份">
   
     <link rel="alternate" href="/atom.xml" title="Nancelglap" type="application/atom+xml">
@@ -86,7 +86,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      token的创建
+      JWT验证
     </h1>
   
 
@@ -96,9 +96,12 @@
       
         <p>用户登录的时候服务器返回相应用户的token给客户端，接下来用户的每次请求都会发送token给服务器端验证身份<br><a id="more"></a></p>
 <blockquote>
-<p>创建Token</p>
+<p>原理</p>
 </blockquote>
 <p><strong>验证机制</strong><br>1、根据用户信息，还有后面加入的信息创建token，并将token保存在后台的缓存，可加入<code>$user[&#39;now&#39;]=time()</code>等信息<br>2、将token发给客户端，存在客户端的缓存中<br>3、需要验证的操作或者请求使用jwt中间件验证（将存在客户端缓存中的token取出并放在<code>header</code>中发回给后台）<br>4、请求通过jwt中间件将<code>header</code>中的<code>token</code>值与后台缓存的token对比，确认一致后继续进行下一步操作</p>
+<blockquote>
+<p>创建Token</p>
+</blockquote>
 <h2 id="方法1：用户登录的时候返回"><a href="#方法1：用户登录的时候返回" class="headerlink" title="方法1：用户登录的时候返回"></a><strong>方法1：用户登录的时候返回</strong></h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">JWTAuth</span>;</div><div class="line"><span class="keyword">use</span> <span class="title">Tymon</span>\<span class="title">JWTAuth</span>\<span class="title">Exceptions</span>\<span class="title">JWTException</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AuthenticateController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">authenticate</span><span class="params">(Request $request)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="comment">// grab credentials from the request</span></div><div class="line">        $credentials = $request-&gt;only(<span class="string">'email'</span>, <span class="string">'password'</span>);</div><div class="line"></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">// attempt to verify the credentials and create a token for the user</span></div><div class="line">            <span class="keyword">if</span> (! $token = JWTAuth::attempt($credentials)) &#123;</div><div class="line">                <span class="keyword">return</span> response()-&gt;json([<span class="string">'error'</span> =&gt; <span class="string">'invalid_credentials'</span>], <span class="number">401</span>);</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (JWTException $e) &#123;</div><div class="line">            <span class="comment">// something went wrong whilst attempting to encode the token</span></div><div class="line">            <span class="keyword">return</span> response()-&gt;json([<span class="string">'error'</span> =&gt; <span class="string">'could_not_create_token'</span>], <span class="number">500</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// all good so return the token</span></div><div class="line">        <span class="keyword">return</span> response()-&gt;json(compact(<span class="string">'token'</span>));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="（首选）方法2：通过用户对象实例创建token"><a href="#（首选）方法2：通过用户对象实例创建token" class="headerlink" title="（首选）方法2：通过用户对象实例创建token"></a><strong>（首选）方法2：通过用户对象实例创建token</strong></h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$user = User::first();  <span class="comment">//先获取用户</span></div><div class="line">$token = JWTAuth::fromUser($user);</div></pre></td></tr></table></figure>
 
