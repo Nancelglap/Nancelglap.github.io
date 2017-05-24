@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/06/创建token/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="用户登录的时候服务器返回相应用户的token给客户端，接下来用户的每次请求都会发送token给服务器端验证身份">
-<meta property="og:updated_time" content="2017-05-24T09:18:28.000Z">
+<meta property="og:updated_time" content="2017-05-24T09:21:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JWT的使用（中间件的坑）">
 <meta name="twitter:description" content="用户登录的时候服务器返回相应用户的token给客户端，接下来用户的每次请求都会发送token给服务器端验证身份">
@@ -98,14 +98,14 @@
 <blockquote>
 <p>原理</p>
 </blockquote>
-<p><strong>验证机制</strong><br>（需用到<code>GetUserFromToken</code>中间件）<br>1、根据用户信息，还有后面加入的信息创建token，并将token保存在后台的缓存，可加入<code>$user[&#39;now&#39;]=time()</code>等信息<br>2、将token发给客户端，存在客户端的缓存中<br>3、需要验证的操作或者请求使用jwt中间件验证（将存在客户端缓存中的token取出并放在<code>header</code>中发回给后台）<br>4、请求通过jwt中间件将<code>header</code>中的<code>token</code>值与后台缓存的token对比，确认一致后继续进行下一步操作</p>
+<p><strong>验证机制</strong><br>（需用到 <strong><code>GetUserFromToken</code></strong> 中间件）<br>1、根据用户信息，还有后面加入的信息创建token，并将token保存在后台的缓存，可加入 <strong><code>$user[&#39;now&#39;]=time()</code></strong> 等信息<br>2、将token发给客户端，存在客户端的缓存中<br>3、需要验证的操作或者请求使用jwt中间件验证（将存在客户端缓存中的token取出并放在 <strong><code>header</code></strong> 中发回给后台）<br>4、请求通过jwt中间件将 <strong><code>header</code></strong> 中的 <strong><code>token</code></strong> 值与后台缓存的token对比，确认一致后继续进行下一步操作</p>
 <blockquote>
 <p>使用注意事项</p>
 </blockquote>
 <h3 id="一、使用中间件jwt-api-auth"><a href="#一、使用中间件jwt-api-auth" class="headerlink" title="一、使用中间件jwt.api.auth"></a><strong>一、使用中间件jwt.api.auth</strong></h3><p><strong>参考资料：<code>http://blog.csdn.net/qq_28666081/article/details/52188549</code></strong></p>
 <p><strong>1、增加一个中间件指定特定的model，创建后增加以下代码</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">config([<span class="string">'jwt.user'</span> =&gt; <span class="string">'\App\Client'</span>]);     <span class="comment">//Client为自己的model</span></div><div class="line">config([<span class="string">'auth.providers.users.model'</span> =&gt; \App\Client::class]);   <span class="comment">//Client为自己的model</span></div></pre></td></tr></table></figure></p>
-<p>2、修改<code>config/auth.php</code>中的<code>&#39;providers&#39;</code>数组中的<code>model</code>为相应要验证的model名<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="string">'providers'</span> =&gt; [</div><div class="line">    <span class="string">'users'</span> =&gt; [</div><div class="line">        <span class="string">'driver'</span> =&gt; <span class="string">'eloquent'</span>,</div><div class="line">        <span class="string">'model'</span> =&gt; App\Client::class,       <span class="comment">//Client为自己需要的model名</span></div><div class="line">    ],</div></pre></td></tr></table></figure></p>
-<h3 id="二、其他"><a href="#二、其他" class="headerlink" title="二、其他"></a>二、其他</h3><p>2、修改<code>config/jwt.php</code>文件的<code>&#39;user&#39;</code>项，改为要验证的model<br>3、<code>config/jwt.php</code>中的<code>&#39;ttl&#39;</code>属性为token的有效时间，根据需要设置</p>
+<p>2、修改 <strong><code>config/auth.php</code></strong> 中的 <strong><code>&#39;providers&#39;</code></strong> 数组中的 <strong><code>model</code></strong> 为相应要验证的model名<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="string">'providers'</span> =&gt; [</div><div class="line">    <span class="string">'users'</span> =&gt; [</div><div class="line">        <span class="string">'driver'</span> =&gt; <span class="string">'eloquent'</span>,</div><div class="line">        <span class="string">'model'</span> =&gt; App\Client::class,       <span class="comment">//Client为自己需要的model名</span></div><div class="line">    ],</div></pre></td></tr></table></figure></p>
+<h3 id="二、其他"><a href="#二、其他" class="headerlink" title="二、其他"></a>二、其他</h3><p>2、修改 <strong><code>config/jwt.php</code></strong> 文件的 <strong><code>&#39;user&#39;</code></strong> 项，改为要验证的model<br>3、<strong><code>config/jwt.php</code></strong> 中的 <strong><code>&#39;ttl&#39;</code></strong> 属性为token的有效时间，根据需要设置</p>
 <blockquote>
 <p>创建Token</p>
 </blockquote>
