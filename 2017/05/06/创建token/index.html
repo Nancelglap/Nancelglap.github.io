@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/06/创建token/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="用户登录的时候服务器返回相应用户的token给客户端，接下来用户的每次请求都会发送token给服务器端验证身份">
-<meta property="og:updated_time" content="2017-05-24T09:28:18.000Z">
+<meta property="og:updated_time" content="2017-05-24T09:29:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JWT的使用（中间件的坑）">
 <meta name="twitter:description" content="用户登录的时候服务器返回相应用户的token给客户端，接下来用户的每次请求都会发送token给服务器端验证身份">
@@ -98,7 +98,11 @@
 <blockquote>
 <p>原理</p>
 </blockquote>
-<h2 id="验证机制（需用到-GetUserFromToken-中间件）"><a href="#验证机制（需用到-GetUserFromToken-中间件）" class="headerlink" title="验证机制（需用到 GetUserFromToken 中间件）"></a><strong>验证机制（需用到 <em><code>GetUserFromToken</code></em> 中间件）</strong></h2><h3 id="1、根据用户信息，还有后面加入的信息创建token，并将token保存在后台的缓存，可加入-user-39-now-39-time-等信息"><a href="#1、根据用户信息，还有后面加入的信息创建token，并将token保存在后台的缓存，可加入-user-39-now-39-time-等信息" class="headerlink" title="1、根据用户信息，还有后面加入的信息创建token，并将token保存在后台的缓存，可加入 $user[&#39;now&#39;]=time() 等信息"></a>1、根据用户信息，还有后面加入的信息创建token，并将token保存在后台的缓存，可加入 <em><code>$user[&#39;now&#39;]=time()</code></em> 等信息</h3><h3 id="2、将token发给客户端，存在客户端的缓存中"><a href="#2、将token发给客户端，存在客户端的缓存中" class="headerlink" title="2、将token发给客户端，存在客户端的缓存中"></a>2、将token发给客户端，存在客户端的缓存中</h3><h3 id="3、需要验证的操作或者请求使用jwt中间件验证（将存在客户端缓存中的token取出并放在-header-中发回给后台）"><a href="#3、需要验证的操作或者请求使用jwt中间件验证（将存在客户端缓存中的token取出并放在-header-中发回给后台）" class="headerlink" title="3、需要验证的操作或者请求使用jwt中间件验证（将存在客户端缓存中的token取出并放在 header 中发回给后台）"></a>3、需要验证的操作或者请求使用jwt中间件验证（将存在客户端缓存中的token取出并放在 <em><code>header</code></em> 中发回给后台）</h3><h3 id="4、请求通过jwt中间件将-header-中的-token-值与后台缓存的token对比，确认一致后继续进行下一步操作"><a href="#4、请求通过jwt中间件将-header-中的-token-值与后台缓存的token对比，确认一致后继续进行下一步操作" class="headerlink" title="4、请求通过jwt中间件将 header 中的 token 值与后台缓存的token对比，确认一致后继续进行下一步操作"></a>4、请求通过jwt中间件将 <em><code>header</code></em> 中的 <em><code>token</code></em> 值与后台缓存的token对比，确认一致后继续进行下一步操作</h3><blockquote>
+<h2 id="验证机制（需用到-GetUserFromToken-中间件）"><a href="#验证机制（需用到-GetUserFromToken-中间件）" class="headerlink" title="验证机制（需用到 GetUserFromToken 中间件）"></a><strong>验证机制（需用到 <em><code>GetUserFromToken</code></em> 中间件）</strong></h2><p>1、根据用户信息，还有后面加入的信息创建token，并将token保存在后台的缓存，可加入 <em><code>$user[&#39;now&#39;]=time()</code></em> 等信息</p>
+<p>2、将token发给客户端，存在客户端的缓存中</p>
+<p>3、需要验证的操作或者请求使用jwt中间件验证（将存在客户端缓存中的token取出并放在 <em><code>header</code></em> 中发回给后台）</p>
+<p>4、请求通过jwt中间件将 <em><code>header</code></em> 中的 <em><code>token</code></em> 值与后台缓存的token对比，确认一致后继续进行下一步操作</p>
+<blockquote>
 <p>使用注意事项</p>
 </blockquote>
 <h3 id="一、使用中间件jwt-api-auth"><a href="#一、使用中间件jwt-api-auth" class="headerlink" title="一、使用中间件jwt.api.auth"></a><strong>一、使用中间件jwt.api.auth</strong></h3><p><strong>参考资料：<code>http://blog.csdn.net/qq_28666081/article/details/52188549</code></strong></p>
