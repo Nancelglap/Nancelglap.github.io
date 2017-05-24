@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/06/创建token/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="用户登录的时候服务器返回相应用户的token给客户端，接下来用户的每次请求都会发送token给服务器端验证身份">
-<meta property="og:updated_time" content="2017-05-24T09:25:46.000Z">
+<meta property="og:updated_time" content="2017-05-24T09:26:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JWT的使用（中间件的坑）">
 <meta name="twitter:description" content="用户登录的时候服务器返回相应用户的token给客户端，接下来用户的每次请求都会发送token给服务器端验证身份">
@@ -98,7 +98,7 @@
 <blockquote>
 <p>原理</p>
 </blockquote>
-<p><strong>验证机制（需用到 <em><code>GetUserFromToken</code></em> 中间件）</strong><br>1、根据用户信息，还有后面加入的信息创建token，并将token保存在后台的缓存，可加入 <em><code>$user[&#39;now&#39;]=time()</code></em> 等信息</p>
+<h2 id="验证机制（需用到-GetUserFromToken-中间件）"><a href="#验证机制（需用到-GetUserFromToken-中间件）" class="headerlink" title="验证机制（需用到 GetUserFromToken 中间件）"></a><strong>验证机制（需用到 <em><code>GetUserFromToken</code></em> 中间件）</strong></h2><p>1、根据用户信息，还有后面加入的信息创建token，并将token保存在后台的缓存，可加入 <em><code>$user[&#39;now&#39;]=time()</code></em> 等信息</p>
 <p>2、将token发给客户端，存在客户端的缓存中</p>
 <p>3、需要验证的操作或者请求使用jwt中间件验证（将存在客户端缓存中的token取出并放在 <em><code>header</code></em> 中发回给后台）</p>
 <p>4、请求通过jwt中间件将 <em><code>header</code></em> 中的 <em><code>token</code></em> 值与后台缓存的token对比，确认一致后继续进行下一步操作</p>
