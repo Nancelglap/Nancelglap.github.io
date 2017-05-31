@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/12/安装LEMP环境/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="在mac/linux上安装LEMP环境">
-<meta property="og:updated_time" content="2017-05-29T14:23:36.000Z">
+<meta property="og:updated_time" content="2017-05-31T11:35:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安装LEMP环境">
 <meta name="twitter:description" content="在mac/linux上安装LEMP环境">
@@ -59,7 +59,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -101,7 +101,7 @@
 <h2 id="3、安装语言包"><a href="#3、安装语言包" class="headerlink" title="3、安装语言包"></a><strong>3、安装语言包</strong></h2><p>避免系统语言引起的冲突问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install -y language-pack-en-base</div></pre></td></tr></table></figure></p>
 <h2 id="4、设置语言"><a href="#4、设置语言" class="headerlink" title="4、设置语言"></a><strong>4、设置语言</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">locale-gen en_US.UTF-8</div></pre></td></tr></table></figure>
 <h2 id="5、安装常用工具"><a href="#5、安装常用工具" class="headerlink" title="5、安装常用工具"></a><strong>5、安装常用工具</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install -y vim htop git    //htop查看机器cup等用了多，git用于部署项目</div></pre></td></tr></table></figure>
-<h2 id="6、安装php7（通过添加ppa方式安装）"><a href="#6、安装php7（通过添加ppa方式安装）" class="headerlink" title="6、安装php7（通过添加ppa方式安装）"></a><strong>6、安装php7（通过添加ppa方式安装）</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install -y software-properties-common</div><div class="line">sudo LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php</div><div class="line">sudo apt-get update</div><div class="line">apt-cache php7.1    //查找php7.1包</div><div class="line"></div><div class="line">sudo apt-get install -y php7.1</div><div class="line">php -v      //查看版本</div><div class="line">sudo apt-get install -y php7.1-mysql</div><div class="line">sudo apt-get install -y php7.1-fpm</div><div class="line">sudo apt-get install -y php7.1-curl php7.1-xml php7.1-mcrypt php7.1-json php7.1-gd php7.1-mbstring</div></pre></td></tr></table></figure>
+<h2 id="6、安装php7（通过添加ppa方式安装）"><a href="#6、安装php7（通过添加ppa方式安装）" class="headerlink" title="6、安装php7（通过添加ppa方式安装）"></a><strong>6、安装php7（通过添加ppa方式安装）</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install -y software-properties-common</div><div class="line">sudo LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php</div><div class="line">sudo apt-get update</div><div class="line">apt-cache search php7.1    //查找php7.1包</div><div class="line"></div><div class="line">sudo apt-get install -y php7.1</div><div class="line">php -v      //查看版本</div><div class="line">sudo apt-get install -y php7.1-mysql</div><div class="line">sudo apt-get install -y php7.1-fpm</div><div class="line">sudo apt-get install -y php7.1-curl php7.1-xml php7.1-mcrypt php7.1-json php7.1-gd php7.1-mbstring</div></pre></td></tr></table></figure>
 <h2 id="7、安装mysql"><a href="#7、安装mysql" class="headerlink" title="7、安装mysql"></a><strong>7、安装mysql</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install mysql-server-5.6</div></pre></td></tr></table></figure>
 <h2 id="8、安装nginx"><a href="#8、安装nginx" class="headerlink" title="8、安装nginx"></a><strong>8、安装nginx</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install nginx</div></pre></td></tr></table></figure>
 <h2 id="9、阿里云服务器用ip地址访问"><a href="#9、阿里云服务器用ip地址访问" class="headerlink" title="9、阿里云服务器用ip地址访问"></a><strong>9、阿里云服务器用ip地址访问</strong></h2><p><code>http://blog.csdn.net/qq_27211105/article/details/55668997</code><br><strong>增加安全组配置规则</strong><br>1、网卡类型：<em>公网</em><br>2、规则方向：<em>入方向</em><br>3、授权策略：<em>允许</em><br>4、协议类型：<em>TCP</em><br>5、端口范围：<em>80/80</em><br>6、授权类型：<em>地址段访问</em><br>7、授权对象：<em>0.0.0.0/0</em><br>8、优先级：<em>1</em></p>
@@ -109,7 +109,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/12/安装LEMP环境/" data-id="cj3bpytrh0019uj8i9fdlzr28" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/12/安装LEMP环境/" data-id="cj3cx0u57000soe8i54qeaocp" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -121,7 +121,7 @@
 <nav id="article-nav">
   
     <a href="/2017/05/12/在购买的VPS上配置环境运行Laravel/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Nieuwer</strong>
       <div class="article-nav-title">
         
           在购买的VPS上配置环境运行Laravel
@@ -131,7 +131,7 @@
   
   
     <a href="/2017/05/13/VPS上配置和域名解析/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ouder</strong>
       <div class="article-nav-title">VPS上配置和域名解析</div>
     </a>
   
@@ -146,7 +146,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Categorieën</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note-of-Linux-shell-脚本攻略/">note of "Linux shell 脚本攻略"</a></li></ul>
     </div>
@@ -156,7 +156,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Labels</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Controller/">Controller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Domain/">Domain</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eloquent/">Eloquent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JWTAuth/">JWTAuth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mini-Programes/">Mini Programes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOP/">OOP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PhpStorm/">PhpStorm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Route/">Route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terminal/">Terminal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPS/">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wechat/">Wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/api/">api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auth/">auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blade/">blade</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dingo/">dingo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">ide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/loading/">loading</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/middleware/">middleware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server/">server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ustopmoving/">ustopmoving</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/你站住/">你站住</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
     </div>
@@ -175,7 +175,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
     </div>
@@ -185,7 +185,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
         
