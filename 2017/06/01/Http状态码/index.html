@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/01/Http状态码/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="Http常用状态码">
-<meta property="og:updated_time" content="2017-06-01T03:19:22.000Z">
+<meta property="og:updated_time" content="2017-06-01T03:43:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Http状态码">
 <meta name="twitter:description" content="Http常用状态码">
@@ -57,9 +57,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -98,24 +98,56 @@
 <blockquote>
 <p>2**：成功处理请求的状态代码 </p>
 </blockquote>
-<p><em><code>200</code></em>   （成功）        服务器已成功处理了请求。 通常，这表示服务器提供了请求的网页。<br><em><code>201</code></em>   （已创建）      请求成功并且服务器创建了新的资源。<br><em><code>202</code></em>   （已接受）      服务器已接受请求，但尚未处理。<br><em><code>203</code></em>   （非授权信息）   服务器已成功处理了请求，但返回的信息可能来自另一来源。<br><em><code>204</code></em>   （无内容）      服务器成功处理了请求，但没有返回任何内容。<br><em><code>206</code></em>   （部分内容）    服务器成功处理了部分 GET 请求。</p>
+<p><em><code>200</code></em>   （成功）        服务器已成功处理了请求。 通常，这表示服务器提供了请求的网页。 </p>
+<p><em><code>201</code></em>   （已创建）      请求成功并且服务器创建了新的资源。 </p>
+<p><em><code>202</code></em>   （已接受）      服务器已接受请求，但尚未处理。 </p>
+<p><em><code>203</code></em>   （非授权信息）   服务器已成功处理了请求，但返回的信息可能来自另一来源。 </p>
+<p><em><code>204</code></em>   （无内容）      服务器成功处理了请求，但没有返回任何内容。 </p>
+<p><em><code>206</code></em>   （部分内容）    服务器成功处理了部分 GET 请求。</p>
 <blockquote>
 <p>3**：要完成请求，需要进一步操作</p>
 </blockquote>
-<p><em><code>300</code></em>   （多种选择）      针对请求，服务器可执行多种操作。 服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。<br><em><code>301</code></em>   （永久移动）      请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。<br><em><code>303</code></em>   （查看其他位置）      请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。<br><em><code>304</code></em>   （未修改）      自从上次请求后，请求的网页未修改过。 服务器返回此响应时，不会返回网页内容。<br><em><code>305</code></em>   （使用代理）      请求者只能使用代理访问请求的网页。 如果服务器返回此响应，还表示请求者应使用代理。<br><em><code>302</code></em>   （临时移动）      服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。<br><em><code>307</code></em>   （临时重定向）      服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p>
+<p><em><code>300</code></em>   （多种选择）      针对请求，服务器可执行多种操作。 服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。 </p>
+<p><em><code>301</code></em>   （永久移动）      请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</p>
+<p><em><code>303</code></em>   （查看其他位置）      请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。</p>
+<p><em><code>304</code></em>   （未修改）      自从上次请求后，请求的网页未修改过。 服务器返回此响应时，不会返回网页内容。 </p>
+<p><em><code>305</code></em>   （使用代理）      请求者只能使用代理访问请求的网页。 如果服务器返回此响应，还表示请求者应使用代理。 </p>
+<p><em><code>302</code></em>   （临时移动）      服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p>
+<p><em><code>307</code></em>   （临时重定向）      服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p>
 <blockquote>
 <p>4**：请求错误</p>
 </blockquote>
-<p><em><code>400</code></em>   （错误请求）      服务器不理解请求的语法。<br><em><code>401</code></em>   （未授权）      请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。<br><em><code>403</code></em>   （禁止）      服务器拒绝请求。<br><em><code>404</code></em>   （未找到）      服务器找不到请求的网页。<br><em><code>405</code></em>   （方法禁用）      禁用请求中指定的方法。<br><em><code>406</code></em>   （不接受）      无法使用请求的内容特性响应请求的网页。<br><em><code>407</code></em>   （需要代理授权）      此状态代码与 401（未授权）类似，但指定请求者应当授权使用代理。<br><em><code>408</code></em>   （请求超时）      服务器等候请求时发生超时。<br><em><code>409</code></em>   （冲突）      服务器在完成请求时发生冲突。 服务器必须在响应中包含有关冲突的信息。<br><em><code>410</code></em>   （已删除）      如果请求的资源已永久删除，服务器就会返回此响应。<br><em><code>411</code></em>   （需要有效长度）      服务器不接受不含有效内容长度标头字段的请求。<br><em><code>412</code></em>   （未满足前提条件）      服务器未满足请求者在请求中设置的其中一个前提条件。<br><em><code>413</code></em>   （请求实体过大）      服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。<br><em><code>414</code></em>   （请求的 URI 过长）      请求的 URI（通常为网址）过长，服务器无法处理。<br><em><code>415</code></em>   （不支持的媒体类型）      请求的格式不受请求页面的支持。<br><em><code>416</code></em>   （请求范围不符合要求）      如果页面无法提供请求的范围，则服务器会返回此状态代码。<br><em><code>417</code></em>   （未满足期望值）      服务器未满足”期望”请求标头字段的要求。</p>
+<p><em><code>400</code></em>   （错误请求）      服务器不理解请求的语法。 </p>
+<p><em><code>401</code></em>   （未授权）      请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。 </p>
+<p><em><code>403</code></em>   （禁止）      服务器拒绝请求。</p>
+<p><em><code>404</code></em>   （未找到）      服务器找不到请求的网页。</p>
+<p><em><code>405</code></em>   （方法禁用）      禁用请求中指定的方法。 </p>
+<p><em><code>406</code></em>   （不接受）      无法使用请求的内容特性响应请求的网页。 </p>
+<p><em><code>407</code></em>   （需要代理授权）      此状态代码与 401（未授权）类似，但指定请求者应当授权使用代理。</p>
+<p><em><code>408</code></em>   （请求超时）      服务器等候请求时发生超时。 </p>
+<p><em><code>409</code></em>   （冲突）      服务器在完成请求时发生冲突。 服务器必须在响应中包含有关冲突的信息。 </p>
+<p><em><code>410</code></em>   （已删除）      如果请求的资源已永久删除，服务器就会返回此响应。</p>
+<p><em><code>411</code></em>   （需要有效长度）      服务器不接受不含有效内容长度标头字段的请求。 </p>
+<p><em><code>412</code></em>   （未满足前提条件）      服务器未满足请求者在请求中设置的其中一个前提条件。 </p>
+<p><em><code>413</code></em>   （请求实体过大）      服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。 </p>
+<p><em><code>414</code></em>   （请求的 URI 过长）      请求的 URI（通常为网址）过长，服务器无法处理。 </p>
+<p><em><code>415</code></em>   （不支持的媒体类型）      请求的格式不受请求页面的支持。 </p>
+<p><em><code>416</code></em>   （请求范围不符合要求）      如果页面无法提供请求的范围，则服务器会返回此状态代码。 </p>
+<p><em><code>417</code></em>   （未满足期望值）      服务器未满足”期望”请求标头字段的要求。</p>
 <blockquote>
 <p>5**：服务器错误</p>
 </blockquote>
-<p><em><code>500</code></em>   （服务器内部错误）  服务器遇到错误，无法完成请求。<br><em><code>501</code></em>   （尚未实施） 服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码。<br><em><code>502</code></em>   （错误网关） 服务器作为网关或代理，从上游服务器收到无效响应。<br><em><code>503</code></em>   （服务不可用） 服务器目前无法使用（由于超载或停机维护）。 通常，这只是暂时状态。<br><em><code>504</code></em>   （网关超时）  服务器作为网关或代理，但是没有及时从上游服务器收到请求。<br><em><code>505</code></em>   （HTTP 版本不受支持） 服务器不支持请求中所用的 HTTP 协议版本。</p>
+<p><em><code>500</code></em>   （服务器内部错误）  服务器遇到错误，无法完成请求。 </p>
+<p><em><code>501</code></em>   （尚未实施） 服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码。 </p>
+<p><em><code>502</code></em>   （错误网关） 服务器作为网关或代理，从上游服务器收到无效响应。 </p>
+<p><em><code>503</code></em>   （服务不可用） 服务器目前无法使用（由于超载或停机维护）。 通常，这只是暂时状态。 </p>
+<p><em><code>504</code></em>   （网关超时）  服务器作为网关或代理，但是没有及时从上游服务器收到请求。 </p>
+<p><em><code>505</code></em>   （HTTP 版本不受支持） 服务器不支持请求中所用的 HTTP 协议版本。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/01/Http状态码/" data-id="cj3duqxiw00007x8izzd6ufzn" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/06/01/Http状态码/" data-id="cj3dvlhsx0004c68ikzadbk9n" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Http/">Http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/project/">project</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/status-code/">status code</a></li></ul>
@@ -127,7 +159,7 @@
 <nav id="article-nav">
   
     <a href="/2017/05/30/PhpStorm/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Récent</strong>
+      <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
           PhpStorm
@@ -147,7 +179,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Catégories</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note-of-Linux-shell-脚本攻略/">note of "Linux shell 脚本攻略"</a></li></ul>
     </div>
@@ -157,7 +189,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Controller/">Controller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Domain/">Domain</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eloquent/">Eloquent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Http/">Http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JWTAuth/">JWTAuth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mini-Programes/">Mini Programes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOP/">OOP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PhpStorm/">PhpStorm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Route/">Route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terminal/">Terminal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPS/">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wechat/">Wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/api/">api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auth/">auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blade/">blade</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dingo/">dingo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">ide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/loading/">loading</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/middleware/">middleware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/project/">project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server/">server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/status-code/">status code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ustopmoving/">ustopmoving</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/你站住/">你站住</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
     </div>
@@ -167,7 +199,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/Controller/" style="font-size: 10px;">Controller</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/Eloquent/" style="font-size: 10px;">Eloquent</a> <a href="/tags/Http/" style="font-size: 10px;">Http</a> <a href="/tags/JWTAuth/" style="font-size: 13.33px;">JWTAuth</a> <a href="/tags/Mini-Programes/" style="font-size: 10px;">Mini Programes</a> <a href="/tags/OOP/" style="font-size: 10px;">OOP</a> <a href="/tags/PhpStorm/" style="font-size: 10px;">PhpStorm</a> <a href="/tags/Route/" style="font-size: 10px;">Route</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/Wechat/" style="font-size: 10px;">Wechat</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/auth/" style="font-size: 10px;">auth</a> <a href="/tags/blade/" style="font-size: 13.33px;">blade</a> <a href="/tags/dingo/" style="font-size: 13.33px;">dingo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/ide/" style="font-size: 10px;">ide</a> <a href="/tags/laravel/" style="font-size: 20px;">laravel</a> <a href="/tags/loading/" style="font-size: 10px;">loading</a> <a href="/tags/middleware/" style="font-size: 10px;">middleware</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/php/" style="font-size: 13.33px;">php</a> <a href="/tags/project/" style="font-size: 10px;">project</a> <a href="/tags/server/" style="font-size: 16.67px;">server</a> <a href="/tags/status-code/" style="font-size: 10px;">status code</a> <a href="/tags/ustopmoving/" style="font-size: 10px;">ustopmoving</a> <a href="/tags/你站住/" style="font-size: 10px;">你站住</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
     </div>
@@ -186,7 +218,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -223,7 +255,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Nancelglap<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
