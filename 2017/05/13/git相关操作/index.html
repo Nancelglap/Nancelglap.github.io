@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/13/git相关操作/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="与git相关的内容">
-<meta property="og:updated_time" content="2017-05-31T02:53:01.000Z">
+<meta property="og:updated_time" content="2017-06-01T09:12:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git相关">
 <meta name="twitter:description" content="与git相关的内容">
@@ -102,9 +102,32 @@
 <p>1、如果只在当前项目增加配置<br>    （1）切换到当前项目<br>    （2）<code>git config 配置名 &quot;值&quot;</code><br>1、<em><code>--global</code></em> 将配置放到home目录下<em>（<code>~/.gitconfig</code>）</em><br>2、<em><code>--system</code></em> 将配置放到<em><code>/etc/.gitconfig</code></em>中<br>3、<em><code>--local</code></em> 将配置放到每一个项目中<br>4、常用配置有<em><code>user.name</code></em>、<em><code>user.eamil</code></em>，<em><code>color.ui</code></em>，<em><code>core.editor</code></em></p>
 <p>二、查看配置项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config 配置名</div></pre></td></tr></table></figure></p>
 <blockquote>
-<p>查看修改状态</p>
+<p>Git基本工作流程</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git status</div></pre></td></tr></table></figure>
+<p>1、查看修改状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git status</div></pre></td></tr></table></figure></p>
+<p>2、初始化当前目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure></p>
+<p>3、如果有文件修改，先加入 <em><code>staged area</code></em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add 文件名 / git add .</div></pre></td></tr></table></figure></p>
+<p>4、更新提交到 <em><code>staged area</code></em> 的内容（只修改没执行<code>git add</code>的不会更新）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m &quot;更新描述&quot;</div></pre></td></tr></table></figure></p>
+<p>5、查看 <em><code>commit</code></em> 的内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git log     //按q退出</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>.gitignore</p>
+</blockquote>
+<p>将上传的文件内容加入此文件中，更新会忽略此文件<br>1、用PhpStorm编辑的，加入<em><code>.idea</code></em><br>2、用Mac系统的，加油<em><code>.DS_Store</code></em></p>
+<blockquote>
+<p>Git分支</p>
+</blockquote>
+<p><strong>想修改之前的bug，但是又不想将还没写完的新内容提交上去等</strong></p>
+<p>1、查看分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch</div></pre></td></tr></table></figure></p>
+<p>2、回到某个文件提交之前的内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -- app/Http/routes.php</div></pre></td></tr></table></figure></p>
+<p>3、创建分支、切换到分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git branch BranchName</div><div class="line">git checkout BranchName</div><div class="line"></div><div class="line">git checkout -b BranchName  //创建分支并切换到该分支</div></pre></td></tr></table></figure></p>
+<p>4、合并分支（在<em><code>matser</code></em>下操作）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git merge BranchName</div></pre></td></tr></table></figure></p>
+<p>5、删除分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -d BranchName</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Git分支merge冲突的修改</p>
+</blockquote>
+<p><strong>当<em><code>master</code></em>和分支中同个文件修改存在冲突，则需要处理</strong></p>
+<h2 id="必须是两个分支的文件都已经git-add和git-commit-m-quot-content-quot-操作"><a href="#必须是两个分支的文件都已经git-add和git-commit-m-quot-content-quot-操作" class="headerlink" title="必须是两个分支的文件都已经git add和git commit -m&quot;content&quot;操作"></a>必须是两个分支的文件都已经<em><code>git add</code></em>和<em><code>git commit -m&quot;content&quot;</code></em>操作</h2><p>1、切换到<em><code>master</code></em>，执行 <em><code>git merge BranchName</code></em>，会报有冲突</p>
+<p>2、进入冲突文件，删掉不要的冲突内容，然后执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git add fileName</div><div class="line">git commit</div><div class="line"></div><div class="line">//进入到vim后保存退出</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>本地更新代码后更新到github上</p>
 </blockquote>
