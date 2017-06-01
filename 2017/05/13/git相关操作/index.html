@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/13/git相关操作/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="与git相关的内容">
-<meta property="og:updated_time" content="2017-06-01T09:12:18.000Z">
+<meta property="og:updated_time" content="2017-06-01T14:20:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git相关">
 <meta name="twitter:description" content="与git相关的内容">
@@ -128,6 +128,25 @@
 <p><strong>当<em><code>master</code></em>和分支中同个文件修改存在冲突，则需要处理</strong></p>
 <h2 id="必须是两个分支的文件都已经git-add和git-commit-m-quot-content-quot-操作"><a href="#必须是两个分支的文件都已经git-add和git-commit-m-quot-content-quot-操作" class="headerlink" title="必须是两个分支的文件都已经git add和git commit -m&quot;content&quot;操作"></a>必须是两个分支的文件都已经<em><code>git add</code></em>和<em><code>git commit -m&quot;content&quot;</code></em>操作</h2><p>1、切换到<em><code>master</code></em>，执行 <em><code>git merge BranchName</code></em>，会报有冲突</p>
 <p>2、进入冲突文件，删掉不要的冲突内容，然后执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git add fileName</div><div class="line">git commit</div><div class="line"></div><div class="line">//进入到vim后保存退出</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Git设置快捷键</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --global alias.s status  //设置后用 git s 替代 git status</div></pre></td></tr></table></figure>
+<p><strong>全局设置快捷键</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">vim ~/.zshrc</div><div class="line"></div><div class="line">//加入以下内容</div><div class="line">alias gs=&quot;git status&quot;   //设置后用 gs 替代 git status</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Git stash</p>
+</blockquote>
+<p><strong>运用场景：如果在一个分支上开发一个模块同时，又要回到master中改bug，执行<em><code>git stash</code></em>可以将分支上的修改先放到一边，回到<em><code>master</code></em>中更新内容</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git stash list      //查看之前拿开的内容</div><div class="line">git stash apply stash@&#123;num&#125;     //恢复相应num的内容</div><div class="line">git stash pop       //回复内容并删除，省略掉drop步骤</div><div class="line">git stash drop      //删掉list中拿开的内容</div><div class="line">`</div></pre></td></tr></table></figure>
+<h3 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h3><p>1、将在 <em><code>master</code></em> 中修改好的合并到<strong>未完成</strong>的分支上<br>2、<em><code>master</code></em> 未融合<strong>未完成</strong>的分支的内容</p>
+<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><p><strong>一、修改 <em><code>master</code></em> 上的内容，合并到分支上，但分支内容不合并到 <em><code>master</code></em> 上</strong><br>1、修改分支的内容</p>
+<p>2、在分支执行 <em><code>git stash</code></em></p>
+<p>3、在 <em><code>master</code></em> 分支中更改内容，改完之后<em><code>gaa</code></em>、<em><code>gc</code> “content”</em></p>
+<p>4、回到 <em><code>master</code></em> 分支，执行<em><code>git merge BranchName</code></em> 合并</p>
+<p><strong>二、继续完成分支上的内容，完成后合并到 <em><code>master</code></em></strong><br>1、<em><code>git checkout BranchName</code></em>切换到分支</p>
+<p>2、<em><code>git stash apply</code></em> 或 <em><code>git stash pop</code></em> 拿回原来拿开的问题</p>
+<p>3、继续写分支内容，写完然后 <em><code>gaa</code></em>、<em><code>gc</code> “content”</em></p>
+<p>4、回到 <em><code>master</code></em> 分支，执行<em><code>git merge BranchName</code></em> 合并</p>
 <blockquote>
 <p>本地更新代码后更新到github上</p>
 </blockquote>
