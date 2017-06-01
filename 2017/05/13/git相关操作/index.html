@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/13/git相关操作/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="与git相关的内容">
-<meta property="og:updated_time" content="2017-06-01T14:21:36.000Z">
+<meta property="og:updated_time" content="2017-06-01T14:22:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git相关">
 <meta name="twitter:description" content="与git相关的内容">
@@ -139,11 +139,13 @@
 <p><strong>运用场景：如果在一个分支上开发一个模块同时，又要回到master中改bug，执行<em><code>git stash</code></em>可以将分支上的修改先放到一边，回到<em><code>master</code></em>中更新内容</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git stash list      //查看之前拿开的内容</div><div class="line">git stash apply stash@&#123;num&#125;     //恢复相应num的内容</div><div class="line">git stash pop       //回复内容并删除，省略掉drop步骤</div><div class="line">git stash drop      //删掉list中拿开的内容</div><div class="line">`</div></pre></td></tr></table></figure>
 <h3 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h3><p>1、将在 <em><code>master</code></em> 中修改好的合并到<strong>未完成</strong>的分支上<br>2、<em><code>master</code></em> 未融合<strong>未完成</strong>的分支的内容</p>
-<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><p><strong>一、修改 <em><code>master</code></em> 上的内容，合并到分支上，但分支内容不合并到 <em><code>master</code></em> 上</strong><br>1、修改分支的内容</p>
+<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><p><strong>一、修改 <em><code>master</code></em> 上的内容，合并到分支上，但分支内容不合并到 <em><code>master</code></em> 上</strong></p>
+<p>1、修改分支的内容</p>
 <p>2、在分支执行 <em><code>git stash</code></em></p>
 <p>3、在 <em><code>master</code></em> 分支中更改内容，改完之后<em><code>gaa</code></em>、<em><code>gc</code> “content”</em></p>
 <p>4、回到 <em><code>master</code></em> 分支，执行<em><code>git merge BranchName</code></em> 合并</p>
-<p><strong>二、继续完成分支上的内容，完成后合并到 <em><code>master</code></em></strong><br>1、<em><code>git checkout BranchName</code></em>切换到分支</p>
+<p><strong>二、继续完成分支上的内容，完成后合并到 <em><code>master</code></em></strong></p>
+<p>1、<em><code>git checkout BranchName</code></em>切换到分支</p>
 <p>2、<em><code>git stash apply</code></em> 或 <em><code>git stash pop</code></em> 拿回原来拿开的问题</p>
 <p>3、继续写分支内容，写完然后 <em><code>gaa</code></em>、<em><code>gc</code> “content”</em></p>
 <p>4、回到 <em><code>master</code></em> 分支，执行<em><code>git merge BranchName</code></em> 合并</p>
