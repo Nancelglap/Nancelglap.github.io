@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Shell脚本相关 | Nancelglap</title>
+  <title>Laravel 向 Container 添加自定义类 | Nancelglap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文内容为bash操作相关">
-<meta name="keywords" content="Shell,Terminal">
+  <meta name="description" content="一、创建 ServiceProvider 1、通过 php artisan make:provider ProviderName 创建一个 provider 2、在 app 创建一个新的目录，目录创建新的类文件12345678910&amp;lt;?phpnamespace App\directoryNameclass className &amp;#123;    public function fname (">
+<meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Shell脚本相关">
-<meta property="og:url" content="http://yoursite.com/2017/05/10/Shell脚本相关/index.html">
+<meta property="og:title" content="Laravel 向 Container 添加自定义类">
+<meta property="og:url" content="http://yoursite.com/2017/06/03/Laravel-向-Container-添加自定义类/index.html">
 <meta property="og:site_name" content="Nancelglap">
-<meta property="og:description" content="本文内容为bash操作相关">
-<meta property="og:updated_time" content="2017-05-15T11:20:05.000Z">
+<meta property="og:description" content="一、创建 ServiceProvider 1、通过 php artisan make:provider ProviderName 创建一个 provider 2、在 app 创建一个新的目录，目录创建新的类文件12345678910&amp;lt;?phpnamespace App\directoryNameclass className &amp;#123;    public function fname (">
+<meta property="og:updated_time" content="2017-06-03T02:35:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Shell脚本相关">
-<meta name="twitter:description" content="本文内容为bash操作相关">
+<meta name="twitter:title" content="Laravel 向 Container 添加自定义类">
+<meta name="twitter:description" content="一、创建 ServiceProvider 1、通过 php artisan make:provider ProviderName 创建一个 provider 2、在 app 创建一个新的目录，目录创建新的类文件12345678910&amp;lt;?phpnamespace App\directoryNameclass className &amp;#123;    public function fname (">
   
     <link rel="alternate" href="/atom.xml" title="Nancelglap" type="application/atom+xml">
   
@@ -68,16 +68,12 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Shell脚本相关" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Laravel-向-Container-添加自定义类" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/10/Shell脚本相关/" class="article-date">
-  <time datetime="2017-05-10T08:39:54.000Z" itemprop="datePublished">2017-05-10</time>
+    <a href="/2017/06/03/Laravel-向-Container-添加自定义类/" class="article-date">
+  <time datetime="2017-06-03T02:10:52.000Z" itemprop="datePublished">2017-06-03</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/note-of-Linux-shell-脚本攻略/">note of "Linux shell 脚本攻略"</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
@@ -86,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Shell脚本相关
+      Laravel 向 Container 添加自定义类
     </h1>
   
 
@@ -94,46 +90,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文内容为bash操作相关<br><a id="more"></a></p>
-<blockquote>
-<p>参数</p>
-</blockquote>
-<p>1、echo <code>-e</code>：包含转义序列的字符串形式输出<br>2、echo <code>-n</code>：echo会将一个换行符追加到输出文本的尾部，可以使用<code>-n</code>忽略结尾换行符</p>
-<blockquote>
-<p>其他</p>
-</blockquote>
-<h2 id="1、要输出感叹号的时候不要放在双引号内，如果要的话要加“-”反斜杠"><a href="#1、要输出感叹号的时候不要放在双引号内，如果要的话要加“-”反斜杠" class="headerlink" title="1、要输出感叹号的时候不要放在双引号内，如果要的话要加“\”反斜杠"></a>1、要输出感叹号的时候不要放在双引号内，如果要的话要加<code>“\”</code>反斜杠</h2><h2 id="2、查看PATH变量"><a href="#2、查看PATH变量" class="headerlink" title="2、查看PATH变量"></a>2、查看<code>PATH</code>变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo $PATH</div></pre></td></tr></table></figure>
-<h2 id="3、添加环境变量"><a href="#3、添加环境变量" class="headerlink" title="3、添加环境变量"></a><strong>3、添加环境变量</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PATH=&quot;$PATH:/Users/...&quot;</div></pre></td></tr></table></figure>
-<h2 id="4、获取字符串长度"><a href="#4、获取字符串长度" class="headerlink" title="4、获取字符串长度"></a><strong>4、获取字符串长度</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">length=$&#123;#var&#125;</div></pre></td></tr></table></figure>
+        <p>一、创建 <em><code>ServiceProvider</code></em></p>
+<p>1、通过 <em><code>php artisan make:provider ProviderName</code></em> 创建一个 <em><code>provider</code></em></p>
+<p>2、在 <em><code>app</code></em> 创建一个新的目录，目录创建新的<strong>类文件</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"></div><div class="line">namespace App\directoryName</div><div class="line"></div><div class="line">class className &#123;</div><div class="line">    public function fname () </div><div class="line">    &#123;</div><div class="line">        ...;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>3、在新建的 <em><code>provider</code></em> 中的 <em><code>register</code></em> 函数绑定全局自己自定义的类<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span> <span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">$this</span>-&gt;app-&gt;bind(<span class="string">'name'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ClassName();</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>4、（放入IOC中，可以在任何地方使用 <em><code>app(&#39;name&#39;)</code></em>实现 <code>3</code> 中的类）在 <em><code>config\app.php</code></em> 的 <em><code>provider</code></em> 数组中增加新建的 <em><code>provider</code></em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&apos;providers&apos; =&gt; [</div><div class="line">    ...</div><div class="line">    App\Providers\NewServiceProvider::class;        //NewServiceProvider为新建的provider文件名</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>5、在 <em><code>laravel</code></em> 的 <strong>任何地方</strong>可以调用类已经类里面的方法（<em><code>app</code></em> 内的参数名必须是在新 <em><code>provider</code></em> 的 <em><code>register</code></em> 函数中绑定的通过 <em><code>app</code></em> 绑定的名字）<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//在web.php中调用</span></div><div class="line">Route::get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</div><div class="line">    $var = app(<span class="string">'name'</span>);     <span class="comment">//实例化了一个ClassName对象</span></div><div class="line">    $var-&gt;fname();</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/10/Shell脚本相关/" data-id="cj3go1p5b000njw8irsmfa6br" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/03/Laravel-向-Container-添加自定义类/" data-id="cj3go1p4o0005jw8ifxv0wv5q" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/">Shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Terminal/">Terminal</a></li></ul>
-
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2017/05/06/创建token/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/06/01/Http状态码/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          JWT的使用（中间件的坑）
+          Http状态码
         
       </div>
     </a>
   
-  
-    <a href="/2017/05/10/JWT-dingo/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">JWT + dingo</div>
-    </a>
   
 </nav>
 

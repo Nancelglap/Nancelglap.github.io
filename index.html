@@ -68,6 +68,48 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Laravel-向-Container-添加自定义类" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/03/Laravel-向-Container-添加自定义类/" class="article-date">
+  <time datetime="2017-06-03T02:10:52.000Z" itemprop="datePublished">2017-06-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/03/Laravel-向-Container-添加自定义类/">Laravel 向 Container 添加自定义类</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、创建 <em><code>ServiceProvider</code></em></p>
+<p>1、通过 <em><code>php artisan make:provider ProviderName</code></em> 创建一个 <em><code>provider</code></em></p>
+<p>2、在 <em><code>app</code></em> 创建一个新的目录，目录创建新的<strong>类文件</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"></div><div class="line">namespace App\directoryName</div><div class="line"></div><div class="line">class className &#123;</div><div class="line">    public function fname () </div><div class="line">    &#123;</div><div class="line">        ...;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>3、在新建的 <em><code>provider</code></em> 中的 <em><code>register</code></em> 函数绑定全局自己自定义的类<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span> <span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">$this</span>-&gt;app-&gt;bind(<span class="string">'name'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ClassName();</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>4、（放入IOC中，可以在任何地方使用 <em><code>app(&#39;name&#39;)</code></em>实现 <code>3</code> 中的类）在 <em><code>config\app.php</code></em> 的 <em><code>provider</code></em> 数组中增加新建的 <em><code>provider</code></em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&apos;providers&apos; =&gt; [</div><div class="line">    ...</div><div class="line">    App\Providers\NewServiceProvider::class;        //NewServiceProvider为新建的provider文件名</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>5、在 <em><code>laravel</code></em> 的 <strong>任何地方</strong>可以调用类已经类里面的方法（<em><code>app</code></em> 内的参数名必须是在新 <em><code>provider</code></em> 的 <em><code>register</code></em> 函数中绑定的通过 <em><code>app</code></em> 绑定的名字）<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//在web.php中调用</span></div><div class="line">Route::get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</div><div class="line">    $var = app(<span class="string">'name'</span>);     <span class="comment">//实例化了一个ClassName对象</span></div><div class="line">    $var-&gt;fname();</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/03/Laravel-向-Container-添加自定义类/" data-id="cj3go1p4o0005jw8ifxv0wv5q" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Http状态码" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/06/01/Http状态码/" class="article-date">
@@ -103,7 +145,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/01/Http状态码/" data-id="cj3dvlhsx0004c68ikzadbk9n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/01/Http状态码/" data-id="cj3go1p4e0001jw8id2evy6cm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Http/">Http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/project/">project</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/status-code/">status code</a></li></ul>
@@ -150,7 +192,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/30/PhpStorm/" data-id="cj3dvlht60009c68i44ue67sr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/30/PhpStorm/" data-id="cj3go1p56000gjw8i61p7m9x5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PhpStorm/">PhpStorm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ide/">ide</a></li></ul>
@@ -193,7 +235,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/20/你站住项目进度/" data-id="cj3dvlhtv000vc68ibdz2zq6o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/20/你站住项目进度/" data-id="cj3go1p5s000yjw8ia2mx9v33" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/loading/">loading</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ustopmoving/">ustopmoving</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/你站住/">你站住</a></li></ul>
@@ -240,7 +282,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/20/微信小程序相关文档/" data-id="cj3dvlhud0017c68iy0q5cpu5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/20/微信小程序相关文档/" data-id="cj3go1p69001fjw8i9mzv9v0f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mini-Programes/">Mini Programes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Wechat/">Wechat</a></li></ul>
@@ -287,7 +329,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/14/PHP-面向对象编程/" data-id="cj3dvlhtd000fc68isd1xq5gz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/14/PHP-面向对象编程/" data-id="cj3go1p50000bjw8idgzw76bc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OOP/">OOP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
@@ -334,7 +376,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/git相关操作/" data-id="cj3dvlhtl000pc68imhbel4fp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/13/git相关操作/" data-id="cj3go1p5i000ujw8iq2z1uato" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/server/">server</a></li></ul>
@@ -379,7 +421,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/VPS上配置和域名解析/" data-id="cj3dvlhtj000mc68iznqahszj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/13/VPS上配置和域名解析/" data-id="cj3go1p5e000qjw8i6ucalllb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Domain/">Domain</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/">VPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/server/">server</a></li></ul>
@@ -426,7 +468,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/12/安装LEMP环境/" data-id="cj3dvlhua0014c68i5uvx3jw9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/12/安装LEMP环境/" data-id="cj3go1p620019jw8icsvel5nr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -473,63 +515,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/12/在购买的VPS上配置环境运行Laravel/" data-id="cj3dvlhu40012c68i4ujaiolf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/12/在购买的VPS上配置环境运行Laravel/" data-id="cj3go1p5z0015jw8iu0v8wsyj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/">VPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/server/">server</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-用户认证" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/10/用户认证/" class="article-date">
-  <time datetime="2017-05-10T14:12:12.000Z" itemprop="datePublished">2017-05-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/note/">note</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/10/用户认证/">用户认证（Auth）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>一、auth.php文件配置(修改auth验证的表)</p>
-</blockquote>
-<p>在<code>guards</code>数组中的每一项都是一个角色，默认的有<code>web</code>和<code>api</code>两种，这就表示了当前有这两种角色会使用到认证系统。<br><code>driver</code>就是表示这个认证要怎么去保存用户状态，一般是保存在<code>session</code>中，<strong><code>provider</code>就是告诉Laravel你的用户信息保存在哪一张表里面</strong>，driver就是告诉了要使用那种方式来操作数据库。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="string">'guards'</span> =&gt; [</div><div class="line">    <span class="string">'web'</span> =&gt; [</div><div class="line">        <span class="string">'driver'</span> =&gt; <span class="string">'session'</span>,</div><div class="line">        <span class="string">'provider'</span> =&gt; <span class="string">'users'</span>,</div><div class="line">    ],</div><div class="line"></div><div class="line">    <span class="string">'api'</span> =&gt; [</div><div class="line">        <span class="string">'driver'</span> =&gt; <span class="string">'token'</span>,</div><div class="line">        <span class="string">'provider'</span> =&gt; <span class="string">'users'</span>,</div><div class="line">    ],</div><div class="line">],</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>二、具体运用</p>
-</blockquote>
-<h2 id="方法一：在Controller中增加middleware键值对"><a href="#方法一：在Controller中增加middleware键值对" class="headerlink" title="方法一：在Controller中增加middleware键值对"></a><strong>方法一：在Controller中增加<code>middleware</code>键值对</strong></h2><p>当路由中使用了保护路由：<code>&#39;middleware&#39; =&gt; &#39;auth&#39;</code>，此路由需先经过路由的路径名为’/login’执行后才跳转到此路由执行<br><strong>可以对路由组使用此中间件，以下组内所有路由的访问都需先经过路由路径为’/login’的认证</strong><br><strong>路由中的路径必须是根目录下的’/login’</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//如果路径前面再加任何的前缀就会出错'/admin/path'</span></div><div class="line">Route::get(<span class="string">'/login'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> view(<span class="string">'auth.login'</span>);    </div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Route::group([<span class="string">'namespace'</span>=&gt;<span class="string">'Admin'</span>, <span class="string">'middleware'</span>=&gt;<span class="string">'auth'</span>], <span class="function"><span class="keyword">function</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    Route::get(<span class="string">'admin/path1'</span>, <span class="string">'UploadController@method1'</span>);</div><div class="line">    Route::get(<span class="string">'admin/path2'</span>, <span class="string">'UploadController@method2'</span>);</div><div class="line">    Route::get(<span class="string">'admin/path3'</span>, <span class="string">'UploadController@method3'</span>);</div><div class="line">    Route::get(<span class="string">'admin/path4'</span>, <span class="string">'UploadController@method4'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="方法二：在控制器中增加构造方法-construct"><a href="#方法二：在控制器中增加构造方法-construct" class="headerlink" title="方法二：在控制器中增加构造方法__construct"></a><strong>方法二：在控制器中增加构造方法<code>__construct</code></strong></h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">$this</span>-&gt;middleware(<span class="string">'auth'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a><strong>补充</strong></h2><p>返回经过JWTAuth认证后的实例<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Route::get(<span class="string">'/user'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Request $request)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> $request-&gt;user();</div><div class="line">&#125;)-&gt;middleware(<span class="string">'jwt.api.auth'</span>);</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/10/用户认证/" data-id="cj3dvlhuk001cc68insc2i6v9" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/auth/">auth</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/middleware/">middleware</a></li></ul>
 
     </footer>
   </div>
@@ -593,6 +582,10 @@
       <ul>
         
           <li>
+            <a href="/2017/06/03/Laravel-向-Container-添加自定义类/">Laravel 向 Container 添加自定义类</a>
+          </li>
+        
+          <li>
             <a href="/2017/06/01/Http状态码/">Http状态码</a>
           </li>
         
@@ -606,10 +599,6 @@
         
           <li>
             <a href="/2017/05/20/微信小程序相关文档/">微信小程序相关文档</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/14/PHP-面向对象编程/">PHP 面向对象编程</a>
           </li>
         
       </ul>
