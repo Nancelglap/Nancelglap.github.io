@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/29/Blade-Warning/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="一、blade实现编辑页面自动填充表单1. 在Controller中1$content = model名::findOrFail($id); 2. 在视图文件中使用Form-Model-Binding1&amp;#123;!! Form::model($content, [&amp;apos;method&amp;apos;=&amp;gt;&amp;apos;PATCH&amp;apos;, &amp;apos;url&amp;apos;=&amp;gt;&amp;apos">
-<meta property="og:updated_time" content="2017-05-01T02:19:00.000Z">
+<meta property="og:updated_time" content="2017-06-06T01:15:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Blade 相关">
 <meta name="twitter:description" content="一、blade实现编辑页面自动填充表单1. 在Controller中1$content = model名::findOrFail($id); 2. 在视图文件中使用Form-Model-Binding1&amp;#123;!! Form::model($content, [&amp;apos;method&amp;apos;=&amp;gt;&amp;apos;PATCH&amp;apos;, &amp;apos;url&amp;apos;=&amp;gt;&amp;apos">
@@ -59,7 +59,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -100,11 +100,12 @@
 <li>如果从Controller传过来的数组为一维关联数组，可以直接用数组中的键作为变量</li>
 <li>重用的代码放到一个文件里，在需要用的视图文件用<code>@include(&#39;view&#39;s name&#39;)</code></li>
 </ol>
+<h2 id="三、视图绑定变量"><a href="#三、视图绑定变量" class="headerlink" title="三、视图绑定变量"></a><strong>三、视图绑定变量</strong></h2><p>1、一般在被其他视图文件包含的视图文件使用，不用额外再写代码<br>2、创建一个类文件，比如在<code>App\ClassName</code><br>3、在视图文件中用 <em><code>@inject(&#39;var&#39;, &#39;ClassFile_Path&#39;)</code></em> 绑定变量<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@inject(<span class="string">'var'</span>, <span class="string">'App\ClassName'</span>)</div><div class="line"></div><div class="line">$var-&gt;method();     <span class="comment">//调用ClassName类中的方法</span></div></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/29/Blade-Warning/" data-id="cj3i5rdog00043z8iwyqc56az" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/29/Blade-Warning/" data-id="cj3kwjm530000co8ijkdq3upt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blade/">blade</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li></ul>
@@ -141,7 +142,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Kategorier</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note-of-Linux-shell-脚本攻略/">note of "Linux shell 脚本攻略"</a></li></ul>
     </div>
@@ -170,7 +171,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Arkiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
     </div>
@@ -180,7 +181,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Siste innlegg</h3>
     <div class="widget">
       <ul>
         
