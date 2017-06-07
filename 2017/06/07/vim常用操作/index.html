@@ -5,17 +5,17 @@
   
   <title>vim常用操作 | Nancelglap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="移动到行尾：$移动到行首：0下一个单词：w上一个单词：b下一行行首：+上一行行首：-向下翻页：Control + f向上翻页：Control + b 删除到行首：d$删除到行尾：D删除光标字符：x删除光标后的单词：de  复制当前行：yy复制从光标到行尾的内容：y$复制从光标到行首的内容：y^粘贴到光标右侧：p粘贴到光标左侧：P 查找：/content（ n 跳到下一个内容 ）">
+  <meta name="description" content="插入  在当前位置生前插入：i在当前行首插入：I在当前位置后插入：a在当前行尾插入：A在当前行之后插入一行：o在当前行之前插入一行：0  跳转  跳到到行尾：$跳到到行首：0跳到n行：nG跳到文本末尾：G向下翻页：Control + f向上翻页：Control + b下一个单词：w上一个单词：b下一行行首：+上一行行首：-  删除  删除到行首：d$删除到行尾：D删除光标字符：x删除光标后的单词">
 <meta name="keywords" content="vim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vim常用操作">
 <meta property="og:url" content="http://yoursite.com/2017/06/07/vim常用操作/index.html">
 <meta property="og:site_name" content="Nancelglap">
-<meta property="og:description" content="移动到行尾：$移动到行首：0下一个单词：w上一个单词：b下一行行首：+上一行行首：-向下翻页：Control + f向上翻页：Control + b 删除到行首：d$删除到行尾：D删除光标字符：x删除光标后的单词：de  复制当前行：yy复制从光标到行尾的内容：y$复制从光标到行首的内容：y^粘贴到光标右侧：p粘贴到光标左侧：P 查找：/content（ n 跳到下一个内容 ）">
-<meta property="og:updated_time" content="2017-06-07T05:46:31.000Z">
+<meta property="og:description" content="插入  在当前位置生前插入：i在当前行首插入：I在当前位置后插入：a在当前行尾插入：A在当前行之后插入一行：o在当前行之前插入一行：0  跳转  跳到到行尾：$跳到到行首：0跳到n行：nG跳到文本末尾：G向下翻页：Control + f向上翻页：Control + b下一个单词：w上一个单词：b下一行行首：+上一行行首：-  删除  删除到行首：d$删除到行尾：D删除光标字符：x删除光标后的单词">
+<meta property="og:updated_time" content="2017-06-07T05:56:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim常用操作">
-<meta name="twitter:description" content="移动到行尾：$移动到行首：0下一个单词：w上一个单词：b下一行行首：+上一行行首：-向下翻页：Control + f向上翻页：Control + b 删除到行首：d$删除到行尾：D删除光标字符：x删除光标后的单词：de  复制当前行：yy复制从光标到行尾的内容：y$复制从光标到行首的内容：y^粘贴到光标右侧：p粘贴到光标左侧：P 查找：/content（ n 跳到下一个内容 ）">
+<meta name="twitter:description" content="插入  在当前位置生前插入：i在当前行首插入：I在当前位置后插入：a在当前行尾插入：A在当前行之后插入一行：o在当前行之前插入一行：0  跳转  跳到到行尾：$跳到到行首：0跳到n行：nG跳到文本末尾：G向下翻页：Control + f向上翻页：Control + b下一个单词：w上一个单词：b下一行行首：+上一行行首：-  删除  删除到行首：d$删除到行尾：D删除光标字符：x删除光标后的单词">
   
     <link rel="alternate" href="/atom.xml" title="Nancelglap" type="application/atom+xml">
   
@@ -94,9 +94,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>移动到行尾：<em>$</em><br>移动到行首：<em>0</em><br>下一个单词：<em>w</em><br>上一个单词：<em>b</em><br>下一行行首：<em>+</em><br>上一行行首：<em>-</em><br>向下翻页：<em>Control + f</em><br>向上翻页：<em>Control + b</em></p>
+        <blockquote>
+<p>插入</p>
+</blockquote>
+<p>在当前位置生前插入：<em>i</em><br>在当前行首插入：<em>I</em><br>在当前位置后插入：<em>a</em><br>在当前行尾插入：<em>A</em><br>在当前行之后插入一行：<em>o</em><br>在当前行之前插入一行：<em>0</em></p>
+<blockquote>
+<p>跳转</p>
+</blockquote>
+<p>跳到到行尾：<em>$</em><br>跳到到行首：<em>0</em><br>跳到n行：<em>nG</em><br>跳到文本末尾：<em>G</em><br>向下翻页：<em>Control + f</em><br>向上翻页：<em>Control + b</em><br>下一个单词：<em>w</em><br>上一个单词：<em>b</em><br>下一行行首：<em>+</em><br>上一行行首：<em>-</em></p>
+<blockquote>
+<p>删除</p>
+</blockquote>
 <p>删除到行首：<em>d$</em><br>删除到行尾：<em>D</em><br>删除光标字符：<em>x</em><br>删除光标后的单词：<em>de</em> </p>
+<blockquote>
+<p>复制粘贴</p>
+</blockquote>
 <p>复制当前行：<em>yy</em><br>复制从光标到行尾的内容：<em>y$</em><br>复制从光标到行首的内容：<em>y^</em><br>粘贴到光标右侧：<em>p</em><br>粘贴到光标左侧：<em>P</em></p>
+<blockquote>
+<p>查找</p>
+</blockquote>
 <p>查找：<em>/content</em>（ <em>n</em> 跳到下一个内容 ）</p>
 
       
