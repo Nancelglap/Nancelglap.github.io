@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>微信小程序相关文档 | Nancelglap</title>
+  <title>php命名空间和自动加载 | Nancelglap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="与小程序相关网站">
-<meta name="keywords" content="Mini Programes,Wechat">
+  <meta name="description" content="解决包含 Class 要用多个 require 问题">
+<meta name="keywords" content="php,namespace,require,autoload">
 <meta property="og:type" content="article">
-<meta property="og:title" content="微信小程序相关文档">
-<meta property="og:url" content="http://yoursite.com/2017/05/20/微信小程序相关文档/index.html">
+<meta property="og:title" content="php命名空间和自动加载">
+<meta property="og:url" content="http://yoursite.com/2017/06/08/php命名空间和自动加载/index.html">
 <meta property="og:site_name" content="Nancelglap">
-<meta property="og:description" content="与小程序相关网站">
-<meta property="og:updated_time" content="2017-05-20T11:28:04.000Z">
+<meta property="og:description" content="解决包含 Class 要用多个 require 问题">
+<meta property="og:updated_time" content="2017-06-08T09:04:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="微信小程序相关文档">
-<meta name="twitter:description" content="与小程序相关网站">
+<meta name="twitter:title" content="php命名空间和自动加载">
+<meta name="twitter:description" content="解决包含 Class 要用多个 require 问题">
   
     <link rel="alternate" href="/atom.xml" title="Nancelglap" type="application/atom+xml">
   
@@ -68,10 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-微信小程序相关文档" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-php命名空间和自动加载" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/20/微信小程序相关文档/" class="article-date">
-  <time datetime="2017-05-20T01:58:03.000Z" itemprop="datePublished">2017-05-20</time>
+    <a href="/2017/06/08/php命名空间和自动加载/" class="article-date">
+  <time datetime="2017-06-08T08:33:09.000Z" itemprop="datePublished">2017-06-08</time>
 </a>
     
   <div class="article-category">
@@ -86,7 +86,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      微信小程序相关文档
+      php命名空间和自动加载
     </h1>
   
 
@@ -94,44 +94,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>与小程序相关网站<br><a id="more"></a></p>
-<blockquote>
-<p>文档类</p>
-</blockquote>
-<p><strong>微信小程序官方文档：</strong><code>https://mp.weixin.qq.com/debug/wxadoc/dev/</code><br><strong>&lt;简书&gt;小程序开发专栏：</strong><code>http://www.jianshu.com/c/dfdc2bbd1315</code><br><strong>W3Cschool文档：</strong><code>http://www.w3cschool.cn/weixinapp/weixinapp-app.html</code></p>
-<blockquote>
-<p>各功能实现</p>
-</blockquote>
-<p><strong>功能合集：</strong><code>http://weixin1024.cn/forum.php?mod=viewthread&amp;tid=1027&amp;extra=page%3D1</code></p>
-<blockquote>
-<p>小程序账号申请</p>
-</blockquote>
-<p><strong>&lt;有道云笔记&gt;：</strong><code>http://note.youdao.com/share/?id=744b94b02c28321c8f930e1f495624e5&amp;type=note#/</code></p>
-<blockquote>
-<p>项目案例</p>
-</blockquote>
-<p><strong>项目列表：</strong><code>http://blog.csdn.net/qq137722697/article/details/52988719</code><br><strong>小黄车小程序：</strong><code>http://www.jianshu.com/p/68e3b8927a77</code><br><strong><github>项目：</github></strong><code>http://www.cnblogs.com/tuyile006/p/6268961.html</code></p>
-<blockquote>
-<p>登录注册实现</p>
-</blockquote>
-<h2 id="维护用户登录态可以用JWT完成"><a href="#维护用户登录态可以用JWT完成" class="headerlink" title="维护用户登录态可以用JWT完成"></a><strong>维护用户登录态可以用JWT完成</strong></h2><p>1、注意设置JWT过去时间<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$payload = [</div><div class="line">            <span class="string">'email'</span> =&gt; $request-&gt;get(<span class="string">'email'</span>),</div><div class="line">            <span class="string">'password'</span> =&gt; $request-&gt;get(<span class="string">'password'</span>)，</div><div class="line">            <span class="string">'exp'</span> =&gt; time()+<span class="number">60</span>*<span class="number">60</span>   <span class="comment">//设置token过期时间</span></div><div class="line">        ];</div><div class="line">$token = JWTAuth::attempt($payload)</div></pre></td></tr></table></figure></p>
-<p><strong>&lt;简书&gt;后台登录文章：</strong><code>http://www.jianshu.com/p/6096e8522c4c</code><br><strong><csdn>注册登录实现：</csdn></strong><code>http://blog.csdn.net/qq_19558705/article/details/65935818?utm_source=gold_browser_extension</code></p>
-<blockquote>
-<p>http站点转https站点</p>
-</blockquote>
-<p><strong>在nginx服务器下配置和安装阿里云购买的SSL证书：</strong><code>http://sanwen.net/a/hmdfcoo.html</code></p>
-<blockquote>
-<p>request请求(前端后台数据交互)</p>
-</blockquote>
-<p><strong>request请求：</strong><code>http://blog.csdn.net/qq_19558705/article/details/60783448</code></p>
+        <p>解决包含 <em><code>Class</code></em> 要用多个 <em><code>require</code></em> 问题<br><a id="more"></a></p>
+<h3 id="1、在项目目录下创建-composer-json-文件，加入以下内容"><a href="#1、在项目目录下创建-composer-json-文件，加入以下内容" class="headerlink" title="1、在项目目录下创建 composer.json 文件，加入以下内容"></a>1、在项目目录下创建 <em><code>composer.json</code></em> 文件，加入以下内容</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="string">"autoload"</span>:&#123;</div><div class="line">		<span class="string">"psr-4"</span>:&#123;</div><div class="line">			<span class="string">"namespace的名\\"</span>:<span class="string">"实际路径名/"</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2、在要被加载的文件加入"><a href="#2、在要被加载的文件加入" class="headerlink" title="2、在要被加载的文件加入"></a>2、在要被加载的文件加入</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">namespace</span> <span class="title">namespace</span>的名;</div></pre></td></tr></table></figure>
+<h3 id="3、生成-autoload-文件并加载"><a href="#3、生成-autoload-文件并加载" class="headerlink" title="3、生成 autoload 文件并加载"></a>3、生成 <em><code>autoload</code></em> 文件并加载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer dump-autoload</div></pre></td></tr></table></figure>
+<h3 id="4、在加载其他文件的文件中加入"><a href="#4、在加载其他文件的文件中加入" class="headerlink" title="4、在加载其他文件的文件中加入"></a>4、在加载其他文件的文件中加入</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">require</span> <span class="string">'vendor/autoload.php'</span>;</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">namespace</span>的名\<span class="title">Class</span>文件名;</div></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/20/微信小程序相关文档/" data-id="cj3o75l87001oor8iq8yd9j0n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/08/php命名空间和自动加载/" data-id="cj3o75l7g000wor8iiddahix8" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mini-Programes/">Mini Programes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Wechat/">Wechat</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/autoload/">autoload</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/namespace/">namespace</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/require/">require</a></li></ul>
 
     </footer>
   </div>
@@ -139,20 +114,15 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/05/14/PHP-面向对象编程/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/06/07/vim常用操作/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          PHP 面向对象编程
+          vim常用操作
         
       </div>
     </a>
   
-  
-    <a href="/2017/05/20/你站住项目进度/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">你站住项目进度</div>
-    </a>
   
 </nav>
 

@@ -3,19 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>微信小程序相关文档 | Nancelglap</title>
+  <title>Tag: autoload | Nancelglap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="与小程序相关网站">
-<meta name="keywords" content="Mini Programes,Wechat">
-<meta property="og:type" content="article">
-<meta property="og:title" content="微信小程序相关文档">
-<meta property="og:url" content="http://yoursite.com/2017/05/20/微信小程序相关文档/index.html">
+  <meta name="description" content="广工无名小卒">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nancelglap">
+<meta property="og:url" content="http://yoursite.com/tags/autoload/index.html">
 <meta property="og:site_name" content="Nancelglap">
-<meta property="og:description" content="与小程序相关网站">
-<meta property="og:updated_time" content="2017-05-20T11:28:04.000Z">
+<meta property="og:description" content="广工无名小卒">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="微信小程序相关文档">
-<meta name="twitter:description" content="与小程序相关网站">
+<meta name="twitter:title" content="Nancelglap">
+<meta name="twitter:description" content="广工无名小卒">
   
     <link rel="alternate" href="/atom.xml" title="Nancelglap" type="application/atom+xml">
   
@@ -68,96 +66,39 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-微信小程序相关文档" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/20/微信小程序相关文档/" class="article-date">
-  <time datetime="2017-05-20T01:58:03.000Z" itemprop="datePublished">2017-05-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/note/">note</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      微信小程序相关文档
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2017/06/08/php命名空间和自动加载/" class="archive-article-date">
+  <time datetime="2017-06-08T08:33:09.000Z" itemprop="datePublished">Jun 8</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/06/08/php命名空间和自动加载/">php命名空间和自动加载</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>与小程序相关网站<br><a id="more"></a></p>
-<blockquote>
-<p>文档类</p>
-</blockquote>
-<p><strong>微信小程序官方文档：</strong><code>https://mp.weixin.qq.com/debug/wxadoc/dev/</code><br><strong>&lt;简书&gt;小程序开发专栏：</strong><code>http://www.jianshu.com/c/dfdc2bbd1315</code><br><strong>W3Cschool文档：</strong><code>http://www.w3cschool.cn/weixinapp/weixinapp-app.html</code></p>
-<blockquote>
-<p>各功能实现</p>
-</blockquote>
-<p><strong>功能合集：</strong><code>http://weixin1024.cn/forum.php?mod=viewthread&amp;tid=1027&amp;extra=page%3D1</code></p>
-<blockquote>
-<p>小程序账号申请</p>
-</blockquote>
-<p><strong>&lt;有道云笔记&gt;：</strong><code>http://note.youdao.com/share/?id=744b94b02c28321c8f930e1f495624e5&amp;type=note#/</code></p>
-<blockquote>
-<p>项目案例</p>
-</blockquote>
-<p><strong>项目列表：</strong><code>http://blog.csdn.net/qq137722697/article/details/52988719</code><br><strong>小黄车小程序：</strong><code>http://www.jianshu.com/p/68e3b8927a77</code><br><strong><github>项目：</github></strong><code>http://www.cnblogs.com/tuyile006/p/6268961.html</code></p>
-<blockquote>
-<p>登录注册实现</p>
-</blockquote>
-<h2 id="维护用户登录态可以用JWT完成"><a href="#维护用户登录态可以用JWT完成" class="headerlink" title="维护用户登录态可以用JWT完成"></a><strong>维护用户登录态可以用JWT完成</strong></h2><p>1、注意设置JWT过去时间<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$payload = [</div><div class="line">            <span class="string">'email'</span> =&gt; $request-&gt;get(<span class="string">'email'</span>),</div><div class="line">            <span class="string">'password'</span> =&gt; $request-&gt;get(<span class="string">'password'</span>)，</div><div class="line">            <span class="string">'exp'</span> =&gt; time()+<span class="number">60</span>*<span class="number">60</span>   <span class="comment">//设置token过期时间</span></div><div class="line">        ];</div><div class="line">$token = JWTAuth::attempt($payload)</div></pre></td></tr></table></figure></p>
-<p><strong>&lt;简书&gt;后台登录文章：</strong><code>http://www.jianshu.com/p/6096e8522c4c</code><br><strong><csdn>注册登录实现：</csdn></strong><code>http://blog.csdn.net/qq_19558705/article/details/65935818?utm_source=gold_browser_extension</code></p>
-<blockquote>
-<p>http站点转https站点</p>
-</blockquote>
-<p><strong>在nginx服务器下配置和安装阿里云购买的SSL证书：</strong><code>http://sanwen.net/a/hmdfcoo.html</code></p>
-<blockquote>
-<p>request请求(前端后台数据交互)</p>
-</blockquote>
-<p><strong>request请求：</strong><code>http://blog.csdn.net/qq_19558705/article/details/60783448</code></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/20/微信小程序相关文档/" data-id="cj3o75l87001oor8iq8yd9j0n" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mini-Programes/">Mini Programes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Wechat/">Wechat</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2017/05/14/PHP-面向对象编程/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          PHP 面向对象编程
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/05/20/你站住项目进度/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">你站住项目进度</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
 </section>
         
