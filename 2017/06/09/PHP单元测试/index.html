@@ -3,17 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Mot-clé: 面向对象 | Nancelglap</title>
+  <title>PHP单元测试 | Nancelglap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="广工无名小卒">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Nancelglap">
-<meta property="og:url" content="http://yoursite.com/tags/面向对象/index.html">
+  <meta name="description" content="与php单元测试相关内容">
+<meta name="keywords" content="phpunit,test,debug">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP单元测试">
+<meta property="og:url" content="http://yoursite.com/2017/06/09/PHP单元测试/index.html">
 <meta property="og:site_name" content="Nancelglap">
-<meta property="og:description" content="广工无名小卒">
+<meta property="og:description" content="与php单元测试相关内容">
+<meta property="og:updated_time" content="2017-06-09T12:25:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nancelglap">
-<meta name="twitter:description" content="广工无名小卒">
+<meta name="twitter:title" content="PHP单元测试">
+<meta name="twitter:description" content="与php单元测试相关内容">
   
     <link rel="alternate" href="/atom.xml" title="Nancelglap" type="application/atom+xml">
   
@@ -66,39 +68,66 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/05/14/PHP-面向对象编程/" class="archive-article-date">
-  <time datetime="2017-05-14T08:19:52.000Z" itemprop="datePublished">May 14</time>
+        <section id="main"><article id="post-PHP单元测试" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/09/PHP单元测试/" class="article-date">
+  <time datetime="2017-06-09T12:01:58.000Z" itemprop="datePublished">2017-06-09</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/note/">note</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/14/PHP-面向对象编程/">PHP 面向对象编程</a>
+    <h1 class="article-title" itemprop="name">
+      PHP单元测试
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>与php单元测试相关内容<br><a id="more"></a></p>
+<blockquote>
+<p>laravel下创建一个简单的单元测试</p>
+</blockquote>
+<p>1、在 <em><code>tests\Unit</code></em> 目录下创建一个如 <em><code>NameTest</code></em> 的文件<br>2、让类继承于 <em><code>phpUnit</code></em> 类，<strong>引用被测试的类</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* 用于用于测试App\Product.php中的Product类中的name()方法是否返回'Mac'</div><div class="line">*/</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">ClassName</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NameTest</span> <span class="keyword">extends</span> \<span class="title">PHPUnit_Framework_TestCase</span></span></div><div class="line">&#123;</div><div class="line">	<span class="comment">/** <span class="doctag">@test</span> */</span>		<span class="comment">//一定要声明为test</span></div><div class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">a_product_has_a_name</span> <span class="params">()</span>		//声明函数名用`<span class="title">_</span>`分开	</span></div><div class="line">	&#123;</div><div class="line">		$product = <span class="keyword">new</span> Product(<span class="string">'Mac'</span>);</div><div class="line"></div><div class="line">		<span class="keyword">$this</span>-&gt;assertEquals(<span class="string">'Mac'</span>, $product-&gt;name());</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/09/PHP单元测试/" data-id="cj3pts8mq000bn58i4x4e09qv" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debug/">debug</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/phpunit/">phpunit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/08/php命名空间和自动加载/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          php命名空间和自动加载
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
