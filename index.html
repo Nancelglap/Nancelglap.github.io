@@ -57,7 +57,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -67,6 +67,169 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-laravel-用户注册登录相关" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/11/laravel-用户注册登录相关/" class="article-date">
+  <time datetime="2017-06-11T12:18:31.000Z" itemprop="datePublished">2017-06-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/note/">note</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/11/laravel-用户注册登录相关/">laravel 用户注册登录相关</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>实现密码自动加密</p>
+</blockquote>
+<p>在 <em><code>user</code></em> 表中使用 <em><code>attribute</code></em><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setPasswordAttribute</span><span class="params">($password)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">$this</span>-&gt;attributes[<span class="string">'password'</span>] = Hash::make($password);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>登录</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* controller文件</div><div class="line">*/</div><div class="line"><span class="keyword">if</span>(Auth::attempt([</div><div class="line">    <span class="string">'email'</span> =&gt; $request-&gt;get(<span class="string">'email'</span>),</div><div class="line">    <span class="string">'password'</span> =&gt; $request-&gt;get(<span class="string">'password'</span>),        <span class="comment">//在model中定义了Attribute用Hash加密，所以不用在此不用加密</span></div><div class="line">    <span class="string">'is_confirmed'</span> =&gt; <span class="number">1</span></div><div class="line">]))</div></pre></td></tr></table></figure>
+<blockquote>
+<p>登出</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Auth::logout();</div><div class="line">JWToken::refresh();</div></pre></td></tr></table></figure>
+<blockquote>
+<p>提示登录错误信息</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">* Controller文件</div><div class="line">*/</div><div class="line">Session::flash('id', '错误信息');</div><div class="line"></div><div class="line">/**</div><div class="line">* blade文件</div><div class="line">*/</div><div class="line">@if(Session::has('id'))</div><div class="line">&lt;div class="alert alert-danger" role="alert"&gt;</div><div class="line">    &#123;&#123; Session::get('id') &#125;&#125;</div><div class="line">&lt;/div&gt;</div><div class="line">@endif</div></pre></td></tr></table></figure>
+<blockquote>
+<p>信息错误后将用户填写的信息返回给原来的页面</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> redirect(<span class="string">'/user/login'</span>)-&gt;withInput();</div></pre></td></tr></table></figure>
+<blockquote>
+<p>修改错误提示</p>
+</blockquote>
+<p>打开 <em><code>resources\lang\en\validation.php</code></em> 修改 <em><code>custom</code></em> 数组<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//以下为当name为id的字段为空时提示“用户名不能为空”</span></div><div class="line"><span class="string">'custom'</span> =&gt; [</div><div class="line">    <span class="string">'name'</span> =&gt; [</div><div class="line">        <span class="string">'required'</span> =&gt; <span class="string">'用户名不能为空'</span></div><div class="line">    ]</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>登录后blade显示用户信息</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">if</span>(Auth::check())</div><div class="line">    &#123;&#123; Auth::user()-&gt;name &#125;&#125;</div><div class="line">@<span class="keyword">else</span></div><div class="line">    ...</div><div class="line">@<span class="keyword">endif</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/11/laravel-用户注册登录相关/" data-id="cj3stsv2o0011cs8iioktdpor" class="article-share-link">Delen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/login/">login</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/register/">register</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/user/">user</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-laravel-Request常用规则" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/11/laravel-Request常用规则/" class="article-date">
+  <time datetime="2017-06-11T12:09:33.000Z" itemprop="datePublished">2017-06-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/note/">note</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/11/laravel-Request常用规则/">laravel Request常用规则</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>&#39;name&#39; =&gt; &#39;required|min:3&#39;</code><br><code>&#39;email&#39; =&gt; &#39;required|email|unique:users,email&#39;</code>  规定 <em><code>users</code></em> 表的 <em><code>email</code></em> 字段必须为唯一<br><code>password =&gt; &#39;required|min:6|confirmed&#39;</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/11/laravel-Request常用规则/" data-id="cj3stsv2l000xcs8ibjwe6due" class="article-share-link">Delen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/request/">request</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-laravel-表的联系" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/11/laravel-表的联系/" class="article-date">
+  <time datetime="2017-06-11T07:45:36.000Z" itemprop="datePublished">2017-06-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/note/">note</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/11/laravel-表的联系/">laravel 表的联系</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、创建一个跟用户联系的表，用 <em><code>user_id</code></em> ， <em><code>last_user_id</code></em> 作为外键<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* 跟用户关联的表</div><div class="line">*/</div><div class="line">$table -&gt; increments(<span class="string">'id'</span>);</div><div class="line">$table -&gt; string(<span class="string">'title'</span>);</div><div class="line">$table -&gt; text(<span class="string">'body'</span>);</div><div class="line">$table -&gt; integer(<span class="string">'user_id'</span>)-&gt;unsigned();</div><div class="line">$table -&gt; integer(<span class="string">'last_user_id'</span>)-&gt;unsigned();</div><div class="line">$table -&gt; foreign(<span class="string">'user_id'</span>)-&gt;references(<span class="string">'id'</span>)-&gt;on(<span class="string">'users'</span>)-&gt;onDelete(<span class="string">'cascade'</span>);   <span class="comment">//规定user_id为users表id字段的连接</span></div><div class="line">$table -&gt; timestamps();</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* users表</div><div class="line">*/</div><div class="line">$table -&gt; increments(<span class="string">'id'</span>);</div><div class="line">$table -&gt; string(<span class="string">'name'</span>);</div><div class="line">$table -&gt; string(<span class="string">'avatar'</span>);     <span class="comment">//用户头像url</span></div><div class="line">$table -&gt; string(<span class="string">'email'</span>)-&gt;unique();</div><div class="line">$table -&gt; string(<span class="string">'password'</span>, <span class="number">60</span>);</div><div class="line">$table -&gt; remremberToken();</div><div class="line">$table -&gt; timestamps();</div></pre></td></tr></table></figure></p>
+<p>2、创建 <em><code>users</code></em> 表测试数据<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$factory-&gt;define(App\User::class, <span class="function"><span class="keyword">function</span> <span class="params">(Faker\Generator $faker)</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> $password;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> [</div><div class="line">        <span class="string">'name'</span> =&gt; $faker-&gt;name,</div><div class="line">        <span class="string">'email'</span> =&gt; $faker-&gt;unique()-&gt;safeEmail,</div><div class="line">        <span class="string">'avatar'</span> =&gt; $faker-&gt;imageUrl(<span class="number">256</span>, <span class="number">256</span>),</div><div class="line">        <span class="string">'password'</span> =&gt; $password ?: $password = bcrypt(<span class="string">'secret'</span>),</div><div class="line">        <span class="string">'remember_token'</span> =&gt; str_random(<span class="number">10</span>),</div><div class="line">    ];</div><div class="line">&#125;);</div><div class="line"></div><div class="line">php artisan tinker</div><div class="line"><span class="keyword">namespace</span> <span class="title">App</span>;</div><div class="line">factory(user::class, <span class="number">30</span>)-&gt;create();</div></pre></td></tr></table></figure></p>
+<p>3、创建 <em><code>comments</code></em> 表测试数据<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$factory-&gt;define(App\comment::class, <span class="function"><span class="keyword">function</span> <span class="params">(Faker\Generator $faker)</span> </span>&#123;</div><div class="line">    $user_ids = \App\User::lists(<span class="string">'id'</span>)-&gt;toArray();      <span class="comment">//将users表中的id拿出来作为数组</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> [</div><div class="line">        <span class="string">'title'</span> =&gt; $faker-&gt;sentence,</div><div class="line">        <span class="string">'body'</span> =&gt; $faker-&gt;paragraph,</div><div class="line">        <span class="string">'user_id'</span> =&gt; $faker-&gt;randElement($user_ids),</div><div class="line">        <span class="string">'last_user_id'</span> =&gt; $faker-&gt;randElement($user_ids),</div><div class="line">    ];</div><div class="line">&#125;);</div><div class="line"></div><div class="line">php artisan tinker</div><div class="line"><span class="keyword">namespace</span> <span class="title">App</span>;</div><div class="line">factory(comment::class, <span class="number">30</span>)-&gt;create();</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>在model中建立关系</p>
+</blockquote>
+<p>1、修改 <em><code>users</code></em> 表model文件，使用Eloquent Relationship<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">comments</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;hasMany(comment::class);      <span class="comment">//使用$user-&gt;comments()获取用户所有评论</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>2、修改 <em><code>comment</code></em> 表model文件，使用Eloquent Relationship<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">user</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">//默认外键为user_id，如果有自定义外键作为第二个参数传入</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;belongsTo(User::class);       <span class="comment">//使用$comment-&gt;user()获取评论的用户</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/11/laravel-表的联系/" data-id="cj3stsv34001dcs8i0o4s9o5u" class="article-share-link">Delen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/table/">table</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-laravel-用户确认邮箱" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -103,7 +266,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/10/laravel-用户确认邮箱/" data-id="cj3qqr6qx000wlq8iqxi1s6y2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/10/laravel-用户确认邮箱/" data-id="cj3stsv300019cs8itafwvnu0" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SendCloud/">SendCloud</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mail/">mail</a></li></ul>
@@ -150,7 +313,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/09/PHP单元测试/" data-id="cj3qqr6qd000blq8irntvf7v3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/09/PHP单元测试/" data-id="cj3stsv2e000rcs8ipaqwgldu" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debug/">debug</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/phpunit/">phpunit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
@@ -197,7 +360,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/08/php命名空间和自动加载/" data-id="cj3qqr6rg001clq8i88qnhfp5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/08/php命名空间和自动加载/" data-id="cj3stsv3c001mcs8it3fx6alr" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/autoload/">autoload</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/namespace/">namespace</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/require/">require</a></li></ul>
@@ -259,7 +422,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/07/vim常用操作/" data-id="cj3qqr6ri001glq8i39s02s5x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/07/vim常用操作/" data-id="cj3stsv3f001pcs8ir94qxawd" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
@@ -320,7 +483,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/06/Model-Factory/" data-id="cj3qqr6qh000flq8ik3uyfnhv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/06/Model-Factory/" data-id="cj3stsv1v000bcs8iw5v72jzg" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data/">data</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li></ul>
@@ -369,7 +532,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/04/Laravel-Event/" data-id="cj3qqr6po0001lq8ijqbe1hur" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/04/Laravel-Event/" data-id="cj3stsv1k0006cs8i2xhzl0oo" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Event/">Event</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li></ul>
@@ -412,146 +575,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/03/Laravel-向-Container-添加自定义类/" data-id="cj3qqr6q80009lq8i8g7x4oj2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/03/Laravel-向-Container-添加自定义类/" data-id="cj3stsv1p0009cs8i23w7dbzv" class="article-share-link">Delen</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Http状态码" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/06/01/Http状态码/" class="article-date">
-  <time datetime="2017-06-01T03:05:30.000Z" itemprop="datePublished">2017-06-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/note/">note</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/01/Http状态码/">Http状态码</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Http常用状态码<br>
-        
-          <p class="article-more-link">
-            <a href="/2017/06/01/Http状态码/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/01/Http状态码/" data-id="cj3qqr6pz0005lq8id3gyw51b" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Http/">Http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/project/">project</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/status-code/">status code</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-PhpStorm" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/30/PhpStorm/" class="article-date">
-  <time datetime="2017-05-30T13:32:47.000Z" itemprop="datePublished">2017-05-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/note/">note</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/30/PhpStorm/">PhpStorm</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>PhpStorm快捷键等<br>
-        
-          <p class="article-more-link">
-            <a href="/2017/05/30/PhpStorm/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/30/PhpStorm/" data-id="cj3qqr6qp000plq8il7kp29bg" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PhpStorm/">PhpStorm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ide/">ide</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-你站住项目进度" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/20/你站住项目进度/" class="article-date">
-  <time datetime="2017-05-20T13:00:50.000Z" itemprop="datePublished">2017-05-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/20/你站住项目进度/">你站住项目进度</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>你站住后台项目进度记录<br>
-        
-          <p class="article-more-link">
-            <a href="/2017/05/20/你站住项目进度/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/20/你站住项目进度/" data-id="cj3qqr6rk001ilq8i45vqdtdd" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/loading/">loading</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ustopmoving/">ustopmoving</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/你站住/">你站住</a></li></ul>
-
     </footer>
   </div>
   
@@ -570,7 +596,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Kategorier</h3>
+    <h3 class="widget-title">Categorieën</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note-of-Linux-shell-脚本攻略/">note of "Linux shell 脚本攻略"</a></li></ul>
     </div>
@@ -580,9 +606,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Labels</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Controller/">Controller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Domain/">Domain</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eloquent/">Eloquent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Event/">Event</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Http/">Http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JWTAuth/">JWTAuth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mini-Programes/">Mini Programes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOP/">OOP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PhpStorm/">PhpStorm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Route/">Route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SendCloud/">SendCloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terminal/">Terminal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPS/">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wechat/">Wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/api/">api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auth/">auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/autoload/">autoload</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blade/">blade</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data/">data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debug/">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dingo/">dingo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">ide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/loading/">loading</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mail/">mail</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/middleware/">middleware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/namespace/">namespace</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phpunit/">phpunit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/project/">project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/require/">require</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server/">server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/status-code/">status code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ustopmoving/">ustopmoving</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/你站住/">你站住</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Controller/">Controller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Domain/">Domain</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eloquent/">Eloquent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Event/">Event</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Http/">Http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JWTAuth/">JWTAuth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mini-Programes/">Mini Programes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOP/">OOP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PhpStorm/">PhpStorm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Route/">Route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SendCloud/">SendCloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terminal/">Terminal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPS/">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wechat/">Wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/api/">api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auth/">auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/autoload/">autoload</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blade/">blade</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data/">data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debug/">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dingo/">dingo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">ide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/loading/">loading</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/login/">login</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mail/">mail</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/middleware/">middleware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/namespace/">namespace</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phpunit/">phpunit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/project/">project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/register/">register</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/request/">request</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/require/">require</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server/">server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/status-code/">status code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/table/">table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/user/">user</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ustopmoving/">ustopmoving</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/你站住/">你站住</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
     </div>
   </div>
 
@@ -592,14 +618,14 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Controller/" style="font-size: 10px;">Controller</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/Eloquent/" style="font-size: 10px;">Eloquent</a> <a href="/tags/Event/" style="font-size: 10px;">Event</a> <a href="/tags/Http/" style="font-size: 10px;">Http</a> <a href="/tags/JWTAuth/" style="font-size: 13.33px;">JWTAuth</a> <a href="/tags/Mini-Programes/" style="font-size: 10px;">Mini Programes</a> <a href="/tags/OOP/" style="font-size: 10px;">OOP</a> <a href="/tags/PhpStorm/" style="font-size: 10px;">PhpStorm</a> <a href="/tags/Route/" style="font-size: 10px;">Route</a> <a href="/tags/SendCloud/" style="font-size: 10px;">SendCloud</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/Wechat/" style="font-size: 10px;">Wechat</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/auth/" style="font-size: 10px;">auth</a> <a href="/tags/autoload/" style="font-size: 10px;">autoload</a> <a href="/tags/blade/" style="font-size: 13.33px;">blade</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/dingo/" style="font-size: 13.33px;">dingo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/ide/" style="font-size: 10px;">ide</a> <a href="/tags/laravel/" style="font-size: 20px;">laravel</a> <a href="/tags/loading/" style="font-size: 10px;">loading</a> <a href="/tags/mail/" style="font-size: 10px;">mail</a> <a href="/tags/middleware/" style="font-size: 10px;">middleware</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/namespace/" style="font-size: 10px;">namespace</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/php/" style="font-size: 16.67px;">php</a> <a href="/tags/phpunit/" style="font-size: 10px;">phpunit</a> <a href="/tags/project/" style="font-size: 10px;">project</a> <a href="/tags/require/" style="font-size: 10px;">require</a> <a href="/tags/server/" style="font-size: 16.67px;">server</a> <a href="/tags/status-code/" style="font-size: 10px;">status code</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/ustopmoving/" style="font-size: 10px;">ustopmoving</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/你站住/" style="font-size: 10px;">你站住</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
+      <a href="/tags/Controller/" style="font-size: 10px;">Controller</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/Eloquent/" style="font-size: 10px;">Eloquent</a> <a href="/tags/Event/" style="font-size: 10px;">Event</a> <a href="/tags/Http/" style="font-size: 10px;">Http</a> <a href="/tags/JWTAuth/" style="font-size: 13.33px;">JWTAuth</a> <a href="/tags/Mini-Programes/" style="font-size: 10px;">Mini Programes</a> <a href="/tags/OOP/" style="font-size: 10px;">OOP</a> <a href="/tags/PhpStorm/" style="font-size: 10px;">PhpStorm</a> <a href="/tags/Route/" style="font-size: 10px;">Route</a> <a href="/tags/SendCloud/" style="font-size: 10px;">SendCloud</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/Wechat/" style="font-size: 10px;">Wechat</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/auth/" style="font-size: 10px;">auth</a> <a href="/tags/autoload/" style="font-size: 10px;">autoload</a> <a href="/tags/blade/" style="font-size: 13.33px;">blade</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/database/" style="font-size: 13.33px;">database</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/dingo/" style="font-size: 13.33px;">dingo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/ide/" style="font-size: 10px;">ide</a> <a href="/tags/laravel/" style="font-size: 20px;">laravel</a> <a href="/tags/loading/" style="font-size: 10px;">loading</a> <a href="/tags/login/" style="font-size: 10px;">login</a> <a href="/tags/mail/" style="font-size: 10px;">mail</a> <a href="/tags/middleware/" style="font-size: 10px;">middleware</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/namespace/" style="font-size: 10px;">namespace</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/php/" style="font-size: 16.67px;">php</a> <a href="/tags/phpunit/" style="font-size: 10px;">phpunit</a> <a href="/tags/project/" style="font-size: 10px;">project</a> <a href="/tags/register/" style="font-size: 10px;">register</a> <a href="/tags/request/" style="font-size: 10px;">request</a> <a href="/tags/require/" style="font-size: 10px;">require</a> <a href="/tags/server/" style="font-size: 16.67px;">server</a> <a href="/tags/status-code/" style="font-size: 10px;">status code</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/user/" style="font-size: 10px;">user</a> <a href="/tags/ustopmoving/" style="font-size: 10px;">ustopmoving</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/你站住/" style="font-size: 10px;">你站住</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Arkiv</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
     </div>
@@ -609,9 +635,21 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Siste innlegg</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/06/11/laravel-用户注册登录相关/">laravel 用户注册登录相关</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/11/laravel-Request常用规则/">laravel Request常用规则</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/11/laravel-表的联系/">laravel 表的联系</a>
+          </li>
         
           <li>
             <a href="/2017/06/10/laravel-用户确认邮箱/">laravel 用户确认邮箱</a>
@@ -619,18 +657,6 @@
         
           <li>
             <a href="/2017/06/09/PHP单元测试/">PHP单元测试</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/08/php命名空间和自动加载/">php命名空间和自动加载</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/07/vim常用操作/">vim常用操作</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/06/Model-Factory/">Model Factory</a>
           </li>
         
       </ul>
