@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/30/Route相关/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="Route相关知识">
-<meta property="og:updated_time" content="2017-05-03T01:37:31.000Z">
+<meta property="og:updated_time" content="2017-06-11T14:59:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Route 相关">
 <meta name="twitter:description" content="Route相关知识">
@@ -94,7 +94,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Route相关知识<br><a id="more"></a></p>
+        <blockquote>
+<p>Route相关知识</p>
+</blockquote>
+<a id="more"></a>
 <h2 id="项目中一般不用Route-resource"><a href="#项目中一般不用Route-resource" class="headerlink" title="项目中一般不用Route::resource( )"></a><strong>项目中一般不用Route::resource( )</strong></h2><p>Http方法<code>patch</code>对应Controller的<code>update</code>函数<br>Http方法<code>delete</code>对应Controller的<code>destory</code>函数<br>Http方法<code>post</code>对应Controller的<code>store</code>函数<br>Http方法<code>get</code>且路径为<code>/path/create</code>对应Controller的<code>create</code>函数<br><em>特殊:get</em>路径为<code>/path/{参数}/edit</code>对应Controller的<code>edit</code>函数</p>
 <hr>
 <h2 id="部分资源路由（Resource）"><a href="#部分资源路由（Resource）" class="headerlink" title="部分资源路由（Resource）"></a><strong>部分资源路由（Resource）</strong></h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Route::resource(<span class="string">'new'</span>, <span class="string">'newController'</span>, [<span class="string">'only'</span>=&gt;[<span class="string">'index'</span>, <span class="string">'show'</span>]]);   <span class="comment">//只处理index和show方法</span></div><div class="line">Route::resource(<span class="string">'new'</span>, <span class="string">'newController'</span>, [<span class="string">'except'</span>=&gt;[<span class="string">'create'</span>, <span class="string">'store'</span>]]);   <span class="comment">//处理除了create和store的方法</span></div></pre></td></tr></table></figure>
