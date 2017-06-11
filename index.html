@@ -57,7 +57,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -95,38 +95,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>实现密码自动加密</p>
+<p>laravel实现用户注册和登录相关</p>
 </blockquote>
-<p>在 <em><code>user</code></em> 表中使用 <em><code>attribute</code></em><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setPasswordAttribute</span><span class="params">($password)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">$this</span>-&gt;attributes[<span class="string">'password'</span>] = Hash::make($password);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>登录</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* controller文件</div><div class="line">*/</div><div class="line"><span class="keyword">if</span>(Auth::attempt([</div><div class="line">    <span class="string">'email'</span> =&gt; $request-&gt;get(<span class="string">'email'</span>),</div><div class="line">    <span class="string">'password'</span> =&gt; $request-&gt;get(<span class="string">'password'</span>),        <span class="comment">//在model中定义了Attribute用Hash加密，所以不用在此不用加密</span></div><div class="line">    <span class="string">'is_confirmed'</span> =&gt; <span class="number">1</span></div><div class="line">]))</div></pre></td></tr></table></figure>
-<blockquote>
-<p>登出</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Auth::logout();</div><div class="line">JWToken::refresh();</div></pre></td></tr></table></figure>
-<blockquote>
-<p>提示登录错误信息</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">* Controller文件</div><div class="line">*/</div><div class="line">Session::flash('id', '错误信息');</div><div class="line"></div><div class="line">/**</div><div class="line">* blade文件</div><div class="line">*/</div><div class="line">@if(Session::has('id'))</div><div class="line">&lt;div class="alert alert-danger" role="alert"&gt;</div><div class="line">    &#123;&#123; Session::get('id') &#125;&#125;</div><div class="line">&lt;/div&gt;</div><div class="line">@endif</div></pre></td></tr></table></figure>
-<blockquote>
-<p>信息错误后将用户填写的信息返回给原来的页面</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> redirect(<span class="string">'/user/login'</span>)-&gt;withInput();</div></pre></td></tr></table></figure>
-<blockquote>
-<p>修改错误提示</p>
-</blockquote>
-<p>打开 <em><code>resources\lang\en\validation.php</code></em> 修改 <em><code>custom</code></em> 数组<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//以下为当name为id的字段为空时提示“用户名不能为空”</span></div><div class="line"><span class="string">'custom'</span> =&gt; [</div><div class="line">    <span class="string">'name'</span> =&gt; [</div><div class="line">        <span class="string">'required'</span> =&gt; <span class="string">'用户名不能为空'</span></div><div class="line">    ]</div><div class="line">]</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>登录后blade显示用户信息</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">if</span>(Auth::check())</div><div class="line">    &#123;&#123; Auth::user()-&gt;name &#125;&#125;</div><div class="line">@<span class="keyword">else</span></div><div class="line">    ...</div><div class="line">@<span class="keyword">endif</span></div></pre></td></tr></table></figure>
-
+        
+          <p class="article-more-link">
+            <a href="/2017/06/11/laravel-用户注册登录相关/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/11/laravel-用户注册登录相关/" data-id="cj3stsv2o0011cs8iioktdpor" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/06/11/laravel-用户注册登录相关/" data-id="cj3stsv2o0011cs8iioktdpor" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/login/">login</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/register/">register</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/user/">user</a></li></ul>
@@ -169,7 +148,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/11/laravel-Request常用规则/" data-id="cj3stsv2l000xcs8ibjwe6due" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/06/11/laravel-Request常用规则/" data-id="cj3stsv2l000xcs8ibjwe6due" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/request/">request</a></li></ul>
@@ -219,7 +198,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/11/laravel-表的联系/" data-id="cj3stsv34001dcs8i0o4s9o5u" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/06/11/laravel-表的联系/" data-id="cj3stsv34001dcs8i0o4s9o5u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/table/">table</a></li></ul>
@@ -266,7 +245,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/10/laravel-用户确认邮箱/" data-id="cj3stsv300019cs8itafwvnu0" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/06/10/laravel-用户确认邮箱/" data-id="cj3stsv300019cs8itafwvnu0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SendCloud/">SendCloud</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mail/">mail</a></li></ul>
@@ -313,7 +292,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/09/PHP单元测试/" data-id="cj3stsv2e000rcs8ipaqwgldu" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/06/09/PHP单元测试/" data-id="cj3stsv2e000rcs8ipaqwgldu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debug/">debug</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/phpunit/">phpunit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
@@ -360,7 +339,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/08/php命名空间和自动加载/" data-id="cj3stsv3c001mcs8it3fx6alr" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/06/08/php命名空间和自动加载/" data-id="cj3stsv3c001mcs8it3fx6alr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/autoload/">autoload</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/namespace/">namespace</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/require/">require</a></li></ul>
@@ -422,7 +401,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/07/vim常用操作/" data-id="cj3stsv3f001pcs8ir94qxawd" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/06/07/vim常用操作/" data-id="cj3stsv3f001pcs8ir94qxawd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
@@ -483,7 +462,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/06/Model-Factory/" data-id="cj3stsv1v000bcs8iw5v72jzg" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/06/06/Model-Factory/" data-id="cj3stsv1v000bcs8iw5v72jzg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data/">data</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li></ul>
@@ -532,7 +511,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/04/Laravel-Event/" data-id="cj3stsv1k0006cs8i2xhzl0oo" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/06/04/Laravel-Event/" data-id="cj3stsv1k0006cs8i2xhzl0oo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Event/">Event</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li></ul>
@@ -575,7 +554,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/03/Laravel-向-Container-添加自定义类/" data-id="cj3stsv1p0009cs8i23w7dbzv" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/06/03/Laravel-向-Container-添加自定义类/" data-id="cj3stsv1p0009cs8i23w7dbzv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -596,7 +575,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categorieën</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note-of-Linux-shell-脚本攻略/">note of "Linux shell 脚本攻略"</a></li></ul>
     </div>
@@ -606,7 +585,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Labels</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Controller/">Controller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Domain/">Domain</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eloquent/">Eloquent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Event/">Event</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Http/">Http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JWTAuth/">JWTAuth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mini-Programes/">Mini Programes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOP/">OOP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PhpStorm/">PhpStorm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Route/">Route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SendCloud/">SendCloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terminal/">Terminal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPS/">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wechat/">Wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/api/">api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auth/">auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/autoload/">autoload</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blade/">blade</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data/">data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debug/">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dingo/">dingo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">ide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/loading/">loading</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/login/">login</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mail/">mail</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/middleware/">middleware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/namespace/">namespace</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phpunit/">phpunit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/project/">project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/register/">register</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/request/">request</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/require/">require</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server/">server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/status-code/">status code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/table/">table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/user/">user</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ustopmoving/">ustopmoving</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/你站住/">你站住</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
     </div>
@@ -625,7 +604,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
     </div>
@@ -635,7 +614,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
