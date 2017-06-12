@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>PhpStorm | Nancelglap</title>
+  <title>Laravel 项目实战相关 | Nancelglap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PhpStorm快捷键等">
-<meta name="keywords" content="ide,PhpStorm">
+  <meta name="description" content="与 Laravel 实际做项目相关内容">
+<meta name="keywords" content="laravel,project,mixture">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PhpStorm">
-<meta property="og:url" content="http://yoursite.com/2017/05/30/PhpStorm/index.html">
+<meta property="og:title" content="Laravel 项目实战相关">
+<meta property="og:url" content="http://yoursite.com/2017/06/12/Laravel-项目实战相关/index.html">
 <meta property="og:site_name" content="Nancelglap">
-<meta property="og:description" content="PhpStorm快捷键等">
-<meta property="og:updated_time" content="2017-06-11T14:59:19.000Z">
+<meta property="og:description" content="与 Laravel 实际做项目相关内容">
+<meta property="og:updated_time" content="2017-06-12T14:33:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PhpStorm">
-<meta name="twitter:description" content="PhpStorm快捷键等">
+<meta name="twitter:title" content="Laravel 项目实战相关">
+<meta name="twitter:description" content="与 Laravel 实际做项目相关内容">
   
     <link rel="alternate" href="/atom.xml" title="Nancelglap" type="application/atom+xml">
   
@@ -68,10 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-PhpStorm" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Laravel-项目实战相关" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/30/PhpStorm/" class="article-date">
-  <time datetime="2017-05-30T13:32:47.000Z" itemprop="datePublished">2017-05-30</time>
+    <a href="/2017/06/12/Laravel-项目实战相关/" class="article-date">
+  <time datetime="2017-06-12T13:41:08.000Z" itemprop="datePublished">2017-06-12</time>
 </a>
     
   <div class="article-category">
@@ -86,7 +86,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      PhpStorm
+      Laravel 项目实战相关
     </h1>
   
 
@@ -95,19 +95,37 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>PhpStorm快捷键等</p>
+<p>与 Laravel 实际做项目相关内容</p>
 </blockquote>
 <a id="more"></a>
-<p>一、通用类<br>1、*<code>Command + Shift + A</code>：搜索配置项（搜索<code>keymap</code>改快捷键）<br>2、<code>Command + P</code>：文件之间跳转<br>3、<code>Command + B</code>：查看类的关系<br>4、<code>Command + Control + S</code>：查看类里面的方法等</p>
-<p>二、编辑类<br>1、<code>Command + Delete</code>：删除光标行<br>2、<code>Shift + Delete</code>：删除光标后面所有内容<br>3、<code>Control + Delete</code>：删除光标前面所有内容<br>4、<code>Control + Shift + Delete</code>：删除光标所在单词<br>5、<code>Command + Shift+ D</code>：复制当前行到下一行<br>6、<code>Command + D</code>：逐个选相同的词（多点编辑）<br>7、<code>Command + Control + D</code>：全选相同的词（多点编辑）<br>8、<code>Command + G</code>：选中下一个光标所在一样的词<br>9、<code>Command + Shift + G</code>：选中上一个光标所在一样的词</p>
-
+<blockquote>
+<p>在Controller中重定向Controller中的方法</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> redirect()-&gt;action(<span class="string">'NameController@method'</span>, [<span class="string">'param'</span> =&gt; <span class="string">'value'</span>]);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在 Controller 中使用 middleware </p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* Controller</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">$this</span>-&gt;middleware(<span class="string">'auth'</span>, [<span class="string">'only'</span> =&gt; [<span class="string">'create'</span>, <span class="string">'store'</span>, <span class="string">'edit'</span>, <span class="string">'update'</span>]]);   <span class="comment">//只用在四种方法上</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* app\Http\Middleware\Authenticate.php</div><div class="line">*/</div><div class="line"><span class="keyword">return</span> redirect()-&gt;guest(<span class="string">'返回的路由'</span>);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>引用Markdown和第三方库</p>
+</blockquote>
+<p>1、复制<em><code>https://github.com/SegmentFault/HyperDown</code></em> <em><code>Parser.php</code></em> 文件<br>2、创建一个 <strong>Class</strong> <em><code>app\Markdown\Parser.php</code></em>，将复制的代码粘贴进去，声明命名空间<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Markdown</span>;</div></pre></td></tr></table></figure></p>
+<p>3、创建一个 <strong>Class</strong> <em><code>app\Markdown\Markdown.php</code></em><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Markdown</span> </span>&#123;</div><div class="line">    <span class="keyword">protected</span> $parser;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(Parser $parser)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">$this</span>-&gt;parser = $parser;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">markdown</span><span class="params">($text)</span></span></div><div class="line">    &#123;</div><div class="line">        $html = <span class="keyword">$this</span>-&gt;parser-&gt;makeHtml($text);</div><div class="line">        <span class="keyword">return</span> $html;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//将新文件加载到autoload文件里面</span></div><div class="line">composer dump-autoload</div></pre></td></tr></table></figure></p>
+<p>4、在 <em><code>Controller</code></em> 中引入 <em><code>Markdowwn</code></em> 类<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Markdown</span>\<span class="title">Markdown</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NameController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">protected</span> $markdown;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(Markdown $markdown)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">$this</span>-&gt;markdown = $markdown;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">    * 在某个展示方法中使用</div><div class="line">    */</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">show</span><span class="params">($id)</span></span></div><div class="line">    &#123;</div><div class="line">        $comment = comment::findOrFail($id);</div><div class="line">        $html = <span class="keyword">$this</span>-&gt;markdown-&gt;markdown($comment-&gt;content);</div><div class="line">        <span class="keyword">return</span> view(<span class="string">'show'</span>, compact(<span class="string">'comment'</span>, <span class="string">'html'</span>));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>5、在 <em><code>blade</code></em> 文件中输出内容<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; $html &#125;&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>更新数据内容</p>
+</blockquote>
+<h3 id="将原来的内容填入编辑表单中（使用Form-model）"><a href="#将原来的内容填入编辑表单中（使用Form-model）" class="headerlink" title="将原来的内容填入编辑表单中（使用Form::model）"></a>将原来的内容填入编辑表单中（使用Form::model）</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* edit.blade.php</div><div class="line">*/</div><div class="line">&#123;&#123; Form::model($comment, [<span class="string">'method'</span> =&gt; <span class="string">'post'</span>, <span class="string">'url'</span> =&gt; <span class="string">'/comment/'</span>.$comment-&gt;id]) &#125;&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* 点击更改的url'/comment/edit/$comment-&gt;id'，</div><div class="line">* Route::post('/comment/edit/&#123;id&#125;')</div><div class="line">*/</div></pre></td></tr></table></figure>
+<h3 id="更新数据方法"><a href="#更新数据方法" class="headerlink" title="更新数据方法"></a>更新数据方法</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$comment = comment::findOrFail($id);</div><div class="line">$comment-&gt;update($request-&gt;all());</div></pre></td></tr></table></figure>
+<h3 id="设置只有发表评论的人才能更新"><a href="#设置只有发表评论的人才能更新" class="headerlink" title="设置只有发表评论的人才能更新"></a>设置只有发表评论的人才能更新</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* Controller</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">edit</span><span class="params">($id)</span></span></div><div class="line">&#123;</div><div class="line">    $comment = comment::findOrFail($id);</div><div class="line">    <span class="keyword">if</span>(Auth::user()-&gt;id !== $comment-&gt;user_id)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> redirect(<span class="string">'/'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* Blade</div><div class="line">*/</div><div class="line">@<span class="keyword">if</span>(Auth::check() &amp;&amp; Auth::user() -&gt; id == $comment-&gt;user_id)</div><div class="line">    ...</div><div class="line">@<span class="keyword">endif</span></div></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/30/PhpStorm/" data-id="cj3u8oj3y000tz48ifsi6jzc5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/12/Laravel-项目实战相关/" data-id="cj3u8oj350005z48ilqwivdzl" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PhpStorm/">PhpStorm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ide/">ide</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mixture/">mixture</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/project/">project</a></li></ul>
 
     </footer>
   </div>
@@ -115,20 +133,15 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/05/20/你站住项目进度/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/06/11/laravel-用户注册登录相关/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          你站住项目进度
+          laravel 用户注册登录相关
         
       </div>
     </a>
   
-  
-    <a href="/2017/06/01/Http状态码/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Http状态码</div>
-    </a>
   
 </nav>
 
