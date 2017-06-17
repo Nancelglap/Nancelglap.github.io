@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/04/Laravel-Event/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="当触发某个事件时自动完成一系列的操作">
-<meta property="og:updated_time" content="2017-06-10T02:29:45.000Z">
+<meta property="og:updated_time" content="2017-06-17T02:21:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Laravel Event">
 <meta name="twitter:description" content="当触发某个事件时自动完成一系列的操作">
@@ -117,7 +117,7 @@
 </blockquote>
 <p>1、在 <em><code>model</code></em> 中定义方法取代 <em><code>modelName::create()</code></em><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span><span class="params">(array $array)</span>       //<span class="title">array</span>为用户数据构成的数组</span></div><div class="line">&#123;</div><div class="line">    $user = <span class="keyword">static</span>::create($array);</div><div class="line"></div><div class="line">    event(<span class="keyword">new</span> EventName($user));    <span class="comment">//触发事件完成listener中handle方法内容</span></div><div class="line">    <span class="keyword">return</span> $user;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>2、在 <em><code>event</code></em> 文件中修改 <em><code>__construct</code></em> 方法<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> $user;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(User $user)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">$this</span>-&gt;user = $user;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>3、在 <em><code>listener</code></em> 文件中修改 <em>`handle</em> 方法<br>public function handle(EventName $event)<br>{<br>    return $event-&gt;user-&gt;email;<br>}</p>
+<p>3、在 <em><code>listener</code></em> 文件中修改 <em><code>handle</code></em> 方法<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span><span class="params">(EventName $event)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> $event-&gt;user-&gt;email;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
