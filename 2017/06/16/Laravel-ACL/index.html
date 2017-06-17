@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Laravel ACL | Nancelglap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Laravel 实现 Access Control Lists">
+<meta name="keywords" content="laravel,ACL,authorize">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Laravel ACL">
+<meta property="og:url" content="http://yoursite.com/2017/06/16/Laravel-ACL/index.html">
+<meta property="og:site_name" content="Nancelglap">
+<meta property="og:description" content="Laravel 实现 Access Control Lists">
+<meta property="og:updated_time" content="2017-06-17T02:18:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Laravel ACL">
+<meta name="twitter:description" content="Laravel 实现 Access Control Lists">
+  
+    <link rel="alternate" href="/atom.xml" title="Nancelglap" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Nancelglap</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不想正经</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Laravel-ACL" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/16/Laravel-ACL/" class="article-date">
+  <time datetime="2017-06-16T08:13:41.000Z" itemprop="datePublished">2017-06-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/note/">note</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Laravel ACL
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Laravel 实现 Access Control Lists</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>ACL权限</p>
+</blockquote>
+<p>1、生成测试数据<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* modelFactory，生成用户自己的文章</div><div class="line">*/</div><div class="line"><span class="string">'user_id'</span> =&gt; factory(App\User::class)-&gt;create()-&gt;id,</div></pre></td></tr></table></figure></p>
+<p>2、修改 <em><code>AuthServiceProvider</code></em> 中的 <em><code>boot</code></em> 方法<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span><span class="params">(GateContract $gate)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">$this</span>-&gt;registerPolicies($gate);</div><div class="line"></div><div class="line">    $gate-&gt;define(<span class="string">'show-post'</span>, <span class="function"><span class="keyword">function</span><span class="params">($user, $post)</span></span>&#123;</div><div class="line">            <span class="comment">//登录来的用户id必须等于文章的user_id才有权限查看</span></div><div class="line">            <span class="keyword">return</span> $user-&gt;id === $post-&gt;user_id;  <span class="comment">//$user为登录进来的用户，laravel自动检测</span></div><div class="line">        &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* 对上述代码进行优化</div><div class="line">*/</div><div class="line"></div><div class="line"><span class="comment">//AuthServiceProvider.php</span></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span><span class="params">(GateContract $gate)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">$this</span>-&gt;registerPolicies($gate);</div><div class="line"></div><div class="line">    $gate-&gt;define(<span class="string">'show-post'</span>, <span class="function"><span class="keyword">function</span><span class="params">($user, $post)</span></span>&#123;</div><div class="line">            <span class="keyword">return</span> $user-&gt;owns($post);</div><div class="line">        &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//User.php</span></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">owns</span><span class="params">($post)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;id == $post-&gt;user_id;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>3、在 <em><code>controller</code></em> 中应用认证<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">show</span><span class="params">($id)</span></span></div><div class="line">&#123;</div><div class="line">    $post = Post::findOrFail($id);</div><div class="line">    Auth::loginUsingId(<span class="number">2</span>);</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(Gate::denies(<span class="string">'show-post'</span>, $post))&#123;   <span class="comment">//show-post为在AuthServiceProvider中定义的名称</span></div><div class="line">        abort(<span class="number">403</span>, <span class="string">'Sorry'</span>);       <span class="comment">//如果认证失败就返回403页面</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//如果不用上面if方法，可以用以下  </span></div><div class="line">    <span class="keyword">$this</span>-&gt;authorize(<span class="string">'show-post'</span>, $post);   </div><div class="line">    <span class="keyword">return</span> $post-&gt;title;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>4、在 <em><code>blade</code></em> 中应用认证（<em><code>@can()标签</code></em>）<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 定义了 'show-post' 后只有传进来的$post符合验证规则才会显示标签内内容 --&gt;</span></div><div class="line">@can('show-post', $post)</div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">@endcan</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>实现多个ACL权限</p>
+</blockquote>
+<p>1、创建一个 与相应 <em><code>model</code></em> 对应的 <em><code>policy</code></em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php artisan make:policy policyName</div></pre></td></tr></table></figure></p>
+<p>2、编写 <em><code>app\Policies\policyName</code></em>，在里面增加函数完成权限操作<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">User</span>;</div><div class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Post</span>;</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">method</span><span class="params">(User $user, Post $post)</span></span></div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> $user-&gt;owns($post);      <span class="comment">//owns在User的model中定义</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>3、启用 <em><code>policy</code></em>：在<em><code>AuthServiceProvider</code></em> 中的 <em><code>$policies</code></em> 数组中注册<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">protected</span> $policies = [</div><div class="line">    <span class="comment">/**</span></div><div class="line">    * 在Controller中用Gate::denies('method', $post)</div><div class="line">    * 根据第二个参数的类决定用哪个policy验证</div><div class="line">    * 再根据第一个参数用相应policy的method方法验证</div><div class="line">    */</div><div class="line"></div><div class="line">    <span class="string">'App\Post'</span> =&gt; <span class="string">'App\Policies\PolicyName'</span>,</div><div class="line">];</div></pre></td></tr></table></figure></p>
+<p>4、运用 <em><code>policy</code></em><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* 去掉AuthServiceProvider中的以下部分</div><div class="line">*/</div><div class="line">$gate-&gt;define(<span class="string">'show-post'</span>, <span class="function"><span class="keyword">function</span><span class="params">($user, $post)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> $user-&gt;owns($post);</div><div class="line">    &#125;)；</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* 修改Controller中的方法</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">show</span><span class="params">($id)</span></span></div><div class="line">&#123;</div><div class="line">    $post = Post::findOrFail($id);</div><div class="line">    Auth::loginUsingId(<span class="number">2</span>);</div><div class="line"></div><div class="line">    <span class="comment">//method为$post类对应的policyName中的验证函数</span></div><div class="line">    <span class="keyword">if</span>(Gate::denies(<span class="string">'method'</span>, $post))&#123;   </div><div class="line">        abort(<span class="number">403</span>, <span class="string">'Sorry'</span>);       </div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* 如果blade中有<span class="doctag">@can</span>标签，将参数改为验证函数名</div><div class="line">*/</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>创建model和表</p>
+</blockquote>
+<p>1、创建 <em><code>Permission</code></em> 和 <em><code>Role</code></em> model<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//权限</span></div><div class="line">php artisan make:model Permission</div><div class="line"></div><div class="line"><span class="comment">//角色（规定某种权限）</span></div><div class="line">php artisan make:model Role</div></pre></td></tr></table></figure></p>
+<p>2、创建相应的表<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php artisan make:migration create_roles_table --create=roles</div></pre></td></tr></table></figure></p>
+<p>3、编写 <em><code>migration</code></em> 文件<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">up</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    Schema::create(<span class="string">'roles'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Blueprint $table)</span> </span>&#123;</div><div class="line">        $table-&gt;increments(<span class="string">'id'</span>);</div><div class="line">        $table-&gt;string(<span class="string">'name'</span>);     <span class="comment">//admin, member</span></div><div class="line">        $table-&gt;string(<span class="string">'label'</span>)-&gt;nullable();    <span class="comment">//desription of name</span></div><div class="line">        $table-&gt;timestamps();  </div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    Schema::create(<span class="string">'permissions'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Blueprint $table)</span> </span>&#123;</div><div class="line">        $table-&gt;increments(<span class="string">'id'</span>);</div><div class="line">        $table-&gt;string(<span class="string">'name'</span>);     <span class="comment">//admin, member</span></div><div class="line">        $table-&gt;string(<span class="string">'label'</span>)-&gt;nullable();    <span class="comment">//desription of name</span></div><div class="line">        $table-&gt;timestamps();  </div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">    * 关联 roles 和 permissions 表</div><div class="line">    */</div><div class="line">    Schema::create(<span class="string">'permissions_role'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Blueprint $table)</span> </span>&#123;</div><div class="line">        $table-&gt;integer(<span class="string">'permission_id'</span>)-&gt;unsigned();</div><div class="line">        $table-&gt;integer(<span class="string">'role_id'</span>)-&gt;unsigned();</div><div class="line"></div><div class="line">        <span class="comment">//创建外键</span></div><div class="line">        $table-&gt;foreign(<span class="string">'permission_id'</span>)</div><div class="line">              -&gt;references(<span class="string">'id'</span>) </div><div class="line">              -&gt;on(<span class="string">'permissions'</span>)</div><div class="line">              -&gt;onDelete(<span class="string">'cascade'</span>);</div><div class="line">        $table-&gt;foreign(<span class="string">'role_id'</span>)</div><div class="line">              -&gt;references(<span class="string">'id'</span>) </div><div class="line">              -&gt;on(<span class="string">'roles'</span>)</div><div class="line">              -&gt;onDelete(<span class="string">'cascade'</span>);</div><div class="line"></div><div class="line">        $table-&gt;primary([<span class="string">'permission_id'</span>, <span class="string">'role_id'</span>]);  <span class="comment">//联合主键，只要两条数据两个字段不一样就行</span></div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">    * 关联 roles 和 users 表</div><div class="line">    */</div><div class="line">    Schema::create(<span class="string">'role_user'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Blueprint $table)</span> </span>&#123;</div><div class="line">        $table-&gt;integer(<span class="string">'user_id'</span>)-&gt;unsigned();</div><div class="line">        $table-&gt;integer(<span class="string">'role_id'</span>)-&gt;unsigned();</div><div class="line"></div><div class="line">        <span class="comment">//创建外键</span></div><div class="line">        $table-&gt;foreign(<span class="string">'user_id'</span>)</div><div class="line">              -&gt;references(<span class="string">'id'</span>) </div><div class="line">              -&gt;on(<span class="string">'users'</span>)</div><div class="line">              -&gt;onDelete(<span class="string">'cascade'</span>);</div><div class="line">        $table-&gt;foreign(<span class="string">'role_id'</span>)</div><div class="line">              -&gt;references(<span class="string">'id'</span>) </div><div class="line">              -&gt;on(<span class="string">'roles'</span>)</div><div class="line">              -&gt;onDelete(<span class="string">'cascade'</span>);</div><div class="line"></div><div class="line">        $table-&gt;primary([<span class="string">'user_id'</span>, <span class="string">'role_id'</span>]);    <span class="comment">//联合主键，只要两条数据两个字段不一样就行</span></div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>4、执行 <em><code>php artisan migrate</code></em></p>
+<blockquote>
+<p>创建表之间的多对多关系</p>
+</blockquote>
+<ul>
+<li>user: 用户，用户自己注册的账户，通过与role表的联系赋予用户角色（角色表与permission联系赋予用户权限）</li>
+<li>role：角色（admin, user等），用来描述user在该项目中的角色</li>
+<li>permissions: 权限，用来描述一个角色拥有的权限，比如edit_form</li>
+</ul>
+<p>1、修改 <em><code>model</code></em> 文件<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* Permission</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">roles</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;belongsToMany(Role::class);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* Role</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">permissions</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;belongsToMany(Permission::class);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">givePermission</span><span class="params">(Permission $permission)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;permissions()-&gt;save($permission);</div><div class="line">    <span class="comment">//通过 $role-&gt;givePermission($permission) 给角色权限</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* User</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">roles</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;belongsToMany(Role::class);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>2、进入 <em><code>tinker</code></em> 创建一个 <em><code>role</code></em> 角色和一个 <em><code>permission</code></em> 权限<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">php artisan tinker</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* 创建 role 为 admin</div><div class="line">*/</div><div class="line"><span class="keyword">namespace</span> <span class="title">App</span>;</div><div class="line">$role=<span class="keyword">new</span> Role;</div><div class="line">$role-&gt;name=<span class="string">"admin"</span>;    <span class="comment">//角色名</span></div><div class="line">$role-&gt;label=<span class="string">"Admin"</span>;   <span class="comment">//角色描述</span></div><div class="line">$role-&gt;save();</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* 创建 permission 为 edit_form</div><div class="line">*/</div><div class="line">$permssion = <span class="keyword">new</span> Permission;</div><div class="line">$permission-&gt;name = <span class="string">"edit_form"</span>;    <span class="comment">//权限名</span></div><div class="line">$permission-&gt;label = <span class="string">"Edit the form"</span>;       <span class="comment">//权限解释</span></div><div class="line">$permission-&gt;save();</div></pre></td></tr></table></figure></p>
+<p>创建 <code>权限</code> 和 <code>角色</code> 后在 <em><code>permission_role</code></em> 中并没有将两个相关联</p>
+<p>3、关联 <code>权限</code> 和 <code>角色</code><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//接着上面的tinker界面</span></div><div class="line">$role-&gt;givePermission($permission);     <span class="comment">//关系表中会生成自动关联数据</span></div></pre></td></tr></table></figure></p>
+<p>4、定义 <em><code>权限</code></em><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* AuthServiceProvider</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span><span class="params">(GateContract $gate)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">$this</span>-&gt;registerPolicies($gate);</div><div class="line">    <span class="keyword">foreach</span>(<span class="keyword">$this</span>-&gt;getPermissions() <span class="keyword">as</span> $permission) &#123;</div><div class="line">        $gate-&gt;define($permissions-&gt;name, <span class="function"><span class="keyword">function</span><span class="params">(User $user)</span> <span class="title">use</span> <span class="params">($permission)</span></span>&#123;</div><div class="line">            <span class="keyword">return</span> $user-&gt;hasRole($permission-&gt;roles);</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">getPermissions</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> Permission::with(<span class="string">'roles'</span>)-&gt;get();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* User model</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">hasRole</span><span class="params">($role)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">    * 在其他地方使用，如果传hasRole('admin')，既传进来的是字符串</div><div class="line">    */</div><div class="line">    <span class="keyword">if</span>(is_string($role)) &#123;</div><div class="line">        <span class="comment">//判断user的所有role中是否存在name为$role的</span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;roles-&gt;contains(<span class="string">'name'</span>, $role);     </div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">    * 本例中使用，传进来的是roles的Collection</div><div class="line">    */</div><div class="line"></div><div class="line">    <span class="comment">// 1、判断user的role是否有与permission的role相同的</span></div><div class="line">    <span class="comment">// 2、count返回 &gt;0 表明有用户有这个权限，取反再取反返回真</span></div><div class="line">    <span class="comment">// 3、count返回 0 表明用户没有这个权限，取反再取反返回假</span></div><div class="line">    <span class="comment">// 4、注意roles不要加括号，intersect方法处理的是Collection</span></div><div class="line">    <span class="keyword">return</span> !! $role-&gt;intersect(<span class="keyword">$this</span>-&gt;roles)-&gt;count();   </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>5、<em><code>blade</code></em> 应用<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--在 AuthServiceProvider 中已经foreach注册了权限--&gt;</span></div><div class="line">@can('权限名')</div><div class="line">...</div><div class="line">@endcan</div></pre></td></tr></table></figure></p>
+<p><strong>6、示例：赋予用户一个角色，让他拥有一定权限</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">php artisan tinker</div><div class="line"></div><div class="line"><span class="keyword">namespace</span> <span class="title">App</span>;</div><div class="line">$user = User::find(<span class="number">1</span>);</div><div class="line">$role = Role::find(<span class="number">1</span>);</div><div class="line"></div><div class="line">$user-&gt;roles()-&gt;save($role);</div></pre></td></tr></table></figure></p>
+<p><strong>7、应用实例：当用户注册时候自动赋予某个角色（角色和权限已经先在数据库定义好关系）</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* 在 Controller 中</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span><span class="params">(RegisterRequest $request)</span></span></div><div class="line">&#123;</div><div class="line">    $user = User::create($data);</div><div class="line">    $role = Role::where(<span class="string">'name'</span>, <span class="string">'ordinary_user'</span>);</div><div class="line"></div><div class="line">    <span class="comment">// 给注册用户 ordinary_user 这个角色</span></div><div class="line">    <span class="comment">// 他的权限就是 ordinary_user 拥有的权限（在数据库预先定义好）</span></div><div class="line">    $user-&gt;roles()-&gt;save($role);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/16/Laravel-ACL/" data-id="cj40nm2wq0009048ipke73e77" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACL/">ACL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/authorize/">authorize</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/12/Laravel-项目实战相关/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Laravel 项目实战相关
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note-of-Linux-shell-脚本攻略/">note of "Linux shell 脚本攻略"</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ACL/">ACL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Controller/">Controller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Domain/">Domain</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eloquent/">Eloquent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Event/">Event</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Http/">Http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JWTAuth/">JWTAuth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mini-Programes/">Mini Programes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOP/">OOP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PhpStorm/">PhpStorm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Route/">Route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SendCloud/">SendCloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terminal/">Terminal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPS/">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wechat/">Wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/api/">api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auth/">auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/authorize/">authorize</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/autoload/">autoload</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blade/">blade</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data/">data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debug/">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dingo/">dingo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">ide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/loading/">loading</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/login/">login</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mail/">mail</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/middleware/">middleware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mixture/">mixture</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/namespace/">namespace</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phpunit/">phpunit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/profile/">profile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/project/">project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/register/">register</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/request/">request</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/require/">require</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server/">server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/status-code/">status code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/table/">table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/user/">user</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ustopmoving/">ustopmoving</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/你站住/">你站住</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ACL/" style="font-size: 10px;">ACL</a> <a href="/tags/Controller/" style="font-size: 10px;">Controller</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/Eloquent/" style="font-size: 10px;">Eloquent</a> <a href="/tags/Event/" style="font-size: 10px;">Event</a> <a href="/tags/Http/" style="font-size: 10px;">Http</a> <a href="/tags/JWTAuth/" style="font-size: 13.33px;">JWTAuth</a> <a href="/tags/Mini-Programes/" style="font-size: 10px;">Mini Programes</a> <a href="/tags/OOP/" style="font-size: 10px;">OOP</a> <a href="/tags/PhpStorm/" style="font-size: 10px;">PhpStorm</a> <a href="/tags/Route/" style="font-size: 10px;">Route</a> <a href="/tags/SendCloud/" style="font-size: 10px;">SendCloud</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/Wechat/" style="font-size: 10px;">Wechat</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/auth/" style="font-size: 10px;">auth</a> <a href="/tags/authorize/" style="font-size: 10px;">authorize</a> <a href="/tags/autoload/" style="font-size: 10px;">autoload</a> <a href="/tags/blade/" style="font-size: 13.33px;">blade</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/database/" style="font-size: 13.33px;">database</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/dingo/" style="font-size: 13.33px;">dingo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/ide/" style="font-size: 10px;">ide</a> <a href="/tags/laravel/" style="font-size: 20px;">laravel</a> <a href="/tags/loading/" style="font-size: 10px;">loading</a> <a href="/tags/login/" style="font-size: 10px;">login</a> <a href="/tags/mail/" style="font-size: 10px;">mail</a> <a href="/tags/middleware/" style="font-size: 10px;">middleware</a> <a href="/tags/mixture/" style="font-size: 10px;">mixture</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/namespace/" style="font-size: 10px;">namespace</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/php/" style="font-size: 16.67px;">php</a> <a href="/tags/phpunit/" style="font-size: 10px;">phpunit</a> <a href="/tags/profile/" style="font-size: 10px;">profile</a> <a href="/tags/project/" style="font-size: 13.33px;">project</a> <a href="/tags/register/" style="font-size: 10px;">register</a> <a href="/tags/request/" style="font-size: 10px;">request</a> <a href="/tags/require/" style="font-size: 10px;">require</a> <a href="/tags/server/" style="font-size: 16.67px;">server</a> <a href="/tags/status-code/" style="font-size: 10px;">status code</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/user/" style="font-size: 10px;">user</a> <a href="/tags/ustopmoving/" style="font-size: 10px;">ustopmoving</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/你站住/" style="font-size: 10px;">你站住</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/16/Laravel-ACL/">Laravel ACL</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/12/Laravel-项目实战相关/">Laravel 项目实战相关</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/11/laravel-用户注册登录相关/">laravel 用户注册登录相关</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/11/laravel-Request常用规则/">laravel Request常用规则</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/11/laravel-表的联系/">laravel 表的联系</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Nancelglap<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
