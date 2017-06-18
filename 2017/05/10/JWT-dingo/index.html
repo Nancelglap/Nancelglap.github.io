@@ -114,7 +114,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"left","display":"remove","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -486,126 +486,6 @@
 
 
         </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="http://wx3.sinaimg.cn/large/8a2125c3gy1fgpv7wi9alj20qo0qo0xr.jpg"
-               alt="Nancelglap" />
-          <p class="site-author-name" itemprop="name">Nancelglap</p>
-           
-              <p class="site-description motion-element" itemprop="description">不想正经</p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">31</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">分类</span>
-              
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">54</span>
-                <span class="site-state-item-name">标签</span>
-              
-            </div>
-          
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
-          </div>
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#dingo的作用"><span class="nav-number">1.</span> <span class="nav-text">dingo的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装方法-1"><span class="nav-number">2.</span> <span class="nav-text">安装方法 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装方法-2"><span class="nav-number">3.</span> <span class="nav-text">安装方法 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、在routes-api-php中"><span class="nav-number">4.</span> <span class="nav-text">1、在routes\api.php中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、创建Controller"><span class="nav-number">5.</span> <span class="nav-text">2、创建Controller</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JWTAuth的作用"><span class="nav-number"></span> <span class="nav-text">JWTAuth的作用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装方法-1-1"><span class="nav-number">1.</span> <span class="nav-text">安装方法 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装方法-2-1"><span class="nav-number">2.</span> <span class="nav-text">安装方法 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、在config-app-php中注册相应的Service-Provider"><span class="nav-number">3.</span> <span class="nav-text">1、在config/app.php中注册相应的Service Provider</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、注册jwt-Facades"><span class="nav-number">4.</span> <span class="nav-text">2、注册jwt Facades</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、更新配置文件"><span class="nav-number">5.</span> <span class="nav-text">3、更新配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、生成jwt-php文件中数组的secret键成对应的值"><span class="nav-number">6.</span> <span class="nav-text">4、生成jwt.php文件中数组的secret键成对应的值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改config-api-php的auth"><span class="nav-number">7.</span> <span class="nav-text">修改config/api.php的auth</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、添加中间件身份验证"><span class="nav-number">8.</span> <span class="nav-text">1、添加中间件身份验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、在-app-hTTP-Kernel-php中routeMiddleware新增如下内容"><span class="nav-number">9.</span> <span class="nav-text">2、在/app/hTTP/Kernel.php中routeMiddleware新增如下内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、验证表格更改"><span class="nav-number">10.</span> <span class="nav-text">3、验证表格更改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、认证模块添加"><span class="nav-number">11.</span> <span class="nav-text">4、认证模块添加</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、编辑Transformers目录-可选"><span class="nav-number">12.</span> <span class="nav-text">5、编辑Transformers目录(可选)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、在路由中指定使用jwt-api-auth"><span class="nav-number">13.</span> <span class="nav-text">6、在路由中指定使用jwt.api.auth</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
         
       </div>
     </main>
