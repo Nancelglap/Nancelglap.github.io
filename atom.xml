@@ -4,9 +4,9 @@
   <subtitle>不想正经</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://nancelglap.github.io/"/>
   <updated>2017-06-17T03:29:50.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://nancelglap.github.io/</id>
   
   <author>
     <name>Nancelglap</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Laravel ACL</title>
-    <link href="http://yoursite.com/2017/06/16/Laravel-ACL/"/>
-    <id>http://yoursite.com/2017/06/16/Laravel-ACL/</id>
+    <link href="https://nancelglap.github.io/2017/06/16/Laravel-ACL/"/>
+    <id>https://nancelglap.github.io/2017/06/16/Laravel-ACL/</id>
     <published>2017-06-16T08:13:41.000Z</published>
     <updated>2017-06-17T03:29:50.000Z</updated>
     
@@ -81,23 +81,23 @@
     
     </summary>
     
-      <category term="note" scheme="http://yoursite.com/categories/note/"/>
+      <category term="note" scheme="https://nancelglap.github.io/categories/note/"/>
     
     
-      <category term="laravel" scheme="http://yoursite.com/tags/laravel/"/>
+      <category term="laravel" scheme="https://nancelglap.github.io/tags/laravel/"/>
     
-      <category term="ACL" scheme="http://yoursite.com/tags/ACL/"/>
+      <category term="ACL" scheme="https://nancelglap.github.io/tags/ACL/"/>
     
-      <category term="authorize" scheme="http://yoursite.com/tags/authorize/"/>
+      <category term="authorize" scheme="https://nancelglap.github.io/tags/authorize/"/>
     
-      <category term="Middleware" scheme="http://yoursite.com/tags/Middleware/"/>
+      <category term="Middleware" scheme="https://nancelglap.github.io/tags/Middleware/"/>
     
   </entry>
   
   <entry>
     <title>Laravel 项目实战相关</title>
-    <link href="http://yoursite.com/2017/06/12/Laravel-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E7%9B%B8%E5%85%B3/"/>
-    <id>http://yoursite.com/2017/06/12/Laravel-项目实战相关/</id>
+    <link href="https://nancelglap.github.io/2017/06/12/Laravel-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E7%9B%B8%E5%85%B3/"/>
+    <id>https://nancelglap.github.io/2017/06/12/Laravel-项目实战相关/</id>
     <published>2017-06-12T13:41:08.000Z</published>
     <updated>2017-06-18T13:00:48.000Z</updated>
     
@@ -178,21 +178,21 @@
     
     </summary>
     
-      <category term="note" scheme="http://yoursite.com/categories/note/"/>
+      <category term="note" scheme="https://nancelglap.github.io/categories/note/"/>
     
     
-      <category term="laravel" scheme="http://yoursite.com/tags/laravel/"/>
+      <category term="laravel" scheme="https://nancelglap.github.io/tags/laravel/"/>
     
-      <category term="project" scheme="http://yoursite.com/tags/project/"/>
+      <category term="project" scheme="https://nancelglap.github.io/tags/project/"/>
     
-      <category term="mixture" scheme="http://yoursite.com/tags/mixture/"/>
+      <category term="mixture" scheme="https://nancelglap.github.io/tags/mixture/"/>
     
   </entry>
   
   <entry>
     <title>laravel 用户注册登录相关</title>
-    <link href="http://yoursite.com/2017/06/11/laravel-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E7%99%BB%E5%BD%95%E7%9B%B8%E5%85%B3/"/>
-    <id>http://yoursite.com/2017/06/11/laravel-用户注册登录相关/</id>
+    <link href="https://nancelglap.github.io/2017/06/11/laravel-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E7%99%BB%E5%BD%95%E7%9B%B8%E5%85%B3/"/>
+    <id>https://nancelglap.github.io/2017/06/11/laravel-用户注册登录相关/</id>
     <published>2017-06-11T12:18:31.000Z</published>
     <updated>2017-06-18T14:49:12.000Z</updated>
     
@@ -280,25 +280,25 @@
     
     </summary>
     
-      <category term="note" scheme="http://yoursite.com/categories/note/"/>
+      <category term="note" scheme="https://nancelglap.github.io/categories/note/"/>
     
     
-      <category term="laravel" scheme="http://yoursite.com/tags/laravel/"/>
+      <category term="laravel" scheme="https://nancelglap.github.io/tags/laravel/"/>
     
-      <category term="user" scheme="http://yoursite.com/tags/user/"/>
+      <category term="user" scheme="https://nancelglap.github.io/tags/user/"/>
     
-      <category term="register" scheme="http://yoursite.com/tags/register/"/>
+      <category term="register" scheme="https://nancelglap.github.io/tags/register/"/>
     
-      <category term="login" scheme="http://yoursite.com/tags/login/"/>
+      <category term="login" scheme="https://nancelglap.github.io/tags/login/"/>
     
-      <category term="profile" scheme="http://yoursite.com/tags/profile/"/>
+      <category term="profile" scheme="https://nancelglap.github.io/tags/profile/"/>
     
   </entry>
   
   <entry>
     <title>laravel Request常用规则</title>
-    <link href="http://yoursite.com/2017/06/11/laravel-Request%E5%B8%B8%E7%94%A8%E8%A7%84%E5%88%99/"/>
-    <id>http://yoursite.com/2017/06/11/laravel-Request常用规则/</id>
+    <link href="https://nancelglap.github.io/2017/06/11/laravel-Request%E5%B8%B8%E7%94%A8%E8%A7%84%E5%88%99/"/>
+    <id>https://nancelglap.github.io/2017/06/11/laravel-Request常用规则/</id>
     <published>2017-06-11T12:09:33.000Z</published>
     <updated>2017-06-11T14:47:31.000Z</updated>
     
@@ -311,19 +311,19 @@
     
     </summary>
     
-      <category term="note" scheme="http://yoursite.com/categories/note/"/>
+      <category term="note" scheme="https://nancelglap.github.io/categories/note/"/>
     
     
-      <category term="laravel" scheme="http://yoursite.com/tags/laravel/"/>
+      <category term="laravel" scheme="https://nancelglap.github.io/tags/laravel/"/>
     
-      <category term="request" scheme="http://yoursite.com/tags/request/"/>
+      <category term="request" scheme="https://nancelglap.github.io/tags/request/"/>
     
   </entry>
   
   <entry>
     <title>laravel 表的联系</title>
-    <link href="http://yoursite.com/2017/06/11/laravel-%E8%A1%A8%E7%9A%84%E8%81%94%E7%B3%BB/"/>
-    <id>http://yoursite.com/2017/06/11/laravel-表的联系/</id>
+    <link href="https://nancelglap.github.io/2017/06/11/laravel-%E8%A1%A8%E7%9A%84%E8%81%94%E7%B3%BB/"/>
+    <id>https://nancelglap.github.io/2017/06/11/laravel-表的联系/</id>
     <published>2017-06-11T07:45:36.000Z</published>
     <updated>2017-06-18T12:47:11.000Z</updated>
     
@@ -356,23 +356,23 @@
     
     </summary>
     
-      <category term="note" scheme="http://yoursite.com/categories/note/"/>
+      <category term="note" scheme="https://nancelglap.github.io/categories/note/"/>
     
     
-      <category term="laravel" scheme="http://yoursite.com/tags/laravel/"/>
+      <category term="laravel" scheme="https://nancelglap.github.io/tags/laravel/"/>
     
-      <category term="database" scheme="http://yoursite.com/tags/database/"/>
+      <category term="database" scheme="https://nancelglap.github.io/tags/database/"/>
     
-      <category term="table" scheme="http://yoursite.com/tags/table/"/>
+      <category term="table" scheme="https://nancelglap.github.io/tags/table/"/>
     
-      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
+      <category term="mysql" scheme="https://nancelglap.github.io/tags/mysql/"/>
     
   </entry>
   
   <entry>
     <title>laravel 用户确认邮箱</title>
-    <link href="http://yoursite.com/2017/06/10/laravel-%E7%94%A8%E6%88%B7%E7%A1%AE%E8%AE%A4%E9%82%AE%E7%AE%B1/"/>
-    <id>http://yoursite.com/2017/06/10/laravel-用户确认邮箱/</id>
+    <link href="https://nancelglap.github.io/2017/06/10/laravel-%E7%94%A8%E6%88%B7%E7%A1%AE%E8%AE%A4%E9%82%AE%E7%AE%B1/"/>
+    <id>https://nancelglap.github.io/2017/06/10/laravel-用户确认邮箱/</id>
     <published>2017-06-10T02:57:00.000Z</published>
     <updated>2017-06-11T14:58:48.000Z</updated>
     
@@ -410,21 +410,21 @@
     
     </summary>
     
-      <category term="note" scheme="http://yoursite.com/categories/note/"/>
+      <category term="note" scheme="https://nancelglap.github.io/categories/note/"/>
     
     
-      <category term="laravel" scheme="http://yoursite.com/tags/laravel/"/>
+      <category term="laravel" scheme="https://nancelglap.github.io/tags/laravel/"/>
     
-      <category term="mail" scheme="http://yoursite.com/tags/mail/"/>
+      <category term="mail" scheme="https://nancelglap.github.io/tags/mail/"/>
     
-      <category term="SendCloud" scheme="http://yoursite.com/tags/SendCloud/"/>
+      <category term="SendCloud" scheme="https://nancelglap.github.io/tags/SendCloud/"/>
     
   </entry>
   
   <entry>
     <title>PHP单元测试</title>
-    <link href="http://yoursite.com/2017/06/09/PHP%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
-    <id>http://yoursite.com/2017/06/09/PHP单元测试/</id>
+    <link href="https://nancelglap.github.io/2017/06/09/PHP%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
+    <id>https://nancelglap.github.io/2017/06/09/PHP单元测试/</id>
     <published>2017-06-09T12:01:58.000Z</published>
     <updated>2017-06-11T14:59:05.000Z</updated>
     
@@ -453,21 +453,21 @@
     
     </summary>
     
-      <category term="note" scheme="http://yoursite.com/categories/note/"/>
+      <category term="note" scheme="https://nancelglap.github.io/categories/note/"/>
     
     
-      <category term="phpunit" scheme="http://yoursite.com/tags/phpunit/"/>
+      <category term="phpunit" scheme="https://nancelglap.github.io/tags/phpunit/"/>
     
-      <category term="test" scheme="http://yoursite.com/tags/test/"/>
+      <category term="test" scheme="https://nancelglap.github.io/tags/test/"/>
     
-      <category term="debug" scheme="http://yoursite.com/tags/debug/"/>
+      <category term="debug" scheme="https://nancelglap.github.io/tags/debug/"/>
     
   </entry>
   
   <entry>
     <title>php命名空间和自动加载</title>
-    <link href="http://yoursite.com/2017/06/08/php%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E5%92%8C%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD/"/>
-    <id>http://yoursite.com/2017/06/08/php命名空间和自动加载/</id>
+    <link href="https://nancelglap.github.io/2017/06/08/php%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E5%92%8C%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD/"/>
+    <id>https://nancelglap.github.io/2017/06/08/php命名空间和自动加载/</id>
     <published>2017-06-08T08:33:09.000Z</published>
     <updated>2017-06-11T14:59:10.000Z</updated>
     
@@ -489,23 +489,23 @@
     
     </summary>
     
-      <category term="note" scheme="http://yoursite.com/categories/note/"/>
+      <category term="note" scheme="https://nancelglap.github.io/categories/note/"/>
     
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="php" scheme="https://nancelglap.github.io/tags/php/"/>
     
-      <category term="namespace" scheme="http://yoursite.com/tags/namespace/"/>
+      <category term="namespace" scheme="https://nancelglap.github.io/tags/namespace/"/>
     
-      <category term="require" scheme="http://yoursite.com/tags/require/"/>
+      <category term="require" scheme="https://nancelglap.github.io/tags/require/"/>
     
-      <category term="autoload" scheme="http://yoursite.com/tags/autoload/"/>
+      <category term="autoload" scheme="https://nancelglap.github.io/tags/autoload/"/>
     
   </entry>
   
   <entry>
     <title>vim常用操作</title>
-    <link href="http://yoursite.com/2017/06/07/vim%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
-    <id>http://yoursite.com/2017/06/07/vim常用操作/</id>
+    <link href="https://nancelglap.github.io/2017/06/07/vim%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
+    <id>https://nancelglap.github.io/2017/06/07/vim常用操作/</id>
     <published>2017-06-07T03:53:47.000Z</published>
     <updated>2017-06-09T12:26:21.000Z</updated>
     
@@ -540,17 +540,17 @@
     
     </summary>
     
-      <category term="note" scheme="http://yoursite.com/categories/note/"/>
+      <category term="note" scheme="https://nancelglap.github.io/categories/note/"/>
     
     
-      <category term="vim" scheme="http://yoursite.com/tags/vim/"/>
+      <category term="vim" scheme="https://nancelglap.github.io/tags/vim/"/>
     
   </entry>
   
   <entry>
     <title>Model Factory</title>
-    <link href="http://yoursite.com/2017/06/06/Model-Factory/"/>
-    <id>http://yoursite.com/2017/06/06/Model-Factory/</id>
+    <link href="https://nancelglap.github.io/2017/06/06/Model-Factory/"/>
+    <id>https://nancelglap.github.io/2017/06/06/Model-Factory/</id>
     <published>2017-06-06T01:24:32.000Z</published>
     <updated>2017-06-06T07:49:42.000Z</updated>
     
@@ -584,19 +584,19 @@
     
     </summary>
     
-      <category term="note" scheme="http://yoursite.com/categories/note/"/>
+      <category term="note" scheme="https://nancelglap.github.io/categories/note/"/>
     
     
-      <category term="database" scheme="http://yoursite.com/tags/database/"/>
+      <category term="database" scheme="https://nancelglap.github.io/tags/database/"/>
     
-      <category term="data" scheme="http://yoursite.com/tags/data/"/>
+      <category term="data" scheme="https://nancelglap.github.io/tags/data/"/>
     
   </entry>
   
   <entry>
     <title>Laravel Event</title>
-    <link href="http://yoursite.com/2017/06/04/Laravel-Event/"/>
-    <id>http://yoursite.com/2017/06/04/Laravel-Event/</id>
+    <link href="https://nancelglap.github.io/2017/06/04/Laravel-Event/"/>
+    <id>https://nancelglap.github.io/2017/06/04/Laravel-Event/</id>
     <published>2017-06-04T03:00:56.000Z</published>
     <updated>2017-06-17T02:21:23.000Z</updated>
     
@@ -634,19 +634,19 @@
     
     </summary>
     
-      <category term="note" scheme="http://yoursite.com/categories/note/"/>
+      <category term="note" scheme="https://nancelglap.github.io/categories/note/"/>
     
     
-      <category term="laravel" scheme="http://yoursite.com/tags/laravel/"/>
+      <category term="laravel" scheme="https://nancelglap.github.io/tags/laravel/"/>
     
-      <category term="Event" scheme="http://yoursite.com/tags/Event/"/>
+      <category term="Event" scheme="https://nancelglap.github.io/tags/Event/"/>
     
   </entry>
   
   <entry>
     <title>Laravel 向 Container 添加自定义类</title>
-    <link href="http://yoursite.com/2017/06/03/Laravel-%E5%90%91-Container-%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB/"/>
-    <id>http://yoursite.com/2017/06/03/Laravel-向-Container-添加自定义类/</id>
+    <link href="https://nancelglap.github.io/2017/06/03/Laravel-%E5%90%91-Container-%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB/"/>
+    <id>https://nancelglap.github.io/2017/06/03/Laravel-向-Container-添加自定义类/</id>
     <published>2017-06-03T02:10:52.000Z</published>
     <updated>2017-06-03T02:40:22.000Z</updated>
     
@@ -669,8 +669,8 @@
   
   <entry>
     <title>Http状态码</title>
-    <link href="http://yoursite.com/2017/06/01/Http%E7%8A%B6%E6%80%81%E7%A0%81/"/>
-    <id>http://yoursite.com/2017/06/01/Http状态码/</id>
+    <link href="https://nancelglap.github.io/2017/06/01/Http%E7%8A%B6%E6%80%81%E7%A0%81/"/>
+    <id>https://nancelglap.github.io/2017/06/01/Http状态码/</id>
     <published>2017-06-01T03:05:30.000Z</published>
     <updated>2017-06-11T14:57:43.000Z</updated>
     
@@ -736,21 +736,21 @@
     
     </summary>
     
-      <category term="note" scheme="http://yoursite.com/categories/note/"/>
+      <category term="note" scheme="https://nancelglap.github.io/categories/note/"/>
     
     
-      <category term="Http" scheme="http://yoursite.com/tags/Http/"/>
+      <category term="Http" scheme="https://nancelglap.github.io/tags/Http/"/>
     
-      <category term="project" scheme="http://yoursite.com/tags/project/"/>
+      <category term="project" scheme="https://nancelglap.github.io/tags/project/"/>
     
-      <category term="status code" scheme="http://yoursite.com/tags/status-code/"/>
+      <category term="status code" scheme="https://nancelglap.github.io/tags/status-code/"/>
     
   </entry>
   
   <entry>
     <title>PhpStorm</title>
-    <link href="http://yoursite.com/2017/05/30/PhpStorm/"/>
-    <id>http://yoursite.com/2017/05/30/PhpStorm/</id>
+    <link href="https://nancelglap.github.io/2017/05/30/PhpStorm/"/>
+    <id>https://nancelglap.github.io/2017/05/30/PhpStorm/</id>
     <published>2017-05-30T13:32:47.000Z</published>
     <updated>2017-06-11T14:59:19.000Z</updated>
     
@@ -770,19 +770,19 @@
     
     </summary>
     
-      <category term="note" scheme="http://yoursite.com/categories/note/"/>
+      <category term="note" scheme="https://nancelglap.github.io/categories/note/"/>
     
     
-      <category term="ide" scheme="http://yoursite.com/tags/ide/"/>
+      <category term="ide" scheme="https://nancelglap.github.io/tags/ide/"/>
     
-      <category term="PhpStorm" scheme="http://yoursite.com/tags/PhpStorm/"/>
+      <category term="PhpStorm" scheme="https://nancelglap.github.io/tags/PhpStorm/"/>
     
   </entry>
   
   <entry>
     <title>你站住项目进度</title>
-    <link href="http://yoursite.com/2017/05/20/%E4%BD%A0%E7%AB%99%E4%BD%8F%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/"/>
-    <id>http://yoursite.com/2017/05/20/你站住项目进度/</id>
+    <link href="https://nancelglap.github.io/2017/05/20/%E4%BD%A0%E7%AB%99%E4%BD%8F%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/"/>
+    <id>https://nancelglap.github.io/2017/05/20/你站住项目进度/</id>
     <published>2017-05-20T13:00:50.000Z</published>
     <updated>2017-06-11T14:56:44.000Z</updated>
     
@@ -816,18 +816,18 @@
     </summary>
     
     
-      <category term="ustopmoving" scheme="http://yoursite.com/tags/ustopmoving/"/>
+      <category term="ustopmoving" scheme="https://nancelglap.github.io/tags/ustopmoving/"/>
     
-      <category term="你站住" scheme="http://yoursite.com/tags/%E4%BD%A0%E7%AB%99%E4%BD%8F/"/>
+      <category term="你站住" scheme="https://nancelglap.github.io/tags/%E4%BD%A0%E7%AB%99%E4%BD%8F/"/>
     
-      <category term="loading" scheme="http://yoursite.com/tags/loading/"/>
+      <category term="loading" scheme="https://nancelglap.github.io/tags/loading/"/>
     
   </entry>
   
   <entry>
     <title>微信小程序相关文档</title>
-    <link href="http://yoursite.com/2017/05/20/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9B%B8%E5%85%B3%E6%96%87%E6%A1%A3/"/>
-    <id>http://yoursite.com/2017/05/20/微信小程序相关文档/</id>
+    <link href="https://nancelglap.github.io/2017/05/20/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9B%B8%E5%85%B3%E6%96%87%E6%A1%A3/"/>
+    <id>https://nancelglap.github.io/2017/05/20/微信小程序相关文档/</id>
     <published>2017-05-20T01:58:03.000Z</published>
     <updated>2017-06-11T14:57:07.000Z</updated>
     
@@ -874,19 +874,19 @@
     
     </summary>
     
-      <category term="note" scheme="http://yoursite.com/categories/note/"/>
+      <category term="note" scheme="https://nancelglap.github.io/categories/note/"/>
     
     
-      <category term="Mini Programes" scheme="http://yoursite.com/tags/Mini-Programes/"/>
+      <category term="Mini Programes" scheme="https://nancelglap.github.io/tags/Mini-Programes/"/>
     
-      <category term="Wechat" scheme="http://yoursite.com/tags/Wechat/"/>
+      <category term="Wechat" scheme="https://nancelglap.github.io/tags/Wechat/"/>
     
   </entry>
   
   <entry>
     <title>PHP 面向对象编程</title>
-    <link href="http://yoursite.com/2017/05/14/PHP-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
-    <id>http://yoursite.com/2017/05/14/PHP-面向对象编程/</id>
+    <link href="https://nancelglap.github.io/2017/05/14/PHP-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
+    <id>https://nancelglap.github.io/2017/05/14/PHP-面向对象编程/</id>
     <published>2017-05-14T08:19:52.000Z</published>
     <updated>2017-06-11T14:59:14.000Z</updated>
     
@@ -939,21 +939,21 @@
     
     </summary>
     
-      <category term="note" scheme="http://yoursite.com/categories/note/"/>
+      <category term="note" scheme="https://nancelglap.github.io/categories/note/"/>
     
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="php" scheme="https://nancelglap.github.io/tags/php/"/>
     
-      <category term="OOP" scheme="http://yoursite.com/tags/OOP/"/>
+      <category term="OOP" scheme="https://nancelglap.github.io/tags/OOP/"/>
     
-      <category term="面向对象" scheme="http://yoursite.com/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+      <category term="面向对象" scheme="https://nancelglap.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
     
   </entry>
   
   <entry>
     <title>Git相关</title>
-    <link href="http://yoursite.com/2017/05/13/git%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/"/>
-    <id>http://yoursite.com/2017/05/13/git相关操作/</id>
+    <link href="https://nancelglap.github.io/2017/05/13/git%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/"/>
+    <id>https://nancelglap.github.io/2017/05/13/git相关操作/</id>
     <published>2017-05-13T07:33:41.000Z</published>
     <updated>2017-06-17T03:29:48.000Z</updated>
     
@@ -1033,21 +1033,21 @@
     
     </summary>
     
-      <category term="note" scheme="http://yoursite.com/categories/note/"/>
+      <category term="note" scheme="https://nancelglap.github.io/categories/note/"/>
     
     
-      <category term="server" scheme="http://yoursite.com/tags/server/"/>
+      <category term="server" scheme="https://nancelglap.github.io/tags/server/"/>
     
-      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+      <category term="git" scheme="https://nancelglap.github.io/tags/git/"/>
     
-      <category term="github" scheme="http://yoursite.com/tags/github/"/>
+      <category term="github" scheme="https://nancelglap.github.io/tags/github/"/>
     
   </entry>
   
   <entry>
     <title>VPS上配置和域名解析</title>
-    <link href="http://yoursite.com/2017/05/13/VPS%E4%B8%8A%E9%85%8D%E7%BD%AE%E5%92%8C%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/"/>
-    <id>http://yoursite.com/2017/05/13/VPS上配置和域名解析/</id>
+    <link href="https://nancelglap.github.io/2017/05/13/VPS%E4%B8%8A%E9%85%8D%E7%BD%AE%E5%92%8C%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/"/>
+    <id>https://nancelglap.github.io/2017/05/13/VPS上配置和域名解析/</id>
     <published>2017-05-13T07:17:39.000Z</published>
     <updated>2017-05-14T08:19:25.000Z</updated>
     
@@ -1062,23 +1062,23 @@
     
     </summary>
     
-      <category term="note" scheme="http://yoursite.com/categories/note/"/>
+      <category term="note" scheme="https://nancelglap.github.io/categories/note/"/>
     
     
-      <category term="laravel" scheme="http://yoursite.com/tags/laravel/"/>
+      <category term="laravel" scheme="https://nancelglap.github.io/tags/laravel/"/>
     
-      <category term="VPS" scheme="http://yoursite.com/tags/VPS/"/>
+      <category term="VPS" scheme="https://nancelglap.github.io/tags/VPS/"/>
     
-      <category term="server" scheme="http://yoursite.com/tags/server/"/>
+      <category term="server" scheme="https://nancelglap.github.io/tags/server/"/>
     
-      <category term="Domain" scheme="http://yoursite.com/tags/Domain/"/>
+      <category term="Domain" scheme="https://nancelglap.github.io/tags/Domain/"/>
     
   </entry>
   
   <entry>
     <title>安装LEMP环境</title>
-    <link href="http://yoursite.com/2017/05/12/%E5%AE%89%E8%A3%85LEMP%E7%8E%AF%E5%A2%83/"/>
-    <id>http://yoursite.com/2017/05/12/安装LEMP环境/</id>
+    <link href="https://nancelglap.github.io/2017/05/12/%E5%AE%89%E8%A3%85LEMP%E7%8E%AF%E5%A2%83/"/>
+    <id>https://nancelglap.github.io/2017/05/12/安装LEMP环境/</id>
     <published>2017-05-12T12:04:53.000Z</published>
     <updated>2017-06-11T14:57:02.000Z</updated>
     
@@ -1107,14 +1107,14 @@
     
     </summary>
     
-      <category term="note" scheme="http://yoursite.com/categories/note/"/>
+      <category term="note" scheme="https://nancelglap.github.io/categories/note/"/>
     
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="php" scheme="https://nancelglap.github.io/tags/php/"/>
     
-      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
+      <category term="mysql" scheme="https://nancelglap.github.io/tags/mysql/"/>
     
-      <category term="nginx" scheme="http://yoursite.com/tags/nginx/"/>
+      <category term="nginx" scheme="https://nancelglap.github.io/tags/nginx/"/>
     
   </entry>
   
