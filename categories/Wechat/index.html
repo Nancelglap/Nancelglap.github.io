@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="laravel,Controller," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -95,17 +95,15 @@
 
 
 
-<meta name="description" content="Controller中 store, destory, update方法">
-<meta name="keywords" content="laravel,Controller">
-<meta property="og:type" content="article">
-<meta property="og:title" content="数据的增删改">
-<meta property="og:url" content="https://nancelglap.github.io/2017/05/02/数据的增删改/index.html">
+<meta name="description" content="不想正经">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nancelglap">
+<meta property="og:url" content="https://nancelglap.github.io/categories/Wechat/index.html">
 <meta property="og:site_name" content="Nancelglap">
-<meta property="og:description" content="Controller中 store, destory, update方法">
-<meta property="og:updated_time" content="2017-06-19T11:02:34.000Z">
+<meta property="og:description" content="不想正经">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据的增删改">
-<meta name="twitter:description" content="Controller中 store, destory, update方法">
+<meta name="twitter:title" content="Nancelglap">
+<meta name="twitter:description" content="不想正经">
 
 
 
@@ -133,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="https://nancelglap.github.io/2017/05/02/数据的增删改/"/>
+  <link rel="canonical" href="https://nancelglap.github.io/categories/Wechat/"/>
 
 
 
 
 
-  <title>数据的增删改 | Nancelglap</title>
+  <title>分类: Wechat | Nancelglap</title>
   
 
 
@@ -164,7 +162,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -282,190 +280,45 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://nancelglap.github.io/2017/05/02/数据的增删改/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancelglap">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancelglap">
-    </span>
+  <section id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h1>Wechat<small>分类</small>
+      </h1>
+    </div>
 
     
-      <header class="post-header">
+      
 
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2017/05/20/微信小程序相关文档/" itemprop="url">
+              
+                <span itemprop="name">微信小程序相关文档</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">数据的增删改</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-02T16:20:01+08:00">
-                2017-05-02
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-05-20T09:58:03+08:00"
+              content="2017-05-20" >
+          05-20
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/laravel/" itemprop="url" rel="index">
-                    <span itemprop="name">laravel</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <blockquote>
-<p>Controller中 store, destory, update方法</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="1、增–store"><a href="#1、增–store" class="headerlink" title="1、增–store"></a><strong>1、增–store</strong></h2><p><code>这里省去验证和文件上传步骤，详见laravel文件上传</code><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">modelName</span>;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">store</span><span class="params">(newRequest $request)</span></span></div><div class="line">&#123;</div><div class="line">    $content = $request-&gt;except(<span class="string">'_token'</span>, <span class="string">'fileName'</span>);  <span class="comment">//不包括token和文件上传</span></div><div class="line">    $content[<span class="string">'filename'</span>] = <span class="string">'URL'</span> . <span class="string">'newFilename'</span> . $file-&gt;getClientOriginalExtension();</div><div class="line">    modelName::create($content);</div><div class="line"></div><div class="line">    redirect(<span class="string">'/path'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="2、删–destory"><a href="#2、删–destory" class="headerlink" title="2、删–destory"></a><strong>2、删–destory</strong></h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">modelName</span>;</div><div class="line"><span class="keyword">use</span> <span class="title">File</span>;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">destory</span><span class="params">($id)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">//先通过用户验证，进入相应用户的删除操作界面</span></div><div class="line">    <span class="keyword">$this</span> -&gt; middleware(<span class="string">'auth'</span>);</div><div class="line"></div><div class="line">    $content = modelName::find($id);</div><div class="line"></div><div class="line">    <span class="comment">//要删除的文件，引入File Facade</span></div><div class="line">    File::delete(<span class="string">'/path/fileName'</span>);</div><div class="line"></div><div class="line">    <span class="comment">//删除数据库数据</span></div><div class="line">    $content -&gt; delete();</div><div class="line">    redirect(<span class="string">'/path'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="3、改–update"><a href="#3、改–update" class="headerlink" title="3、改–update"></a><strong>3、改–update</strong></h2><p><strong>改有两种方法可用，一种为直接新内容覆盖旧内容，另一种为逐条信息更新再update</strong></p>
-<blockquote>
-<p>第一种：覆盖</p>
-</blockquote>
-<p><strong>先不取出上传文件，后面处理后再加入数组，以下省略文件验证代码，详见<a href="">larval文件上传</a></strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">modelName</span>;</div><div class="line"><span class="keyword">use</span> <span class="title">File</span>;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">update</span><span class="params">(newRquest $request, $id)</span></span></div><div class="line">&#123;</div><div class="line">    $new_data = $request-&gt;except(<span class="string">'_token'</span>, <span class="string">'filename'</span>);</div><div class="line">    $file = $request -&gt; file(<span class="string">'filename'</span>);</div><div class="line">    $file -&gt; move(<span class="string">'/path'</span>, <span class="string">'fileNewName.extension'</span>);</div><div class="line">    File::delete(<span class="string">'/path/fileName'</span>);</div><div class="line"></div><div class="line">    $raw_data = modelName::findOrFail($id);</div><div class="line">    $raw_data -&gt; update($new_data);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>第二种：逐条更新</p>
-</blockquote>
-<p><strong>缺点：要先在Controller中写好包含每列名称的关联数组</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">modelName</span>;</div><div class="line"><span class="keyword">protected</span> $column_names = [</div><div class="line">    <span class="string">'column_name1'</span> =&gt; <span class="string">''</span>,</div><div class="line">    <span class="string">'column_name2'</span> =&gt; <span class="string">''</span>,</div><div class="line">    <span class="string">'column_name3'</span> =&gt; <span class="string">''</span>,</div><div class="line">    <span class="string">'column_name4'</span> =&gt; <span class="string">''</span>,</div><div class="line"></div><div class="line">];</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">update</span><span class="params">(newRequest $request, $id)</span></span></div><div class="line">&#123;</div><div class="line">    $raw_data = modelName::findOrFail($id);</div><div class="line"></div><div class="line">    <span class="comment">//取出键名</span></div><div class="line">    <span class="keyword">foreach</span>(array_keys(array_except(<span class="keyword">$this</span>-&gt;column_names, [<span class="string">'column_namex'</span>])) <span class="keyword">as</span> $key)</div><div class="line">    &#123;</div><div class="line">        $raw_data-&gt;$key = $request-&gt;get($key);</div><div class="line">    &#125;</div><div class="line">    $raw_data -&gt; save();</div><div class="line"></div><div class="line">    redirect(<span class="string">'/path'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/laravel/" rel="tag"># laravel</a>
-          
-            <a href="/tags/Controller/" rel="tag"># Controller</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/05/06/创建token/" rel="next" title="JWT的使用（中间件的坑）">
-                <i class="fa fa-chevron-left"></i> JWT的使用（中间件的坑）
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/02/Eloquent-关系/" rel="prev" title="Eloquent 关系">
-                Eloquent 关系 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+
 
 
           </div>
@@ -473,10 +326,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -582,10 +431,10 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-
+  
 
   
 
