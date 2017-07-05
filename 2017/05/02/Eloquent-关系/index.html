@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2017/05/02/Eloquent-关系/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="Eloquent 一对一等关系">
-<meta property="og:updated_time" content="2017-06-19T11:22:26.000Z">
+<meta property="og:updated_time" content="2017-07-05T13:14:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Eloquent 关系">
 <meta name="twitter:description" content="Eloquent 一对一等关系">
@@ -404,6 +404,10 @@
 <p><strong>增加约束条件</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$comments = App\Post::find(<span class="number">1</span>)-&gt;comments()-&gt;where()-&gt;first;</div></pre></td></tr></table></figure></p>
 <p>通过第二个参数，第三个参数自定义外键和主键<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> <span class="keyword">$this</span>-&gt;hasMany(<span class="string">'App\Comment'</span>, <span class="string">'foreign_key'</span>, <span class="string">'local_key'</span>);</div></pre></td></tr></table></figure></p>
 <p>更多详见 <code>laravelacademy.org/post/6996.html</code></p>
+<blockquote>
+<p>只获取指定的字段</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> <span class="keyword">$this</span>-&gt;belongsToMany(Permission::class)-&gt;select(<span class="keyword">array</span>(<span class="string">'name'</span>, <span class="string">'description'</span>));</div></pre></td></tr></table></figure>
 
       
     </div>

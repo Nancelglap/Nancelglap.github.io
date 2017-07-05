@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nancelglap.github.io/about/index.html</loc>
+    
+    <lastmod>2017-07-05T14:05:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancelglap.github.io/2017/05/02/Eloquent-%E5%85%B3%E7%B3%BB/</loc>
+    
+    <lastmod>2017-07-05T13:14:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nancelglap.github.io/2017/06/20/mysql-%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BD/</loc>
     
     <lastmod>2017-06-20T14:56:13.000Z</lastmod>
@@ -33,13 +47,6 @@
     <loc>https://nancelglap.github.io/2017/05/10/JWT-dingo/</loc>
     
     <lastmod>2017-06-19T11:42:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancelglap.github.io/2017/05/02/Eloquent-%E5%85%B3%E7%B3%BB/</loc>
-    
-    <lastmod>2017-06-19T11:22:26.000Z</lastmod>
     
   </url>
   
@@ -222,13 +229,6 @@
     <loc>https://nancelglap.github.io/2017/05/12/%E5%9C%A8%E8%B4%AD%E4%B9%B0%E7%9A%84VPS%E4%B8%8A%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E8%BF%90%E8%A1%8CLaravel/</loc>
     
     <lastmod>2017-06-19T11:02:09.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancelglap.github.io/about/index.html</loc>
-    
-    <lastmod>2017-06-19T09:36:47.000Z</lastmod>
     
   </url>
   
