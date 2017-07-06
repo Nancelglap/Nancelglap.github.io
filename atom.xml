@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2017-06-20T14:56:13.000Z</updated>
+  <updated>2017-07-06T03:29:00.000Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -14,6 +14,108 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python 语法</title>
+    <link href="https://nancelglap.github.io/2017/07/06/Python-%E8%AF%AD%E6%B3%95/"/>
+    <id>https://nancelglap.github.io/2017/07/06/Python-语法/</id>
+    <published>2017-07-06T03:27:41.000Z</published>
+    <updated>2017-07-06T03:29:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>python 语法相关</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>格式化输出</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Hello, %s'</span> % <span class="string">'world'</span></div><div class="line"><span class="string">'Hello, world'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Hi, %s, you have $%d.'</span> % (<span class="string">'Michael'</span>, <span class="number">1000000</span>)</div><div class="line"><span class="string">'Hi, Michael, you have $1000000.'</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;python 语法相关&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://nancelglap.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://nancelglap.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python 相关</title>
+    <link href="https://nancelglap.github.io/2017/07/06/Python-%E7%9B%B8%E5%85%B3/"/>
+    <id>https://nancelglap.github.io/2017/07/06/Python-相关/</id>
+    <published>2017-07-06T03:13:49.000Z</published>
+    <updated>2017-07-06T03:24:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>与 python 相关知识</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>1、保存文件</p>
+</blockquote>
+<p>当 <code>.py</code> 文件中包含中文，在文件开头加上两行<br>1、第一行注释是为了告诉Linux/OS X系统，这是一个Python可执行程序<br>2、第二行注释是为了告诉Python解释器，按照UTF-8编码读取源代码，否则，你在源代码中写的中文输出可能会有乱码。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python3</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;与 python 相关知识&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://nancelglap.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://nancelglap.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python 函数</title>
+    <link href="https://nancelglap.github.io/2017/07/06/Python-%E5%87%BD%E6%95%B0/"/>
+    <id>https://nancelglap.github.io/2017/07/06/Python-函数/</id>
+    <published>2017-07-06T03:03:40.000Z</published>
+    <updated>2017-07-06T03:08:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>python 函数</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>ord()</p>
+</blockquote>
+<p>获取字符的整数表示<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>ord(<span class="string">'A'</span>)</div><div class="line"><span class="number">65</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>ord(<span class="string">'中'</span>)</div><div class="line"><span class="number">20013</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>chr()</p>
+</blockquote>
+<p>把编码转换为对应的字符<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>chr(<span class="number">66</span>)</div><div class="line"><span class="string">'B'</span></div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;python 函数&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://nancelglap.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://nancelglap.github.io/tags/python/"/>
+    
+      <category term="function" scheme="https://nancelglap.github.io/tags/function/"/>
+    
+  </entry>
   
   <entry>
     <title>mysql 定时备份</title>
@@ -447,9 +549,9 @@
     
       <category term="database" scheme="https://nancelglap.github.io/tags/database/"/>
     
-      <category term="mysql" scheme="https://nancelglap.github.io/tags/mysql/"/>
-    
       <category term="table" scheme="https://nancelglap.github.io/tags/table/"/>
+    
+      <category term="mysql" scheme="https://nancelglap.github.io/tags/mysql/"/>
     
   </entry>
   
@@ -919,226 +1021,6 @@
       <category term="你站住" scheme="https://nancelglap.github.io/tags/%E4%BD%A0%E7%AB%99%E4%BD%8F/"/>
     
       <category term="loading" scheme="https://nancelglap.github.io/tags/loading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微信小程序相关文档</title>
-    <link href="https://nancelglap.github.io/2017/05/20/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9B%B8%E5%85%B3%E6%96%87%E6%A1%A3/"/>
-    <id>https://nancelglap.github.io/2017/05/20/微信小程序相关文档/</id>
-    <published>2017-05-20T01:58:03.000Z</published>
-    <updated>2017-06-19T11:02:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>与小程序相关网站</p>
-</blockquote>
-<a id="more"></a>
-<blockquote>
-<p>文档类</p>
-</blockquote>
-<p><strong>微信小程序官方文档：</strong><code>https://mp.weixin.qq.com/debug/wxadoc/dev/</code><br><strong>&lt;简书&gt;小程序开发专栏：</strong><code>http://www.jianshu.com/c/dfdc2bbd1315</code><br><strong>W3Cschool文档：</strong><code>http://www.w3cschool.cn/weixinapp/weixinapp-app.html</code></p>
-<blockquote>
-<p>各功能实现</p>
-</blockquote>
-<p><strong>功能合集：</strong><code>http://weixin1024.cn/forum.php?mod=viewthread&amp;tid=1027&amp;extra=page%3D1</code></p>
-<blockquote>
-<p>小程序账号申请</p>
-</blockquote>
-<p><strong>&lt;有道云笔记&gt;：</strong><code>http://note.youdao.com/share/?id=744b94b02c28321c8f930e1f495624e5&amp;type=note#/</code></p>
-<blockquote>
-<p>项目案例</p>
-</blockquote>
-<p><strong>项目列表：</strong><code>http://blog.csdn.net/qq137722697/article/details/52988719</code><br><strong>小黄车小程序：</strong><code>http://www.jianshu.com/p/68e3b8927a77</code><br><strong><github>项目：</github></strong><code>http://www.cnblogs.com/tuyile006/p/6268961.html</code></p>
-<blockquote>
-<p>登录注册实现</p>
-</blockquote>
-<h2 id="维护用户登录态可以用JWT完成"><a href="#维护用户登录态可以用JWT完成" class="headerlink" title="维护用户登录态可以用JWT完成"></a><strong>维护用户登录态可以用JWT完成</strong></h2><p>1、注意设置JWT过去时间<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$payload = [</div><div class="line">            <span class="string">'email'</span> =&gt; $request-&gt;get(<span class="string">'email'</span>),</div><div class="line">            <span class="string">'password'</span> =&gt; $request-&gt;get(<span class="string">'password'</span>)，</div><div class="line">            <span class="string">'exp'</span> =&gt; time()+<span class="number">60</span>*<span class="number">60</span>   <span class="comment">//设置token过期时间</span></div><div class="line">        ];</div><div class="line">$token = JWTAuth::attempt($payload)</div></pre></td></tr></table></figure></p>
-<p><strong>&lt;简书&gt;后台登录文章：</strong><code>http://www.jianshu.com/p/6096e8522c4c</code><br><strong><csdn>注册登录实现：</csdn></strong><code>http://blog.csdn.net/qq_19558705/article/details/65935818?utm_source=gold_browser_extension</code></p>
-<blockquote>
-<p>http站点转https站点</p>
-</blockquote>
-<p><strong>在nginx服务器下配置和安装阿里云购买的SSL证书：</strong><code>http://sanwen.net/a/hmdfcoo.html</code></p>
-<blockquote>
-<p>request请求(前端后台数据交互)</p>
-</blockquote>
-<p><strong>request请求：</strong><code>http://blog.csdn.net/qq_19558705/article/details/60783448</code></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;与小程序相关网站&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Wechat" scheme="https://nancelglap.github.io/categories/Wechat/"/>
-    
-    
-      <category term="Wechat" scheme="https://nancelglap.github.io/tags/Wechat/"/>
-    
-      <category term="Mini Programes" scheme="https://nancelglap.github.io/tags/Mini-Programes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP 面向对象编程</title>
-    <link href="https://nancelglap.github.io/2017/05/14/PHP-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
-    <id>https://nancelglap.github.io/2017/05/14/PHP-面向对象编程/</id>
-    <published>2017-05-14T08:19:52.000Z</published>
-    <updated>2017-06-19T11:04:47.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>PHP 面向对象相关</p>
-</blockquote>
-<a id="more"></a>
-<blockquote>
-<p>final关键字</p>
-</blockquote>
-<h2 id="final关键字只能用来标记类和方法"><a href="#final关键字只能用来标记类和方法" class="headerlink" title="final关键字只能用来标记类和方法"></a><strong>final关键字只能用来标记类和方法</strong></h2><p><strong>1、final标记的类不能被继承</strong><br><strong>2、final标记的方法不能被子类覆盖，是最终版本</strong></p>
-<blockquote>
-<p>__call()方法</p>
-</blockquote>
-<h2 id="当调用对象内部方法不存在时自动调用，第一个参数为不存在的函数名，第二个参数把这个方法里的参数作为数组形式传进来"><a href="#当调用对象内部方法不存在时自动调用，第一个参数为不存在的函数名，第二个参数把这个方法里的参数作为数组形式传进来" class="headerlink" title="当调用对象内部方法不存在时自动调用，第一个参数为不存在的函数名，第二个参数把这个方法里的参数作为数组形式传进来"></a><strong>当调用对象内部方法不存在时自动调用，第一个参数为不存在的函数名，第二个参数把这个方法里的参数作为数组形式传进来</strong></h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span> </span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__call</span><span class="params">($function_name, $args)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">echo</span> $function_name;</div><div class="line">        print_r($args);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">$test = <span class="keyword">new</span> test();</div><div class="line">$test -&gt; hello(<span class="string">'you'</span>, <span class="string">'are'</span>, <span class="string">'sb'</span>);</div><div class="line"></div><div class="line"><span class="comment">//程序不会退出继续执行</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"11111"</span>;</div></pre></td></tr></table></figure>
-<p>上述的输出结果为<code>hello Array([0] =&gt; you [1] =&gt; are [2] =&gt; sb)</code></p>
-<blockquote>
-<p>static 和 const</p>
-</blockquote>
-<h2 id="1、static"><a href="#1、static" class="headerlink" title="1、static"></a>1、static</h2><p>（1）<strong>static的成员在类第一次被加载的时候分配空间，被实例化的对象共用，属于类，无法用<code>$this</code>访问</strong><br>（2）在类内部访问<code>static成员</code><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>::$变量名      <span class="comment">//有'$'</span></div></pre></td></tr></table></figure></p>
-<p>（3）在类外部访问<code>static成员</code><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ClassName::$变量名     <span class="comment">//有'$'</span></div></pre></td></tr></table></figure></p>
-<h2 id="2、const"><a href="#2、const" class="headerlink" title="2、const"></a>2、const</h2><p>（1）<strong>const为在类内部定义常量的方法</strong><br>（2）在类内部访问<code>const属性</code><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>::变量名       <span class="comment">//没有'$'</span></div></pre></td></tr></table></figure></p>
-<p>（3）在类外部访问<code>const属性</code><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ClassName::变量名      <span class="comment">//没有'$'</span></div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>trait</p>
-</blockquote>
-<p><strong>解决代码重用问题</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">trait</span> NameTrait &#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">fun</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        var_dump(<span class="string">'something'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">className1</span> </span>&#123;</div><div class="line">    <span class="keyword">use</span> <span class="title">NameTrait</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">className2</span> </span>&#123;</div><div class="line">    <span class="keyword">use</span> <span class="title">NameTrait</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">new</span> ClassName1()-&gt;fun();</div><div class="line"><span class="keyword">new</span> ClassName2()-&gt;fun();</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>public、protected、private</p>
-</blockquote>
-<p><strong>protected方法不能直接在继承的类的对象中访问，要在继承类中重新定义一个方法里面调用 <em><code>$this-&gt;method</code></em></strong><br>1、public声明的成员可以在<em>任何位置</em>调用<br>2、protected声明的成员只有在<em>类的内部</em>还有<em>子类</em>中可以调用<br>3、private声明的成员只有在<em>类的内部</em>可以调用<br>4、调用方法为<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">$this</span> -&gt; name;      <span class="comment">//调用成员属性</span></div><div class="line"><span class="keyword">$this</span> -&gt; <span class="function"><span class="keyword">function</span><span class="params">()</span></span>;    <span class="comment">//调用成员方法</span></div></pre></td></tr></table></figure></p>
-<h2 id="注：子类的权限只能大于等于父类"><a href="#注：子类的权限只能大于等于父类" class="headerlink" title="注：子类的权限只能大于等于父类"></a><strong>注：子类的权限只能大于等于父类</strong></h2><blockquote>
-<p>接口（Interface）</p>
-</blockquote>
-<h2 id="定义：类里面所有的方法都为抽象方法的类称为接口"><a href="#定义：类里面所有的方法都为抽象方法的类称为接口" class="headerlink" title="定义：类里面所有的方法都为抽象方法的类称为接口"></a><strong>定义：类里面所有的方法都为抽象方法的类称为接口</strong></h2><p><strong>1、接口内不能声明变量，但可以声明常量constant</strong><br><strong>2、所有成员都是public权限</strong><br><strong>3、声明接口使用关键字<code>interface</code></strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">One</span> </span>&#123;</div><div class="line">    <span class="comment">//定义一个常量</span></div><div class="line">    <span class="keyword">const</span> constant = <span class="string">'constant value'</span>;</div><div class="line"></div><div class="line">    <span class="comment">//定义一个抽象方法"fun1"</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">fun1</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">//定义了抽象方法"fun2"</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">fun2</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
-<p><strong>4、定义接口的子类实现接口中全部抽象方法使用关键字<code>implements</code></strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Three</span> <span class="keyword">implements</span> <span class="title">One</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fun1</span><span class="params">()</span> </span>&#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fun2</span><span class="params">()</span> </span>&#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
-<p><strong>5、子类必须实现所有的抽象方法才能被实例化</strong><br><strong>6、一个类可以实现多个接口</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Four</span> <span class="keyword">implements</span> <span class="title">interface1</span>, <span class="title">interface2</span>, ... </span>&#123;</div><div class="line">    <span class="comment">//必须把所有接口中的方法都实现才可以实例化对象</span></div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
-<p><strong>7、在继承一个类的同时实现多个接口，先继承再实现</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Four</span> <span class="keyword">extends</span> <span class="title">ClassName1</span> <span class="keyword">implements</span> <span class="title">interface1</span>, <span class="title">interface2</span>, ... </span>&#123;</div><div class="line">    <span class="comment">//所有接口中的方法都要实现才可以实例化对象</span></div><div class="line">    ...</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>面向接口编程</p>
-</blockquote>
-<p>在需要用到<strong>类作为参数</strong>的方法中将<strong>接口</strong>作为参数，过后传参数只需要传一个<strong>实现的接口的对象</strong>就可以<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* 创建一个接口</div><div class="line">*/</div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">hello</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">fun1</span><span class="params">($message)</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* 实现接口</div><div class="line">*/</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">class1</span> <span class="keyword">implements</span> <span class="title">hello</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">show</span><span class="params">($message)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> $message;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* 实现接口</div><div class="line">*/</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">class2</span> <span class="keyword">implements</span> <span class="title">hello</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">show</span><span class="params">($message)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> $message;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* 创建一个类</div><div class="line">*/</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Controller</span> </span>&#123;</div><div class="line">    <span class="keyword">protected</span> $hello;</div><div class="line"></div><div class="line">    <span class="comment">//参数为接口</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(hello $hello)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">$this</span>-&gt;hello = $hello;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">show</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        $message = <span class="string">"Nancelglap"</span>;</div><div class="line">        <span class="keyword">$this</span>-&gt;hello-&gt;show($message);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//当要切换类的时候就不用再更改construct方法中的hello接口，直接改实例化对象的类名</span></div><div class="line">$demo = <span class="keyword">new</span> Controller(<span class="keyword">new</span> class1);</div><div class="line">$demo -&gt; show();</div><div class="line"></div><div class="line">$demo = <span class="keyword">new</span> Controller(<span class="keyword">new</span> class2);</div><div class="line">$demo -&gt; show();</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;PHP 面向对象相关&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="php" scheme="https://nancelglap.github.io/categories/php/"/>
-    
-    
-      <category term="php" scheme="https://nancelglap.github.io/tags/php/"/>
-    
-      <category term="OOP" scheme="https://nancelglap.github.io/tags/OOP/"/>
-    
-      <category term="面向对象" scheme="https://nancelglap.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git相关</title>
-    <link href="https://nancelglap.github.io/2017/05/13/git%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/"/>
-    <id>https://nancelglap.github.io/2017/05/13/git相关操作/</id>
-    <published>2017-05-13T07:33:41.000Z</published>
-    <updated>2017-06-19T11:03:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>与git相关的内容</p>
-</blockquote>
-<a id="more"></a>
-<blockquote>
-<p>Git配置</p>
-</blockquote>
-<p>一、增加配置项<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --<span class="keyword">global</span>/<span class="keyword">system</span> 配置名 <span class="string">"值"</span></div></pre></td></tr></table></figure></p>
-<p>1、如果只在当前项目增加配置<br>    （1）切换到当前项目<br>    （2）<code>git config 配置名 &quot;值&quot;</code><br>1、<em><code>--global</code></em> 将配置放到home目录下<em>（<code>~/.gitconfig</code>）</em><br>2、<em><code>--system</code></em> 将配置放到<em><code>/etc/.gitconfig</code></em>中<br>3、<em><code>--local</code></em> 将配置放到每一个项目中<br>4、常用配置有<em><code>user.name</code></em>、<em><code>user.eamil</code></em>，<em><code>color.ui</code></em>，<em><code>core.editor</code></em></p>
-<p>二、查看配置项<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">config</span> 配置名</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>Git基本工作流程</p>
-</blockquote>
-<p>1、查看修改状态<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">git status</span></div></pre></td></tr></table></figure></p>
-<p>2、初始化当前目录<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">git init</span></div></pre></td></tr></table></figure></p>
-<p>3、如果有文件修改，先加入 <em><code>staged area</code></em><br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">git</span> <span class="keyword">add </span>文件名 / git <span class="keyword">add </span>.</div></pre></td></tr></table></figure></p>
-<p>4、更新提交到 <em><code>staged area</code></em> 的内容（只修改没执行<code>git add</code>的不会更新）<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">git</span> commit -m <span class="string">"更新描述"</span></div></pre></td></tr></table></figure></p>
-<p>5、查看 <em><code>commit</code></em> 的内容<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">log</span>     <span class="comment">//按q退出</span></div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>.gitignore</p>
-</blockquote>
-<p>将上传的文件内容加入此文件中，更新会忽略此文件<br>1、用PhpStorm编辑的，加入<em><code>.idea</code></em><br>2、用Mac系统的，加入<em><code>.DS_Store</code></em></p>
-<blockquote>
-<p>Git分支</p>
-</blockquote>
-<p><strong>想修改之前的bug，但是又不想将还没写完的新内容提交上去等</strong></p>
-<p>1、查看分支<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">git branch</span></div></pre></td></tr></table></figure></p>
-<p>2、回到某个文件提交之前的内容<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout <span class="comment">-- app/Http/routes.php</span></div></pre></td></tr></table></figure></p>
-<p>3、创建分支、切换到分支<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">git</span> <span class="keyword">branch </span><span class="keyword">BranchName</span></div><div class="line"><span class="symbol">git</span> checkout <span class="keyword">BranchName</span></div><div class="line"></div><div class="line"><span class="symbol">git</span> checkout -<span class="keyword">b </span><span class="keyword">BranchName </span> //创建分支并切换到该分支</div></pre></td></tr></table></figure></p>
-<p>4、合并分支（在<em><code>matser</code></em>下操作）<br><figure class="highlight cos"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">merge</span> BranchName</div></pre></td></tr></table></figure></p>
-<p>5、删除分支<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">git</span> <span class="keyword">branch </span>-d <span class="keyword">BranchName</span></div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>Git分支merge冲突的修改</p>
-</blockquote>
-<p><strong>当<em><code>master</code></em>和分支中同个文件修改存在冲突，则需要处理</strong></p>
-<h2 id="必须是两个分支的文件都已经git-add和git-commit-m-quot-content-quot-操作"><a href="#必须是两个分支的文件都已经git-add和git-commit-m-quot-content-quot-操作" class="headerlink" title="必须是两个分支的文件都已经git add和git commit -m&quot;content&quot;操作"></a>必须是两个分支的文件都已经<em><code>git add</code></em>和<em><code>git commit -m&quot;content&quot;</code></em>操作</h2><p>1、切换到<em><code>master</code></em>，执行 <em><code>git merge BranchName</code></em>，会报有冲突</p>
-<p>2、进入冲突文件，删掉不要的冲突内容，然后执行<br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">add</span><span class="bash"> fileName</span></div><div class="line">git commit</div><div class="line"></div><div class="line">//进入到vim后保存退出</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>Git设置快捷键</p>
-</blockquote>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> <span class="keyword">alias</span><span class="variable">.s</span> status  <span class="comment">//设置后用 git s 替代 git status</span></div></pre></td></tr></table></figure>
-<p><strong>全局设置快捷键</strong><br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">vim ~<span class="string">/.zshrc</span></div><div class="line"></div><div class="line"><span class="string">//</span>加入以下内容</div><div class="line"><span class="keyword">alias</span> gs=<span class="string">"git status"</span>   <span class="string">//</span>设置后用 gs 替代 git status</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>Git stash</p>
-</blockquote>
-<p><strong>运用场景：如果在一个分支上开发一个模块同时，又要回到master中改bug，执行<em><code>git stash</code></em>可以将分支上的修改先放到一边，回到<em><code>master</code></em>中更新内容</strong></p>
-<figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git stash <span class="built_in">list</span>      <span class="comment">//查看之前拿开的内容</span></div><div class="line">git stash <span class="built_in">apply</span> stash@&#123;num&#125;     <span class="comment">//恢复相应num的内容</span></div><div class="line">git stash pop       <span class="comment">//回复内容并删除，省略掉drop步骤</span></div><div class="line">git stash <span class="built_in">drop</span>      <span class="comment">//删掉list中拿开的内容</span></div><div class="line">`</div></pre></td></tr></table></figure>
-<h3 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h3><p>1、将在 <em><code>master</code></em> 中修改好的合并到<strong>未完成</strong>的分支上<br>2、<em><code>master</code></em> 未融合<strong>未完成</strong>的分支的内容</p>
-<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><p><strong>一、修改 <em><code>master</code></em> 上的内容，合并到分支上，但分支内容不合并到 <em><code>master</code></em> 上</strong></p>
-<p>1、修改分支的内容</p>
-<p>2、在分支执行 <em><code>git stash</code></em></p>
-<p>3、在 <em><code>master</code></em> 分支中更改内容，改完之后<em><code>gaa</code></em>、<em><code>gc</code> “content”</em></p>
-<p>4、回到 <em><code>master</code></em> 分支，执行<em><code>git merge BranchName</code></em> 合并</p>
-<p><strong>二、继续完成分支上的内容，完成后合并到 <em><code>master</code></em></strong></p>
-<p>1、<em><code>git checkout BranchName</code></em>切换到分支</p>
-<p>2、<em><code>git stash apply</code></em> 或 <em><code>git stash pop</code></em> 拿回原来拿开的问题</p>
-<p>3、继续写分支内容，写完然后 <em><code>gaa</code></em>、<em><code>gc</code> “content”</em></p>
-<p>4、回到 <em><code>master</code></em> 分支，执行<em><code>git merge BranchName</code></em> 合并</p>
-<blockquote>
-<p>本地更新代码后更新到github上</p>
-</blockquote>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">add</span><span class="bash"> .</span></div><div class="line">git commit -m <span class="string">"描述内容"</span></div><div class="line">git push origin master</div></pre></td></tr></table></figure>
-<blockquote>
-<p>本地更新到远程服务器上</p>
-</blockquote>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git commit -m <span class="string">"描述内容"</span>     <span class="comment">//只有更改文件的目录才会改描述内容</span></div><div class="line">git <span class="keyword">push</span></div><div class="line"></div><div class="line"><span class="comment">//切到服务器，进入项目目录</span></div><div class="line">cd <span class="regexp">/var/</span>www<span class="regexp">/laravel/</span></div><div class="line">git pull</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;与git相关的内容&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Git" scheme="https://nancelglap.github.io/categories/Git/"/>
-    
-    
-      <category term="server" scheme="https://nancelglap.github.io/tags/server/"/>
-    
-      <category term="git" scheme="https://nancelglap.github.io/tags/git/"/>
-    
-      <category term="github" scheme="https://nancelglap.github.io/tags/github/"/>
     
   </entry>
   

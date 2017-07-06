@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python 语法]]></title>
+    <url>%2F2017%2F07%2F06%2FPython-%E8%AF%AD%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[python 语法相关 格式化输出 1234&gt;&gt;&gt; 'Hello, %s' % 'world''Hello, world'&gt;&gt;&gt; 'Hi, %s, you have $%d.' % ('Michael', 1000000)'Hi, Michael, you have $1000000.']]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python 相关]]></title>
+    <url>%2F2017%2F07%2F06%2FPython-%E7%9B%B8%E5%85%B3%2F</url>
+    <content type="text"><![CDATA[与 python 相关知识 1、保存文件 当 .py 文件中包含中文，在文件开头加上两行1、第一行注释是为了告诉Linux/OS X系统，这是一个Python可执行程序2、第二行注释是为了告诉Python解释器，按照UTF-8编码读取源代码，否则，你在源代码中写的中文输出可能会有乱码。12#!/usr/bin/env python3# -*- coding: utf-8 -*-]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python 函数]]></title>
+    <url>%2F2017%2F07%2F06%2FPython-%E5%87%BD%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[python 函数 ord() 获取字符的整数表示1234&gt;&gt;&gt; ord('A')65&gt;&gt;&gt; ord('中')20013 chr() 把编码转换为对应的字符12&gt;&gt;&gt; chr(66)'B']]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>function</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[mysql 定时备份]]></title>
     <url>%2F2017%2F06%2F20%2Fmysql-%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BD%2F</url>
     <content type="text"><![CDATA[实现mysql定时备份 1、创建备份文件夹1mkdir name 2、创建备份Shell脚本1$ vim filename.sh 3、加入以下内容（1）username 替换为实际的用户名(保留-u)（2）password 替换为实际的密码（保留-p）（3）DatabaseName 替换为实际的数据库名（4）/home/back改为自己的路径12#!/bin/bashmysqldump -uusername -ppassword DatabaseName &gt; /home/backup/DatabaseName_$(date +%Y%m%d_%H%M%S).sql 4、添加可执行权限1$ chmod u+x bkDatabaseName.sh 5、添加计划任务（改为自己创建的文件信息）123$ crontab -e*/1 * * * * /home/backup/bkDatabaseName.sh 6、执行时间前面五个*号代表五个数字，数字的取值范围和含义如下： 分钟 （0-59）小時 （0-23）日期 （1-31）月份 （1-12）星期 （0-6）//0代表星期天]]></content>
@@ -87,8 +121,8 @@
       <tags>
         <tag>laravel</tag>
         <tag>database</tag>
-        <tag>mysql</tag>
         <tag>table</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
