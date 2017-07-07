@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2017-07-06T03:29:00.000Z</updated>
+  <updated>2017-07-07T03:49:06.000Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://nancelglap.github.io/2017/07/06/Python-%E8%AF%AD%E6%B3%95/"/>
     <id>https://nancelglap.github.io/2017/07/06/Python-语法/</id>
     <published>2017-07-06T03:27:41.000Z</published>
-    <updated>2017-07-06T03:29:00.000Z</updated>
+    <updated>2017-07-07T03:49:06.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>python 语法相关</p>
@@ -30,6 +30,28 @@
 <p>格式化输出</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Hello, %s'</span> % <span class="string">'world'</span></div><div class="line"><span class="string">'Hello, world'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Hi, %s, you have $%d.'</span> % (<span class="string">'Michael'</span>, <span class="number">1000000</span>)</div><div class="line"><span class="string">'Hi, Michael, you have $1000000.'</span></div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>lists(列表)</p>
+</blockquote>
+<p>1、lists中有lists可以看为<code>二维数组</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>p = [<span class="string">'asp'</span>, <span class="string">'php'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s = [<span class="string">'python'</span>, <span class="string">'java'</span>, p, <span class="string">'scheme'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s[<span class="number">2</span>][<span class="number">0</span>]</div><div class="line"><span class="string">'asp'</span></div></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
+<p>tuple(元组)</p>
+</blockquote>
+<p><strong>一旦初始化不能修改(tuple的每个元素指向不变)</strong><br>1、如果要定义一个元素的 <em><code>tuple</code></em>，要用<code>,</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>t = (<span class="number">1</span>,)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t</div><div class="line">(<span class="number">1</span>,)</div></pre></td></tr></table></figure></p>
+<p>2、<em><code>tuple</code></em> 中的 <em><code>lists</code></em> 可变<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>t = (<span class="string">'a'</span>, <span class="string">'b'</span>, [<span class="string">'A'</span>, <span class="string">'B'</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t[<span class="number">2</span>][<span class="number">0</span>] = <span class="string">'X'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t[<span class="number">2</span>][<span class="number">1</span>] = <span class="string">'Y'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t</div><div class="line">(<span class="string">'a'</span>, <span class="string">'b'</span>, [<span class="string">'X'</span>, <span class="string">'Y'</span>])</div></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
+<p>判断语句</p>
+</blockquote>
+<p><strong>不要忘记加’：’</strong><br>1、常规 <code>if else</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">age = <span class="number">3</span></div><div class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</div><div class="line">    print(<span class="string">'your age is'</span>, age)</div><div class="line">    print(<span class="string">'adult'</span>)</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    print(<span class="string">'your age is'</span>, age)</div><div class="line">    print(<span class="string">'teenager'</span>)</div></pre></td></tr></table></figure></p>
+<p>2、<code>elif</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">age = <span class="number">3</span></div><div class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</div><div class="line">    print(<span class="string">'adult'</span>)</div><div class="line"><span class="keyword">elif</span> age &gt;= <span class="number">6</span>:</div><div class="line">    print(<span class="string">'teenager'</span>)</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    print(<span class="string">'kid'</span>)</div></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
+<p>循环</p>
+</blockquote>
+<h3 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a><code>for in</code></h3><p>依次把 <em><code>list</code></em> 或 <em><code>tuple</code></em> 中的每个元素迭代出来<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">names = [<span class="string">'Michael'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>]</div><div class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names:</div><div class="line">    print(name)</div></pre></td></tr></table></figure></p>
 ]]></content>
     
     <summary type="html">
@@ -84,13 +106,26 @@
     <link href="https://nancelglap.github.io/2017/07/06/Python-%E5%87%BD%E6%95%B0/"/>
     <id>https://nancelglap.github.io/2017/07/06/Python-函数/</id>
     <published>2017-07-06T03:03:40.000Z</published>
-    <updated>2017-07-06T03:08:45.000Z</updated>
+    <updated>2017-07-06T13:07:27.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>python 函数</p>
 </blockquote>
 <a id="more"></a>
+<h3 id="lists-函数"><a href="#lists-函数" class="headerlink" title="lists 函数"></a>lists 函数</h3><blockquote>
+<p>name.append()</p>
+</blockquote>
+<p>往lists中追加元素到末尾<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>classmates.append(<span class="string">'Adam'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>classmates</div><div class="line">[<span class="string">'Michael'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>, <span class="string">'Adam'</span>]</div></pre></td></tr></table></figure></p>
 <blockquote>
+<p>name.pop()</p>
+</blockquote>
+<p>没加参数删除末尾元素，有参数删除索引位置的元素<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>classmates.pop(<span class="number">1</span>)</div><div class="line"><span class="string">'Jack'</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>name.insert()</p>
+</blockquote>
+<p>把元素插到指定位置<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>classmates.insert(<span class="number">1</span>, <span class="string">'Jack'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>classmates</div><div class="line">[<span class="string">'Michael'</span>, <span class="string">'Jack'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>, <span class="string">'Adam'</span>]</div></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="常见函数"><a href="#常见函数" class="headerlink" title="常见函数"></a>常见函数</h3><blockquote>
 <p>ord()</p>
 </blockquote>
 <p>获取字符的整数表示<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>ord(<span class="string">'A'</span>)</div><div class="line"><span class="number">65</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>ord(<span class="string">'中'</span>)</div><div class="line"><span class="number">20013</span></div></pre></td></tr></table></figure></p>
@@ -98,6 +133,10 @@
 <p>chr()</p>
 </blockquote>
 <p>把编码转换为对应的字符<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>chr(<span class="number">66</span>)</div><div class="line"><span class="string">'B'</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>int()</p>
+</blockquote>
+<p>将数字字符串转换为整数（’123’）</p>
 ]]></content>
     
     <summary type="html">

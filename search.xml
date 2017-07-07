@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Python 语法]]></title>
     <url>%2F2017%2F07%2F06%2FPython-%E8%AF%AD%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[python 语法相关 格式化输出 1234&gt;&gt;&gt; 'Hello, %s' % 'world''Hello, world'&gt;&gt;&gt; 'Hi, %s, you have $%d.' % ('Michael', 1000000)'Hi, Michael, you have $1000000.']]></content>
+    <content type="text"><![CDATA[python 语法相关 格式化输出 1234&gt;&gt;&gt; 'Hello, %s' % 'world''Hello, world'&gt;&gt;&gt; 'Hi, %s, you have $%d.' % ('Michael', 1000000)'Hi, Michael, you have $1000000.' lists(列表) 1、lists中有lists可以看为二维数组1234&gt;&gt;&gt; p = ['asp', 'php']&gt;&gt;&gt; s = ['python', 'java', p, 'scheme']&gt;&gt;&gt; s[2][0]'asp' tuple(元组) 一旦初始化不能修改(tuple的每个元素指向不变)1、如果要定义一个元素的 tuple，要用,123&gt;&gt;&gt; t = (1,)&gt;&gt;&gt; t(1,) 2、tuple 中的 lists 可变12345&gt;&gt;&gt; t = ('a', 'b', ['A', 'B'])&gt;&gt;&gt; t[2][0] = 'X'&gt;&gt;&gt; t[2][1] = 'Y'&gt;&gt;&gt; t('a', 'b', ['X', 'Y']) 判断语句 不要忘记加’：’1、常规 if else1234567age = 3if age &gt;= 18: print('your age is', age) print('adult')else: print('your age is', age) print('teenager') 2、elif1234567age = 3if age &gt;= 18: print('adult')elif age &gt;= 6: print('teenager')else: print('kid') 循环 for in依次把 list 或 tuple 中的每个元素迭代出来123names = ['Michael', 'Bob', 'Tracy']for name in names: print(name)]]></content>
       <categories>
         <category>python</category>
       </categories>
@@ -25,7 +25,7 @@
   <entry>
     <title><![CDATA[Python 函数]]></title>
     <url>%2F2017%2F07%2F06%2FPython-%E5%87%BD%E6%95%B0%2F</url>
-    <content type="text"><![CDATA[python 函数 ord() 获取字符的整数表示1234&gt;&gt;&gt; ord('A')65&gt;&gt;&gt; ord('中')20013 chr() 把编码转换为对应的字符12&gt;&gt;&gt; chr(66)'B']]></content>
+    <content type="text"><![CDATA[python 函数 lists 函数 name.append() 往lists中追加元素到末尾123&gt;&gt;&gt; classmates.append('Adam')&gt;&gt;&gt; classmates['Michael', 'Bob', 'Tracy', 'Adam'] name.pop() 没加参数删除末尾元素，有参数删除索引位置的元素12&gt;&gt;&gt; classmates.pop(1)'Jack' name.insert() 把元素插到指定位置123&gt;&gt;&gt; classmates.insert(1, 'Jack')&gt;&gt;&gt; classmates['Michael', 'Jack', 'Bob', 'Tracy', 'Adam'] 常见函数 ord() 获取字符的整数表示1234&gt;&gt;&gt; ord('A')65&gt;&gt;&gt; ord('中')20013 chr() 把编码转换为对应的字符12&gt;&gt;&gt; chr(66)'B' int() 将数字字符串转换为整数（’123’）]]></content>
       <categories>
         <category>python</category>
       </categories>
