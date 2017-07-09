@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2017/07/06/Python-语法/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="python 语法相关">
-<meta property="og:updated_time" content="2017-07-07T03:49:06.000Z">
+<meta property="og:updated_time" content="2017-07-09T03:28:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 语法">
 <meta name="twitter:description" content="python 语法相关">
@@ -399,6 +399,19 @@
 <p>2、<em><code>tuple</code></em> 中的 <em><code>lists</code></em> 可变<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>t = (<span class="string">'a'</span>, <span class="string">'b'</span>, [<span class="string">'A'</span>, <span class="string">'B'</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t[<span class="number">2</span>][<span class="number">0</span>] = <span class="string">'X'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t[<span class="number">2</span>][<span class="number">1</span>] = <span class="string">'Y'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t</div><div class="line">(<span class="string">'a'</span>, <span class="string">'b'</span>, [<span class="string">'X'</span>, <span class="string">'Y'</span>])</div></pre></td></tr></table></figure></p>
 <hr>
 <blockquote>
+<p>dict（字典）</p>
+</blockquote>
+<p>1、关联数组<br>2、<em><code>key</code></em>必须是不可变的对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>d = &#123;<span class="string">'Michael'</span>: <span class="number">95</span>, <span class="string">'Bob'</span>: <span class="number">75</span>, <span class="string">'Tracy'</span>: <span class="number">85</span>&#125;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>d[<span class="string">'Michael'</span>]</div><div class="line"><span class="number">95</span></div></pre></td></tr></table></figure>
+<p>判断 <em><code>key</code></em> 是否存在<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Thomas'</span> <span class="keyword">in</span> d</div><div class="line"><span class="keyword">False</span></div></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
+<p>set</p>
+</blockquote>
+<p>1、是一组key的集合，但是不存储values（key不能重复，重复元素在set中被自动过滤）<br>2、创建一个<em><code>set</code></em>，提供一个<em><code>list</code></em>作为集合<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>s = set([<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s</div><div class="line">&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</div></pre></td></tr></table></figure></p>
+<p>3、可以对两个set进行交集，并集等操作<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
 <p>判断语句</p>
 </blockquote>
 <p><strong>不要忘记加’：’</strong><br>1、常规 <code>if else</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">age = <span class="number">3</span></div><div class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</div><div class="line">    print(<span class="string">'your age is'</span>, age)</div><div class="line">    print(<span class="string">'adult'</span>)</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    print(<span class="string">'your age is'</span>, age)</div><div class="line">    print(<span class="string">'teenager'</span>)</div></pre></td></tr></table></figure></p>
@@ -407,7 +420,12 @@
 <blockquote>
 <p>循环</p>
 </blockquote>
-<h3 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a><code>for in</code></h3><p>依次把 <em><code>list</code></em> 或 <em><code>tuple</code></em> 中的每个元素迭代出来<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">names = [<span class="string">'Michael'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>]</div><div class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names:</div><div class="line">    print(name)</div></pre></td></tr></table></figure></p>
+<h3 id="for-in-不要忘记加’：’"><a href="#for-in-不要忘记加’：’" class="headerlink" title="for in(不要忘记加’：’)"></a><code>for in</code>(不要忘记加’：’)</h3><p>依次把 <em><code>list</code></em> 或 <em><code>tuple</code></em> 中的每个元素迭代出来<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">names = [<span class="string">'Michael'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>]</div><div class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names:</div><div class="line">    print(name)</div></pre></td></tr></table></figure></p>
+<h3 id="while-不要忘记加’-’"><a href="#while-不要忘记加’-’" class="headerlink" title="while(不要忘记加’:’)"></a><code>while</code>(不要忘记加’:’)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> n &gt; <span class="number">0</span>:</div><div class="line">    sum = sum + n</div><div class="line">    n = n - <span class="number">2</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>函数</p>
+</blockquote>
+<p>1、函数名可以赋值给变量<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>a = abs </div><div class="line"><span class="meta">&gt;&gt;&gt; </span>a(<span class="number">-1</span>) </div><div class="line"><span class="number">1</span></div></pre></td></tr></table></figure></p>
 
       
     </div>
