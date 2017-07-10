@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2017/07/06/Python-函数/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="python 函数">
-<meta property="og:updated_time" content="2017-07-09T03:25:46.000Z">
+<meta property="og:updated_time" content="2017-07-10T01:28:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 函数">
 <meta name="twitter:description" content="python 函数">
@@ -406,14 +406,17 @@
 <p>name.sort()</p>
 </blockquote>
 <p>对序列内容排序</p>
+<hr>
 <h3 id="dict函数"><a href="#dict函数" class="headerlink" title="dict函数"></a>dict函数</h3><blockquote>
 <p>get()</p>
 </blockquote>
 <p>如果 <em><code>key</code></em> 不存在，可以返回自定义的内容<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>d.get(<span class="string">'Thomas'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>d.get(<span class="string">'Thomas'</span>, <span class="string">'not found'</span>)</div><div class="line"><span class="string">'not found'</span></div></pre></td></tr></table></figure></p>
+<hr>
 <blockquote>
 <p>pop()</p>
 </blockquote>
 <p>删除一个 <em><code>key</code></em></p>
+<hr>
 <h3 id="set函数"><a href="#set函数" class="headerlink" title="set函数"></a>set函数</h3><blockquote>
 <p>add(key)</p>
 </blockquote>
@@ -440,16 +443,17 @@
 <blockquote>
 <p>range()</p>
 </blockquote>
-<p>生成一个从零开始到参数的数列（不包括参数）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>list(range(<span class="number">5</span>))</div><div class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</div></pre></td></tr></table></figure></p>
+<p>生成一个从零开始到参数的序列（不包括参数）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>list(range(<span class="number">5</span>))</div><div class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>str.replace(‘被替代的内容’, ‘要替代的内容’)</p>
 </blockquote>
 <p>1、替代字符串的内容，但是不改变原有的字符串<br>2、其实是创建一个新的字符串返回<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="string">'abc'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b = a.replace(<span class="string">'a'</span>, <span class="string">'A'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b</div><div class="line"><span class="string">'Abc'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>a</div><div class="line"><span class="string">'abc'</span></div></pre></td></tr></table></figure></p>
 <hr>
-<h3 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h3><blockquote>
+<h3 id="数据类型相关"><a href="#数据类型相关" class="headerlink" title="数据类型相关"></a>数据类型相关</h3><blockquote>
 <p>abs()</p>
 </blockquote>
 <p>求绝对值</p>
+<hr>
 <blockquote>
 <p>int()</p>
 <p>float()</p>
@@ -457,6 +461,10 @@
 <p>bool()</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="string">'123'</span>)</div><div class="line"><span class="number">123</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="number">12.34</span>)</div><div class="line"><span class="number">12</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>float(<span class="string">'12.34'</span>)</div><div class="line"><span class="number">12.34</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>str(<span class="number">1.23</span>)</div><div class="line"><span class="string">'1.23'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>str(<span class="number">100</span>)</div><div class="line"><span class="string">'100'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>bool(<span class="number">1</span>)</div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>bool(<span class="string">''</span>)</div><div class="line"><span class="keyword">False</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>isinstance()</p>
+</blockquote>
+<p>数据类型检查<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">isinstance(x, (int, float))</div></pre></td></tr></table></figure></p>
 
       
     </div>
