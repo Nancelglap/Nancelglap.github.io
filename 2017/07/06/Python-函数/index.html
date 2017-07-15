@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2017/07/06/Python-函数/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="python 函数">
-<meta property="og:updated_time" content="2017-07-10T01:28:14.000Z">
+<meta property="og:updated_time" content="2017-07-15T01:46:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 函数">
 <meta name="twitter:description" content="python 函数">
@@ -407,6 +407,14 @@
 </blockquote>
 <p>对序列内容排序</p>
 <hr>
+<blockquote>
+<p>enumerate()</p>
+</blockquote>
+<p>把一个 <code>list</code> 变成 <code>索引-元素对</code> ，可以在 <code>for</code> 循环中同时迭代索引和元素本身<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> i, value <span class="keyword">in</span> enumerate([<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>]):</div><div class="line"><span class="meta">... </span>    print(i, value)</div><div class="line">...</div><div class="line"><span class="number">0</span> A</div><div class="line"><span class="number">1</span> B</div><div class="line"><span class="number">2</span> C</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>len()</p>
+</blockquote>
+<p>计算列表元素个数</p>
 <h3 id="dict函数"><a href="#dict函数" class="headerlink" title="dict函数"></a>dict函数</h3><blockquote>
 <p>get()</p>
 </blockquote>
@@ -448,6 +456,10 @@
 <p>str.replace(‘被替代的内容’, ‘要替代的内容’)</p>
 </blockquote>
 <p>1、替代字符串的内容，但是不改变原有的字符串<br>2、其实是创建一个新的字符串返回<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="string">'abc'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b = a.replace(<span class="string">'a'</span>, <span class="string">'A'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b</div><div class="line"><span class="string">'Abc'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>a</div><div class="line"><span class="string">'abc'</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>count()</p>
+</blockquote>
+<p>统计字符串里某个字符串出现的次数，可指定参数在字符串中的开始和结束位置<br><em><code>str.count(sub, start, end)</code></em></p>
 <hr>
 <h3 id="数据类型相关"><a href="#数据类型相关" class="headerlink" title="数据类型相关"></a>数据类型相关</h3><blockquote>
 <p>abs()</p>

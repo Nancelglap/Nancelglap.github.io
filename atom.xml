@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2017-07-14T02:39:50.000Z</updated>
+  <updated>2017-07-15T03:26:03.000Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://nancelglap.github.io/2017/07/06/Python-%E8%AF%AD%E6%B3%95/"/>
     <id>https://nancelglap.github.io/2017/07/06/Python-语法/</id>
     <published>2017-07-06T03:27:41.000Z</published>
-    <updated>2017-07-14T02:39:50.000Z</updated>
+    <updated>2017-07-15T03:26:03.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>python 语法相关</p>
@@ -66,6 +66,7 @@
 </blockquote>
 <h3 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a><code>for in</code></h3><p>依次把 <em><code>list</code></em> 或 <em><code>tuple</code></em> 中的每个元素迭代出来<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">names = [<span class="string">'Michael'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>]</div><div class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names:</div><div class="line">    print(name)</div></pre></td></tr></table></figure></p>
 <h3 id="while"><a href="#while" class="headerlink" title="while"></a><code>while</code></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> n &gt; <span class="number">0</span>:</div><div class="line">    sum = sum + n</div><div class="line">    n = n - <span class="number">2</span></div></pre></td></tr></table></figure>
+<h3 id="for循环引用两个变量"><a href="#for循环引用两个变量" class="headerlink" title="for循环引用两个变量"></a>for循环引用两个变量</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> x, y <span class="keyword">in</span> [(<span class="number">1</span>, <span class="number">1</span>), (<span class="number">2</span>, <span class="number">4</span>), (<span class="number">3</span>, <span class="number">9</span>)]:</div><div class="line"><span class="meta">... </span>    print(x, y)</div><div class="line">...</div><div class="line"><span class="number">1</span> <span class="number">1</span></div><div class="line"><span class="number">2</span> <span class="number">4</span></div><div class="line"><span class="number">3</span> <span class="number">9</span></div></pre></td></tr></table></figure>
 <hr>
 <blockquote>
 <p>函数</p>
@@ -102,6 +103,27 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>values = []</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> v <span class="keyword">in</span> d.values():</div><div class="line"><span class="meta">... </span>    values.append(v)</div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>values</div><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div></pre></td></tr></table></figure>
 <p>3、同时迭代 <em><code>key</code></em> 和 <em><code>value</code></em><br><code>for k, v in d.items()</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>keys = []</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>values = []</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> k, v <span class="keyword">in</span> d.items():</div><div class="line"><span class="meta">... </span>    keys.append(k)</div><div class="line"><span class="meta">... </span>    values.append(v)</div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>keys</div><div class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>values</div><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div></pre></td></tr></table></figure>
+<p>4、判断一个对象是否为可迭代对象<br><strong>通过collections模块的Iterable类型判断</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> collections <span class="keyword">import</span> Iterable</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>isinstance(<span class="string">'abc'</span>, Iterable)</div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>isinstance([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], Iterable)</div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>isinstance(<span class="number">123</span>, Iterable)</div><div class="line"><span class="keyword">False</span></div></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
+<p>列表生成式</p>
+</blockquote>
+<p>1、基本列表生成式<br><em><code>[操作式 for x in 可迭代对象]</code></em><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>[x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">11</span>)]</div><div class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">49</span>, <span class="number">64</span>, <span class="number">81</span>, <span class="number">100</span>]</div></pre></td></tr></table></figure></p>
+<p>2、加判断的列表生成式<br><em><code>[操作式 for x in 可迭代对象 if 判断条件]</code></em><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>[x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">11</span>) <span class="keyword">if</span> x % <span class="number">2</span> == <span class="number">0</span>]</div><div class="line">[<span class="number">4</span>, <span class="number">16</span>, <span class="number">36</span>, <span class="number">64</span>, <span class="number">100</span>]</div></pre></td></tr></table></figure></p>
+<p>3、两层循环，生成全排列<br><em><code>[操作式 for n in 可迭代对象1 for m in 可迭代对象2]</code></em><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>[n + m <span class="keyword">for</span> n <span class="keyword">in</span> <span class="string">'ABC'</span> <span class="keyword">for</span> m <span class="keyword">in</span> <span class="string">'XYZ'</span>]</div><div class="line">[<span class="string">'AX'</span>, <span class="string">'AY'</span>, <span class="string">'AZ'</span>, <span class="string">'BX'</span>, <span class="string">'BY'</span>, <span class="string">'BZ'</span>, <span class="string">'CX'</span>, <span class="string">'CY'</span>, <span class="string">'CZ'</span>]</div></pre></td></tr></table></figure></p>
+<p>4、运用示例（列出当前目录下的所有文件和目录名）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> os</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>[d <span class="keyword">for</span> d <span class="keyword">in</span> os.listdir(<span class="string">'.'</span>)]</div></pre></td></tr></table></figure></p>
+<p>5、优化迭代 <code>dict</code> 的 <code>key</code> 和 <code>value</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>d = &#123;<span class="string">'x'</span>: <span class="string">'A'</span>, <span class="string">'y'</span>: <span class="string">'B'</span>, <span class="string">'z'</span>: <span class="string">'C'</span>&#125;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>[k + <span class="string">'='</span> + v <span class="keyword">for</span> k, v <span class="keyword">in</span> d.iterms()]</div><div class="line">[<span class="string">'y=B'</span>, <span class="string">'x=A'</span>, <span class="string">'z=C'</span>]</div></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
+<p>生成器（generator）</p>
+</blockquote>
+<p>1、作用：节省列表中没必要的空间<br>2、创建一个有很多元素的列表会占用很大的存储空间，如果列表元素可以按某种算法推算出来，就可以在循环中不断推出后面的元素<br>3、<code>generator</code> 保存的是算法<br>4、每次调用 <code>next(g)</code>，就计算出g的下一个元素的值，直到计算到最后一个元素，没有更多的元素时，抛出 <code>StopIteration</code> 的错误<br>5、生成方法：把一个列表生成式的 <code>[]</code> 改成 <code>()</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>g = (x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>))</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>g</div><div class="line">&lt;generator object &lt;genexpr&gt; at <span class="number">0x1022ef630</span>&gt;</div><div class="line"></div><div class="line"><span class="comment"># 一般调用</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>next(g)</div><div class="line"><span class="number">0</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>next(g)</div><div class="line"><span class="number">1</span></div></pre></td></tr></table></figure></p>
+<p>6、循环调用(用 <code>for</code> 循环)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>g = (x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>))</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> n <span class="keyword">in</span> g:</div><div class="line"><span class="meta">... </span>    print(n)</div><div class="line">...</div><div class="line"><span class="number">0</span></div><div class="line"><span class="number">1</span></div><div class="line"><span class="number">4</span></div><div class="line"><span class="number">9</span></div><div class="line"><span class="number">16</span></div><div class="line"><span class="number">25</span></div><div class="line"><span class="number">36</span></div><div class="line"><span class="number">49</span></div><div class="line"><span class="number">64</span></div><div class="line"><span class="number">81</span></div></pre></td></tr></table></figure></p>
+<p>7、函数变 <code>generator</code><br>（1）如果一个函数定义中包含 <code>yield</code> 关键字，那么这个函数就不再是一个普通函数，而是一个 <code>generator</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(max)</span>:</span></div><div class="line">    n, a, b = <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span></div><div class="line">    <span class="keyword">while</span> n &lt; max:</div><div class="line">        <span class="keyword">yield</span> b</div><div class="line">        a, b = b, a + b</div><div class="line">        n = n + <span class="number">1</span></div><div class="line">    <span class="keyword">return</span> <span class="string">'done'</span></div></pre></td></tr></table></figure></p>
+<p>（2）函数内部遇到 <code>yield</code> 语句的时候返回，再次执行从上次返回的 <code>yield</code> 处继续执行<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">odd</span><span class="params">()</span>:</span></div><div class="line">    print(<span class="string">'step 1'</span>)</div><div class="line">    <span class="keyword">yield</span> <span class="number">1</span></div><div class="line">    print(<span class="string">'step 2'</span>)</div><div class="line">    <span class="keyword">yield</span> <span class="number">3</span></div><div class="line">    print(<span class="string">'step 3'</span>)</div><div class="line">    <span class="keyword">yield</span> <span class="number">5</span></div></pre></td></tr></table></figure></p>
+<p>(3)当用 <code>for</code> 循环迭代的时候，<code>yield</code> 可以看做将内容存在待用列表中<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> n <span class="keyword">in</span> fib(<span class="number">6</span>):</div><div class="line"><span class="meta">... </span>    print(n)</div><div class="line">...</div><div class="line"><span class="number">1</span></div><div class="line"><span class="number">1</span></div><div class="line"><span class="number">2</span></div><div class="line"><span class="number">3</span></div><div class="line"><span class="number">5</span></div><div class="line"><span class="number">8</span></div></pre></td></tr></table></figure></p>
+<p>（4）<code>for</code> 循环调用 <code>generator</code> 时，拿不到 <code>generator</code> 的 <code>return</code> 语句的返回值，如果想要拿到返回值，要捕获 <code>StopIteration</code> 错误，返回值包含在 <code>StopIteration</code> 的 <code>value</code> 中<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>g = fib(<span class="number">6</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line"><span class="meta">... </span>    <span class="keyword">try</span>:</div><div class="line"><span class="meta">... </span>        x = next(g)</div><div class="line"><span class="meta">... </span>        print(<span class="string">'g:'</span>, x)</div><div class="line"><span class="meta">... </span>    <span class="keyword">except</span> StopIteration <span class="keyword">as</span> e:</div><div class="line"><span class="meta">... </span>        print(<span class="string">'Generator return value:'</span>, e.value)</div><div class="line"><span class="meta">... </span>        <span class="keyword">break</span></div><div class="line">...</div><div class="line">g: <span class="number">1</span></div><div class="line">g: <span class="number">1</span></div><div class="line">g: <span class="number">2</span></div><div class="line">g: <span class="number">3</span></div><div class="line">g: <span class="number">5</span></div><div class="line">g: <span class="number">8</span></div><div class="line">Generator <span class="keyword">return</span> value: done</div></pre></td></tr></table></figure></p>
+<hr>
 <blockquote>
 <p>抛出错误</p>
 </blockquote>
@@ -168,7 +190,7 @@
     <link href="https://nancelglap.github.io/2017/07/06/Python-%E5%87%BD%E6%95%B0/"/>
     <id>https://nancelglap.github.io/2017/07/06/Python-函数/</id>
     <published>2017-07-06T03:03:40.000Z</published>
-    <updated>2017-07-10T01:28:14.000Z</updated>
+    <updated>2017-07-15T01:46:32.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>python 函数</p>
@@ -199,6 +221,14 @@
 </blockquote>
 <p>对序列内容排序</p>
 <hr>
+<blockquote>
+<p>enumerate()</p>
+</blockquote>
+<p>把一个 <code>list</code> 变成 <code>索引-元素对</code> ，可以在 <code>for</code> 循环中同时迭代索引和元素本身<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> i, value <span class="keyword">in</span> enumerate([<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>]):</div><div class="line"><span class="meta">... </span>    print(i, value)</div><div class="line">...</div><div class="line"><span class="number">0</span> A</div><div class="line"><span class="number">1</span> B</div><div class="line"><span class="number">2</span> C</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>len()</p>
+</blockquote>
+<p>计算列表元素个数</p>
 <h3 id="dict函数"><a href="#dict函数" class="headerlink" title="dict函数"></a>dict函数</h3><blockquote>
 <p>get()</p>
 </blockquote>
@@ -240,6 +270,10 @@
 <p>str.replace(‘被替代的内容’, ‘要替代的内容’)</p>
 </blockquote>
 <p>1、替代字符串的内容，但是不改变原有的字符串<br>2、其实是创建一个新的字符串返回<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="string">'abc'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b = a.replace(<span class="string">'a'</span>, <span class="string">'A'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b</div><div class="line"><span class="string">'Abc'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>a</div><div class="line"><span class="string">'abc'</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>count()</p>
+</blockquote>
+<p>统计字符串里某个字符串出现的次数，可指定参数在字符串中的开始和结束位置<br><em><code>str.count(sub, start, end)</code></em></p>
 <hr>
 <h3 id="数据类型相关"><a href="#数据类型相关" class="headerlink" title="数据类型相关"></a>数据类型相关</h3><blockquote>
 <p>abs()</p>
@@ -1139,47 +1173,61 @@
   </entry>
   
   <entry>
-    <title>你站住项目进度</title>
-    <link href="https://nancelglap.github.io/2017/05/20/%E4%BD%A0%E7%AB%99%E4%BD%8F%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/"/>
-    <id>https://nancelglap.github.io/2017/05/20/你站住项目进度/</id>
-    <published>2017-05-20T13:00:50.000Z</published>
-    <updated>2017-06-11T14:56:44.000Z</updated>
+    <title>微信小程序相关文档</title>
+    <link href="https://nancelglap.github.io/2017/05/20/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9B%B8%E5%85%B3%E6%96%87%E6%A1%A3/"/>
+    <id>https://nancelglap.github.io/2017/05/20/微信小程序相关文档/</id>
+    <published>2017-05-20T01:58:03.000Z</published>
+    <updated>2017-06-19T11:02:26.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
-<p>你站住后台项目进度记录<br><a id="more"></a><br>5.20</p>
+<p>与小程序相关网站</p>
 </blockquote>
-<h2 id="已完成"><a href="#已完成" class="headerlink" title="已完成"></a><strong>已完成</strong></h2><p>1、初步了解微信小程序语法内容<br>2、了解JWT替代原session完成登录机制<br>3、写完了用户登录的AuthController</p>
-<h2 id="待完成"><a href="#待完成" class="headerlink" title="待完成"></a><strong>待完成</strong></h2><p>1、各个接口编写<br>2、数据库的创建<br>3、继续了解小程序语法，做简单的测试<br>4、服务器的部署，http转https</p>
+<a id="more"></a>
 <blockquote>
-<p>5.23</p>
+<p>文档类</p>
 </blockquote>
-<h2 id="已完成-1"><a href="#已完成-1" class="headerlink" title="已完成"></a><strong>已完成</strong></h2><p>1、完成JWT替代原session完成登录机制<br>2、了解JWT整个验证流程</p>
-<h2 id="待完成-1"><a href="#待完成-1" class="headerlink" title="待完成"></a><strong>待完成</strong></h2><p>1、其他接口的编写<br>2、了解小程序语法，做简单测试<br>3、服务器的部署，http转https</p>
+<p><strong>微信小程序官方文档：</strong><code>https://mp.weixin.qq.com/debug/wxadoc/dev/</code><br><strong>&lt;简书&gt;小程序开发专栏：</strong><code>http://www.jianshu.com/c/dfdc2bbd1315</code><br><strong>W3Cschool文档：</strong><code>http://www.w3cschool.cn/weixinapp/weixinapp-app.html</code></p>
 <blockquote>
-<p>5.24</p>
+<p>各功能实现</p>
 </blockquote>
-<h2 id="已完成-2"><a href="#已完成-2" class="headerlink" title="已完成"></a><strong>已完成</strong></h2><p>1、完成JWT中间件验证<br>2、写完几个api接口</p>
-<h2 id="待完成-2"><a href="#待完成-2" class="headerlink" title="待完成"></a><strong>待完成</strong></h2><p>1、用户编辑接口（点击删除删除信息）<br>2、了解小程序语法，做简单测试<br>3、服务器的部署，http转https</p>
+<p><strong>功能合集：</strong><code>http://weixin1024.cn/forum.php?mod=viewthread&amp;tid=1027&amp;extra=page%3D1</code></p>
 <blockquote>
-<p>5.25</p>
+<p>小程序账号申请</p>
 </blockquote>
-<h2 id="已完成-3"><a href="#已完成-3" class="headerlink" title="已完成"></a><strong>已完成</strong></h2><p>1、将 <em><code>token</code></em> 放入 <em><code>header</code></em> 中完成 <em><code>jwt</code></em> 中间件的验证</p>
-<h2 id="待完成-3"><a href="#待完成-3" class="headerlink" title="待完成"></a><strong>待完成</strong></h2><p>1、其他接口编写<br>2、用户编辑接口<br>3、了解小程序语法，做简单测试<br>4、买服务器，服务器部署，http转https</p>
+<p><strong>&lt;有道云笔记&gt;：</strong><code>http://note.youdao.com/share/?id=744b94b02c28321c8f930e1f495624e5&amp;type=note#/</code></p>
+<blockquote>
+<p>项目案例</p>
+</blockquote>
+<p><strong>项目列表：</strong><code>http://blog.csdn.net/qq137722697/article/details/52988719</code><br><strong>小黄车小程序：</strong><code>http://www.jianshu.com/p/68e3b8927a77</code><br><strong><github>项目：</github></strong><code>http://www.cnblogs.com/tuyile006/p/6268961.html</code></p>
+<blockquote>
+<p>登录注册实现</p>
+</blockquote>
+<h2 id="维护用户登录态可以用JWT完成"><a href="#维护用户登录态可以用JWT完成" class="headerlink" title="维护用户登录态可以用JWT完成"></a><strong>维护用户登录态可以用JWT完成</strong></h2><p>1、注意设置JWT过去时间<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$payload = [</div><div class="line">            <span class="string">'email'</span> =&gt; $request-&gt;get(<span class="string">'email'</span>),</div><div class="line">            <span class="string">'password'</span> =&gt; $request-&gt;get(<span class="string">'password'</span>)，</div><div class="line">            <span class="string">'exp'</span> =&gt; time()+<span class="number">60</span>*<span class="number">60</span>   <span class="comment">//设置token过期时间</span></div><div class="line">        ];</div><div class="line">$token = JWTAuth::attempt($payload)</div></pre></td></tr></table></figure></p>
+<p><strong>&lt;简书&gt;后台登录文章：</strong><code>http://www.jianshu.com/p/6096e8522c4c</code><br><strong><csdn>注册登录实现：</csdn></strong><code>http://blog.csdn.net/qq_19558705/article/details/65935818?utm_source=gold_browser_extension</code></p>
+<blockquote>
+<p>http站点转https站点</p>
+</blockquote>
+<p><strong>在nginx服务器下配置和安装阿里云购买的SSL证书：</strong><code>http://sanwen.net/a/hmdfcoo.html</code></p>
+<blockquote>
+<p>request请求(前端后台数据交互)</p>
+</blockquote>
+<p><strong>request请求：</strong><code>http://blog.csdn.net/qq_19558705/article/details/60783448</code></p>
 ]]></content>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;你站住后台项目进度记录&lt;br&gt;
+&lt;p&gt;与小程序相关网站&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
+      <category term="Wechat" scheme="https://nancelglap.github.io/categories/Wechat/"/>
     
-      <category term="ustopmoving" scheme="https://nancelglap.github.io/tags/ustopmoving/"/>
     
-      <category term="你站住" scheme="https://nancelglap.github.io/tags/%E4%BD%A0%E7%AB%99%E4%BD%8F/"/>
+      <category term="Wechat" scheme="https://nancelglap.github.io/tags/Wechat/"/>
     
-      <category term="loading" scheme="https://nancelglap.github.io/tags/loading/"/>
+      <category term="Mini Programes" scheme="https://nancelglap.github.io/tags/Mini-Programes/"/>
     
   </entry>
   
