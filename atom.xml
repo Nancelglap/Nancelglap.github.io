@@ -216,7 +216,7 @@
     <link href="https://nancelglap.github.io/2017/07/06/Python-%E5%87%BD%E6%95%B0/"/>
     <id>https://nancelglap.github.io/2017/07/06/Python-函数/</id>
     <published>2017-07-06T03:03:40.000Z</published>
-    <updated>2017-07-15T14:21:54.000Z</updated>
+    <updated>2017-07-15T14:27:32.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>python 函数</p>
@@ -338,6 +338,7 @@
 <p>1、接收<code>一个函数</code>和<code>一个序列</code>，<code>filter()</code> 把传入的函数依次作用于每个元素，然后根据返回值是 <code>True</code> 还是 <code>False</code> 决定保留还是丢弃该元素<br>2、接收到函数 <code>返回值</code> 必须是 <code>bool值</code><br>3、<code>filter()</code> 函数返回的是一个 <code>Iterator</code>，也就是一个惰性序列，所以要强迫 <code>filter()</code> 完成计算结果，需要用 <code>list()</code>函数获得所有结果并返回 <code>list</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 在一个list中只保留奇数</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_odd</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="keyword">return</span> n % <span class="number">2</span> == <span class="number">1</span></div><div class="line"></div><div class="line">list(filter(is_odd, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">15</span>]))</div><div class="line"><span class="comment"># 结果：[1, 5, 9, 15]</span></div></pre></td></tr></table></figure>
 <p>把一个序列中的空字符串删掉：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">not_empty</span><span class="params">(s)</span>:</span></div><div class="line">    <span class="keyword">return</span> s <span class="keyword">and</span> s.strip()</div><div class="line"></div><div class="line">list(filter(not_empty, [<span class="string">'A'</span>, <span class="string">''</span>, <span class="string">'B'</span>, <span class="keyword">None</span>, <span class="string">'C'</span>, <span class="string">'   '</span>])) <span class="comment">#多个空格为bool值为True</span></div><div class="line"><span class="comment"># 结果：['A', 'B', 'C']</span></div></pre></td></tr></table></figure></p>
+<hr>
 ]]></content>
     
     <summary type="html">
