@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="laravel,admin," />
 
 
 
@@ -95,15 +95,17 @@
 
 
 
-<meta name="description" content="不想正经">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Nancelglap">
-<meta property="og:url" content="https://nancelglap.github.io/archives/2017/06/index.html">
+<meta name="description" content="laravel-admin 脚手架相关">
+<meta name="keywords" content="laravel,admin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="laravel-admin">
+<meta property="og:url" content="https://nancelglap.github.io/2017/07/17/laravel-admin/index.html">
 <meta property="og:site_name" content="Nancelglap">
-<meta property="og:description" content="不想正经">
+<meta property="og:description" content="laravel-admin 脚手架相关">
+<meta property="og:updated_time" content="2017-07-17T03:40:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nancelglap">
-<meta name="twitter:description" content="不想正经">
+<meta name="twitter:title" content="laravel-admin">
+<meta name="twitter:description" content="laravel-admin 脚手架相关">
 
 
 
@@ -131,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://nancelglap.github.io/archives/2017/06/"/>
+  <link rel="canonical" href="https://nancelglap.github.io/2017/07/17/laravel-admin/"/>
 
 
 
 
 
-  <title>归档 | Nancelglap</title>
+  <title>laravel-admin | Nancelglap</title>
   
 
 
@@ -162,7 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -280,402 +282,199 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-       
-      
-      OK! 目前共计 36 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://nancelglap.github.io/2017/07/17/laravel-admin/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancelglap">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancelglap">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">laravel-admin</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-17T10:27:29+08:00">
+                2017-07-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/admin/" itemprop="url" rel="index">
+                    <span itemprop="name">admin</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <blockquote>
+<p>laravel-admin 脚手架相关</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>添加路由</p>
+</blockquote>
+<p>命令会创建路由器文件app/Admin/Controllers/UserController.php<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php artisan admin:make UserController <span class="comment">--model=App\\User</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>添加路由配置</p>
+</blockquote>
+<p>在laravel-admin的路由配置文件app/Admin/routes.php里添加一行<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$router-&gt;resource(<span class="string">'users'</span>, UserController::<span class="class"><span class="keyword">class</span>);</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>添加菜单链接</p>
+</blockquote>
+<p>打开<a href="http://localhost:8000/admin/auth/menu,添加对应的menu" target="_blank" rel="external">http://localhost:8000/admin/auth/menu,添加对应的menu</a></p>
+<blockquote>
+<p>控制展示图片大小</p>
+</blockquote>
+<figure class="highlight xl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$<span class="function"><span class="title">grid</span>-&gt;</span><span class="function"><span class="title">picture</span>()-&gt;</span>image(<span class="string">'http://localhost:8000/upload'</span>, <span class="number">100</span>, <span class="number">100</span>);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>展示关联模型</p>
+</blockquote>
+<p><code>http://z-song.github.io/laravel-admin/#/zh/model-grid?id=%e5%85%b3%e8%81%94%e6%a8%a1%e5%9e%8b</code></p>
+<blockquote>
+<p>form建立一对多</p>
+</blockquote>
+<p><code>http://z-song.github.io/laravel-admin/#/zh/model-form-fields?id=%e4%b8%80%e5%af%b9%e5%a4%9a</code></p>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/laravel/" rel="tag"># laravel</a>
+          
+            <a href="/tags/admin/" rel="tag"># admin</a>
+          
         </div>
       
+
+      
+      
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/20/mysql-定时备份/" itemprop="url">
-              
-                <span itemprop="name">mysql 定时备份</span>
-              
-            </a>
-        
-      </h2>
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/06/Python-语法/" rel="prev" title="Python 语法">
+                Python 语法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-20T22:48:28+08:00"
-              content="2017-06-20" >
-          06-20
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/20/微信公众号/" itemprop="url">
-              
-                <span itemprop="name">微信公众号</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-20T20:51:52+08:00"
-              content="2017-06-20" >
-          06-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/16/Laravel-ACL/" itemprop="url">
-              
-                <span itemprop="name">Laravel ACL</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-16T16:13:41+08:00"
-              content="2017-06-16" >
-          06-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/12/Laravel-项目实战相关/" itemprop="url">
-              
-                <span itemprop="name">Laravel 项目实战相关</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-12T21:41:08+08:00"
-              content="2017-06-12" >
-          06-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/11/laravel-用户注册登录相关/" itemprop="url">
-              
-                <span itemprop="name">laravel 用户注册登录相关</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-11T20:18:31+08:00"
-              content="2017-06-11" >
-          06-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/11/laravel-Request常用规则/" itemprop="url">
-              
-                <span itemprop="name">laravel Request常用规则</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-11T20:09:33+08:00"
-              content="2017-06-11" >
-          06-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/11/laravel-表的联系/" itemprop="url">
-              
-                <span itemprop="name">laravel 表的联系</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-11T15:45:36+08:00"
-              content="2017-06-11" >
-          06-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/10/laravel-用户确认邮箱/" itemprop="url">
-              
-                <span itemprop="name">laravel 用户确认邮箱</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-10T10:57:00+08:00"
-              content="2017-06-10" >
-          06-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/09/PHP单元测试/" itemprop="url">
-              
-                <span itemprop="name">PHP单元测试</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-09T20:01:58+08:00"
-              content="2017-06-09" >
-          06-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/08/php命名空间和自动加载/" itemprop="url">
-              
-                <span itemprop="name">php命名空间和自动加载</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-08T16:33:09+08:00"
-              content="2017-06-08" >
-          06-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2017/06/page/2/">2</a><a class="extend next" rel="next" href="/archives/2017/06/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
@@ -683,6 +482,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -788,11 +591,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
