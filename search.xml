@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Node.js Express]]></title>
+    <url>%2F2017%2F07%2F19%2FNode-js-Express%2F</url>
+    <content type="text"><![CDATA[Express 框架应用 路由 123456789101112var express = require("express");var app = express();app.get('/', function(req, res)&#123; console.log("主页 GET 请求"); res.send('Hello GET');&#125;)app.post('/', function(req, res)&#123; console.log("主页 POST 请求"); res.send('Hello POST');&#125;) 静态文件 服务器文件必须跟 public 文件夹在 同一个目录下 设置静态路径方法：1app.use(express.static('public')); 12345678910111213141516var express = require('express');var app = express(); app.use(express.static('public')); app.get('/', function (req, res) &#123; res.send('Hello World');&#125;) var server = app.listen(8081, function () &#123; var host = server.address().address var port = server.address().port console.log("应用实例，访问地址为 http://%s:%s", host, port)&#125;) 浏览器访问 http://127.0.0.1:8081/images/logo.png GET 方法 12345678910111213141516171819202122232425var express = require("express");var app = express();app.use(express.static('public'));app.get('/index.htm', functino(req, res) &#123; res.sendFile(__dirname + '/' + "index.htm");&#125;)app.get('/process_get', function(req, res) &#123; var response = [ "first_name" : req.query.first_name, "last_name" : req.query.last_name ] console.log(response); res.end(JSON.stringify(response));&#125;)var server = app.listen(8081, function() &#123; var host = server.address().address var port = server.address().port console.log("应用实例，访问地址为 http://%s:%s", host, port)&#125;) POST 方法 1234567891011121314151617181920212223242526272829var express = require("express");var app = express();var bodyParser = require('body-parser');// 创建 application/x-www-form-urlencoded 编码解析var urlencodedParser = bodyParser.urlencoded(&#123; extended: false &#125;)app.use(express.static('public'));app.get('/index.htm', function(req, res) &#123; res.sendFile(__dirname + '.' + 'index.htm');&#125;)app.post('/process_post', urlencodedParser, function(req, res) &#123; // 输出 JSON 格式 var response = &#123; "first_name" : req.body.first_name, "last_name" : req.body.last_name &#125;; console.log(response); res.end(JSON.stringify(response));&#125;)var server = app.listen(8081, function() &#123; var host = server.address().address var port = server.address().port console.log("应用实例，访问地址为 http://%s:%s", host, port);&#125;)]]></content>
+      <categories>
+        <category>Express</category>
+        <category>Node.js</category>
+      </categories>
+      <tags>
+        <tag>Node.js</tag>
+        <tag>Express</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Node.js Request]]></title>
     <url>%2F2017%2F07%2F19%2FNode-js-Request%2F</url>
     <content type="text"><![CDATA[Node.js GET and POST 参考 http://www.runoob.com/nodejs/node-js-get-post.html GET 1、引入 util 、url 模块2、用 url.parse() 解析 url参数3、url.inspect() 将对象转换为字符串 12345678910var http = require("http");var url = require("url");var util = require("util");http.createServer(function(req, res) &#123; res.writeHead(200, &#123; 'Content-Type': 'text/plain; charset=utf-8' &#125;); res.end(util.inspect(url.parse(req.url, true)));&#125;).listen(3000); 获取URL的参数123456789101112131415var http = require("http");var url = require("url");http.createServer(function(req, res)&#123; res.writeHead(200, &#123; 'Content-Type': 'text/plain; charset = UTF-8' &#125;); // 解析 url 参数 var params = url.parse(req.url, true).query; res.write("网站名: " + params.name); res.write("\n"); res.write("网站URL: " + params.url); res.end();&#125;).listen(3000); POST 1、先用 data 事件监听函数，接收请求体的数据，并累加到变量中2、引入 querystring 模块解析请求体信息3、通过 res.write(变量名.字段名) 引用信息 123456789101112131415161718192021222324252627282930313233var http = require(&quot;http&quot;);var querystring = require(&quot;querystring&quot;);var postHTML = &apos;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;title&gt;菜鸟教程 Node.js 实例&lt;/title&gt;&lt;/head&gt;&apos; + &apos;&lt;body&gt;&apos; + &apos;&lt;form method=&quot;post&quot;&gt;&apos; + &apos;网站名： &lt;input name=&quot;name&quot;&gt;&lt;br&gt;&apos; + &apos;网站 URL： &lt;input name=&quot;url&quot;&gt;&lt;br&gt;&apos; + &apos;&lt;input type=&quot;submit&quot;&gt;&apos; + &apos;&lt;/form&gt;&apos; + &apos;&lt;/body&gt;&lt;/html&gt;&apos;;http.createServer(function(req, res)&#123; var body = &quot;&quot;; req.on(&quot;data&quot;, function(chunk) &#123; body += chunk; &#125;); req.on(&quot;end&quot;, function() &#123; body = querystring.parse(body); if(body.name &amp;&amp; body.url) &#123; res.write(&quot;网站名:&quot; + body.name); res.write(&quot;URL:&quot; + body.url); &#125; else &#123; res.write(postHTML); &#125; res.end(); &#125;);&#125;).listen(3000);]]></content>
@@ -262,8 +275,8 @@
         <category>Wechat</category>
       </categories>
       <tags>
-        <tag>Wechat</tag>
         <tag>Mini Programes</tag>
+        <tag>Wechat</tag>
       </tags>
   </entry>
   <entry>
@@ -287,9 +300,9 @@
         <category>Git</category>
       </categories>
       <tags>
+        <tag>server</tag>
         <tag>git</tag>
         <tag>github</tag>
-        <tag>server</tag>
       </tags>
   </entry>
   <entry>
@@ -301,8 +314,8 @@
       </categories>
       <tags>
         <tag>laravel</tag>
-        <tag>server</tag>
         <tag>VPS</tag>
+        <tag>server</tag>
         <tag>Domain</tag>
       </tags>
   </entry>
@@ -329,8 +342,8 @@
       </categories>
       <tags>
         <tag>laravel</tag>
-        <tag>server</tag>
         <tag>VPS</tag>
+        <tag>server</tag>
       </tags>
   </entry>
   <entry>
