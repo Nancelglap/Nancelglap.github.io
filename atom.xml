@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2017-07-17T03:40:18.000Z</updated>
+  <updated>2017-07-19T04:10:51.000Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -14,6 +14,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Node.js Request</title>
+    <link href="https://nancelglap.github.io/2017/07/19/Node-js-Request/"/>
+    <id>https://nancelglap.github.io/2017/07/19/Node-js-Request/</id>
+    <published>2017-07-19T03:17:53.000Z</published>
+    <updated>2017-07-19T04:10:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>Node.js GET and POST</p>
+</blockquote>
+<a id="more"></a>
+<p>参考 <code>http://www.runoob.com/nodejs/node-js-get-post.html</code></p>
+<blockquote>
+<p>GET</p>
+</blockquote>
+<p>1、引入 <code>util</code> 、<code>url</code> 模块<br>2、用 <code>url.parse()</code> 解析 <code>url参数</code><br>3、<code>url.inspect()</code> 将对象转换为字符串</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</div><div class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">"url"</span>);</div><div class="line"><span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">"util"</span>);</div><div class="line"></div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    res.writeHead(<span class="number">200</span>, &#123;</div><div class="line">        <span class="string">'Content-Type'</span>: <span class="string">'text/plain; charset=utf-8'</span></div><div class="line">    &#125;);</div><div class="line">    res.end(util.inspect(url.parse(req.url, <span class="literal">true</span>)));</div><div class="line">&#125;).listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
+<p>获取URL的参数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</div><div class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">"url"</span>);</div><div class="line"></div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">    res.writeHead(<span class="number">200</span>, &#123;</div><div class="line">        <span class="string">'Content-Type'</span>: <span class="string">'text/plain; charset = UTF-8'</span></div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="comment">// 解析 url 参数</span></div><div class="line">    <span class="keyword">var</span> params = url.parse(req.url, <span class="literal">true</span>).query;</div><div class="line">    res.write(<span class="string">"网站名: "</span> + params.name);</div><div class="line">    res.write(<span class="string">"\n"</span>);</div><div class="line">    res.write(<span class="string">"网站URL: "</span> + params.url);</div><div class="line">    res.end();</div><div class="line">&#125;).listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>POST</p>
+</blockquote>
+<p>1、先用 <code>data</code> 事件监听函数，接收请求体的数据，并累加到变量中<br>2、引入 <code>querystring</code> 模块解析请求体信息<br>3、通过 <code>res.write(变量名.字段名)</code> 引用信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">var http = require(&quot;http&quot;);</div><div class="line">var querystring = require(&quot;querystring&quot;);</div><div class="line"></div><div class="line">var postHTML =</div><div class="line">    &apos;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;title&gt;菜鸟教程 Node.js 实例&lt;/title&gt;&lt;/head&gt;&apos; +</div><div class="line">    &apos;&lt;body&gt;&apos; +</div><div class="line">    &apos;&lt;form method=&quot;post&quot;&gt;&apos; +</div><div class="line">    &apos;网站名： &lt;input name=&quot;name&quot;&gt;&lt;br&gt;&apos; +</div><div class="line">    &apos;网站 URL： &lt;input name=&quot;url&quot;&gt;&lt;br&gt;&apos; +</div><div class="line">    &apos;&lt;input type=&quot;submit&quot;&gt;&apos; +</div><div class="line">    &apos;&lt;/form&gt;&apos; +</div><div class="line">    &apos;&lt;/body&gt;&lt;/html&gt;&apos;;</div><div class="line"></div><div class="line">http.createServer(function(req, res)&#123;</div><div class="line">    var body = &quot;&quot;;</div><div class="line">    req.on(&quot;data&quot;, function(chunk) &#123;</div><div class="line">        body += chunk;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    req.on(&quot;end&quot;, function() &#123;</div><div class="line">        body = querystring.parse(body);</div><div class="line">        if(body.name &amp;&amp; body.url)</div><div class="line">        &#123;</div><div class="line">            res.write(&quot;网站名:&quot; + body.name);</div><div class="line">            res.write(&quot;URL:&quot; + body.url);</div><div class="line">        &#125;</div><div class="line">        else</div><div class="line">        &#123;</div><div class="line">            res.write(postHTML);</div><div class="line">        &#125;</div><div class="line">        res.end();</div><div class="line">    &#125;);</div><div class="line">&#125;).listen(3000);</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Node.js GET and POST&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Request" scheme="https://nancelglap.github.io/categories/Request/"/>
+    
+      <category term="Node.js" scheme="https://nancelglap.github.io/categories/Request/Node-js/"/>
+    
+    
+      <category term="Node.js" scheme="https://nancelglap.github.io/tags/Node-js/"/>
+    
+      <category term="Request" scheme="https://nancelglap.github.io/tags/Request/"/>
+    
+  </entry>
   
   <entry>
     <title>laravel-admin</title>
@@ -1248,48 +1292,6 @@
       <category term="project" scheme="https://nancelglap.github.io/tags/project/"/>
     
       <category term="status code" scheme="https://nancelglap.github.io/tags/status-code/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://nancelglap.github.io/2017/05/30/PhpStorm/"/>
-    <id>https://nancelglap.github.io/2017/05/30/PhpStorm/</id>
-    <published>2017-05-30T13:32:47.000Z</published>
-    <updated>2017-06-19T11:05:01.000Z</updated>
-    
-    <content type="html"><![CDATA[<hr>
-<p>title: PhpStorm<br>date: 2017-05-30 21:32:47<br>tags:</p>
-<ul>
-<li>ide</li>
-<li>PhpStorm<br>categories: </li>
-<li>phpstorm</li>
-</ul>
-<hr>
-<blockquote>
-<p>PhpStorm快捷键等</p>
-</blockquote>
-<a id="more"></a>
-<p>一、通用类<br>1、*<code>Command + Shift + A</code>：搜索配置项（搜索<code>keymap</code>改快捷键）<br>2、<code>Command + P</code>：文件之间跳转<br>3、<code>Command + B</code>：查看类的关系<br>4、<code>Command + Control + S</code>：查看类里面的方法等</p>
-<p>二、编辑类<br>1、<code>Command + Delete</code>：删除光标行<br>2、<code>Shift + Delete</code>：删除光标后面所有内容<br>3、<code>Control + Delete</code>：删除光标前面所有内容<br>4、<code>Control + Shift + Delete</code>：删除光标所在单词<br>5、<code>Command + Shift+ D</code>：复制当前行到下一行<br>6、<code>Command + D</code>：逐个选相同的词（多点编辑）<br>7、<code>Command + Control + D</code>：全选相同的词（多点编辑）<br>8、<code>Command + G</code>：选中下一个光标所在一样的词<br>9、<code>Command + Shift + G</code>：选中上一个光标所在一样的词</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;hr&gt;
-&lt;p&gt;title: PhpStorm&lt;br&gt;date: 2017-05-30 21:32:47&lt;br&gt;tags:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;ide&lt;/li&gt;
-&lt;li&gt;PhpStorm&lt;br&gt;categories: &lt;/li&gt;
-&lt;li&gt;phpstorm&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;PhpStorm快捷键等&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
     
   </entry>
   
