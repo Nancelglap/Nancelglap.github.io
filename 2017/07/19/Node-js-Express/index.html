@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2017/07/19/Node-js-Express/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="Express 框架应用">
-<meta property="og:updated_time" content="2017-07-19T13:59:11.000Z">
+<meta property="og:updated_time" content="2017-07-20T01:46:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node.js Express">
 <meta name="twitter:description" content="Express 框架应用">
@@ -412,6 +412,10 @@
 <p>POST 方法</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 创建 application/x-www-form-urlencoded 编码解析</span></div><div class="line"><span class="keyword">var</span> urlencodedParser = bodyParser.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">false</span> &#125;)</div><div class="line"></div><div class="line">app.use(express.static(<span class="string">'public'</span>));</div><div class="line"></div><div class="line">app.get(<span class="string">'/index.htm'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    res.sendFile(__dirname + <span class="string">'.'</span> + <span class="string">'index.htm'</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.post(<span class="string">'/process_post'</span>, urlencodedParser, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    <span class="comment">// 输出 JSON 格式</span></div><div class="line">    <span class="keyword">var</span> response = &#123;</div><div class="line">        <span class="string">"first_name"</span> : req.body.first_name,</div><div class="line">        <span class="string">"last_name"</span> : req.body.last_name</div><div class="line">    &#125;;</div><div class="line">    <span class="built_in">console</span>.log(response);</div><div class="line">    res.end(<span class="built_in">JSON</span>.stringify(response));</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">var</span> server = app.listen(<span class="number">8081</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> host = server.address().address</div><div class="line">    <span class="keyword">var</span> port = server.address().port</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"应用实例，访问地址为 http://%s:%s"</span>, host, port);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>文件上传</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 
       
     </div>
@@ -455,6 +459,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/21/Mongodb/" rel="next" title="Mongodb">
+                <i class="fa fa-chevron-left"></i> Mongodb
+              </a>
             
           </div>
 

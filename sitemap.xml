@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://nancelglap.github.io/2017/07/19/Node-js-Request/</loc>
+    <loc>https://nancelglap.github.io/2017/07/21/Mongodb/</loc>
     
-    <lastmod>2017-07-19T14:42:20.000Z</lastmod>
+    <lastmod>2017-07-21T01:09:56.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nancelglap.github.io/2017/07/19/Node-js-Express/</loc>
     
-    <lastmod>2017-07-19T13:59:11.000Z</lastmod>
+    <lastmod>2017-07-20T01:46:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancelglap.github.io/2017/07/19/Node-js-Request/</loc>
+    
+    <lastmod>2017-07-19T14:42:20.000Z</lastmod>
     
   </url>
   
