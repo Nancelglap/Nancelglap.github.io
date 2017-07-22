@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Node.js,Express," />
+  <meta name="keywords" content="javascript,callback," />
 
 
 
@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="Express 框架应用">
-<meta name="keywords" content="Node.js,Express">
+<meta name="description" content="JS 回调和异步的问题">
+<meta name="keywords" content="javascript,callback">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Node.js Express">
-<meta property="og:url" content="https://nancelglap.github.io/2017/07/19/Node-js-Express/index.html">
+<meta property="og:title" content="js 回调与异步">
+<meta property="og:url" content="https://nancelglap.github.io/2017/07/22/js-回调与异步/index.html">
 <meta property="og:site_name" content="Nancelglap">
-<meta property="og:description" content="Express 框架应用">
-<meta property="og:updated_time" content="2017-07-21T03:37:07.000Z">
+<meta property="og:description" content="JS 回调和异步的问题">
+<meta property="og:updated_time" content="2017-07-22T02:48:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Node.js Express">
-<meta name="twitter:description" content="Express 框架应用">
+<meta name="twitter:title" content="js 回调与异步">
+<meta name="twitter:description" content="JS 回调和异步的问题">
 
 
 
@@ -133,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://nancelglap.github.io/2017/07/19/Node-js-Express/"/>
+  <link rel="canonical" href="https://nancelglap.github.io/2017/07/22/js-回调与异步/"/>
 
 
 
 
 
-  <title>Node.js Express | Nancelglap</title>
+  <title>js 回调与异步 | Nancelglap</title>
   
 
 
@@ -292,7 +292,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://nancelglap.github.io/2017/07/19/Node-js-Express/">
+    <link itemprop="mainEntityOfPage" href="https://nancelglap.github.io/2017/07/22/js-回调与异步/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Nancelglap">
@@ -309,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Node.js Express</h1>
+          <h1 class="post-title" itemprop="name headline">js 回调与异步</h1>
         
 
         <div class="post-meta">
@@ -321,8 +321,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-19T20:25:53+08:00">
-                2017-07-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T09:25:50+08:00">
+                2017-07-22
               </time>
             
 
@@ -344,19 +344,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Express/" itemprop="url" rel="index">
-                    <span itemprop="name">Express</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Express/Node-js/" itemprop="url" rel="index">
-                    <span itemprop="name">Node.js</span>
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
                   </a>
                 </span>
 
@@ -390,32 +379,27 @@
 
       
         <blockquote>
-<p>Express 框架应用</p>
+<p>JS 回调和异步的问题</p>
 </blockquote>
 <a id="more"></a>
 <blockquote>
-<p>路由</p>
+<p>回调</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"></div><div class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"主页 GET 请求"</span>);</div><div class="line">    res.send(<span class="string">'Hello GET'</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.post(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"主页 POST 请求"</span>);</div><div class="line">    res.send(<span class="string">'Hello POST'</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>1、如果一个函数的参数有回调函数，那么会 <code>先执行完</code> 这个函数再执行回调函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun1</span> (<span class="params">callback</span>)</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">var</span> e = ...;</div><div class="line">    <span class="comment">// 执行一些操作</span></div><div class="line">    callback(e);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 传参方法1，用匿名函数传参</span></div><div class="line">fun1(<span class="function"><span class="keyword">function</span> (<span class="params">var</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">var</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 传参方法2，先定义函数后传参</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun2</span> (<span class="params">var</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">var</span>);</div><div class="line">&#125;</div><div class="line">fun1(fun2);</div></pre></td></tr></table></figure></p>
+<p>2、如果函数自带回调函数的参数，会先执行完这个函数的全部（包括延迟操作）才执行回调函数<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">* collection.<span class="built_in">find</span>().toArray()是个有延迟操作的函数</div><div class="line">* 必须等到延迟操作完成，即查询完成才会把err，result两个参数返回给回调执行</div><div class="line">*/</div><div class="line">collection.<span class="built_in">find</span>(whereStr).toArray(<span class="function"><span class="keyword">function</span><span class="params">(err, result)</span></span> &#123;</div><div class="line">    <span class="keyword">if</span>(err)</div><div class="line">    &#123;</div><div class="line">      console.<span class="built_in">log</span>(<span class="string">'Error:'</span>+ err);</div><div class="line">      <span class="keyword">return</span>;</div><div class="line">    &#125;     </div><div class="line">    console.<span class="built_in">log</span>(result);</div><div class="line">  &#125;);</div></pre></td></tr></table></figure></p>
+<p>3、一个函数最后返回的值对下一个函数有用，下一个函数可以加到上一个函数的一个参数（回调函数）内部<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> MongoClient = <span class="built_in">require</span>(<span class="string">"mongodb"</span>).MongoClient;</div><div class="line"><span class="keyword">var</span> DB_CNN_STR = <span class="string">'mongodb://localhost:27017/test'</span>;  <span class="comment">//连接test数据库</span></div><div class="line"></div><div class="line">Mogoclient.connect(DB_CNN_STR, <span class="function"><span class="keyword">function</span>(<span class="params">err, db</span>)</span>&#123;</div><div class="line">    <span class="comment">// 连接 site 表</span></div><div class="line">    <span class="keyword">var</span> collection = db.collection(<span class="string">'site'</span>);</div><div class="line"></div><div class="line">    collection.find().toArray(<span class="function"><span class="keyword">function</span> (<span class="params">err, result</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (err) &#123;</div><div class="line">            <span class="built_in">console</span>.log(err);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">console</span>.log(result);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* 因为上面返回的 collection 要用作后面的查询</div><div class="line">* 可以改写为以下</div><div class="line">*/</div><div class="line">db.collection(<span class="string">'site'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, collection</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(err) <span class="keyword">throw</span> error;</div><div class="line">    collection.find().toArray(<span class="function"><span class="keyword">function</span> (<span class="params">err, result</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span>(err) <span class="keyword">throw</span> err;</div><div class="line">        <span class="built_in">console</span>.log(result);</div><div class="line">    &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <blockquote>
-<p>静态文件</p>
+<p>异步</p>
 </blockquote>
-<p>服务器文件必须跟 <code>public</code> 文件夹在 <code>同一个目录下</code></p>
-<p>设置静态路径方法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">app.use(express.static(<span class="string">'public'</span>));</div></pre></td></tr></table></figure></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"> </div><div class="line">app.use(express.static(<span class="string">'public'</span>));</div><div class="line"> </div><div class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">   res.send(<span class="string">'Hello World'</span>);</div><div class="line">&#125;)</div><div class="line"> </div><div class="line"><span class="keyword">var</span> server = app.listen(<span class="number">8081</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"> </div><div class="line">  <span class="keyword">var</span> host = server.address().address</div><div class="line">  <span class="keyword">var</span> port = server.address().port</div><div class="line"> </div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"应用实例，访问地址为 http://%s:%s"</span>, host, port)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>浏览器访问 <code>http://127.0.0.1:8081/images/logo.png</code></p>
+<p><code>js</code> 为单线程异步处理，所以有延迟操作的都会被放入 <code>任务队列</code> 中，异步操作完成后会在 <code>任务队列</code> 放置一个事件，当 <code>主进程完成时</code> 才会去执行 <code>任务队列</code> 中 <code>已完成</code> 并在 <code>等待</code> 的 <code>异步事件</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 因为函数内容有回调函数，所以会在等数据库查询操作完成时才会去执行回调函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">callback</span>)</span></div><div class="line">&#123;</div><div class="line">    asyncFn(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> result = 数据库查询操作;</div><div class="line">        callback(result);</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* 错误例子</div><div class="line">* asyncFn为一个查询数据库的异步函数，此函数还没执行完就直接执行return</div><div class="line">* 所以 result 还没被查询出来就被return了</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span></div><div class="line">&#123;</div><div class="line">    asyncFn(<span class="function"><span class="keyword">function</span> </span>&#123;</div><div class="line">        <span class="keyword">var</span> result = 数据库查询操作;</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
-<p>GET 方法</p>
+<p>Promise</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"></div><div class="line">app.use(express.static(<span class="string">'public'</span>));</div><div class="line"></div><div class="line">app.get(<span class="string">'/index.htm'</span>, functino(req, res) &#123;</div><div class="line">    res.sendFile(__dirname + <span class="string">'/'</span> + <span class="string">"index.htm"</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.get(<span class="string">'/process_get'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> response = [</div><div class="line">        <span class="string">"first_name"</span> : req.query.first_name,</div><div class="line">        <span class="string">"last_name"</span> : req.query.last_name</div><div class="line">    ]</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(response);</div><div class="line">    res.end(<span class="built_in">JSON</span>.stringify(response));</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">var</span> server = app.listen(<span class="number">8081</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> host = server.address().address</div><div class="line">    <span class="keyword">var</span> port = server.address().port</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"应用实例，访问地址为 http://%s:%s"</span>, host, port)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>POST 方法</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 创建 application/x-www-form-urlencoded 编码解析</span></div><div class="line"><span class="keyword">var</span> urlencodedParser = bodyParser.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">false</span> &#125;)</div><div class="line"></div><div class="line">app.use(express.static(<span class="string">'public'</span>));</div><div class="line"></div><div class="line">app.get(<span class="string">'/index.htm'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    res.sendFile(__dirname + <span class="string">'.'</span> + <span class="string">'index.htm'</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.post(<span class="string">'/process_post'</span>, urlencodedParser, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    <span class="comment">// 输出 JSON 格式</span></div><div class="line">    <span class="keyword">var</span> response = &#123;</div><div class="line">        <span class="string">"first_name"</span> : req.body.first_name,</div><div class="line">        <span class="string">"last_name"</span> : req.body.last_name</div><div class="line">    &#125;;</div><div class="line">    <span class="built_in">console</span>.log(response);</div><div class="line">    res.end(<span class="built_in">JSON</span>.stringify(response));</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">var</span> server = app.listen(<span class="number">8081</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> host = server.address().address</div><div class="line">    <span class="keyword">var</span> port = server.address().port</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"应用实例，访问地址为 http://%s:%s"</span>, host, port);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>文件上传</p>
-</blockquote>
-<p>上传到本地<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> multer = <span class="built_in">require</span>(<span class="string">"multer"</span>);</div><div class="line"></div><div class="line">app.use(multer(&#123;<span class="attr">dest</span>: <span class="string">'/tmp/'</span>&#125;).array(<span class="string">'image'</span>));</div><div class="line"></div><div class="line">app.get(<span class="string">'/index.htm'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    res.sendFile(__dirname + <span class="string">'/'</span> + <span class="string">'index.htm'</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.post(<span class="string">'/file_upload'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(req.files[<span class="number">0</span>]);  <span class="comment">//上传文件信息</span></div><div class="line"></div><div class="line">    <span class="keyword">var</span> des_file = __dirname + <span class="string">"/"</span> + req.files[<span class="number">0</span>].originalname;</div><div class="line">    fs.readFile(req.files[<span class="number">0</span>].path, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</div><div class="line">            fs.writeFile(des_file, data, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</div><div class="line">                    <span class="keyword">if</span>(err) &#123;</div><div class="line">                        <span class="built_in">console</span>.log(err);</div><div class="line">                        <span class="keyword">return</span>;</div><div class="line">                    &#125; <span class="keyword">else</span> &#123;</div><div class="line">                        response = &#123;</div><div class="line">                            <span class="attr">message</span> : <span class="string">'File uploaded successfully'</span>,</div><div class="line">                            <span class="attr">filename</span>: req.files[<span class="number">0</span>].originalname</div><div class="line">                        &#125;;</div><div class="line">                    &#125;</div><div class="line">                    <span class="built_in">console</span>.log(response);</div><div class="line">                    res.end(<span class="built_in">JSON</span>.stringify(response));</div><div class="line">                &#125;);</div><div class="line">        &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> server = app.listen(<span class="number">8081</span>);</div></pre></td></tr></table></figure></p>
+<p>1、用 <code>Promise</code> 解决异步问题，<code>Promise</code> 的三个状态 <code>Pending(等待)</code>， <code>fulfilled(完成)</code>， <code>rejected(失败)</code><br>帮助更好地执行异步</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* fs.readFile为异步读取文件函数</div><div class="line">* 如果不用 promise，在fs.readFile函数外直接调用他返回的data，此时data还未被完全读出</div><div class="line">* 使用 promise，在 promise 回调函数里异步函数在未完成前，promise都处于 "pending" 状态，不会进行下一步操作</div><div class="line">* 只有当异步完成，成功时调用resolve()，将 Promise状态设为 fulfilled；失败时调用reject()，将 Promise状态设为 rejected</div><div class="line">* 当状态为 fulfilled 时执行 result.then() 回调函数的内容，函数参数就是 resolve() 的内部参数</div><div class="line">* 当状态为 rejected 时执行 result.catch() 回调函数的内容，函数参数就是 reject() 的内部参数</div><div class="line">*/</div><div class="line"></div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</div><div class="line"><span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    fs.readFile(<span class="string">'filename'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</div><div class="line">        resolve(data.toString());</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line">result.then(<span class="function"><span class="keyword">function</span>(<span class="params">result</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(result);</div><div class="line">&#125;)</div><div class="line">.catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(err);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>2、<code>Promise</code> 写法有两种：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 第一种</span></div><div class="line"><span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    ...;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 第二种</span></div><div class="line"><span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">    ...;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>3、在 <code>Promise</code> then 中使用 <code>Promise</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* 在第一个Promise执行成功后执行他对应的then</div><div class="line">* fun1 是个 Promise对象（在外部定义），执行成功后返回的 e 传给后面的 then 作为参数</div><div class="line">* message 是值就是 e 的值</div><div class="line">*/</div><div class="line"><span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    ...;</div><div class="line">    resolve(d);</div><div class="line">&#125;);</div><div class="line">result.then(<span class="function"><span class="keyword">function</span>(<span class="params">result</span>)</span>&#123;</div><div class="line">    fun1(var1, var2).then(<span class="function"><span class="keyword">function</span>(<span class="params">message</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(message);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun1</span>(<span class="params">var1, var2</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> e = var1 + var2;</div><div class="line">        resolve(e);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -445,9 +429,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Node-js/" rel="tag"># Node.js</a>
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
           
-            <a href="/tags/Express/" rel="tag"># Express</a>
+            <a href="/tags/callback/" rel="tag"># callback</a>
           
         </div>
       
@@ -460,18 +444,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/21/Mongodb/" rel="next" title="Mongodb">
-                <i class="fa fa-chevron-left"></i> Mongodb
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/19/Node-js-Request/" rel="prev" title="Node.js Request">
-                Node.js Request <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/21/Mongodb/" rel="prev" title="Mongodb">
+                Mongodb <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
