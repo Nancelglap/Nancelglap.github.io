@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="laravel,Event," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -95,17 +95,15 @@
 
 
 
-<meta name="description" content="当触发某个事件时自动完成一系列的操作">
-<meta name="keywords" content="laravel,Event">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Laravel Event">
-<meta property="og:url" content="https://nancelglap.github.io/2017/06/04/Laravel-Event/index.html">
+<meta name="description" content="不想正经">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nancelglap">
+<meta property="og:url" content="https://nancelglap.github.io/archives/2017/page/5/index.html">
 <meta property="og:site_name" content="Nancelglap">
-<meta property="og:description" content="当触发某个事件时自动完成一系列的操作">
-<meta property="og:updated_time" content="2017-06-19T11:04:23.000Z">
+<meta property="og:description" content="不想正经">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Laravel Event">
-<meta name="twitter:description" content="当触发某个事件时自动完成一系列的操作">
+<meta name="twitter:title" content="Nancelglap">
+<meta name="twitter:description" content="不想正经">
 
 
 
@@ -133,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="https://nancelglap.github.io/2017/06/04/Laravel-Event/"/>
+  <link rel="canonical" href="https://nancelglap.github.io/archives/2017/page/5/"/>
 
 
 
 
 
-  <title>Laravel Event | Nancelglap</title>
+  <title>归档 | Nancelglap</title>
   
 
 
@@ -164,7 +162,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left  page-archive  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -282,199 +280,69 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  <section id="posts" class="posts-collapse">
+    <span class="archive-move-on"></span>
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://nancelglap.github.io/2017/06/04/Laravel-Event/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancelglap">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancelglap">
+    <span class="archive-page-counter">
+      
+      
+       
+      
+      OK! 目前共计 41 篇日志。 继续努力。
     </span>
 
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">Laravel Event</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-04T11:00:56+08:00">
-                2017-06-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/laravel/" itemprop="url" rel="index">
-                    <span itemprop="name">laravel</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
 
       
       
-
       
-        <blockquote>
-<p>当触发某个事件时自动完成一系列的操作</p>
-</blockquote>
-<a id="more"></a>
-<p>1、如果要修改新 <em><code>Event</code></em> 的名称，修改 <em><code>EventProvider.php</code></em> 中的 <em><code>listen</code></em> 数组<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">protected</span> $listen = [</div><div class="line">    <span class="string">'App\Events\NewEventName1'</span> =&gt; [</div><div class="line">        <span class="string">'App\Listeners1\ListenersName1'</span>,</div><div class="line">        <span class="string">'App\Listeners1\ListenersName2'</span>,</div><div class="line">        ...</div><div class="line">    ],</div><div class="line">    <span class="string">'App\Events\NewEventName2'</span> =&gt; [</div><div class="line">        <span class="string">'App\Listeners2\ListenersName1'</span>,</div><div class="line">        <span class="string">'App\Listeners2\ListenersName2'</span>,</div><div class="line">        ...</div><div class="line">    ],</div><div class="line">    ...</div><div class="line">];</div></pre></td></tr></table></figure></p>
-<p>2、到 <em><code>listener</code></em> <strong>监听</strong>文件中的 <em><code>handle</code></em> 函数编写当事件触发时要执行的操作<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span><span class="params">(EventName $event)</span></span></div><div class="line">&#123;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>3、触发事件<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">event(<span class="keyword">new</span> \App\Events\EventName());</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>引用功能模块</p>
-</blockquote>
-<p>1、<strong>引入模块功能</strong>，修改 <em><code>__construct()</code></em> 函数<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListenerName</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(Filesystem $filesystem)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">$this</span>-&gt;filesystem = $filesystem;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>2、<strong>编写处理操作</strong>，修改 <em><code>handle</code></em> 函数<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span><span class="params">(EventName $event)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">$this</span>-&gt;filesystem-&gt;method();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>示例：触发用户事件</p>
-</blockquote>
-<p>1、更改 <em><code>Event</code></em> 文件中的 <em><code>__construct()</code></em> 函数<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">...</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">EventName</span> <span class="keyword">extends</span> <span class="title">Event</span></span></div><div class="line">&#123;</div><div class="line">    ...</div><div class="line">    <span class="keyword">public</span> $user;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(User $user)</span>     //接收事件发生时传来的用户数据参数</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">$this</span>-&gt;user = $user;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>2、更改 <em><code>listener</code></em> 文件<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span><span class="params">(EventName $event)</span></span></div><div class="line">&#123;</div><div class="line">    $event-&gt;user-&gt;name;     <span class="comment">//由Event文件传来的数据，引用用户名</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>3、在 <em><code>Route</code></em> 触发事件<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$user = \App\User::find(<span class="number">1</span>);     </div><div class="line">event(<span class="keyword">new</span> \App\Events\EventName($user));    <span class="comment">//在Event文件编写了__construct()，所以传用户数据进去能进行以后操作</span></div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>用event优化用户注册</p>
-</blockquote>
-<p>1、在 <em><code>model</code></em> 中定义方法取代 <em><code>modelName::create()</code></em><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span><span class="params">(array $array)</span>       //<span class="title">array</span>为用户数据构成的数组</span></div><div class="line">&#123;</div><div class="line">    $user = <span class="keyword">static</span>::create($array);</div><div class="line"></div><div class="line">    event(<span class="keyword">new</span> EventName($user));    <span class="comment">//触发事件完成listener中handle方法内容</span></div><div class="line">    <span class="keyword">return</span> $user;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>2、在 <em><code>event</code></em> 文件中修改 <em><code>__construct</code></em> 方法<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> $user;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(User $user)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">$this</span>-&gt;user = $user;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>3、在 <em><code>listener</code></em> 文件中修改 <em><code>handle</code></em> 方法<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span><span class="params">(EventName $event)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> $event-&gt;user-&gt;email;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
-      
-    </div>
-
-    <div>
       
         
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/laravel/" rel="tag"># laravel</a>
-          
-            <a href="/tags/Event/" rel="tag"># Event</a>
-          
+        <div class="collection-title">
+          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
         </div>
       
-
-      
-      
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/06/06/Model-Factory/" rel="next" title="Model Factory">
-                <i class="fa fa-chevron-left"></i> Model Factory
-              </a>
-            
-          </div>
 
-          <span class="post-nav-divider"></span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/03/Laravel-向-Container-添加自定义类/" rel="prev" title="Laravel 向 Container 添加自定义类">
-                Laravel 向 Container 添加自定义类 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2017/04/29/My-New-Post/" itemprop="url">
+              
+                <span itemprop="name">Laravel 函数</span>
+              
+            </a>
+        
+      </h2>
 
-      
-      
-    </footer>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-04-29T12:28:00+08:00"
+              content="2017-04-29" >
+          04-29
+        </time>
+      </div>
+
+    </header>
   </article>
 
 
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+    
+
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/archives/2017/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2017/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2017/page/4/">4</a><span class="page-number current">5</span>
+  </nav>
+
+
 
 
           </div>
@@ -482,10 +350,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -591,9 +455,11 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
-
+  
+    <script type="text/javascript" id="motion.page.archive">
+      $('.archive-year').velocity('transition.slideLeftIn');
+    </script>
+  
 
 
   
