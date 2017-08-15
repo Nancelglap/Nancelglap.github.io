@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2017/07/17/laravel-admin/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="laravel-admin 脚手架相关">
-<meta property="og:updated_time" content="2017-07-17T03:40:18.000Z">
+<meta property="og:updated_time" content="2017-08-15T08:38:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="laravel-admin">
 <meta name="twitter:description" content="laravel-admin 脚手架相关">
@@ -406,6 +406,21 @@
 <p>form建立一对多</p>
 </blockquote>
 <p><code>http://z-song.github.io/laravel-admin/#/zh/model-form-fields?id=%e4%b8%80%e5%af%b9%e5%a4%9a</code></p>
+<blockquote>
+<p>上传图片</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">注意创建文件夹</div></pre></td></tr></table></figure>
+<p>1、创建存储配置，<code>config/filesystems.php</code> 添加一项 <code>disk</code>，设置上传的路径为<code>public/upload</code>：<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="string">'admin'</span> =&gt; [</div><div class="line">        <span class="string">'driver'</span> =&gt; <span class="string">'local'</span>,</div><div class="line">        <span class="string">'root'</span> =&gt; public_path(<span class="string">'upload'</span>),</div><div class="line">        <span class="string">'visibility'</span> =&gt; <span class="string">'public'</span>,</div><div class="line">    ],</div><div class="line">``` </div><div class="line"><span class="number">2</span>、选择上传的`disk`，修改`config/admin.php`</div></pre></td></tr></table></figure></p>
+<p>‘upload’  =&gt; [</p>
+<pre><code>&apos;disk&apos; =&gt; &apos;admin&apos;,
+
+&apos;directory&apos;  =&gt; [
+    &apos;image&apos;  =&gt; &apos;image&apos;,
+    &apos;file&apos;   =&gt; &apos;file&apos;,
+],
+
+&apos;host&apos; =&gt; &apos;http://localhost:8000/upload/&apos;,
+</code></pre><p>],<br>```</p>
 
       
     </div>
