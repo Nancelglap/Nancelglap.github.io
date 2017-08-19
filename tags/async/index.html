@@ -98,7 +98,7 @@
 <meta name="description" content="不想正经">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nancelglap">
-<meta property="og:url" content="https://nancelglap.github.io/page/5/index.html">
+<meta property="og:url" content="https://nancelglap.github.io/tags/async/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="不想正经">
 <meta name="twitter:card" content="summary">
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="https://nancelglap.github.io/page/5/"/>
+  <link rel="canonical" href="https://nancelglap.github.io/tags/async/"/>
 
 
 
 
 
-  <title>Nancelglap</title>
+  <title>标签: async | Nancelglap</title>
   
 
 
@@ -162,9 +162,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -281,295 +279,45 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://nancelglap.github.io/2017/04/29/Blade-Warning/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancelglap">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancelglap">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/04/29/Blade-Warning/" itemprop="url">Blade 相关</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-29T21:06:20+08:00">
-                2017-04-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/laravel/" itemprop="url" rel="index">
-                    <span itemprop="name">laravel</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="一、blade实现编辑页面自动填充表单"><a href="#一、blade实现编辑页面自动填充表单" class="headerlink" title="一、blade实现编辑页面自动填充表单"></a><strong>一、blade实现编辑页面自动填充表单</strong></h2><h3 id="1-在Controller中"><a href="#1-在Controller中" class="headerlink" title="1. 在Controller中"></a>1. 在Controller中</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$content = model名::findOrFail($id);</div></pre></td></tr></table></figure>
-<h3 id="2-在视图文件中使用Form-Model-Binding"><a href="#2-在视图文件中使用Form-Model-Binding" class="headerlink" title="2. 在视图文件中使用Form-Model-Binding"></a>2. 在视图文件中使用<code>Form-Model-Binding</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;!! Form::model($content, [&apos;method&apos;=&gt;&apos;PATCH&apos;, &apos;url&apos;=&gt;&apos;/path/&apos;.$content-&gt;id]) !!&#125;</div></pre></td></tr></table></figure>
-<h2 id="二、Blade模板中的注意事项"><a href="#二、Blade模板中的注意事项" class="headerlink" title="二、Blade模板中的注意事项"></a><strong>二、Blade模板中的注意事项</strong></h2><ol>
-<li>如果从Controller传过来的数组为一维关联数组，可以直接用数组中的键作为变量</li>
-<li>重用的代码放到一个文件里，在需要用的视图文件用<code>@include(&#39;view&#39;s name&#39;)</code></li>
-</ol>
-<h2 id="三、视图绑定变量"><a href="#三、视图绑定变量" class="headerlink" title="三、视图绑定变量"></a><strong>三、视图绑定变量</strong></h2><p>1、一般在被其他视图文件包含的视图文件使用，不用额外再写代码<br>2、创建一个类文件，比如在<code>App\ClassName</code><br>3、在视图文件中用 <em><code>@inject(&#39;var&#39;, &#39;ClassFile_Path&#39;)</code></em> 绑定变量<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@inject(<span class="string">'var'</span>, <span class="string">'App\ClassName'</span>)</div><div class="line"></div><div class="line">$var-&gt;method();     <span class="comment">//调用ClassName类中的方法</span></div></pre></td></tr></table></figure></p>
-
-          
-        
-      
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h1>async<small>标签</small>
+      </h1>
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
     
       
 
-  
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://nancelglap.github.io/2017/04/29/My-New-Post/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancelglap">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancelglap">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/04/29/My-New-Post/" itemprop="url">Laravel 函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+            <a class="post-title-link" href="/2017/08/19/nodejs-用-async-控制并发/" itemprop="url">
               
-                <span class="post-meta-item-text">发表于</span>
+                <span itemprop="name">nodejs 用 async 控制并发</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-29T12:28:00+08:00">
-                2017-04-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/laravel/" itemprop="url" rel="index">
-                    <span itemprop="name">laravel</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>有关laravel的函数</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/29/My-New-Post/#more" rel="contents">
-              阅读全文 &raquo;
             </a>
-          </div>
-          <!--/noindex-->
         
-      
-    </div>
+      </h2>
 
-    <div>
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-08-19T10:04:14+08:00"
+              content="2017-08-19" >
+          08-19
+        </time>
+      </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
+    </header>
   </article>
 
 
     
-  </section>
+  </div>
 
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
-  </nav>
-
 
 
           </div>

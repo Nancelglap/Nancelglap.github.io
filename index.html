@@ -292,6 +292,148 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://nancelglap.github.io/2017/08/19/nodejs-用-async-控制并发/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancelglap">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancelglap">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/19/nodejs-用-async-控制并发/" itemprop="url">nodejs 用 async 控制并发</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-19T10:04:14+08:00">
+                2017-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">Node.js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>用 async 函数控制 Node.js 的并发</p>
+</blockquote>
+<p><strong>async.map</strong> 异步还是根据延时进行<br><strong>async.mapSeries</strong> 一个完了才执行下一个<br><strong>async.mapLimit</strong> 并行执行，第二个参数为最多n个函数并行，只有当其中一个或多个完成的时候才可以继续并行</p>
+<p>1、顺序执行，延时的异步操作仍在按队列机制进行<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [&#123;<span class="attr">name</span>: <span class="string">'Jack'</span>, <span class="attr">dalay</span>:<span class="number">200</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'Mike'</span>, <span class="attr">delay</span>: <span class="number">100</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'Freewind'</span>, <span class="attr">delay</span>:<span class="number">300</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'Test'</span>, <span class="attr">dalay</span>:<span class="number">50</span>&#125;];</div><div class="line"></div><div class="line"><span class="keyword">async</span>.map(arr, <span class="function"><span class="keyword">function</span>(<span class="params">item, callback</span>) </span>&#123;</div><div class="line">    log(<span class="string">'1.1 enter: '</span> + item.name);</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        log(<span class="string">'1.1 handle: '</span> + item.name);</div><div class="line">        <span class="comment">// callback 为 async.map 的第三个参数，第一个参数为错误信息err, 第二个参数为按元素顺序汇总的结果</span></div><div class="line">        callback(<span class="literal">null</span>, item.name + <span class="string">'!!!'</span>);</div><div class="line">    &#125;, item.delay);</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, results</span>) </span>&#123;</div><div class="line">    log(<span class="string">'1.1 err: '</span>, err);</div><div class="line">    log(<span class="string">'1.1 results: '</span>, results);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 54.569&gt; 1.1 enter: Jack</span></div><div class="line"><span class="comment">// 54.569&gt; 1.1 enter: Mike</span></div><div class="line"><span class="comment">// 54.569&gt; 1.1 enter: Freewind</span></div><div class="line"><span class="comment">// 54.569&gt; 1.1 enter: Test</span></div><div class="line"><span class="comment">// 54.629&gt; 1.1 handle: Test</span></div><div class="line"><span class="comment">// 54.679&gt; 1.1 handle: Mike</span></div><div class="line"><span class="comment">// 54.789&gt; 1.1 handle: Jack</span></div><div class="line"><span class="comment">// 54.879&gt; 1.1 handle: Freewind</span></div><div class="line"><span class="comment">// 54.879&gt; 1.1 err:</span></div><div class="line"><span class="comment">// 54.879&gt; 1.1 results: [ 'Jack!!!', 'Mike!!!', 'Freewind!!!', 'Test!!!'</span></div></pre></td></tr></table></figure></p>
+<p>2、如果中途出错，立刻将错误，以及已经执行完成的结果汇总给最终callback，未执行完的将会在数组中占个空位<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [&#123;<span class="attr">name</span>: <span class="string">'Jack'</span>, <span class="attr">dalay</span>:<span class="number">200</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'Mike'</span>, <span class="attr">delay</span>: <span class="number">100</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'Freewind'</span>, <span class="attr">delay</span>:<span class="number">300</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'Test'</span>, <span class="attr">dalay</span>:<span class="number">50</span>&#125;];</div><div class="line"></div><div class="line"><span class="keyword">async</span>.map(arr, <span class="function"><span class="keyword">function</span>(<span class="params">item, callback</span>) </span>&#123;</div><div class="line">    log(<span class="string">'1.2 enter: '</span>, item.name);</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        lof(<span class="string">'1.2 handle: '</span> + item.name);</div><div class="line">        <span class="keyword">if</span>(item.name === <span class="string">'Jack'</span>) callback(<span class="string">'myerr'</span>);     <span class="comment">//传一个错误信息参数给最后的callback</span></div><div class="line">        <span class="keyword">else</span> callback(<span class="literal">null</span>, item.name + <span class="string">'!!!'</span>);     <span class="comment">//传一个结果给最后callback，错误信息为null</span></div><div class="line">    &#125;, item.delay);</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, result</span>) </span>&#123;</div><div class="line">    log(<span class="string">'1.2 err: '</span>, err);</div><div class="line">    log(<span class="string">'1.2 results: '</span>, results);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 按延时顺序执行到错误才马上返回</span></div><div class="line"></div><div class="line"><span class="comment">// 54.569&gt; 1.2 enter: Jack</span></div><div class="line"><span class="comment">// 54.569&gt; 1.2 enter: Mike</span></div><div class="line"><span class="comment">// 54.569&gt; 1.2 enter: Freewind</span></div><div class="line"><span class="comment">// 54.569&gt; 1.2 enter: Test</span></div><div class="line"><span class="comment">// 54.629&gt; 1.2 handle: Test</span></div><div class="line"><span class="comment">// 54.679&gt; 1.2 handle: Mike</span></div><div class="line"><span class="comment">// 54.789&gt; 1.2 handle: Jack</span></div><div class="line"><span class="comment">// 54.789&gt; 1.2 err: myerr</span></div><div class="line"><span class="comment">// 54.789&gt; 1.2 results: [ undefined, 'Mike!!!', , 'Test!!!' ]</span></div><div class="line"><span class="comment">// 54.879&gt; 1.2 handle: Freewind</span></div></pre></td></tr></table></figure></p>
+<p>3、顺序执行，一个完了才到下一个<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [&#123;<span class="attr">name</span>: <span class="string">'Jack'</span>, <span class="attr">dalay</span>:<span class="number">200</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'Mike'</span>, <span class="attr">delay</span>: <span class="number">100</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'Freewind'</span>, <span class="attr">delay</span>:<span class="number">300</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'Test'</span>, <span class="attr">dalay</span>:<span class="number">50</span>&#125;];</div><div class="line"></div><div class="line"><span class="keyword">async</span>.mapSeries(arr, <span class="function"><span class="keyword">function</span>(<span class="params">item, callback</span>) </span>&#123;</div><div class="line">    log(<span class="string">'1.3 enter: '</span> + item.name);</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        log(<span class="string">'1.3 handle: '</span> + item.name);</div><div class="line">        callback(<span class="literal">null</span>, item.name + <span class="string">'!!!'</span>);</div><div class="line">    &#125;, item.delay);</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, results</span>) </span>&#123;</div><div class="line">    log(<span class="string">'1.3 err: '</span>, err);</div><div class="line">    log(<span class="string">'1.3 results: '</span>, results);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 54.569&gt; 1.3 enter: Jack</span></div><div class="line"><span class="comment">// 54.789&gt; 1.3 handle: Jack</span></div><div class="line"><span class="comment">// 54.789&gt; 1.3 enter: Mike</span></div><div class="line"><span class="comment">// 54.899&gt; 1.3 handle: Mike</span></div><div class="line"><span class="comment">// 54.899&gt; 1.3 enter: Freewind</span></div><div class="line"><span class="comment">// 55.209&gt; 1.3 handle: Freewind</span></div><div class="line"><span class="comment">// 55.209&gt; 1.3 enter: Test</span></div><div class="line"><span class="comment">// 55.269&gt; 1.3 handle: Test</span></div><div class="line"><span class="comment">// 55.269&gt; 1.3 err:</span></div><div class="line"><span class="comment">// 55.269&gt; 1.3 results: [ 'Jack!!!', 'Mike!!!', 'Freewind!!!', 'Test!!!' ]</span></div></pre></td></tr></table></figure></p>
+<p>4、顺序执行出错，把错误已经执行完的传给最终callback，未执行的忽略<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [&#123;<span class="attr">name</span>: <span class="string">'Jack'</span>, <span class="attr">dalay</span>:<span class="number">200</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'Mike'</span>, <span class="attr">delay</span>: <span class="number">100</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'Freewind'</span>, <span class="attr">delay</span>:<span class="number">300</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'Test'</span>, <span class="attr">dalay</span>:<span class="number">50</span>&#125;];</div><div class="line"></div><div class="line"><span class="keyword">async</span>.mapSeries(arr, <span class="function"><span class="keyword">function</span>(<span class="params">item, callback</span>) </span>&#123;</div><div class="line">    log(<span class="string">'1.4 enter: '</span> + item.name);</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        log(<span class="string">'1.4 handle: '</span> + item.name);</div><div class="line">        callback(<span class="literal">null</span>, item.name + <span class="string">'!!!'</span>);</div><div class="line">    &#125;, item.delay);</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, results</span>) </span>&#123;</div><div class="line">    log(<span class="string">'1.4 err: '</span>, err);</div><div class="line">    log(<span class="string">'1.4 results: '</span>, results);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 47.616&gt; 1.4 enter: Jack</span></div><div class="line"><span class="comment">// 47.821&gt; 1.4 handle: Jack</span></div><div class="line"><span class="comment">// 47.821&gt; 1.4 enter: Mike</span></div><div class="line"><span class="comment">// 47.931&gt; 1.4 handle: Mike</span></div><div class="line"><span class="comment">// 47.931&gt; 1.4 err: myerr</span></div><div class="line"><span class="comment">// 47.932&gt; 1.4 results: [ 'Jack!!!', undefined ]</span></div></pre></td></tr></table></figure></p>
+<p>5、并行执行，控制并行数量<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">async</span>.mapLimit(arr, <span class="number">2</span>, <span class="function"><span class="keyword">function</span>(<span class="params">item, callback</span>)</span>&#123;</div><div class="line">    log(<span class="string">'1.5 enter '</span> + item.name);</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        log(<span class="string">'1.5 handle: '</span> + item.name);</div><div class="line">        <span class="keyword">if</span>(item.name === <span class="string">'Jack'</span>) callback(<span class="string">'myerr'</span>);</div><div class="line">        <span class="keyword">else</span> callback(<span class="literal">null</span>, item.name + <span class="string">'!!!'</span>);</div><div class="line">    &#125;, item.delay);</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, results</span>) </span>&#123;</div><div class="line">    log(<span class="string">'1.5 err: '</span>, err);</div><div class="line">    log(<span class="string">'1.5 results: '</span>, results);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//57.797&gt; 1.5 enter: Jack</span></div><div class="line"><span class="comment">//57.800&gt; 1.5 enter: Mike</span></div><div class="line"><span class="comment">//57.900&gt; 1.5 handle: Mike</span></div><div class="line"><span class="comment">//57.900&gt; 1.5 enter: Freewind</span></div><div class="line"><span class="comment">//58.008&gt; 1.5 handle: Jack</span></div><div class="line"><span class="comment">//58.009&gt; 1.5 err: myerr</span></div><div class="line"><span class="comment">//58.009&gt; 1.5 results: [ undefined, 'Mike!!!' ]</span></div><div class="line"><span class="comment">//58.208&gt; 1.5 handle: Freewind</span></div><div class="line"><span class="comment">//58.208&gt; 1.5 enter: Test</span></div><div class="line"><span class="comment">//58.273&gt; 1.5 handle: Test</span></div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://nancelglap.github.io/2017/08/15/Nodejs-模块/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1529,146 +1671,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/06/Python-函数/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://nancelglap.github.io/2017/06/20/mysql-定时备份/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancelglap">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancelglap">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/20/mysql-定时备份/" itemprop="url">mysql 定时备份</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-20T22:48:28+08:00">
-                2017-06-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>实现mysql定时备份</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/20/mysql-定时备份/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
