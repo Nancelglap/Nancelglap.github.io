@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nancelglap.github.io/2017/06/16/Laravel-ACL/</loc>
+    
+    <lastmod>2017-08-24T15:12:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nancelglap.github.io/2017/08/19/nodejs-%E7%94%A8-async-%E6%8E%A7%E5%88%B6%E5%B9%B6%E5%8F%91/</loc>
     
     <lastmod>2017-08-19T02:56:38.000Z</lastmod>
@@ -215,13 +222,6 @@
     <loc>https://nancelglap.github.io/2017/06/04/Laravel-Event/</loc>
     
     <lastmod>2017-06-19T11:04:23.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancelglap.github.io/2017/06/16/Laravel-ACL/</loc>
-    
-    <lastmod>2017-06-19T11:04:19.000Z</lastmod>
     
   </url>
   
