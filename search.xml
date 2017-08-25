@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[接口需要的参数]]></title>
     <url>%2F2017%2F08%2F25%2F%E6%8E%A5%E5%8F%A3%E9%9C%80%E8%A6%81%E7%9A%84%E5%8F%82%E6%95%B0%2F</url>
-    <content type="text"><![CDATA[项目中接口需要的参数 提交评论接口 1、被评论条目的 id2、评论所属文章或其他的 id]]></content>
+    <content type="text"><![CDATA[项目中接口需要的参数 提交评论接口 1、被评论条目的 id（作为 parent_id）2、评论所属文章或其他的 id（用 attach 与所属文章建立关系）]]></content>
       <categories>
         <category>api</category>
       </categories>
