@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2017-08-19T02:56:38.000Z</updated>
+  <updated>2017-08-25T13:49:07.000Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>接口需要的参数</title>
+    <link href="https://nancelglap.github.io/2017/08/25/%E6%8E%A5%E5%8F%A3%E9%9C%80%E8%A6%81%E7%9A%84%E5%8F%82%E6%95%B0/"/>
+    <id>https://nancelglap.github.io/2017/08/25/接口需要的参数/</id>
+    <published>2017-08-25T13:46:27.000Z</published>
+    <updated>2017-08-25T13:49:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>项目中接口需要的参数</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>提交评论接口</p>
+</blockquote>
+<p>1、被评论条目的 <code>id</code><br>2、评论所属文章或其他的 <code>id</code></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;项目中接口需要的参数&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="api" scheme="https://nancelglap.github.io/categories/api/"/>
+    
+    
+      <category term="api" scheme="https://nancelglap.github.io/tags/api/"/>
+    
+      <category term="params" scheme="https://nancelglap.github.io/tags/params/"/>
+    
+  </entry>
   
   <entry>
     <title>nodejs 用 async 控制并发</title>
@@ -817,7 +851,7 @@
     <link href="https://nancelglap.github.io/2017/06/16/Laravel-ACL/"/>
     <id>https://nancelglap.github.io/2017/06/16/Laravel-ACL/</id>
     <published>2017-06-16T08:13:41.000Z</published>
-    <updated>2017-08-24T15:12:19.000Z</updated>
+    <updated>2017-08-24T15:17:17.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>Laravel 实现 Access Control Lists</p>
@@ -1266,44 +1300,6 @@
       <category term="test" scheme="https://nancelglap.github.io/tags/test/"/>
     
       <category term="debug" scheme="https://nancelglap.github.io/tags/debug/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php命名空间和自动加载</title>
-    <link href="https://nancelglap.github.io/2017/06/08/php%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E5%92%8C%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD/"/>
-    <id>https://nancelglap.github.io/2017/06/08/php命名空间和自动加载/</id>
-    <published>2017-06-08T08:33:09.000Z</published>
-    <updated>2017-06-19T11:04:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>解决包含 <em><code>Class</code></em> 要用多个 <em><code>require</code></em> 问题</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="1、在项目目录下创建-composer-json-文件，加入以下内容"><a href="#1、在项目目录下创建-composer-json-文件，加入以下内容" class="headerlink" title="1、在项目目录下创建 composer.json 文件，加入以下内容"></a>1、在项目目录下创建 <em><code>composer.json</code></em> 文件，加入以下内容</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="string">"autoload"</span>:&#123;</div><div class="line">		<span class="string">"psr-4"</span>:&#123;</div><div class="line">			<span class="string">"namespace的名\\"</span>:<span class="string">"实际路径名/"</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="2、在要被加载的文件加入"><a href="#2、在要被加载的文件加入" class="headerlink" title="2、在要被加载的文件加入"></a>2、在要被加载的文件加入</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">namespace</span> <span class="title">namespace</span>的名;</div></pre></td></tr></table></figure>
-<h3 id="3、生成-autoload-文件并加载"><a href="#3、生成-autoload-文件并加载" class="headerlink" title="3、生成 autoload 文件并加载"></a>3、生成 <em><code>autoload</code></em> 文件并加载</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">composer dump-autoload</span></div></pre></td></tr></table></figure>
-<h3 id="4、在加载其他文件的文件中加入"><a href="#4、在加载其他文件的文件中加入" class="headerlink" title="4、在加载其他文件的文件中加入"></a>4、在加载其他文件的文件中加入</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">require</span> <span class="string">'vendor/autoload.php'</span>;</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">namespace</span>的名\<span class="title">Class</span>文件名;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;解决包含 &lt;em&gt;&lt;code&gt;Class&lt;/code&gt;&lt;/em&gt; 要用多个 &lt;em&gt;&lt;code&gt;require&lt;/code&gt;&lt;/em&gt; 问题&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="php" scheme="https://nancelglap.github.io/categories/php/"/>
-    
-    
-      <category term="php" scheme="https://nancelglap.github.io/tags/php/"/>
-    
-      <category term="namespace" scheme="https://nancelglap.github.io/tags/namespace/"/>
-    
-      <category term="require" scheme="https://nancelglap.github.io/tags/require/"/>
-    
-      <category term="autoload" scheme="https://nancelglap.github.io/tags/autoload/"/>
     
   </entry>
   
