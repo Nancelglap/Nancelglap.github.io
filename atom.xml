@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2017-08-25T13:50:24.000Z</updated>
+  <updated>2017-08-25T14:23:51.000Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://nancelglap.github.io/2017/08/25/%E6%8E%A5%E5%8F%A3%E9%9C%80%E8%A6%81%E7%9A%84%E5%8F%82%E6%95%B0/"/>
     <id>https://nancelglap.github.io/2017/08/25/接口需要的参数/</id>
     <published>2017-08-25T13:46:27.000Z</published>
-    <updated>2017-08-25T13:50:24.000Z</updated>
+    <updated>2017-08-25T14:23:51.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>项目中接口需要的参数</p>
@@ -142,16 +142,20 @@
   </entry>
   
   <entry>
-    <title>js 回调与异步</title>
+    <title>js 语法</title>
     <link href="https://nancelglap.github.io/2017/07/22/js-%E5%9B%9E%E8%B0%83%E4%B8%8E%E5%BC%82%E6%AD%A5/"/>
     <id>https://nancelglap.github.io/2017/07/22/js-回调与异步/</id>
     <published>2017-07-22T01:25:50.000Z</published>
-    <updated>2017-07-22T02:48:53.000Z</updated>
+    <updated>2017-08-27T08:56:51.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
-<p>JS 回调和异步的问题</p>
+<p>JS 语法相关问题</p>
 </blockquote>
 <a id="more"></a>
+<blockquote>
+<p>变量</p>
+</blockquote>
+<p>函数内部变量不用 <code>var</code> 声明就默认视为 <code>全局变量</code></p>
 <blockquote>
 <p>回调</p>
 </blockquote>
@@ -170,12 +174,19 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* fs.readFile为异步读取文件函数</div><div class="line">* 如果不用 promise，在fs.readFile函数外直接调用他返回的data，此时data还未被完全读出</div><div class="line">* 使用 promise，在 promise 回调函数里异步函数在未完成前，promise都处于 "pending" 状态，不会进行下一步操作</div><div class="line">* 只有当异步完成，成功时调用resolve()，将 Promise状态设为 fulfilled；失败时调用reject()，将 Promise状态设为 rejected</div><div class="line">* 当状态为 fulfilled 时执行 result.then() 回调函数的内容，函数参数就是 resolve() 的内部参数</div><div class="line">* 当状态为 rejected 时执行 result.catch() 回调函数的内容，函数参数就是 reject() 的内部参数</div><div class="line">*/</div><div class="line"></div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</div><div class="line"><span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    fs.readFile(<span class="string">'filename'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</div><div class="line">        resolve(data.toString());</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line">result.then(<span class="function"><span class="keyword">function</span>(<span class="params">result</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(result);</div><div class="line">&#125;)</div><div class="line">.catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(err);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>2、<code>Promise</code> 写法有两种：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 第一种</span></div><div class="line"><span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    ...;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 第二种</span></div><div class="line"><span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">    ...;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <p>3、在 <code>Promise</code> then 中使用 <code>Promise</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* 在第一个Promise执行成功后执行他对应的then</div><div class="line">* fun1 是个 Promise对象（在外部定义），执行成功后返回的 e 传给后面的 then 作为参数</div><div class="line">* message 是值就是 e 的值</div><div class="line">*/</div><div class="line"><span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    ...;</div><div class="line">    resolve(d);</div><div class="line">&#125;);</div><div class="line">result.then(<span class="function"><span class="keyword">function</span>(<span class="params">result</span>)</span>&#123;</div><div class="line">    fun1(var1, var2).then(<span class="function"><span class="keyword">function</span>(<span class="params">message</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(message);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun1</span>(<span class="params">var1, var2</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> e = var1 + var2;</div><div class="line">        resolve(e);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>闭包</p>
+</blockquote>
+<p>主要作用：从外部读取函数内部 <code>局部变量</code></p>
+<p><code>1</code> 由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。</p>
+<p><code>2</code> 闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">　　<span class="keyword">var</span> name = <span class="string">"The Window"</span>;</div><div class="line">　　<span class="keyword">var</span> object = &#123;</div><div class="line">　　　　<span class="attr">name</span> : <span class="string">"My Object"</span>,</div><div class="line">　　　　<span class="attr">getNameFunc</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　　　<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　　　　　<span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">　　　　　　&#125;;</div><div class="line">　　　　&#125;</div><div class="line">　　&#125;;</div><div class="line">　　alert(object.getNameFunc()());</div><div class="line"></div><div class="line"><span class="comment">// undefined</span></div><div class="line"><span class="comment">// 外部变量改变了内部属性值，所以 this 指向的原来对象改变，找不到原来对象</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</div><div class="line">　　<span class="keyword">var</span> object = &#123;</div><div class="line">　　　　<span class="attr">name</span> : <span class="string">"My Object"</span>,</div><div class="line">　　　　<span class="attr">getNameFunc</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　　　<span class="keyword">var</span> that = <span class="keyword">this</span>;</div><div class="line">　　　　　　<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　　　　　<span class="keyword">return</span> that.name;</div><div class="line">　　　　　　&#125;;</div><div class="line">　　　　&#125;</div><div class="line">　　&#125;;</div><div class="line">　　alert(object.getNameFunc()());</div><div class="line"><span class="comment">// My object</span></div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;JS 回调和异步的问题&lt;/p&gt;
+&lt;p&gt;JS 语法相关问题&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
