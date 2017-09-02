@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2017/05/13/git相关操作/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="与git相关的内容">
-<meta property="og:updated_time" content="2017-09-02T00:03:23.000Z">
+<meta property="og:updated_time" content="2017-09-02T16:03:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git相关">
 <meta name="twitter:description" content="与git相关的内容">
@@ -409,7 +409,7 @@
 <p>3、创建分支、切换到分支<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> git branch BranchName</span></div><div class="line"><span class="meta">$</span><span class="bash"> git checkout BranchName</span></div><div class="line"><span class="meta"></span></div><div class="line">$<span class="bash"> git checkout -b BranchName  //创建分支并切换到该分支</span></div></pre></td></tr></table></figure></p>
 <p>4、合并分支（在<em><code>matser</code></em>下操作）<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> git merge BranchName</span></div></pre></td></tr></table></figure></p>
 <p>5、删除分支<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> git branch <span class="_">-d</span> BranchName</span></div></pre></td></tr></table></figure></p>
-<p>6、推送本地分支到远程仓库<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">push</span> <span class="built_in">origin</span> dev</div></pre></td></tr></table></figure></p>
+<p>6、推送本地分支到远程分支<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">push</span> <span class="built_in">origin</span> local_branch:remote_branch</div></pre></td></tr></table></figure></p>
 <p>7、拉取远程分支<br>（拉取远程 <code>dev</code> 分支，在本地创建 <code>dev</code> 分支）<br><figure class="highlight q"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b <span class="built_in">dev</span> origin/<span class="built_in">dev</span></div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>Git分支merge冲突的修改</p>
