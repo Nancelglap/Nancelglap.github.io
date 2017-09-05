@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2017-08-25T14:23:51.000Z</updated>
+  <updated>2017-09-05T09:22:29.000Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -14,6 +14,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>配置七牛云</title>
+    <link href="https://nancelglap.github.io/2017/09/05/%E9%85%8D%E7%BD%AE%E4%B8%83%E7%89%9B%E4%BA%91/"/>
+    <id>https://nancelglap.github.io/2017/09/05/配置七牛云/</id>
+    <published>2017-09-05T09:13:01.000Z</published>
+    <updated>2017-09-05T09:22:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>laravel 配置七牛云</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>composer.json 或 composer require zgldh/qiniu-laravel-storage&gt; </p>
+</blockquote>
+<hr>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"zgldh/qiniu-laravel-storage"</span>: <span class="string">"^0.8.1"</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>config/app.php</p>
+</blockquote>
+<hr>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zgldh\QiniuStorage\QiniuFilesystemServiceProvider::<span class="class"><span class="keyword">class</span>,</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>config/filesystems.php</p>
+</blockquote>
+<hr>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="string">'qiniu'</span> =&gt; [</div><div class="line">            <span class="string">'driver'</span>  =&gt; <span class="string">'qiniu'</span>,</div><div class="line">            <span class="string">'domains'</span> =&gt; [</div><div class="line">                <span class="string">'default'</span>   =&gt; <span class="string">'ovmscef5i.bkt.clouddn.com'</span>, <span class="comment">//你的七牛域名</span></div><div class="line">                <span class="string">'https'</span>     =&gt; <span class="string">''</span>,         <span class="comment">//你的HTTPS域名</span></div><div class="line">                <span class="string">'custom'</span>    =&gt; <span class="string">''</span>,     <span class="comment">//你的自定义域名</span></div><div class="line">             ],</div><div class="line">            <span class="string">'access_key'</span>=&gt; <span class="string">'lqXMMY6JYjGEM-x0WgoJ84i35fc3BW2sMtOZXyzM'</span>,  <span class="comment">//AccessKey</span></div><div class="line">            <span class="string">'secret_key'</span>=&gt; <span class="string">'zRMFaIJ44i2KQZrN32GxWpO0_1ceU1heUsMSuLlH'</span>,  <span class="comment">//SecretKey</span></div><div class="line">            <span class="string">'bucket'</span>    =&gt; <span class="string">'quanzi'</span>,  <span class="comment">//Bucket名字</span></div><div class="line">            <span class="string">'notify_url'</span>=&gt; <span class="string">''</span>,  <span class="comment">//持久化处理回调地址</span></div><div class="line">        ],</div></pre></td></tr></table></figure>
+<blockquote>
+<p>语法</p>
+</blockquote>
+<hr>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">zgldh</span>\<span class="title">QiniuStorage</span>\<span class="title">QiniuStorage</span>;</div><div class="line"></div><div class="line">$disk = QiniuStorage::disk(<span class="string">'qiniu'</span>);</div><div class="line">$disk-&gt;exists(<span class="string">'file.jpg'</span>);                      <span class="comment">//文件是否存在</span></div><div class="line">$disk-&gt;get(<span class="string">'file.jpg'</span>);                         <span class="comment">//获取文件内容</span></div><div class="line">$disk-&gt;put(<span class="string">'file.jpg'</span>,$contents);               <span class="comment">//上传文件</span></div><div class="line">$disk-&gt;put(<span class="string">'file.jpg'</span>,fopen(<span class="string">'path/to/big.jpg'</span>,<span class="string">'r+'</span>)); <span class="comment">//分段上传文件。建议大文件&gt;10Mb使用。</span></div><div class="line">$disk-&gt;prepend(<span class="string">'file.log'</span>, <span class="string">'Prepended Text'</span>);   <span class="comment">//附加内容到文件开头</span></div><div class="line">$disk-&gt;append(<span class="string">'file.log'</span>, <span class="string">'Appended Text'</span>);     <span class="comment">//附加内容到文件结尾</span></div><div class="line">$disk-&gt;delete(<span class="string">'file.jpg'</span>);                      <span class="comment">//删除文件</span></div><div class="line">$disk-&gt;delete([<span class="string">'file1.jpg'</span>, <span class="string">'file2.jpg'</span>]);</div><div class="line">$disk-&gt;copy(<span class="string">'old/file1.jpg'</span>, <span class="string">'new/file1.jpg'</span>);  <span class="comment">//复制文件到新的路径</span></div><div class="line">$disk-&gt;move(<span class="string">'old/file1.jpg'</span>, <span class="string">'new/file1.jpg'</span>);  <span class="comment">//移动文件到新的路径</span></div><div class="line">$size = $disk-&gt;size(<span class="string">'file1.jpg'</span>);               <span class="comment">//取得文件大小</span></div><div class="line">$time = $disk-&gt;lastModified(<span class="string">'file1.jpg'</span>);       <span class="comment">//取得最近修改时间 (UNIX)</span></div><div class="line">$files = $disk-&gt;files($directory);              <span class="comment">//取得目录下所有文件</span></div><div class="line">$files = $disk-&gt;allFiles($directory);               <span class="comment">//这个没实现。。。</span></div><div class="line">$directories = $disk-&gt;directories($directory);      <span class="comment">//这个也没实现。。。</span></div><div class="line">$directories = $disk-&gt;allDirectories($directory);   <span class="comment">//这个也没实现。。。</span></div><div class="line">$disk-&gt;makeDirectory($directory);               <span class="comment">//这个其实没有任何作用</span></div><div class="line">$disk-&gt;deleteDirectory($directory);             <span class="comment">//删除目录，包括目录下所有子文件子目录</span></div><div class="line"></div><div class="line">$disk-&gt;uploadToken();                           <span class="comment">//获取上传Token</span></div><div class="line">$disk-&gt;uploadToken(<span class="string">'file.jpg'</span>);                 <span class="comment">//获取上传Token</span></div><div class="line">    </div><div class="line">$disk-&gt;withUploadToken($token);                 <span class="comment">// 使用自定义的 uploadToken 进行上传，</span></div><div class="line">$disk-&gt;put(<span class="string">'file.jpg'</span>,$content);                <span class="comment">// 则本次的 put 操作，将使用上述的 $token 进行上传。</span></div><div class="line">                                                    <span class="comment">// 常用于自动触发持久化处理 https://github.com/qiniu/php-sdk/blob/master/examples/upload_and_pfop.php</span></div><div class="line">    </div><div class="line">$disk-&gt;downloadUrl(<span class="string">'file.jpg'</span>);                     <span class="comment">//获取下载地址</span></div><div class="line">$disk-&gt;downloadUrl(<span class="string">'file.jpg'</span>)</div><div class="line">         -&gt;setDownload(<span class="string">'foo.jpg'</span>);                      <span class="comment">//获取下载地址，文件名为 foo.jpg</span></div><div class="line">$disk-&gt;downloadUrl(<span class="string">'file.jpg'</span>, <span class="string">'https'</span>);            <span class="comment">//获取HTTPS下载地址</span></div><div class="line">$disk-&gt;privateDownloadUrl(<span class="string">'file.jpg'</span>);              <span class="comment">//获取私有bucket下载地址</span></div><div class="line">$disk-&gt;privateDownloadUrl(<span class="string">'file.jpg?attname=foo.jpg'</span>);         </div><div class="line">                                                                <span class="comment">//获取私有bucket下载地址，文件名为 foo.jpg</span></div><div class="line">$disk-&gt;privateDownloadUrl(<span class="string">'file.jpg'</span>, <span class="string">'https'</span>);     <span class="comment">//获取私有bucket的HTTPS下载地址</span></div><div class="line">$disk-&gt;privateDownloadUrl(<span class="string">'file.jpg'</span>,</div><div class="line">                            [</div><div class="line">                                <span class="string">'domain'</span>=&gt;<span class="string">'https'</span>,</div><div class="line">                                <span class="string">'expires'</span>=&gt;<span class="number">3600</span></div><div class="line">                            ]);                         <span class="comment">//获取私有bucket的HTTPS下载地址。超时 3600 秒。</span></div><div class="line">$disk-&gt;avInfo(<span class="string">'file.mp3'</span>);                          <span class="comment">//获取多媒体文件信息</span></div><div class="line">$disk-&gt;imageInfo(<span class="string">'file.jpg'</span>);                       <span class="comment">//获取图片信息</span></div><div class="line">$disk-&gt;imageExif(<span class="string">'file.jpg'</span>);                       <span class="comment">//获取图片EXIF信息</span></div><div class="line">$disk-&gt;imagePreviewUrl(<span class="string">'file.jpg'</span>,<span class="string">'imageView2/0/w/100/h/200'</span>);                          <span class="comment">//获取图片预览URL</span></div><div class="line">$disk-&gt;privateImagePreviewUrl(<span class="string">'file.jpg'</span>,<span class="string">'imageView2/0/w/100/h/200'</span>);                   <span class="comment">//获取私有bucket图片预览URL</span></div><div class="line">$disk-&gt;verifyCallback(<span class="string">'application/x-www-form-urlencoded'</span>, $request-&gt;header(<span class="string">'Authorization'</span>), <span class="string">'callback url'</span>, $request-&gt;getContent());<span class="comment">//验证回调内容是否合法</span></div><div class="line">$disk-&gt;persistentFop(<span class="string">'file.flv'</span>,<span class="string">'avthumb/m3u8/segtime/40/vcodec/libx264/s/320x240'</span>);    <span class="comment">//执行持久化数据处理</span></div><div class="line">$disk-&gt;persistentFop(<span class="string">'file.flv'</span>,<span class="string">'fop'</span>,<span class="string">'队列名'</span>);    <span class="comment">//使用私有队列执行持久化数据处理</span></div><div class="line">$disk-&gt;persistentStatus($persistent_fop_id);        <span class="comment">//查看持久化数据处理的状态。</span></div><div class="line"></div><div class="line">$disk-&gt;fetch(<span class="string">'http://abc.com/foo.jpg'</span>, <span class="string">'bar.jpg'</span>); <span class="comment">//调用fetch将 foo.jpg 数据以 bar.jpg 的名字储存起来。</span></div><div class="line">$disk-&gt;qetag();     <span class="comment">//得到最后一次执行 put, copy, append 等写入操作后，得到的hash值。详见 https://github.com/qiniu/qetag</span></div><div class="line">$disk-&gt;lastReturn();<span class="comment">//得到最后一次执行 put, copy, append 等写入操作后，得到的返回值。</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;laravel 配置七牛云&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="cloud" scheme="https://nancelglap.github.io/categories/cloud/"/>
+    
+    
+      <category term="laravel" scheme="https://nancelglap.github.io/tags/laravel/"/>
+    
+      <category term="qiniuyun" scheme="https://nancelglap.github.io/tags/qiniuyun/"/>
+    
+  </entry>
   
   <entry>
     <title>接口需要的参数</title>
@@ -146,7 +196,7 @@
     <link href="https://nancelglap.github.io/2017/07/22/js-%E5%9B%9E%E8%B0%83%E4%B8%8E%E5%BC%82%E6%AD%A5/"/>
     <id>https://nancelglap.github.io/2017/07/22/js-回调与异步/</id>
     <published>2017-07-22T01:25:50.000Z</published>
-    <updated>2017-08-27T08:56:51.000Z</updated>
+    <updated>2017-08-27T08:57:02.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>JS 语法相关问题</p>
@@ -1268,49 +1318,6 @@
       <category term="mail" scheme="https://nancelglap.github.io/tags/mail/"/>
     
       <category term="SendCloud" scheme="https://nancelglap.github.io/tags/SendCloud/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP单元测试</title>
-    <link href="https://nancelglap.github.io/2017/06/09/PHP%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
-    <id>https://nancelglap.github.io/2017/06/09/PHP单元测试/</id>
-    <published>2017-06-09T12:01:58.000Z</published>
-    <updated>2017-06-19T11:04:39.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>与php单元测试相关内容</p>
-</blockquote>
-<a id="more"></a>
-<blockquote>
-<p>laravel下创建一个简单的单元测试</p>
-</blockquote>
-<p>1、在 <em><code>tests\Unit</code></em> 目录下创建一个如 <em><code>NameTest</code></em> 的文件<br>2、让类继承于 <em><code>phpUnit</code></em> 类，<strong>引用被测试的类</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* 用于用于测试App\Product.php中的Product类中的name()方法是否返回'Mac'</div><div class="line">*/</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">ClassName</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NameTest</span> <span class="keyword">extends</span> \<span class="title">PHPUnit_Framework_TestCase</span></span></div><div class="line">&#123;</div><div class="line">	<span class="comment">/** <span class="doctag">@test</span> */</span>		<span class="comment">//一定要声明为test，并且按照此行格式写</span></div><div class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">a_product_has_a_name</span> <span class="params">()</span>		//声明函数名用`<span class="title">_</span>`分开	</span></div><div class="line">	&#123;</div><div class="line">		$product = <span class="keyword">new</span> Product(<span class="string">'Mac'</span>);</div><div class="line"></div><div class="line">		<span class="keyword">$this</span>-&gt;assertEquals(<span class="string">'Mac'</span>, $product-&gt;name());</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>3、运行测试 <em><code>vendor/bin/phpunit</code></em> 或 <em><code>phpunit</code></em>，如果只运行单个测试文件<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">phpunit <span class="comment">--filter=NameTest</span></div></pre></td></tr></table></figure></p>
-<p>4、解决单元测试代码重用问题：加入 <em><code>setUp</code></em> 函数（在每个函数执行之前都会先执行 <em><code>setUp</code></em> 函数内的内容）<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setUp</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	...;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>Laravel测试Eloquent Model</p>
-</blockquote>
-<p>1、在 <em><code>tests/Unit</code></em> 下创建文件，并继承laravel的测试类<em><code>TestCase</code></em><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Foundation</span>\<span class="title">Testing</span>\<span class="title">DatabaseTransactions</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NameTest</span> <span class="keyword">extends</span> <span class="title">TestCase</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">use</span> <span class="title">DatabaseTransactions</span>;		<span class="comment">//防止每次测试都产生数据</span></div><div class="line">	</div><div class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test_method</span><span class="params">()</span></span></div><div class="line">	&#123;</div><div class="line">		factory(Article::class, <span class="number">3</span>)-&gt;create();		<span class="comment">//先在ModelFactory加入生成数据代码</span></div><div class="line">		factory(Article::class)-&gt;create([<span class="string">'reads'</span> =&gt; <span class="number">10</span>]);		<span class="comment">//增加一条信息，read字段为10</span></div><div class="line">		$mostPopular = factory(Article::class)-&gt;create([<span class="string">'reads'</span> =&gt; <span class="string">'20'</span>]);</div><div class="line"></div><div class="line">		$articles = Article::trending();	<span class="comment">//该方法按reads大小降序排列文章</span></div><div class="line">		</div><div class="line">		<span class="keyword">$this</span>-&gt;assertEquals($mostPopular-&gt;id, $articles-&gt;first()-&gt;id);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>2、在 <em><code>model</code></em> 中编写相应方法（用到 <em><code>queryScope</code></em> ）<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">scopeTrending</span><span class="params">($query)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">return</span> $query-&gt;orderBy(<span class="string">'reads'</span>, <span class="string">'desc'</span>)-&gt;get();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;与php单元测试相关内容&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="php" scheme="https://nancelglap.github.io/categories/php/"/>
-    
-    
-      <category term="phpunit" scheme="https://nancelglap.github.io/tags/phpunit/"/>
-    
-      <category term="test" scheme="https://nancelglap.github.io/tags/test/"/>
-    
-      <category term="debug" scheme="https://nancelglap.github.io/tags/debug/"/>
     
   </entry>
   

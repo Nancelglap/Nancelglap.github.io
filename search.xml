@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[配置七牛云]]></title>
+    <url>%2F2017%2F09%2F05%2F%E9%85%8D%E7%BD%AE%E4%B8%83%E7%89%9B%E4%BA%91%2F</url>
+    <content type="text"><![CDATA[laravel 配置七牛云 composer.json 或 composer require zgldh/qiniu-laravel-storage&gt; 1"zgldh/qiniu-laravel-storage": "^0.8.1" config/app.php 1zgldh\QiniuStorage\QiniuFilesystemServiceProvider::class, config/filesystems.php 123456789101112'qiniu' =&gt; [ 'driver' =&gt; 'qiniu', 'domains' =&gt; [ 'default' =&gt; 'ovmscef5i.bkt.clouddn.com', //你的七牛域名 'https' =&gt; '', //你的HTTPS域名 'custom' =&gt; '', //你的自定义域名 ], 'access_key'=&gt; 'lqXMMY6JYjGEM-x0WgoJ84i35fc3BW2sMtOZXyzM', //AccessKey 'secret_key'=&gt; 'zRMFaIJ44i2KQZrN32GxWpO0_1ceU1heUsMSuLlH', //SecretKey 'bucket' =&gt; 'quanzi', //Bucket名字 'notify_url'=&gt; '', //持久化处理回调地址 ], 语法 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455use zgldh\QiniuStorage\QiniuStorage;$disk = QiniuStorage::disk('qiniu');$disk-&gt;exists('file.jpg'); //文件是否存在$disk-&gt;get('file.jpg'); //获取文件内容$disk-&gt;put('file.jpg',$contents); //上传文件$disk-&gt;put('file.jpg',fopen('path/to/big.jpg','r+')); //分段上传文件。建议大文件&gt;10Mb使用。$disk-&gt;prepend('file.log', 'Prepended Text'); //附加内容到文件开头$disk-&gt;append('file.log', 'Appended Text'); //附加内容到文件结尾$disk-&gt;delete('file.jpg'); //删除文件$disk-&gt;delete(['file1.jpg', 'file2.jpg']);$disk-&gt;copy('old/file1.jpg', 'new/file1.jpg'); //复制文件到新的路径$disk-&gt;move('old/file1.jpg', 'new/file1.jpg'); //移动文件到新的路径$size = $disk-&gt;size('file1.jpg'); //取得文件大小$time = $disk-&gt;lastModified('file1.jpg'); //取得最近修改时间 (UNIX)$files = $disk-&gt;files($directory); //取得目录下所有文件$files = $disk-&gt;allFiles($directory); //这个没实现。。。$directories = $disk-&gt;directories($directory); //这个也没实现。。。$directories = $disk-&gt;allDirectories($directory); //这个也没实现。。。$disk-&gt;makeDirectory($directory); //这个其实没有任何作用$disk-&gt;deleteDirectory($directory); //删除目录，包括目录下所有子文件子目录$disk-&gt;uploadToken(); //获取上传Token$disk-&gt;uploadToken('file.jpg'); //获取上传Token $disk-&gt;withUploadToken($token); // 使用自定义的 uploadToken 进行上传，$disk-&gt;put('file.jpg',$content); // 则本次的 put 操作，将使用上述的 $token 进行上传。 // 常用于自动触发持久化处理 https://github.com/qiniu/php-sdk/blob/master/examples/upload_and_pfop.php $disk-&gt;downloadUrl('file.jpg'); //获取下载地址$disk-&gt;downloadUrl('file.jpg') -&gt;setDownload('foo.jpg'); //获取下载地址，文件名为 foo.jpg$disk-&gt;downloadUrl('file.jpg', 'https'); //获取HTTPS下载地址$disk-&gt;privateDownloadUrl('file.jpg'); //获取私有bucket下载地址$disk-&gt;privateDownloadUrl('file.jpg?attname=foo.jpg'); //获取私有bucket下载地址，文件名为 foo.jpg$disk-&gt;privateDownloadUrl('file.jpg', 'https'); //获取私有bucket的HTTPS下载地址$disk-&gt;privateDownloadUrl('file.jpg', [ 'domain'=&gt;'https', 'expires'=&gt;3600 ]); //获取私有bucket的HTTPS下载地址。超时 3600 秒。$disk-&gt;avInfo('file.mp3'); //获取多媒体文件信息$disk-&gt;imageInfo('file.jpg'); //获取图片信息$disk-&gt;imageExif('file.jpg'); //获取图片EXIF信息$disk-&gt;imagePreviewUrl('file.jpg','imageView2/0/w/100/h/200'); //获取图片预览URL$disk-&gt;privateImagePreviewUrl('file.jpg','imageView2/0/w/100/h/200'); //获取私有bucket图片预览URL$disk-&gt;verifyCallback('application/x-www-form-urlencoded', $request-&gt;header('Authorization'), 'callback url', $request-&gt;getContent());//验证回调内容是否合法$disk-&gt;persistentFop('file.flv','avthumb/m3u8/segtime/40/vcodec/libx264/s/320x240'); //执行持久化数据处理$disk-&gt;persistentFop('file.flv','fop','队列名'); //使用私有队列执行持久化数据处理$disk-&gt;persistentStatus($persistent_fop_id); //查看持久化数据处理的状态。$disk-&gt;fetch('http://abc.com/foo.jpg', 'bar.jpg'); //调用fetch将 foo.jpg 数据以 bar.jpg 的名字储存起来。$disk-&gt;qetag(); //得到最后一次执行 put, copy, append 等写入操作后，得到的hash值。详见 https://github.com/qiniu/qetag$disk-&gt;lastReturn();//得到最后一次执行 put, copy, append 等写入操作后，得到的返回值。]]></content>
+      <categories>
+        <category>cloud</category>
+      </categories>
+      <tags>
+        <tag>laravel</tag>
+        <tag>qiniuyun</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[接口需要的参数]]></title>
     <url>%2F2017%2F08%2F25%2F%E6%8E%A5%E5%8F%A3%E9%9C%80%E8%A6%81%E7%9A%84%E5%8F%82%E6%95%B0%2F</url>
     <content type="text"><![CDATA[项目中接口需要的参数 提交评论接口 1、被评论条目的 id（作为 parent_id）2、评论所属文章或其他的 id（用 attach 与所属文章建立关系）]]></content>
@@ -335,8 +347,8 @@
         <category>Wechat</category>
       </categories>
       <tags>
-        <tag>Mini Programes</tag>
         <tag>Wechat</tag>
+        <tag>Mini Programes</tag>
       </tags>
   </entry>
   <entry>
