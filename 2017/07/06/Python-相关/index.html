@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2017/07/06/Python-相关/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="与 python 相关知识">
-<meta property="og:updated_time" content="2017-09-14T02:33:34.000Z">
+<meta property="og:updated_time" content="2017-09-19T13:24:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 相关">
 <meta name="twitter:description" content="与 python 相关知识">
@@ -383,29 +383,42 @@
 </blockquote>
 <a id="more"></a>
 <blockquote>
-<p>一、保存文件</p>
+<p>保存文件</p>
 </blockquote>
 <p>当 <code>.py</code> 文件中包含中文，在文件开头加上两行<br>1、第一行注释是为了告诉Linux/OS X系统，这是一个Python可执行程序<br>2、第二行注释是为了告诉Python解释器，按照UTF-8编码读取源代码，否则，你在源代码中写的中文输出可能会有乱码。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python3</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div></pre></td></tr></table></figure></p>
 <blockquote>
-<p>二、序列</p>
+<p>序列</p>
 </blockquote>
-<p>python包含 6 种内建的序列，包括列表、元组、字符串、Unicode字符串、buffer对象和xrange对象。</p>
+<ul>
+<li>python包含 6 种内建的序列，包括列表、元组、字符串、Unicode字符串、buffer对象和xrange对象。</li>
+</ul>
 <blockquote>
-<p>三、不变对象</p>
+<p>不变对象</p>
 </blockquote>
-<p>不变对象一旦创建，对象内部的数据就不能修改，这样就减少了由于修改数据导致的错误。此外，由于对象不变，多任务环境下同时读取对象不需要加锁，同时读一点问题都没有。</p>
+<ul>
+<li>不变对象一旦创建，对象内部的数据就不能修改，这样就减少了由于修改数据导致的错误。此外，由于对象不变，多任务环境下同时读取对象不需要加锁，同时读一点问题都没有。</li>
+</ul>
 <blockquote>
-<p>四、计算机（Computer）和计算（Compute）</p>
+<p>计算机（Computer）和计算（Compute）</p>
 </blockquote>
 <p>1、在<code>计算机</code>的层次上，CPU执行的是<code>加减乘除</code>的指令代码，以及<code>各种条件判断和跳转指令</code>，所以，汇编语言是最贴近计算机的语言。<br>2、而<code>计算</code>则指数学意义上的计算，越是抽象的计算，离计算机硬件越远。<br>3、对应到编程语言，就是越<code>低级</code>的语言，越贴近<code>计算机</code>，<code>抽象程度低</code>，<code>执行效率高</code>，比如C语言；越<code>高级</code>的语言，越贴近<code>计算</code>，<code>抽象程度高</code>，<code>执行效率低</code>，比如Lisp语言。</p>
 <blockquote>
-<p>五、函数式编程</p>
+<p>函数式编程</p>
 </blockquote>
 <p>1、函数式编程就是一种抽象程度很高的编程范式，纯粹的函数式编程语言编写的函数没有变量。<br>2、任意一个函数，只要<code>输入</code>是<code>确定</code>的，<code>输出</code>就是<code>确定</code>的，这种纯函数我们称之为<code>没有副作用</code>。<br>3、允许使用变量的程序设计语言，由于函数内部的<code>变量状态不确定</code>，<code>同样的输入</code>，可能得到<code>不同的输出</code>，因此，这种函数是<code>有副作用</code>的。<br>4、函数式编程的一个特点就是，允许把函数本身作为参数传入另一个函数，还允许返回一个函数</p>
 <blockquote>
-<p>六、模块和包</p>
+<p>模块和包</p>
 </blockquote>
 <p>1、一个.py文件就称之为一个模块（Module）<br>2、包目录必须包含一个 <code>__init__.py</code> 文件，否则会被视为普通目录<br>3、不同包中可以有相同的模块名，此时模块名为 <code>packageName.moduleName</code><br>4、任何模块代码的第一个字符串都被视为模块的文档注释</p>
+<blockquote>
+<p><strong>name</strong></p>
+</blockquote>
+<ul>
+<li>如果 import 一个模块，那么模块<code>__name__</code>的值通常为模块文件名，不带路径或者文件扩展名</li>
+<li>在命令行中直接运行.py文件,则<code>__name__</code>的值是<code>__main__</code>;</li>
+<li>而在import 一个.py文件后,<code>__name__</code>的值就不是<code>__main__</code>了;</li>
+<li>从而用<code>if __name__ == &#39;__main__&#39;</code>来判断是否是在直接运行该.py文件</li>
+</ul>
 
       
     </div>

@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2017/09/14/pythonic/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="如何写出 pythonic 代码">
-<meta property="og:updated_time" content="2017-09-14T02:22:14.000Z">
+<meta property="og:updated_time" content="2017-09-19T11:49:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pythonic">
 <meta name="twitter:description" content="如何写出 pythonic 代码">
@@ -386,6 +386,10 @@
 <p>1、传参</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">int(<span class="string">'123'</span>, base = <span class="number">2</span>)</div><div class="line"></div><div class="line"><span class="comment"># 等于以下</span></div><div class="line">kw = &#123;<span class="string">'base'</span>: <span class="number">2</span>&#125;</div><div class="line">int(<span class="string">'123'</span>, **kw)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>2、python实现switch语法</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">func1</span><span class="params">()</span>:</span></div><div class="line">    ...</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">func2</span><span class="params">()</span>:</span></div><div class="line">    ...</div><div class="line"></div><div class="line">dicts = &#123;</div><div class="line">    <span class="string">'A'</span>: func1,</div><div class="line">    <span class="string">'B'</span>: func2,</div><div class="line">    ...</div><div class="line">&#125;;</div><div class="line">func = dicts[value]</div><div class="line">func();</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -427,6 +431,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/19/python-OOP/" rel="next" title="python OOP">
+                <i class="fa fa-chevron-left"></i> python OOP
+              </a>
             
           </div>
 

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2017-09-14T02:22:14.000Z</updated>
+  <updated>2017-09-19T13:46:23.000Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -16,11 +16,209 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>python 错误处理</title>
+    <link href="https://nancelglap.github.io/2017/09/19/python-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/"/>
+    <id>https://nancelglap.github.io/2017/09/19/python-错误处理/</id>
+    <published>2017-09-19T13:18:24.000Z</published>
+    <updated>2017-09-19T13:46:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>try…except…finally</p>
+</blockquote>
+<ul>
+<li>将可能出错的代码放在<code>try</code>中</li>
+<li>可以在except语句块后面加一个else，当没有错误发生时，会自动执行else语句</li>
+<li>先执行<code>else</code>中的，后执行<code>finally</code>中的</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">    print(<span class="string">'try...'</span>)</div><div class="line">    r = <span class="number">10</span> / int(<span class="string">'2'</span>)</div><div class="line">    print(<span class="string">'result:'</span>, r)</div><div class="line"><span class="keyword">except</span> ValueError <span class="keyword">as</span> e:</div><div class="line">    print(<span class="string">'ValueError:'</span>, e)</div><div class="line"><span class="keyword">except</span> ZeroDivisionError <span class="keyword">as</span> e:</div><div class="line">    print(<span class="string">'ZeroDivisionError:'</span>, e)</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    print(<span class="string">'no error!'</span>)</div><div class="line"><span class="keyword">finally</span>:</div><div class="line">    print(<span class="string">'finally...'</span>)</div><div class="line">print(<span class="string">'END'</span>)</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>调用堆栈</p>
+</blockquote>
+<ul>
+<li>如果错误没有被捕获，它就会一直往上抛，最后被Python解释器捕获，打印一个错误信息，然后程序退出</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(s)</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="number">10</span> / int(s)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bar</span><span class="params">(s)</span>:</span></div><div class="line">    <span class="keyword">return</span> foo(s) * <span class="number">2</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">    bar(<span class="string">'0'</span>)</div><div class="line"></div><div class="line">main()</div><div class="line"></div><div class="line">$ python3 err.py</div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"err.py"</span>, line <span class="number">11</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    main()</div><div class="line">  File <span class="string">"err.py"</span>, line <span class="number">9</span>, <span class="keyword">in</span> main</div><div class="line">    bar(<span class="string">'0'</span>)</div><div class="line">  File <span class="string">"err.py"</span>, line <span class="number">6</span>, <span class="keyword">in</span> bar</div><div class="line">    <span class="keyword">return</span> foo(s) * <span class="number">2</span></div><div class="line">  File <span class="string">"err.py"</span>, line <span class="number">3</span>, <span class="keyword">in</span> foo</div><div class="line">    <span class="keyword">return</span> <span class="number">10</span> / int(s)</div><div class="line">ZeroDivisionError: division by zero</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>记录错误</p>
+</blockquote>
+<ul>
+<li>把错误记录记录到日志文件中</li>
+<li><code>http://www.cnblogs.com/dkblog/archive/2011/08/26/2155018.html</code></li>
+</ul>
+<hr>
+<blockquote>
+<p>抛出错误</p>
+</blockquote>
+<ul>
+<li>自己定义错误（尽量使用内置的错误类型）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">FooError</span><span class="params">(ValueError)</span>:</span></div><div class="line">    <span class="keyword">pass</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(s)</span>:</span></div><div class="line">    n = int(s)</div><div class="line">    <span class="keyword">if</span> n==<span class="number">0</span>:</div><div class="line">        <span class="keyword">raise</span> FooError(<span class="string">'invalid value: %s'</span> % s)</div><div class="line">    <span class="keyword">return</span> <span class="number">10</span> / n</div><div class="line"></div><div class="line">foo(<span class="string">'0'</span>)</div><div class="line"></div><div class="line"><span class="comment"># 最后追踪到自己定义的错误</span></div><div class="line">$ python3 err_raise.py </div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"err_throw.py"</span>, line <span class="number">11</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    foo(<span class="string">'0'</span>)</div><div class="line">  File <span class="string">"err_throw.py"</span>, line <span class="number">8</span>, <span class="keyword">in</span> foo</div><div class="line">    <span class="keyword">raise</span> FooError(<span class="string">'invalid value: %s'</span> % s)</div><div class="line">__main__.FooError: invalid value: <span class="number">0</span></div></pre></td></tr></table></figure>
+<ul>
+<li>另一种处理错误方式</li>
+<li>虽然已打印错误，由于当前函数不知道应该怎么处理该错误，所以，继续往上抛，让顶层调用者去处理</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(s)</span>:</span></div><div class="line">    n = int(s)</div><div class="line">    <span class="keyword">if</span> n==<span class="number">0</span>:</div><div class="line">        <span class="keyword">raise</span> ValueError(<span class="string">'invalid value: %s'</span> % s)</div><div class="line">    <span class="keyword">return</span> <span class="number">10</span> / n</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bar</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        foo(<span class="string">'0'</span>)</div><div class="line">    <span class="keyword">except</span> ValueError <span class="keyword">as</span> e:</div><div class="line">        print(<span class="string">'ValueError!'</span>)</div><div class="line">        <span class="keyword">raise</span></div><div class="line"></div><div class="line">bar()</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;try…except…finally&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;将可能出错的代码放在&lt;code&gt;try&lt;/code&gt;中&lt;/li&gt;
+&lt;li&gt;可以在except语句块后面加一个else，当没有错误发生时，会自动执行else语
+    
+    </summary>
+    
+      <category term="python" scheme="https://nancelglap.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://nancelglap.github.io/tags/python/"/>
+    
+      <category term="ERROR" scheme="https://nancelglap.github.io/tags/ERROR/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python OOP</title>
+    <link href="https://nancelglap.github.io/2017/09/19/python-OOP/"/>
+    <id>https://nancelglap.github.io/2017/09/19/python-OOP/</id>
+    <published>2017-09-19T13:15:01.000Z</published>
+    <updated>2017-09-19T13:24:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>python面向对象</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>面向对象</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score)</span>:</span></div><div class="line">        self.name = name</div><div class="line">        self.score = score</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print_score</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'%s: %s'</span> % (self.name, self.score))</div><div class="line"></div><div class="line">bart = Student(<span class="string">'Bart Simpson'</span>, <span class="number">59</span>)</div><div class="line">lisa = Student(<span class="string">'Lisa Simpson'</span>, <span class="number">87</span>)</div><div class="line">bart.print_score()</div><div class="line">lisa.print_score()</div></pre></td></tr></table></figure>
+<p>允许实例变量绑定任何数据(会导致虽然是同一个类的不同实例，但拥有的变量名称可能不同)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="keyword">pass</span></div><div class="line"></div><div class="line">bart = Student();</div><div class="line">bart.age = <span class="number">10</span>;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>实例属性和类属性</p>
+</blockquote>
+<ul>
+<li>定义了一个类属性后，这个属性虽然归类所有，但类的所有实例都可以访问到</li>
+<li>如果有类属性，删除实例属性同名属性后访问的是类属性<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line"><span class="meta">... </span>    name = <span class="string">'Student'</span></div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s = Student() <span class="comment"># 创建实例s</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(s.name) <span class="comment"># 打印name属性，因为实例并没有name属性，所以会继续查找class的name属性</span></div><div class="line">Student</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(Student.name) <span class="comment"># 打印类的name属性</span></div><div class="line">Student</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.name = <span class="string">'Michael'</span> <span class="comment"># 给实例绑定name属性</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(s.name) <span class="comment"># 由于实例属性优先级比类属性高，因此，它会屏蔽掉类的name属性</span></div><div class="line">Michael</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(Student.name) <span class="comment"># 但是类属性并未消失，用Student.name仍然可以访问</span></div><div class="line">Student</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">del</span> s.name <span class="comment"># 如果删除实例的name属性</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(s.name) <span class="comment"># 再次调用s.name，由于实例的name属性没有找到，类的name属性就显示出来了</span></div><div class="line">Student</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>给类、实例绑定方法</p>
+</blockquote>
+<p>给类绑定方法，绑定后所有实例都可以调用<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line"><span class="meta">... </span>    <span class="keyword">pass</span></div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">set_score</span><span class="params">(self, score)</span>:</span></div><div class="line"><span class="meta">... </span>    self.score = score</div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>Student.set_score = set_score</div></pre></td></tr></table></figure></p>
+<p>给实例绑定方法，绑定后其他实例不能调用<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">set_age</span><span class="params">(self, age)</span>:</span> <span class="comment"># 定义一个函数作为实例方法</span></div><div class="line"><span class="meta">... </span>    self.age = age</div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> types <span class="keyword">import</span> MethodType</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.set_age = MethodType(set_age, s) <span class="comment"># 给实例绑定一个方法</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.set_age(<span class="number">25</span>) <span class="comment"># 调用实例方法</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.age <span class="comment"># 测试结果</span></div><div class="line"><span class="number">25</span></div><div class="line">&gt;&gt;&gt;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s2 = Student() <span class="comment"># 创建新的实例</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s2.set_age(<span class="number">25</span>) <span class="comment"># 尝试调用方法</span></div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">AttributeError: <span class="string">'Student'</span> object has no attribute <span class="string">'set_age'</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>鸭子类型</p>
+</blockquote>
+<ul>
+<li>只要是类中有相应方法的类都可以被另一个函数调用</li>
+<li>不关心这个对象的类型本身或是这个类继承，而是这个类是如何被使用的</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">duck</span><span class="params">()</span>:</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">walk</span><span class="params">(self)</span>:</span></div><div class="line">    print(<span class="string">'I walk like a duck'</span>)</div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">swim</span><span class="params">(self)</span>:</span></div><div class="line">    print(<span class="string">'i swim like a duck'</span>)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">person</span><span class="params">()</span>:</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">walk</span><span class="params">(self)</span>:</span></div><div class="line">    print(<span class="string">'this one walk like a duck'</span>) </div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">swim</span><span class="params">(self)</span>:</span></div><div class="line">    print(<span class="string">'this man swim like a duck'</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">watch_duck</span><span class="params">(animal)</span>:</span></div><div class="line">  animal.walk()</div><div class="line">  animal.swim()</div><div class="line"></div><div class="line">small_duck = duck()</div><div class="line">watch_duck(small_duck)</div><div class="line"></div><div class="line">output &gt;&gt; </div><div class="line">I walk like a duck</div><div class="line">i swim like a duck</div><div class="line"></div><div class="line"></div><div class="line">duck_like_man = person()</div><div class="line">watch_duck(duck_like_man)</div><div class="line"></div><div class="line">output &gt;&gt; </div><div class="line">this one walk like a duck</div><div class="line">this man swim like a duck</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>slots</strong> 限制给实例绑定的变量</p>
+</blockquote>
+<p>仅对当前类的实例起作用，不对子类起作用<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line"><span class="meta">... </span>    __slots__ = (<span class="string">'name'</span>, <span class="string">'age'</span>)</div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s = Student() <span class="comment"># 创建新的实例</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.name = <span class="string">'Michael'</span> <span class="comment"># 绑定属性'name'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.age = <span class="number">25</span> <span class="comment"># 绑定属性'age'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.score = <span class="number">99</span> <span class="comment"># 绑定属性'score'</span></div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">AttributeError: <span class="string">'Student'</span> object has no attribute <span class="string">'score'</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>@property</p>
+</blockquote>
+<ul>
+<li>要封装函数的属性时，用作<code>getter</code>和<code>setter</code>函数的命名，减少函数调用时的代码量</li>
+<li><code>getter</code>函数和<code>setter</code>函数必须为同名<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line"><span class="meta">    @property</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">birth</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self._birth</div><div class="line"></div><div class="line"><span class="meta">    @birth.setter</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">birth</span><span class="params">(self, value)</span>:</span></div><div class="line">        self._birth = value</div><div class="line"></div><div class="line">    <span class="comment"># 只读函数</span></div><div class="line"><span class="meta">    @property   </span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">age</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> <span class="number">2017</span> - self._birth</div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s = student()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.birth = <span class="number">1997</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.birth</div><div class="line"><span class="number">1997</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.age</div><div class="line"><span class="number">10</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p><strong>str</strong> 和 <strong>repr</strong></p>
+</blockquote>
+<ul>
+<li>当要打印对象的时候打印想要的信息</li>
+<li><strong>str</strong> 用在print()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></div><div class="line"><span class="meta">... </span>        self.name = name</div><div class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></div><div class="line"><span class="meta">... </span>        <span class="keyword">return</span> <span class="string">'Student object (name: %s)'</span> % self.name</div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(Student(<span class="string">'Michael'</span>))</div><div class="line">Student object (name: Michael)</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>repr</strong> 用在直接敲变量，用在开发者调试</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></div><div class="line">        self.name = name</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> <span class="string">'Student object (name=%s)'</span> % self.name</div><div class="line">    __repr__ = __str__</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>iter</strong></p>
+</blockquote>
+<ul>
+<li>将类用作<code>for in</code>循环，循环调用类里面的<code>__next__</code>方法拿到下一个循环的值，直到遇到<code>StopIteration</code>错误退出循环<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fib</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.a, self.b = <span class="number">0</span>, <span class="number">1</span> <span class="comment"># 初始化两个计数器a，b</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self <span class="comment"># 实例本身就是迭代对象，故返回自己</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__next__</span><span class="params">(self)</span>:</span></div><div class="line">        self.a, self.b = self.b, self.a + self.b <span class="comment"># 计算下一个值</span></div><div class="line">        <span class="keyword">if</span> self.a &gt; <span class="number">100000</span>: <span class="comment"># 退出循环的条件</span></div><div class="line">            <span class="keyword">raise</span> StopIteration()</div><div class="line">        <span class="keyword">return</span> self.a <span class="comment"># 返回下一个值</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p><strong>getitem</strong></p>
+</blockquote>
+<ul>
+<li>像list那样按照下标取元素</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fib</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, n)</span>:</span></div><div class="line">        a, b = <span class="number">1</span>, <span class="number">1</span></div><div class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> range(n):</div><div class="line">            a, b = b, a + b</div><div class="line">        <span class="keyword">return</span> a</div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>f = Fib()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>f[<span class="number">0</span>]</div><div class="line"><span class="number">1</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>f[<span class="number">1</span>]</div><div class="line"><span class="number">1</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>f[<span class="number">2</span>]</div><div class="line"><span class="number">2</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>f[<span class="number">3</span>]</div><div class="line"><span class="number">3</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>getattr</strong></p>
+</blockquote>
+<ul>
+<li>只有在没有找到属性的时候才会调用</li>
+<li>调用类中不存在的方法或者属性的时候返回相应的值</li>
+<li>动态返回一个属性</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.name = <span class="string">'Michael'</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getattr__</span><span class="params">(self, attr)</span>:</span></div><div class="line">        <span class="keyword">if</span> attr==<span class="string">'score'</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">99</span></div><div class="line"></div><div class="line"><span class="comment"># 当调用不存在的属性时，比如score，Python解释器会试图调用__getattr__(self, 'score')来尝试获得属性</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s = Student()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.name</div><div class="line"><span class="string">'Michael'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.score</div><div class="line"><span class="number">99</span></div></pre></td></tr></table></figure>
+<ul>
+<li>链式生成api<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Chain</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, path=<span class="string">''</span>)</span>:</span></div><div class="line">        self._path = path</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getattr__</span><span class="params">(self, path)</span>:</span></div><div class="line">        <span class="keyword">return</span> Chain(<span class="string">'%s/%s'</span> % (self._path, path))</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self._path</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">users</span><span class="params">(self, name)</span>:</span></div><div class="line">        <span class="keyword">return</span> Chain(<span class="string">'%s/users/%s'</span> % (self._path, name))</div><div class="line"></div><div class="line">    __repr__ = __str__</div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>Chain().ni.users(<span class="string">'lizhuoyi'</span>).list</div><div class="line">/ni/users/lizhuoyi/list</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p><strong>call</strong></p>
+</blockquote>
+<ul>
+<li>在实例本身上调用函数（将实例视为函数调用）</li>
+<li>少写一个函数，可以作为实例典型的函数调用</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></div><div class="line">        self.name = name</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'My name is %s.'</span> % self.name)</div><div class="line"></div><div class="line"><span class="comment"># 调用方法</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s = Student(<span class="string">'Michael'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s() <span class="comment"># self参数不要传入</span></div><div class="line">My name <span class="keyword">is</span> Michael.</div></pre></td></tr></table></figure>
+<blockquote>
+<p>枚举类</p>
+</blockquote>
+<ul>
+<li>定义一系列常量</li>
+<li>class不可变</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"># 定义方法一 自动给常量赋值，从1开始递增</div><div class="line">from enum import Enum</div><div class="line"></div><div class="line">Month = Enum('Month', ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))</div><div class="line"></div><div class="line"># 定义方法二 @unique装饰器帮助检查保证没有重复值</div><div class="line">from enum import Enum, unique</div><div class="line"></div><div class="line">@unique</div><div class="line">class Weekday(Enum):</div><div class="line">    Sun = 0 # Sun的value被设定为0</div><div class="line">    Mon = 1</div><div class="line">    Tue = 2</div><div class="line">    Wed = 3</div><div class="line">    Thu = 4</div><div class="line">    Fri = 5</div><div class="line">    Sat = 6</div><div class="line"></div><div class="line"># 取值调用</div><div class="line">&gt;&gt;&gt; for name, member in Month.__members__.items():</div><div class="line">&gt;&gt;&gt;    print(name, '=&gt;', member, ',', member.value)</div><div class="line">Jan =&gt; Mounth.Jan , 1</div><div class="line">...</div><div class="line"></div><div class="line"># 其他调用</div><div class="line">&gt;&gt;&gt; print(Weekday(1))</div><div class="line">Weekday.Mon</div><div class="line">&gt;&gt;&gt; print(Weekday.Tue.value)</div><div class="line">2</div></pre></td></tr></table></figure>
+<blockquote>
+<p>type()</p>
+</blockquote>
+<ul>
+<li>动态创建一个类</li>
+<li>class本身就是<code>type</code></li>
+<li>要创建一个class对象，<code>type(&#39;name&#39;, (object, []), dict(funcName = func, []))</code>函数依次传入3个参数：<br>1、class的名称<br>2、继承的父类集合，注意Python支持多重继承，如果只有一个父类，别忘了tuple的单元素写法<br>3、class的方法名称与函数绑定</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(self, name=<span class="string">'world'</span>)</span>:</span> <span class="comment"># 先定义函数</span></div><div class="line"><span class="meta">... </span>    print(<span class="string">'Hello, %s.'</span> % name)</div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>Hello = type(<span class="string">'Hello'</span>, (object,), dict(hello=fn)) <span class="comment"># 创建Hello class</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;python面向对象&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://nancelglap.github.io/categories/python/"/>
+    
+    
+      <category term="OOP" scheme="https://nancelglap.github.io/tags/OOP/"/>
+    
+      <category term="python" scheme="https://nancelglap.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>pythonic</title>
     <link href="https://nancelglap.github.io/2017/09/14/pythonic/"/>
     <id>https://nancelglap.github.io/2017/09/14/pythonic/</id>
     <published>2017-09-14T02:16:44.000Z</published>
-    <updated>2017-09-14T02:22:14.000Z</updated>
+    <updated>2017-09-19T11:49:12.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>如何写出 pythonic 代码</p>
@@ -30,6 +228,10 @@
 <p>1、传参</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">int(<span class="string">'123'</span>, base = <span class="number">2</span>)</div><div class="line"></div><div class="line"><span class="comment"># 等于以下</span></div><div class="line">kw = &#123;<span class="string">'base'</span>: <span class="number">2</span>&#125;</div><div class="line">int(<span class="string">'123'</span>, **kw)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>2、python实现switch语法</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">func1</span><span class="params">()</span>:</span></div><div class="line">    ...</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">func2</span><span class="params">()</span>:</span></div><div class="line">    ...</div><div class="line"></div><div class="line">dicts = &#123;</div><div class="line">    <span class="string">'A'</span>: func1,</div><div class="line">    <span class="string">'B'</span>: func2,</div><div class="line">    ...</div><div class="line">&#125;;</div><div class="line">func = dicts[value]</div><div class="line">func();</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
@@ -498,7 +700,7 @@
     <link href="https://nancelglap.github.io/2017/07/06/Python-%E8%AF%AD%E6%B3%95/"/>
     <id>https://nancelglap.github.io/2017/07/06/Python-语法/</id>
     <published>2017-07-06T03:27:41.000Z</published>
-    <updated>2017-09-18T08:16:29.000Z</updated>
+    <updated>2017-09-19T13:42:20.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>python 语法相关</p>
@@ -653,75 +855,15 @@
 <p>五、<code>for</code> 循环的本质通过不断调用 <code>next()</code> 函数实现<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]:</div><div class="line">    pss</div><div class="line"></div><div class="line"><span class="comment"># 上面等价于以下</span></div><div class="line">it = iter([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        x = next(it)</div><div class="line">    <span class="keyword">except</span> StopIteration:</div><div class="line">        <span class="comment"># 遇到StopIteration就退出循环</span></div><div class="line">        <span class="keyword">break</span></div></pre></td></tr></table></figure></p>
 <hr>
 <blockquote>
-<p>抛出错误</p>
-</blockquote>
-<p><em><code>raise TypeError(&#39;Error message&#39;)</code></em><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="keyword">not</span> isinstance(x, (int, float)):</div><div class="line">    <span class="keyword">raise</span> TypeError(<span class="string">'bad operand type'</span>)</div></pre></td></tr></table></figure></p>
-<blockquote>
 <p>模块</p>
 </blockquote>
 <p>模块加入 <code>if __name__ == __main__</code>，直接运行此模块时此<code>判断有效</code>，其他地方导入模块时此<code>判断失效</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    funcName()</div></pre></td></tr></table></figure></p>
 <p>使用交互系统<code>import模块</code>后用 <code>module.funcName()</code> 调用函数<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;</span>&gt; import hello</div><div class="line"><span class="meta">&gt;&gt;</span>&gt; hello.test()</div></pre></td></tr></table></figure></p>
+<hr>
 <blockquote>
 <p>作用域</p>
 </blockquote>
 <p>1、<strong>外部不需要引用的函数全部定义成private，只有外部需要引用的函数才定义为public</strong><br>2、正常的函数和变量名是公开的（public），可以被直接引用，比如：abc，x123，PI等；<br>3、似_xxx和<strong>xxx这样的函数或变量就是非公开的（private），不应该被直接引用，比如_abc，</strong>abc等；<br>4、<code>private</code> 变量和函数的运用<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 模块公开greeting()函数，内部逻辑用private函数隐藏起来了</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">_private_1</span><span class="params">(name)</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="string">'Hello, %s'</span> % name</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">_private_2</span><span class="params">(name)</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="string">'Hi, %s'</span> % name</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">greeting</span><span class="params">(name)</span>:</span></div><div class="line">    <span class="keyword">if</span> len(name) &gt; <span class="number">3</span>:</div><div class="line">        <span class="keyword">return</span> _private_1(name)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">return</span> _private_2(name)</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>面向对象</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score)</span>:</span></div><div class="line">        self.name = name</div><div class="line">        self.score = score</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print_score</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'%s: %s'</span> % (self.name, self.score))</div><div class="line"></div><div class="line">bart = Student(<span class="string">'Bart Simpson'</span>, <span class="number">59</span>)</div><div class="line">lisa = Student(<span class="string">'Lisa Simpson'</span>, <span class="number">87</span>)</div><div class="line">bart.print_score()</div><div class="line">lisa.print_score()</div></pre></td></tr></table></figure>
-<p>允许实例变量绑定任何数据(会导致虽然是同一个类的不同实例，但拥有的变量名称可能不同)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="keyword">pass</span></div><div class="line"></div><div class="line">bart = Student();</div><div class="line">bart.age = <span class="number">10</span>;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>实例属性和类属性</p>
-</blockquote>
-<ul>
-<li>定义了一个类属性后，这个属性虽然归类所有，但类的所有实例都可以访问到</li>
-<li>如果有类属性，删除实例属性同名属性后访问的是类属性<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line"><span class="meta">... </span>    name = <span class="string">'Student'</span></div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s = Student() <span class="comment"># 创建实例s</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(s.name) <span class="comment"># 打印name属性，因为实例并没有name属性，所以会继续查找class的name属性</span></div><div class="line">Student</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(Student.name) <span class="comment"># 打印类的name属性</span></div><div class="line">Student</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.name = <span class="string">'Michael'</span> <span class="comment"># 给实例绑定name属性</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(s.name) <span class="comment"># 由于实例属性优先级比类属性高，因此，它会屏蔽掉类的name属性</span></div><div class="line">Michael</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(Student.name) <span class="comment"># 但是类属性并未消失，用Student.name仍然可以访问</span></div><div class="line">Student</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">del</span> s.name <span class="comment"># 如果删除实例的name属性</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(s.name) <span class="comment"># 再次调用s.name，由于实例的name属性没有找到，类的name属性就显示出来了</span></div><div class="line">Student</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>给类、实例绑定方法</p>
-</blockquote>
-<p>给类绑定方法，绑定后所有实例都可以调用<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line"><span class="meta">... </span>    <span class="keyword">pass</span></div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">set_score</span><span class="params">(self, score)</span>:</span></div><div class="line"><span class="meta">... </span>    self.score = score</div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>Student.set_score = set_score</div></pre></td></tr></table></figure></p>
-<p>给实例绑定方法，绑定后其他实例不能调用<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">set_age</span><span class="params">(self, age)</span>:</span> <span class="comment"># 定义一个函数作为实例方法</span></div><div class="line"><span class="meta">... </span>    self.age = age</div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> types <span class="keyword">import</span> MethodType</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.set_age = MethodType(set_age, s) <span class="comment"># 给实例绑定一个方法</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.set_age(<span class="number">25</span>) <span class="comment"># 调用实例方法</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.age <span class="comment"># 测试结果</span></div><div class="line"><span class="number">25</span></div><div class="line">&gt;&gt;&gt;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s2 = Student() <span class="comment"># 创建新的实例</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s2.set_age(<span class="number">25</span>) <span class="comment"># 尝试调用方法</span></div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">AttributeError: <span class="string">'Student'</span> object has no attribute <span class="string">'set_age'</span></div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>鸭子类型</p>
-</blockquote>
-<ul>
-<li>只要是类中有相应方法的类都可以被另一个类调用</li>
-<li>不关心这个对象的类型本身或是这个类继承，而是这个类是如何被使用的</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">duck</span><span class="params">()</span>:</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">walk</span><span class="params">(self)</span>:</span></div><div class="line">    print(<span class="string">'I walk like a duck'</span>)</div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">swim</span><span class="params">(self)</span>:</span></div><div class="line">    print(<span class="string">'i swim like a duck'</span>)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">person</span><span class="params">()</span>:</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">walk</span><span class="params">(self)</span>:</span></div><div class="line">    print(<span class="string">'this one walk like a duck'</span>) </div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">swim</span><span class="params">(self)</span>:</span></div><div class="line">    print(<span class="string">'this man swim like a duck'</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">watch_duck</span><span class="params">(animal)</span>:</span></div><div class="line">  animal.walk()</div><div class="line">  animal.swim()</div><div class="line"></div><div class="line">small_duck = duck()</div><div class="line">watch_duck(small_duck)</div><div class="line"></div><div class="line">output &gt;&gt; </div><div class="line">I walk like a duck</div><div class="line">i swim like a duck</div><div class="line"></div><div class="line"></div><div class="line">duck_like_man = person()</div><div class="line">watch_duck(duck_like_man)</div><div class="line"></div><div class="line">output &gt;&gt; </div><div class="line">this one walk like a duck</div><div class="line">this man swim like a duck</div></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>slots</strong> 限制给实例绑定的变量</p>
-</blockquote>
-<p>仅对当前类的实例起作用，不对子类起作用<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line"><span class="meta">... </span>    __slots__ = (<span class="string">'name'</span>, <span class="string">'age'</span>)</div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s = Student() <span class="comment"># 创建新的实例</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.name = <span class="string">'Michael'</span> <span class="comment"># 绑定属性'name'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.age = <span class="number">25</span> <span class="comment"># 绑定属性'age'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.score = <span class="number">99</span> <span class="comment"># 绑定属性'score'</span></div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">AttributeError: <span class="string">'Student'</span> object has no attribute <span class="string">'score'</span></div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>@property</p>
-</blockquote>
-<ul>
-<li>要封装函数的属性时，用作<code>getter</code>和<code>setter</code>函数的命名，减少函数调用时的代码量</li>
-<li><code>getter</code>函数和<code>setter</code>函数必须为同名<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line"><span class="meta">    @property</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">birth</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self._birth</div><div class="line"></div><div class="line"><span class="meta">    @birth.setter</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">birth</span><span class="params">(self, value)</span>:</span></div><div class="line">        self._birth = value</div><div class="line"></div><div class="line">    <span class="comment"># 只读函数</span></div><div class="line"><span class="meta">    @property   </span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">age</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> <span class="number">2017</span> - self._birth</div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s = student()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.birth = <span class="number">1997</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.birth</div><div class="line"><span class="number">1997</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.age</div><div class="line"><span class="number">10</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p><strong>str</strong> 和 <strong>repr</strong></p>
-</blockquote>
-<ul>
-<li>当要打印对象的时候打印想要的信息</li>
-<li><strong>str</strong> 用在print()</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></div><div class="line"><span class="meta">... </span>        self.name = name</div><div class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></div><div class="line"><span class="meta">... </span>        <span class="keyword">return</span> <span class="string">'Student object (name: %s)'</span> % self.name</div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(Student(<span class="string">'Michael'</span>))</div><div class="line">Student object (name: Michael)</div></pre></td></tr></table></figure>
-<ul>
-<li><strong>repr</strong> 用在直接敲变量，用在开发者调试<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></div><div class="line">        self.name = name</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> <span class="string">'Student object (name=%s)'</span> % self.name</div><div class="line">    __repr__ = __str__</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p><strong>iter</strong></p>
-</blockquote>
-<ul>
-<li>将类用作<code>for in</code>循环，循环调用类里面的<code>__next__</code>方法拿到下一个循环的值，直到遇到<code>StopIteration</code>错误退出循环<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fib</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.a, self.b = <span class="number">0</span>, <span class="number">1</span> <span class="comment"># 初始化两个计数器a，b</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self <span class="comment"># 实例本身就是迭代对象，故返回自己</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__next__</span><span class="params">(self)</span>:</span></div><div class="line">        self.a, self.b = self.b, self.a + self.b <span class="comment"># 计算下一个值</span></div><div class="line">        <span class="keyword">if</span> self.a &gt; <span class="number">100000</span>: <span class="comment"># 退出循环的条件</span></div><div class="line">            <span class="keyword">raise</span> StopIteration()</div><div class="line">        <span class="keyword">return</span> self.a <span class="comment"># 返回下一个值</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
 ]]></content>
     
     <summary type="html">
@@ -744,36 +886,49 @@
     <link href="https://nancelglap.github.io/2017/07/06/Python-%E7%9B%B8%E5%85%B3/"/>
     <id>https://nancelglap.github.io/2017/07/06/Python-相关/</id>
     <published>2017-07-06T03:13:49.000Z</published>
-    <updated>2017-09-14T02:33:34.000Z</updated>
+    <updated>2017-09-19T13:24:19.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>与 python 相关知识</p>
 </blockquote>
 <a id="more"></a>
 <blockquote>
-<p>一、保存文件</p>
+<p>保存文件</p>
 </blockquote>
 <p>当 <code>.py</code> 文件中包含中文，在文件开头加上两行<br>1、第一行注释是为了告诉Linux/OS X系统，这是一个Python可执行程序<br>2、第二行注释是为了告诉Python解释器，按照UTF-8编码读取源代码，否则，你在源代码中写的中文输出可能会有乱码。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python3</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div></pre></td></tr></table></figure></p>
 <blockquote>
-<p>二、序列</p>
+<p>序列</p>
 </blockquote>
-<p>python包含 6 种内建的序列，包括列表、元组、字符串、Unicode字符串、buffer对象和xrange对象。</p>
+<ul>
+<li>python包含 6 种内建的序列，包括列表、元组、字符串、Unicode字符串、buffer对象和xrange对象。</li>
+</ul>
 <blockquote>
-<p>三、不变对象</p>
+<p>不变对象</p>
 </blockquote>
-<p>不变对象一旦创建，对象内部的数据就不能修改，这样就减少了由于修改数据导致的错误。此外，由于对象不变，多任务环境下同时读取对象不需要加锁，同时读一点问题都没有。</p>
+<ul>
+<li>不变对象一旦创建，对象内部的数据就不能修改，这样就减少了由于修改数据导致的错误。此外，由于对象不变，多任务环境下同时读取对象不需要加锁，同时读一点问题都没有。</li>
+</ul>
 <blockquote>
-<p>四、计算机（Computer）和计算（Compute）</p>
+<p>计算机（Computer）和计算（Compute）</p>
 </blockquote>
 <p>1、在<code>计算机</code>的层次上，CPU执行的是<code>加减乘除</code>的指令代码，以及<code>各种条件判断和跳转指令</code>，所以，汇编语言是最贴近计算机的语言。<br>2、而<code>计算</code>则指数学意义上的计算，越是抽象的计算，离计算机硬件越远。<br>3、对应到编程语言，就是越<code>低级</code>的语言，越贴近<code>计算机</code>，<code>抽象程度低</code>，<code>执行效率高</code>，比如C语言；越<code>高级</code>的语言，越贴近<code>计算</code>，<code>抽象程度高</code>，<code>执行效率低</code>，比如Lisp语言。</p>
 <blockquote>
-<p>五、函数式编程</p>
+<p>函数式编程</p>
 </blockquote>
 <p>1、函数式编程就是一种抽象程度很高的编程范式，纯粹的函数式编程语言编写的函数没有变量。<br>2、任意一个函数，只要<code>输入</code>是<code>确定</code>的，<code>输出</code>就是<code>确定</code>的，这种纯函数我们称之为<code>没有副作用</code>。<br>3、允许使用变量的程序设计语言，由于函数内部的<code>变量状态不确定</code>，<code>同样的输入</code>，可能得到<code>不同的输出</code>，因此，这种函数是<code>有副作用</code>的。<br>4、函数式编程的一个特点就是，允许把函数本身作为参数传入另一个函数，还允许返回一个函数</p>
 <blockquote>
-<p>六、模块和包</p>
+<p>模块和包</p>
 </blockquote>
 <p>1、一个.py文件就称之为一个模块（Module）<br>2、包目录必须包含一个 <code>__init__.py</code> 文件，否则会被视为普通目录<br>3、不同包中可以有相同的模块名，此时模块名为 <code>packageName.moduleName</code><br>4、任何模块代码的第一个字符串都被视为模块的文档注释</p>
+<blockquote>
+<p><strong>name</strong></p>
+</blockquote>
+<ul>
+<li>如果 import 一个模块，那么模块<code>__name__</code>的值通常为模块文件名，不带路径或者文件扩展名</li>
+<li>在命令行中直接运行.py文件,则<code>__name__</code>的值是<code>__main__</code>;</li>
+<li>而在import 一个.py文件后,<code>__name__</code>的值就不是<code>__main__</code>了;</li>
+<li>从而用<code>if __name__ == &#39;__main__&#39;</code>来判断是否是在直接运行该.py文件</li>
+</ul>
 ]]></content>
     
     <summary type="html">
@@ -1335,88 +1490,6 @@
       <category term="login" scheme="https://nancelglap.github.io/tags/login/"/>
     
       <category term="profile" scheme="https://nancelglap.github.io/tags/profile/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>laravel Request常用规则</title>
-    <link href="https://nancelglap.github.io/2017/06/11/laravel-Request%E5%B8%B8%E7%94%A8%E8%A7%84%E5%88%99/"/>
-    <id>https://nancelglap.github.io/2017/06/11/laravel-Request常用规则/</id>
-    <published>2017-06-11T12:09:33.000Z</published>
-    <updated>2017-06-19T11:04:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><code>&#39;name&#39; =&gt; &#39;required|min:3&#39;</code><br><code>&#39;email&#39; =&gt; &#39;required|email|unique:users,email&#39;</code>  规定 <em><code>users</code></em> 表的 <em><code>email</code></em> 字段必须为唯一<br><code>password =&gt; &#39;required|min:6|confirmed&#39;</code></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;code&gt;&amp;#39;name&amp;#39; =&amp;gt; &amp;#39;required|min:3&amp;#39;&lt;/code&gt;&lt;br&gt;&lt;code&gt;&amp;#39;email&amp;#39; =&amp;gt; &amp;#39;required|email|unique:users,email&amp;#39;&lt;/co
-    
-    </summary>
-    
-      <category term="laravel" scheme="https://nancelglap.github.io/categories/laravel/"/>
-    
-    
-      <category term="laravel" scheme="https://nancelglap.github.io/tags/laravel/"/>
-    
-      <category term="request" scheme="https://nancelglap.github.io/tags/request/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>laravel 表的联系</title>
-    <link href="https://nancelglap.github.io/2017/06/11/laravel-%E8%A1%A8%E7%9A%84%E8%81%94%E7%B3%BB/"/>
-    <id>https://nancelglap.github.io/2017/06/11/laravel-表的联系/</id>
-    <published>2017-06-11T07:45:36.000Z</published>
-    <updated>2017-09-16T08:24:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>设置laravel 数据表之间的联系</p>
-</blockquote>
-<a id="more"></a>
-<blockquote>
-<p>获取模型主键名</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 在 model 里</span></div><div class="line"><span class="keyword">$this</span>-&gt;getKeyName();</div></pre></td></tr></table></figure>
-<blockquote>
-<p>只有 collection 才能用 foreach 取出</p>
-</blockquote>
-<p>1、<code>$user-&gt;hasManyPosts()</code> 返回的是 <code>Eloquent</code> 无法用 <code>foreach</code> 取出每个元素<br>2、<code>$user-&gt;hasManyPosts()-&gt;get()</code> 返回的是 <code>Collection</code> 可以用 <code>foreach</code> 取出每个元素<br>3、<code>$user-&gt;hasManyPosts</code> 返回的是 <code>Collection</code> 可以用 <code>foreach</code> 取出每个元素</p>
-<p>1、创建一个跟用户联系的表，用 <em><code>user_id</code></em> ， <em><code>last_user_id</code></em> 作为外键<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* Comment表</div><div class="line">*/</div><div class="line">$table -&gt; increments(<span class="string">'id'</span>);</div><div class="line">$table -&gt; string(<span class="string">'title'</span>);</div><div class="line">$table -&gt; text(<span class="string">'body'</span>);</div><div class="line">$table -&gt; integer(<span class="string">'user_id'</span>)-&gt;unsigned();</div><div class="line">$table -&gt; integer(<span class="string">'last_user_id'</span>)-&gt;unsigned();</div><div class="line">$table -&gt; foreign(<span class="string">'user_id'</span>)-&gt;references(<span class="string">'id'</span>)-&gt;on(<span class="string">'users'</span>)-&gt;onDelete(<span class="string">'cascade'</span>);   <span class="comment">//规定user_id为users表id字段的连接</span></div><div class="line">$table -&gt; timestamps();</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* users表</div><div class="line">*/</div><div class="line">$table -&gt; increments(<span class="string">'id'</span>);</div><div class="line">$table -&gt; string(<span class="string">'name'</span>);</div><div class="line">$table -&gt; string(<span class="string">'avatar'</span>);     <span class="comment">//用户头像url</span></div><div class="line">$table -&gt; string(<span class="string">'email'</span>)-&gt;unique();</div><div class="line">$table -&gt; string(<span class="string">'password'</span>, <span class="number">60</span>);</div><div class="line">$table -&gt; remremberToken();</div><div class="line">$table -&gt; timestamps();</div></pre></td></tr></table></figure></p>
-<p>2、创建 <em><code>users</code></em> 表测试数据<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$factory-&gt;define(App\User::class, <span class="function"><span class="keyword">function</span> <span class="params">(Faker\Generator $faker)</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> $password;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> [</div><div class="line">        <span class="string">'name'</span> =&gt; $faker-&gt;name,</div><div class="line">        <span class="string">'email'</span> =&gt; $faker-&gt;unique()-&gt;safeEmail,</div><div class="line">        <span class="string">'avatar'</span> =&gt; $faker-&gt;imageUrl(<span class="number">256</span>, <span class="number">256</span>),</div><div class="line">        <span class="string">'password'</span> =&gt; $password ?: $password = bcrypt(<span class="string">'secret'</span>),</div><div class="line">        <span class="string">'remember_token'</span> =&gt; str_random(<span class="number">10</span>),</div><div class="line">    ];</div><div class="line">&#125;);</div><div class="line"></div><div class="line">php artisan tinker</div><div class="line"><span class="keyword">namespace</span> <span class="title">App</span>;</div><div class="line">factory(user::class, <span class="number">30</span>)-&gt;create();</div></pre></td></tr></table></figure></p>
-<p>3、创建 <em><code>comments</code></em> 表测试数据<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$factory-&gt;define(App\comment::class, <span class="function"><span class="keyword">function</span> <span class="params">(Faker\Generator $faker)</span> </span>&#123;</div><div class="line">    $user_ids = \App\User::pluck(<span class="string">'id'</span>)-&gt;toArray();      <span class="comment">//将users表中的id拿出来作为数组</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> [</div><div class="line">        <span class="string">'title'</span> =&gt; $faker-&gt;sentence,</div><div class="line">        <span class="string">'body'</span> =&gt; $faker-&gt;paragraph,</div><div class="line">        <span class="string">'user_id'</span> =&gt; $faker-&gt;randomElement($user_ids),</div><div class="line">        <span class="string">'last_user_id'</span> =&gt; ($faker-&gt;randomElement($user_ids))[<span class="number">0</span>],</div><div class="line">    ];</div><div class="line">&#125;);</div><div class="line"></div><div class="line">php artisan tinker</div><div class="line"><span class="keyword">namespace</span> <span class="title">App</span>;</div><div class="line">factory(comment::class, <span class="number">30</span>)-&gt;create();</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>在model中建立关系</p>
-</blockquote>
-<p>1、修改 <em><code>users</code></em> 表model文件，使用Eloquent Relationship<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">comments</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;hasMany(comment::class);      <span class="comment">//使用$user-&gt;comments()获取用户所有评论</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>2、修改 <em><code>comment</code></em> 表model文件，使用Eloquent Relationship<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">user</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">//默认外键为user_id，如果有自定义外键作为第二个参数传入</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;belongsTo(User::class);       <span class="comment">//使用$comment-&gt;user()获取评论的用户</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>多对多关系</p>
-</blockquote>
-<p><strong>belongsToMany()第二个参数为两个表关系的表名，如果没有三四个参数，关系表的两个字段为model1_id, model2_id（小写），model1为belongsToMany所在的model</strong></p>
-<p>1、创建第三方关联表<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$table-&gt;integer(<span class="string">'article_id'</span>)-&gt;unsigned();</div><div class="line">$table-&gt;integer(<span class="string">'tag_id'</span>)-&gt;unsigned();</div><div class="line"></div><div class="line">$table-&gt;foreign(<span class="string">'article_id'</span>)</div><div class="line">      -&gt;references(<span class="string">'id'</span>) </div><div class="line">      -&gt;on(<span class="string">'articless'</span>)</div><div class="line">      -&gt;onDelete(<span class="string">'cascade'</span>);</div><div class="line">$table-&gt;foreign(<span class="string">'tag_id'</span>)</div><div class="line">      -&gt;references(<span class="string">'id'</span>) </div><div class="line">      -&gt;on(<span class="string">'tags'</span>)</div><div class="line">      -&gt;onDelete(<span class="string">'cascade'</span>);</div></pre></td></tr></table></figure></p>
-<p>2、在 <em><code>model</code></em> 文件中声明多对多关系<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* Article</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">tags</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;belongsToMany(Tag::class);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* Tag</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">articles</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;belongsToMany(Article::class);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>3、建立关系<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* 比如在Controller中</div><div class="line">* 以下操作都会在第三方表中自动生成数据</div><div class="line">*/</div><div class="line"></div><div class="line"><span class="comment">//将 articles 表 id 为3的与 tags 表 id 为2的绑定</span></div><div class="line">$article = App\Article::find(<span class="number">3</span>);</div><div class="line">$article-&gt;tags()-&gt;attach(<span class="number">2</span>);</div><div class="line"></div><div class="line"><span class="comment">//将 articles 表 id 为3的与 tags 表 id 为2的解除绑定</span></div><div class="line">$article = App\Article::find(<span class="number">3</span>);</div><div class="line">$article-&gt;tags()-&gt;detach(<span class="number">2</span>);</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;设置laravel 数据表之间的联系&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="laravel" scheme="https://nancelglap.github.io/categories/laravel/"/>
-    
-    
-      <category term="laravel" scheme="https://nancelglap.github.io/tags/laravel/"/>
-    
-      <category term="database" scheme="https://nancelglap.github.io/tags/database/"/>
-    
-      <category term="mysql" scheme="https://nancelglap.github.io/tags/mysql/"/>
-    
-      <category term="table" scheme="https://nancelglap.github.io/tags/table/"/>
     
   </entry>
   
