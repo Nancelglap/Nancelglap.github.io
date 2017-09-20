@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nancelglap.github.io/2017/07/06/Python-%E7%9B%B8%E5%85%B3/</loc>
+    
+    <lastmod>2017-09-20T02:05:52.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancelglap.github.io/2017/09/19/python-OOP/</loc>
+    
+    <lastmod>2017-09-20T01:30:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nancelglap.github.io/2017/09/19/python-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</loc>
     
-    <lastmod>2017-09-19T13:46:23.000Z</lastmod>
+    <lastmod>2017-09-20T01:00:40.000Z</lastmod>
     
   </url>
   
@@ -12,20 +26,6 @@
     <loc>https://nancelglap.github.io/2017/07/06/Python-%E8%AF%AD%E6%B3%95/</loc>
     
     <lastmod>2017-09-19T13:42:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancelglap.github.io/2017/07/06/Python-%E7%9B%B8%E5%85%B3/</loc>
-    
-    <lastmod>2017-09-19T13:24:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancelglap.github.io/2017/09/19/python-OOP/</loc>
-    
-    <lastmod>2017-09-19T13:24:19.000Z</lastmod>
     
   </url>
   

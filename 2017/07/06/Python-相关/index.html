@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2017/07/06/Python-相关/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="与 python 相关知识">
-<meta property="og:updated_time" content="2017-09-19T13:24:19.000Z">
+<meta property="og:updated_time" content="2017-09-20T02:05:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 相关">
 <meta name="twitter:description" content="与 python 相关知识">
@@ -419,7 +419,41 @@
 <li>而在import 一个.py文件后,<code>__name__</code>的值就不是<code>__main__</code>了;</li>
 <li>从而用<code>if __name__ == &#39;__main__&#39;</code>来判断是否是在直接运行该.py文件</li>
 </ul>
-
+<blockquote>
+<p>I/O</p>
+</blockquote>
+<ul>
+<li><code>Input Stream</code>就是数据从外面（磁盘、网络）流进内存，<code>Output Stream</code>就是数据从内存流到外面去</li>
+<li>在<code>I/O</code>编程中，因为CPU和内存速度远高于外设速度，所有有了<code>同步</code>和<code>异步</code></li>
+<li><p>操作IO的能力都是由<strong>操作系统</strong>提供的，每一种编程语言都会把操作系统提供的低级C接口封装起来方便使用</p>
+</li>
+<li><p>调用<code>open()</code>，<code>read()</code>等完成文件操作时要调用<code>close()</code><strong>关闭文件，因为文件对象会占用操作系统的资源，并且操作系统同一时间能打开的文件数量也是有限的</strong></p>
+</li>
+<li>由于文件读写时都有可能产生<code>IOError</code>，一旦出错，后面的<code>f.close()</code>就不会调用,引入了<code>with语句</code>来自动帮我们调用<code>close()</code>方法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">'/path/to/file'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</div><div class="line">    print(f.read())</div></pre></td></tr></table></figure>
+<ul>
+<li>调用<code>read()</code>会一次性读取文件的全部内容，如果文件有10G，内存就爆了，保险起见，可以反复调用<code>read(size)</code>方法，每次最多读取size个字节的内容</li>
+<li>调用<code>readline()</code>可以每次读取一行内容，调用<code>readlines()</code>一次读取所有内容并按行返回list</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 读取配置文件</span></div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</div><div class="line">    print(line.strip()) <span class="comment"># 把末尾的'\n'删掉</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>file-like Object</p>
+</blockquote>
+<ul>
+<li>像<code>open()</code>函数返回的这种有个<code>read()</code>方法的对象，在Python中统称为<code>file-like Object</code>,除了file外，还可以是内存的字节流，网络流，自定义流等等</li>
+<li><code>file-like Object</code>不要求从特定类继承，只要写个<code>read()</code>方法就行</li>
+<li><code>StringIO</code>就是在内存中创建的<code>file-like Object</code>，常用作临时缓冲</li>
+</ul>
+<blockquote>
+<p>写文件</p>
+</blockquote>
+<ul>
+<li>当我们写文件时，操作系统往往不会立刻把数据写入磁盘，而是放到内存缓存起来，空闲的时候再慢慢写入</li>
+<li>只有调用close()方法时，操作系统才保证把没有写入的数据全部写入磁盘</li>
+<li>忘记调用close()的后果是数据可能只写了一部分到磁盘，剩下的丢失了。所以，还是用with语句来得保险</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">'/Users/michael/test.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> f:</div><div class="line">    f.write(<span class="string">'Hello, world!'</span>)</div></pre></td></tr></table></figure>
       
     </div>
 

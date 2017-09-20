@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2017-09-19T13:46:23.000Z</updated>
+  <updated>2017-09-20T01:00:40.000Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://nancelglap.github.io/2017/09/19/python-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/"/>
     <id>https://nancelglap.github.io/2017/09/19/python-错误处理/</id>
     <published>2017-09-19T13:18:24.000Z</published>
-    <updated>2017-09-19T13:46:23.000Z</updated>
+    <updated>2017-09-20T01:00:40.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>try…except…finally</p>
@@ -28,6 +28,7 @@
 <ul>
 <li>将可能出错的代码放在<code>try</code>中</li>
 <li>可以在except语句块后面加一个else，当没有错误发生时，会自动执行else语句</li>
+<li>有错误执行完<code>except</code>后，<code>finally</code>内部的代码也会执行</li>
 <li>先执行<code>else</code>中的，后执行<code>finally</code>中的</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">    print(<span class="string">'try...'</span>)</div><div class="line">    r = <span class="number">10</span> / int(<span class="string">'2'</span>)</div><div class="line">    print(<span class="string">'result:'</span>, r)</div><div class="line"><span class="keyword">except</span> ValueError <span class="keyword">as</span> e:</div><div class="line">    print(<span class="string">'ValueError:'</span>, e)</div><div class="line"><span class="keyword">except</span> ZeroDivisionError <span class="keyword">as</span> e:</div><div class="line">    print(<span class="string">'ZeroDivisionError:'</span>, e)</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    print(<span class="string">'no error!'</span>)</div><div class="line"><span class="keyword">finally</span>:</div><div class="line">    print(<span class="string">'finally...'</span>)</div><div class="line">print(<span class="string">'END'</span>)</div></pre></td></tr></table></figure>
@@ -59,7 +60,34 @@
 <li>另一种处理错误方式</li>
 <li>虽然已打印错误，由于当前函数不知道应该怎么处理该错误，所以，继续往上抛，让顶层调用者去处理</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(s)</span>:</span></div><div class="line">    n = int(s)</div><div class="line">    <span class="keyword">if</span> n==<span class="number">0</span>:</div><div class="line">        <span class="keyword">raise</span> ValueError(<span class="string">'invalid value: %s'</span> % s)</div><div class="line">    <span class="keyword">return</span> <span class="number">10</span> / n</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bar</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        foo(<span class="string">'0'</span>)</div><div class="line">    <span class="keyword">except</span> ValueError <span class="keyword">as</span> e:</div><div class="line">        print(<span class="string">'ValueError!'</span>)</div><div class="line">        <span class="keyword">raise</span></div><div class="line"></div><div class="line">bar()</div></pre></td></tr></table></figure>]]></content>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(s)</span>:</span></div><div class="line">    n = int(s)</div><div class="line">    <span class="keyword">if</span> n==<span class="number">0</span>:</div><div class="line">        <span class="keyword">raise</span> ValueError(<span class="string">'invalid value: %s'</span> % s)</div><div class="line">    <span class="keyword">return</span> <span class="number">10</span> / n</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bar</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        foo(<span class="string">'0'</span>)</div><div class="line">    <span class="keyword">except</span> ValueError <span class="keyword">as</span> e:</div><div class="line">        print(<span class="string">'ValueError!'</span>)</div><div class="line">        <span class="keyword">raise</span></div><div class="line"></div><div class="line">bar()</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>调试</p>
+</blockquote>
+<ul>
+<li><code>assert</code>断言：如果表达式不为<code>True</code>，<code>assert</code>语句本身就会抛出<code>AssertionError</code></li>
+<li><code>-O</code> 参数可以关闭assert，<code>$python -O hello.py</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">assert</span> expression, <span class="string">'message'</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(s)</span>:</span></div><div class="line">    n = int(s)</div><div class="line">    <span class="keyword">assert</span> n != <span class="number">0</span>, <span class="string">'n is zero!'</span></div><div class="line">    <span class="keyword">return</span> <span class="number">10</span> / n</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">    foo(<span class="string">'0'</span>)</div><div class="line"></div><div class="line">$ python3 err.py</div><div class="line">Traceback (most recent call last):</div><div class="line">  ...</div><div class="line">AssertionError: n <span class="keyword">is</span> zero!</div></pre></td></tr></table></figure>
+<blockquote>
+<p>logging</p>
+</blockquote>
+<ul>
+<li><code>logging</code> 通过配置不同 <code>level</code>控制输出不同级别的信息</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> logging</div><div class="line">logging.basicConfig(level=logging.INFO)</div><div class="line"></div><div class="line">s = <span class="string">'0'</span></div><div class="line">n = int(s)</div><div class="line">logging.info(<span class="string">'n = %d'</span> % n)</div><div class="line">print(<span class="number">10</span> / n)</div><div class="line"></div><div class="line">$ python3 err.py</div><div class="line">INFO:root:n = <span class="number">0</span></div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"err.py"</span>, line <span class="number">8</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    print(<span class="number">10</span> / n)</div><div class="line">ZeroDivisionError: division by zero</div></pre></td></tr></table></figure>
+<blockquote>
+<p>pdb.set_trace() — 断点</p>
+</blockquote>
+<ul>
+<li>在可能出错的地方放一个pdb.set_trace(),设置一个断点</li>
+<li><code>p n</code> 命令查看变量<code>n</code>的值</li>
+<li><code>c</code> 命令继续执行代码</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pdb</div><div class="line"></div><div class="line">s = <span class="string">'0'</span></div><div class="line">n = int(s)</div><div class="line">pdb.set_trace() <span class="comment"># 运行到这里会自动暂停</span></div><div class="line">print(<span class="number">10</span> / n)</div></pre></td></tr></table></figure>
+]]></content>
     
     <summary type="html">
     
@@ -86,7 +114,7 @@
     <link href="https://nancelglap.github.io/2017/09/19/python-OOP/"/>
     <id>https://nancelglap.github.io/2017/09/19/python-OOP/</id>
     <published>2017-09-19T13:15:01.000Z</published>
-    <updated>2017-09-19T13:24:19.000Z</updated>
+    <updated>2017-09-20T01:30:38.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>python面向对象</p>
@@ -146,9 +174,9 @@
 <p><strong>iter</strong></p>
 </blockquote>
 <ul>
-<li>将类用作<code>for in</code>循环，循环调用类里面的<code>__next__</code>方法拿到下一个循环的值，直到遇到<code>StopIteration</code>错误退出循环<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fib</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.a, self.b = <span class="number">0</span>, <span class="number">1</span> <span class="comment"># 初始化两个计数器a，b</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self <span class="comment"># 实例本身就是迭代对象，故返回自己</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__next__</span><span class="params">(self)</span>:</span></div><div class="line">        self.a, self.b = self.b, self.a + self.b <span class="comment"># 计算下一个值</span></div><div class="line">        <span class="keyword">if</span> self.a &gt; <span class="number">100000</span>: <span class="comment"># 退出循环的条件</span></div><div class="line">            <span class="keyword">raise</span> StopIteration()</div><div class="line">        <span class="keyword">return</span> self.a <span class="comment"># 返回下一个值</span></div></pre></td></tr></table></figure>
-</li>
+<li>将类用作<code>for in</code>循环，循环调用类里面的<code>__next__</code>方法拿到下一个循环的值，直到遇到<code>StopIteration</code>错误退出循环</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fib</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.a, self.b = <span class="number">0</span>, <span class="number">1</span> <span class="comment"># 初始化两个计数器a，b</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self <span class="comment"># 实例本身就是迭代对象，故返回自己</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__next__</span><span class="params">(self)</span>:</span></div><div class="line">        self.a, self.b = self.b, self.a + self.b <span class="comment"># 计算下一个值</span></div><div class="line">        <span class="keyword">if</span> self.a &gt; <span class="number">100000</span>: <span class="comment"># 退出循环的条件</span></div><div class="line">            <span class="keyword">raise</span> StopIteration()</div><div class="line">        <span class="keyword">return</span> self.a <span class="comment"># 返回下一个值</span></div></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>getitem</strong></p>
 </blockquote>
@@ -166,9 +194,9 @@
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.name = <span class="string">'Michael'</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getattr__</span><span class="params">(self, attr)</span>:</span></div><div class="line">        <span class="keyword">if</span> attr==<span class="string">'score'</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">99</span></div><div class="line"></div><div class="line"><span class="comment"># 当调用不存在的属性时，比如score，Python解释器会试图调用__getattr__(self, 'score')来尝试获得属性</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s = Student()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.name</div><div class="line"><span class="string">'Michael'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.score</div><div class="line"><span class="number">99</span></div></pre></td></tr></table></figure>
 <ul>
-<li>链式生成api<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Chain</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, path=<span class="string">''</span>)</span>:</span></div><div class="line">        self._path = path</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getattr__</span><span class="params">(self, path)</span>:</span></div><div class="line">        <span class="keyword">return</span> Chain(<span class="string">'%s/%s'</span> % (self._path, path))</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self._path</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">users</span><span class="params">(self, name)</span>:</span></div><div class="line">        <span class="keyword">return</span> Chain(<span class="string">'%s/users/%s'</span> % (self._path, name))</div><div class="line"></div><div class="line">    __repr__ = __str__</div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>Chain().ni.users(<span class="string">'lizhuoyi'</span>).list</div><div class="line">/ni/users/lizhuoyi/list</div></pre></td></tr></table></figure>
-</li>
+<li>链式生成api</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Chain</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, path=<span class="string">''</span>)</span>:</span></div><div class="line">        self._path = path</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getattr__</span><span class="params">(self, path)</span>:</span></div><div class="line">        <span class="keyword">return</span> Chain(<span class="string">'%s/%s'</span> % (self._path, path))</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self._path</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">users</span><span class="params">(self, name)</span>:</span></div><div class="line">        <span class="keyword">return</span> Chain(<span class="string">'%s/users/%s'</span> % (self._path, name))</div><div class="line"></div><div class="line">    __repr__ = __str__</div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>Chain().ni.users(<span class="string">'lizhuoyi'</span>).list</div><div class="line">/ni/users/lizhuoyi/list</div></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>call</strong></p>
 </blockquote>
@@ -194,6 +222,24 @@
 <li>要创建一个class对象，<code>type(&#39;name&#39;, (object, []), dict(funcName = func, []))</code>函数依次传入3个参数：<br>1、class的名称<br>2、继承的父类集合，注意Python支持多重继承，如果只有一个父类，别忘了tuple的单元素写法<br>3、class的方法名称与函数绑定</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(self, name=<span class="string">'world'</span>)</span>:</span> <span class="comment"># 先定义函数</span></div><div class="line"><span class="meta">... </span>    print(<span class="string">'Hello, %s.'</span> % name)</div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>Hello = type(<span class="string">'Hello'</span>, (object,), dict(hello=fn)) <span class="comment"># 创建Hello class</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>super</p>
+</blockquote>
+<ul>
+<li>子类覆盖父类方法后调用父类方法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name=<span class="string">''</span>)</span>:</span></div><div class="line">        self.name = name</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name = <span class="string">''</span>, age = <span class="number">10</span>)</span>:</span></div><div class="line">        self.age = age</div><div class="line">        super(B, self).__init__(name)</div><div class="line"></div><div class="line">child = B(<span class="string">'Nancelglap'</span>, <span class="number">18</span>)</div><div class="line">print(<span class="string">'%d %s'</span> % (child.age , child.name))</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Dict类</p>
+</blockquote>
+<ul>
+<li>不仅能像<code>dict</code>用下标访问，还能用类的属性访问</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dict</span><span class="params">(dict)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, **kw)</span>:</span></div><div class="line">        super().__init__(**kw)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getattr__</span><span class="params">(self, key)</span>:</span></div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            <span class="keyword">return</span> self[key]</div><div class="line">        <span class="keyword">except</span> KeyError:</div><div class="line">            <span class="keyword">raise</span> AttributeError(<span class="string">r"'Dict' object has no attribute '%s'"</span> % key)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__setattr__</span><span class="params">(self, key, value)</span>:</span></div><div class="line">        self[key] = value</div></pre></td></tr></table></figure>
+<ul>
+<li>调用</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>d = Dict(a=<span class="number">1</span>, b=<span class="number">2</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>d[<span class="string">'a'</span>]</div><div class="line"><span class="number">1</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>d.a</div><div class="line"><span class="number">1</span></div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
@@ -886,7 +932,7 @@
     <link href="https://nancelglap.github.io/2017/07/06/Python-%E7%9B%B8%E5%85%B3/"/>
     <id>https://nancelglap.github.io/2017/07/06/Python-相关/</id>
     <published>2017-07-06T03:13:49.000Z</published>
-    <updated>2017-09-19T13:24:19.000Z</updated>
+    <updated>2017-09-20T02:05:52.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>与 python 相关知识</p>
@@ -929,7 +975,41 @@
 <li>而在import 一个.py文件后,<code>__name__</code>的值就不是<code>__main__</code>了;</li>
 <li>从而用<code>if __name__ == &#39;__main__&#39;</code>来判断是否是在直接运行该.py文件</li>
 </ul>
-]]></content>
+<blockquote>
+<p>I/O</p>
+</blockquote>
+<ul>
+<li><code>Input Stream</code>就是数据从外面（磁盘、网络）流进内存，<code>Output Stream</code>就是数据从内存流到外面去</li>
+<li>在<code>I/O</code>编程中，因为CPU和内存速度远高于外设速度，所有有了<code>同步</code>和<code>异步</code></li>
+<li><p>操作IO的能力都是由<strong>操作系统</strong>提供的，每一种编程语言都会把操作系统提供的低级C接口封装起来方便使用</p>
+</li>
+<li><p>调用<code>open()</code>，<code>read()</code>等完成文件操作时要调用<code>close()</code><strong>关闭文件，因为文件对象会占用操作系统的资源，并且操作系统同一时间能打开的文件数量也是有限的</strong></p>
+</li>
+<li>由于文件读写时都有可能产生<code>IOError</code>，一旦出错，后面的<code>f.close()</code>就不会调用,引入了<code>with语句</code>来自动帮我们调用<code>close()</code>方法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">'/path/to/file'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</div><div class="line">    print(f.read())</div></pre></td></tr></table></figure>
+<ul>
+<li>调用<code>read()</code>会一次性读取文件的全部内容，如果文件有10G，内存就爆了，保险起见，可以反复调用<code>read(size)</code>方法，每次最多读取size个字节的内容</li>
+<li>调用<code>readline()</code>可以每次读取一行内容，调用<code>readlines()</code>一次读取所有内容并按行返回list</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 读取配置文件</span></div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</div><div class="line">    print(line.strip()) <span class="comment"># 把末尾的'\n'删掉</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>file-like Object</p>
+</blockquote>
+<ul>
+<li>像<code>open()</code>函数返回的这种有个<code>read()</code>方法的对象，在Python中统称为<code>file-like Object</code>,除了file外，还可以是内存的字节流，网络流，自定义流等等</li>
+<li><code>file-like Object</code>不要求从特定类继承，只要写个<code>read()</code>方法就行</li>
+<li><code>StringIO</code>就是在内存中创建的<code>file-like Object</code>，常用作临时缓冲</li>
+</ul>
+<blockquote>
+<p>写文件</p>
+</blockquote>
+<ul>
+<li>当我们写文件时，操作系统往往不会立刻把数据写入磁盘，而是放到内存缓存起来，空闲的时候再慢慢写入</li>
+<li>只有调用close()方法时，操作系统才保证把没有写入的数据全部写入磁盘</li>
+<li>忘记调用close()的后果是数据可能只写了一部分到磁盘，剩下的丢失了。所以，还是用with语句来得保险</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">'/Users/michael/test.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> f:</div><div class="line">    f.write(<span class="string">'Hello, world!'</span>)</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
