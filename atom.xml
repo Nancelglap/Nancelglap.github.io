@@ -932,7 +932,7 @@
     <link href="https://nancelglap.github.io/2017/07/06/Python-%E7%9B%B8%E5%85%B3/"/>
     <id>https://nancelglap.github.io/2017/07/06/Python-相关/</id>
     <published>2017-07-06T03:13:49.000Z</published>
-    <updated>2017-09-20T02:05:52.000Z</updated>
+    <updated>2017-09-20T02:06:48.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>与 python 相关知识</p>
@@ -1005,9 +1005,9 @@
 <p>写文件</p>
 </blockquote>
 <ul>
-<li>当我们写文件时，操作系统往往不会立刻把数据写入磁盘，而是放到内存缓存起来，空闲的时候再慢慢写入</li>
-<li>只有调用close()方法时，操作系统才保证把没有写入的数据全部写入磁盘</li>
-<li>忘记调用close()的后果是数据可能只写了一部分到磁盘，剩下的丢失了。所以，还是用with语句来得保险</li>
+<li>当我们写文件时，操作系统往往不会立刻把数据写入磁盘，而是<code>放到内存缓存起来</code>，<code>空闲的时候</code>再慢慢写入</li>
+<li>只有调用<code>close()</code>方法时，操作系统才保证把没有写入的数据全部写入磁盘</li>
+<li>忘记调用<code>close()</code>的后果是数据可能只写了一部分到磁盘，剩下的丢失了。所以，还是用<code>with语句</code>来得保险（出错时自动调用<code>close()</code>）</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">'/Users/michael/test.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> f:</div><div class="line">    f.write(<span class="string">'Hello, world!'</span>)</div></pre></td></tr></table></figure>]]></content>
     
