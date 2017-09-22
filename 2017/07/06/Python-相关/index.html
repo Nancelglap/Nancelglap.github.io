@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2017/07/06/Python-相关/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="与 python 相关知识">
-<meta property="og:updated_time" content="2017-09-20T13:34:15.000Z">
+<meta property="og:updated_time" content="2017-09-22T03:25:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 相关">
 <meta name="twitter:description" content="与 python 相关知识">
@@ -482,6 +482,19 @@
 </blockquote>
 <ul>
 <li>把变量从内存中变成可存储或传输的过程称之为序列化</li>
+</ul>
+<blockquote>
+<p>多线程和多进程</p>
+</blockquote>
+<ul>
+<li>多进程同一个变量各自拷贝一份存在于每个进程，互不影响</li>
+<li>多线程所有变量由所有线程共享，任何一个变量都可以被任何一个线程修改</li>
+<li>高级语言的一条语句在CPU执行时是若干条语句，当两个线程同时运行进行数据交互时，不会按顺序执行，会造成结果错误</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 计算 balance = balance + n 分两步</span></div><div class="line"><span class="comment"># 先计算 balance + n，存入临时变量中</span></div><div class="line"><span class="comment"># 再将临时变量赋值给 balance</span></div><div class="line">x = balance + n</div><div class="line">balance = x</div></pre></td></tr></table></figure>
+<ul>
+<li>线程锁阻止多线程并发执行，效率降低</li>
+<li><code>死锁</code>：多线程不同线程的锁<em>视图获取对方持有的锁</em>时可能会造成死锁，导致多个线程全部挂起，既<strong>不能执行也无法结束</strong></li>
 </ul>
 
       
