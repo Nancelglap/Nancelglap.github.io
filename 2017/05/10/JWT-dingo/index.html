@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2017/05/10/JWT-dingo/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="laravel 中JWT(Json Web Token)和dingo的使用">
-<meta property="og:updated_time" content="2017-10-11T01:22:20.000Z">
+<meta property="og:updated_time" content="2017-10-11T01:31:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JWT + dingo">
 <meta name="twitter:description" content="laravel 中JWT(Json Web Token)和dingo的使用">
@@ -417,6 +417,10 @@
 <h2 id="2、注册jwt-Facades"><a href="#2、注册jwt-Facades" class="headerlink" title="2、注册jwt Facades"></a><strong>2、注册jwt Facades</strong></h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">'aliases'</span>=&gt;[</div><div class="line">        <span class="string">'JWTAuth'</span>=&gt; Tymon\JWTAuth\Facades\JWTAuth::class,</div><div class="line">        <span class="string">'JWTFactory'</span>=&gt; Tymon\JWTAuth\Facades\JWTFactory::class,</div><div class="line">    ]</div></pre></td></tr></table></figure>
 <h2 id="3、更新配置文件"><a href="#3、更新配置文件" class="headerlink" title="3、更新配置文件"></a><strong>3、更新配置文件</strong></h2><p><code>php artisan vendor:publish --provider=&quot;Tymon\JWTAuth\Providers\JWTAuthServiceProvider&quot;</code></p>
 <h2 id="4、生成jwt-php文件中数组的secret键成对应的值"><a href="#4、生成jwt-php文件中数组的secret键成对应的值" class="headerlink" title="4、生成jwt.php文件中数组的secret键成对应的值"></a><strong>4、生成jwt.php文件中数组的secret键成对应的值</strong></h2><p><code>php artisan jwt:generate</code></p>
+<ul>
+<li>如果出现<code>Method Tymon\JWTAuth\Commands\JWTGenerateCommand::handle() does not exist</code><br>在<code>JWTGenerateCommand.php</code>中加入<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">$this</span>-&gt;fire();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
 <blockquote>
 <p>关联dingo和JWT</p>
 </blockquote>
