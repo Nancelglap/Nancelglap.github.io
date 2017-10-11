@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2017-09-26T14:13:17.000Z</updated>
+  <updated>2017-09-29T02:47:44.000Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -14,6 +14,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python 爬虫</title>
+    <link href="https://nancelglap.github.io/2017/09/29/python-%E7%88%AC%E8%99%AB/"/>
+    <id>https://nancelglap.github.io/2017/09/29/python-爬虫/</id>
+    <published>2017-09-29T02:40:45.000Z</published>
+    <updated>2017-09-29T02:47:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>python 爬虫相关内容</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="用-urllib-库爬html页面"><a href="#用-urllib-库爬html页面" class="headerlink" title="用 urllib 库爬html页面"></a>用 urllib 库爬html页面</h3><hr>
+<ul>
+<li><code>urllib.request.urlencode(dict)</code> 将字典转换为 <code>key1=value1&amp;key2=value2</code> 的字符串</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> urllib</div><div class="line"><span class="keyword">import</span> urllib.request</div><div class="line"> </div><div class="line">data=&#123;&#125;</div><div class="line">data[<span class="string">'wd'</span>]=<span class="string">'Nancelglap'</span></div><div class="line"> </div><div class="line">url_values=urllib.parse.urlencode(data)</div><div class="line">url=<span class="string">"http://www.baidu.com/s?"</span></div><div class="line">full_url=url+url_values</div><div class="line"> </div><div class="line">data=urllib.request.urlopen(full_url).read()</div><div class="line">data=data.decode(<span class="string">'UTF-8'</span>)</div><div class="line">print(data)</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;python 爬虫相关内容&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://nancelglap.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://nancelglap.github.io/tags/python/"/>
+    
+      <category term="spider" scheme="https://nancelglap.github.io/tags/spider/"/>
+    
+  </entry>
   
   <entry>
     <title>python 连接mysql</title>
@@ -211,7 +246,7 @@
     <link href="https://nancelglap.github.io/2017/09/21/python-%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     <id>https://nancelglap.github.io/2017/09/21/python-多进程和多线程/</id>
     <published>2017-09-21T02:16:08.000Z</published>
-    <updated>2017-09-22T03:25:16.000Z</updated>
+    <updated>2017-10-10T08:42:00.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>python 多进程和多线程编程</p>
@@ -226,6 +261,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process</div><div class="line"><span class="keyword">import</span> os</div><div class="line"></div><div class="line"><span class="comment"># 子进程要执行的代码</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_proc</span><span class="params">(name)</span>:</span></div><div class="line">    <span class="comment"># 代码运行时已经是子进程的pid</span></div><div class="line">    print(<span class="string">'Run child process %s (%s)...'</span> % (name, os.getpid()))</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</div><div class="line">    <span class="comment"># 代码运行时是父进程的pid</span></div><div class="line">    print(<span class="string">'Parent process %s.'</span> % os.getpid())</div><div class="line">    p = Process(target=run_proc, args=(<span class="string">'test'</span>,))</div><div class="line">    print(<span class="string">'Child process will start.'</span>)</div><div class="line">    p.start()</div><div class="line">    p.join()</div><div class="line">    print(<span class="string">'Child process end.'</span>)</div></pre></td></tr></table></figure>
 <ul>
 <li><code>进程池</code>：如果要启动大量子进程，用进程池批量创建子进程</li>
+<li>一个<code>p.apply_async()</code>只能处理一个函数</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</div><div class="line"><span class="keyword">import</span> os, time, random</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">long_time_task</span><span class="params">(name)</span>:</span></div><div class="line">    print(<span class="string">'Run task %s (%s)...'</span> % (name, os.getpid()))</div><div class="line">    start = time.time()</div><div class="line">    time.sleep(random.random() * <span class="number">3</span>)</div><div class="line">    end = time.time()</div><div class="line">    print(<span class="string">'Task %s runs %0.2f seconds.'</span> % (name, (end - start)))</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</div><div class="line">    print(<span class="string">'Parent process %s.'</span> % os.getpid())</div><div class="line">    p = Pool()      <span class="comment"># 默认大小为电脑CPU的核数</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">        p.apply_async(long_time_task, args=(i,))</div><div class="line">    print(<span class="string">'Waiting for all subprocesses done...'</span>)</div><div class="line">    p.close()</div><div class="line">    p.join()</div><div class="line">    print(<span class="string">'All subprocesses done.'</span>)</div></pre></td></tr></table></figure>
 <ul>
@@ -1501,43 +1537,6 @@
       <category term="python" scheme="https://nancelglap.github.io/tags/python/"/>
     
       <category term="function" scheme="https://nancelglap.github.io/tags/function/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mysql 定时备份</title>
-    <link href="https://nancelglap.github.io/2017/06/20/mysql-%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BD/"/>
-    <id>https://nancelglap.github.io/2017/06/20/mysql-定时备份/</id>
-    <published>2017-06-20T14:48:28.000Z</published>
-    <updated>2017-06-20T14:56:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>实现mysql定时备份</p>
-</blockquote>
-<a id="more"></a>
-<p>1、创建备份文件夹<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir <span class="built_in">name</span></div></pre></td></tr></table></figure></p>
-<p>2、创建备份Shell脚本<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> vim filename.sh</span></div></pre></td></tr></table></figure></p>
-<p>3、加入以下内容<br>（1）username 替换为实际的用户名(保留-u)<br>（2）password 替换为实际的密码（保留-p）<br>（3）DatabaseName 替换为实际的数据库名<br>（4）/home/back改为自己的路径<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">mysqldump -uusername -ppassword DatabaseName &gt; /home/backup/DatabaseName_$(date +%Y%m%d_%H%M%S).sql</div></pre></td></tr></table></figure></p>
-<p>4、添加可执行权限<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> chmod u+x bkDatabaseName.sh</span></div></pre></td></tr></table></figure></p>
-<p>5、添加计划任务（改为自己创建的文件信息）<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>crontab -e</div><div class="line"></div><div class="line">*<span class="regexp">/1 * * * * /home</span><span class="regexp">/backup/bk</span>DatabaseName.sh</div></pre></td></tr></table></figure></p>
-<p>6、执行时间<br>前面五个*号代表五个数字，数字的取值范围和含义如下：</p>
-<p>分钟　（0-59）<br>小時　（0-23）<br>日期　（1-31）<br>月份　（1-12）<br>星期　（0-6）//0代表星期天</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;实现mysql定时备份&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="mysql" scheme="https://nancelglap.github.io/categories/mysql/"/>
-    
-    
-      <category term="mysql" scheme="https://nancelglap.github.io/tags/mysql/"/>
-    
-      <category term="backup" scheme="https://nancelglap.github.io/tags/backup/"/>
     
   </entry>
   
