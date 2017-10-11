@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2017-09-29T02:47:44.000Z</updated>
+  <updated>2017-10-11T05:22:19.000Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -14,6 +14,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql数据备份和还原</title>
+    <link href="https://nancelglap.github.io/2017/10/11/mysql%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD%E5%92%8C%E8%BF%98%E5%8E%9F/"/>
+    <id>https://nancelglap.github.io/2017/10/11/mysql数据备份和还原/</id>
+    <published>2017-10-11T05:20:11.000Z</published>
+    <updated>2017-10-11T05:22:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>数据备份</p>
+</blockquote>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>mysqldump -u root database table1 table2 ... &gt; ~<span class="regexp">/Documents/admin</span>_menu.sql</div></pre></td></tr></table></figure>
+<blockquote>
+<p>数据还原</p>
+</blockquote>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>mysql -u root -p &lt; ~<span class="regexp">/Documents/quanzi</span>.sql</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;数据备份&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight elixir&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/
+    
+    </summary>
+    
+      <category term="mysql" scheme="https://nancelglap.github.io/categories/mysql/"/>
+    
+    
+      <category term="mysql" scheme="https://nancelglap.github.io/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>python 爬虫</title>
@@ -1362,181 +1395,6 @@
     
     
       <category term="python" scheme="https://nancelglap.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python 函数</title>
-    <link href="https://nancelglap.github.io/2017/07/06/Python-%E5%87%BD%E6%95%B0/"/>
-    <id>https://nancelglap.github.io/2017/07/06/Python-函数/</id>
-    <published>2017-07-06T03:03:40.000Z</published>
-    <updated>2017-09-17T11:32:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>python 函数</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="lists-函数"><a href="#lists-函数" class="headerlink" title="lists 函数"></a>lists 函数</h3><blockquote>
-<p>list()</p>
-</blockquote>
-<p>1、将序列转换成 <em><code>list</code></em><br>2、将 <code>Iterator</code> 计算出整个序列并返回一个 <code>list</code></p>
-<blockquote>
-<p>name.append()</p>
-</blockquote>
-<p>往lists中追加元素到末尾<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>classmates.append(<span class="string">'Adam'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>classmates</div><div class="line">[<span class="string">'Michael'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>, <span class="string">'Adam'</span>]</div></pre></td></tr></table></figure></p>
-<hr>
-<blockquote>
-<p>name.pop()</p>
-</blockquote>
-<p>1、没加参数删除末尾元素，有参数删除索引位置的元素<br>2、<em><code>list</code></em> 不能传 <em><code>字符串</code></em> 参数，<em><code>dict</code></em> 可以</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>classmates.pop(<span class="number">1</span>)</div><div class="line"><span class="string">'Jack'</span></div></pre></td></tr></table></figure>
-<hr>
-<blockquote>
-<p>name.insert()</p>
-</blockquote>
-<p>把元素插到指定位置<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>classmates.insert(<span class="number">1</span>, <span class="string">'Jack'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>classmates</div><div class="line">[<span class="string">'Michael'</span>, <span class="string">'Jack'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>, <span class="string">'Adam'</span>]</div></pre></td></tr></table></figure></p>
-<hr>
-<blockquote>
-<p>name.sort()</p>
-</blockquote>
-<p>对序列内容排序</p>
-<hr>
-<blockquote>
-<p>enumerate()</p>
-</blockquote>
-<p>把一个 <code>list</code> 变成 <code>索引-元素对</code> ，可以在 <code>for</code> 循环中同时迭代索引和元素本身<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> i, value <span class="keyword">in</span> enumerate([<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>]):</div><div class="line"><span class="meta">... </span>    print(i, value)</div><div class="line">...</div><div class="line"><span class="number">0</span> A</div><div class="line"><span class="number">1</span> B</div><div class="line"><span class="number">2</span> C</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>len()</p>
-</blockquote>
-<p>计算列表元素个数</p>
-<h3 id="dict函数"><a href="#dict函数" class="headerlink" title="dict函数"></a>dict函数</h3><blockquote>
-<p>get()</p>
-</blockquote>
-<p>如果 <em><code>key</code></em> 不存在，可以返回自定义的内容<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>d.get(<span class="string">'Thomas'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>d.get(<span class="string">'Thomas'</span>, <span class="string">'not found'</span>)</div><div class="line"><span class="string">'not found'</span></div></pre></td></tr></table></figure></p>
-<hr>
-<blockquote>
-<p>pop()</p>
-</blockquote>
-<p>删除一个 <em><code>key</code></em></p>
-<hr>
-<h3 id="set函数"><a href="#set函数" class="headerlink" title="set函数"></a>set函数</h3><blockquote>
-<p>add(key)</p>
-</blockquote>
-<p>添加元素到 <em><code>set</code></em> 中<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.add(<span class="number">4</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s</div><div class="line">&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>remove(key)</p>
-</blockquote>
-<p>删除元素<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.remove(<span class="number">4</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s</div><div class="line">&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="常见函数"><a href="#常见函数" class="headerlink" title="常见函数"></a>常见函数</h3><blockquote>
-<p>ord()</p>
-</blockquote>
-<p>获取字符的整数表示<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>ord(<span class="string">'A'</span>)</div><div class="line"><span class="number">65</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>ord(<span class="string">'中'</span>)</div><div class="line"><span class="number">20013</span></div></pre></td></tr></table></figure></p>
-<hr>
-<blockquote>
-<p>chr()</p>
-</blockquote>
-<p>把编码转换为对应的字符<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>chr(<span class="number">66</span>)</div><div class="line"><span class="string">'B'</span></div></pre></td></tr></table></figure></p>
-<hr>
-<blockquote>
-<p>int()</p>
-</blockquote>
-<p>将数字字符串转换为整数（’123’）</p>
-<hr>
-<blockquote>
-<p>range()</p>
-</blockquote>
-<p>生成一个从零开始到参数的序列（不包括参数）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>list(range(<span class="number">5</span>))</div><div class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>str.replace(‘被替代的内容’, ‘要替代的内容’)</p>
-</blockquote>
-<p>1、替代字符串的内容，但是不改变原有的字符串<br>2、其实是创建一个新的字符串返回<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="string">'abc'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b = a.replace(<span class="string">'a'</span>, <span class="string">'A'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b</div><div class="line"><span class="string">'Abc'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>a</div><div class="line"><span class="string">'abc'</span></div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>count()</p>
-</blockquote>
-<p>统计字符串里某个字符串出现的次数，可指定参数在字符串中的开始和结束位置<br><em><code>str.count(sub, start, end)</code></em></p>
-<blockquote>
-<p>iter()</p>
-</blockquote>
-<p>把 <code>list</code>、<code>dict</code>、<code>str</code> 等 <code>Iterable</code> 变成 <code>Iterator</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> collections <span class="keyword">import</span> Iterator</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>isinstance(iter(<span class="string">'abc'</span>), Iterator)</div><div class="line"><span class="keyword">True</span></div></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="数据类型相关"><a href="#数据类型相关" class="headerlink" title="数据类型相关"></a>数据类型相关</h3><blockquote>
-<p>abs()</p>
-</blockquote>
-<p>求绝对值</p>
-<hr>
-<blockquote>
-<p>int()</p>
-<p>float()</p>
-<p>str()</p>
-<p>bool()</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="string">'123'</span>)</div><div class="line"><span class="number">123</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="number">12.34</span>)</div><div class="line"><span class="number">12</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>float(<span class="string">'12.34'</span>)</div><div class="line"><span class="number">12.34</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>str(<span class="number">1.23</span>)</div><div class="line"><span class="string">'1.23'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>str(<span class="number">100</span>)</div><div class="line"><span class="string">'100'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>bool(<span class="number">1</span>)</div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>bool(<span class="string">''</span>)</div><div class="line"><span class="keyword">False</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>isinstance()</p>
-</blockquote>
-<p>数据类型检查<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">isinstance(x, (int, float))</div></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><blockquote>
-<p>map()</p>
-</blockquote>
-<p>1、<code>map()</code> 接收两个参数，一个是函数，一个是 <code>Iterable</code>，<code>map</code> 将传入的函数<code>依次作用到</code>序列的<code>每个元素</code>，并将结果作为新的 <code>Iterator</code> 返回<br>2、<code>map()</code> 函数返回的是一个 <code>Iterator</code>，是一个<code>惰性序列</code>，要用 <code>list()</code> 函数获得所有结果并返回 <code>list</code><br>3、参数函数接收一个参数，返回的是对这个参数操作后的值</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 1、函数f(x)=x2，要把这个函数作用在一个list [1, 2, 3, 4, 5, 6, 7, 8, 9]上</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x)</span>:</span></div><div class="line"><span class="meta">... </span>    <span class="keyword">return</span> x * x</div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>r = map(f, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>list(r)</div><div class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">49</span>, <span class="number">64</span>, <span class="number">81</span>]</div><div class="line"></div><div class="line"><span class="comment"># 2、把 list 所有数字转为字符串</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>list(map(str, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]))</div><div class="line">[<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'4'</span>, <span class="string">'5'</span>, <span class="string">'6'</span>]</div></pre></td></tr></table></figure>
-<blockquote>
-<p>reduce()</p>
-</blockquote>
-<p>1、<code>reduce()</code> 把一个<code>函数</code>作用在一个<code>序列</code>上，<code>reduce</code> 把结果继续和序列下一个元素做积累计算<br><code>2、</code><strong>函数必须接收两个参数，返回的是对两个参数的操作</strong><br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">reduce(<span class="name">f</span>, [x1, x2, x3, x4]) = f(<span class="name">f</span>(<span class="name">f</span>(<span class="name">x1</span>, x2), x3), x4)</div></pre></td></tr></table></figure></p>
-<p>结合 <code>map()</code> 和 <code>reduce()</code> 写把 <code>str</code> 转换成 <code>int</code> 的函数<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">str2int</span><span class="params">(s)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(x, y)</span>:</span></div><div class="line">        <span class="keyword">return</span> x * <span class="number">10</span> + y</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">char2num</span><span class="params">(s)</span>:</span></div><div class="line">        <span class="keyword">return</span> &#123;<span class="string">'0'</span>: <span class="number">0</span>, <span class="string">'1'</span>: <span class="number">1</span>, <span class="string">'2'</span>: <span class="number">2</span>, <span class="string">'3'</span>: <span class="number">3</span>, <span class="string">'4'</span>: <span class="number">4</span>, <span class="string">'5'</span>: <span class="number">5</span>, <span class="string">'6'</span>: <span class="number">6</span>, <span class="string">'7'</span>: <span class="number">7</span>, <span class="string">'8'</span>: <span class="number">8</span>, <span class="string">'9'</span>: <span class="number">9</span>&#125;[s]</div><div class="line">    <span class="keyword">return</span> reduce(fn, map(char2num, s))</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>filter()</p>
-</blockquote>
-<p>1、接收<code>一个函数</code>和<code>一个序列</code>，<code>filter()</code> 把传入的函数依次作用于每个元素，然后根据返回值是 <code>True</code> 还是 <code>False</code> 决定保留还是丢弃该元素<br>2、参数函数 <code>返回值</code> 必须是 <code>bool值</code><br>3、<code>filter()</code> 函数返回的是一个 <code>Iterator</code>，也就是一个惰性序列，所以要强迫 <code>filter()</code> 完成计算结果，需要用 <code>list()</code>函数获得所有结果并返回 <code>list</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 在一个list中只保留奇数</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_odd</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="keyword">return</span> n % <span class="number">2</span> == <span class="number">1</span></div><div class="line"></div><div class="line">list(filter(is_odd, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">15</span>]))</div><div class="line"><span class="comment"># 结果：[1, 5, 9, 15]</span></div></pre></td></tr></table></figure>
-<p>把一个序列中的空字符串删掉：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">not_empty</span><span class="params">(s)</span>:</span></div><div class="line">    <span class="keyword">return</span> s <span class="keyword">and</span> s.strip()</div><div class="line"></div><div class="line">list(filter(not_empty, [<span class="string">'A'</span>, <span class="string">''</span>, <span class="string">'B'</span>, <span class="keyword">None</span>, <span class="string">'C'</span>, <span class="string">'   '</span>])) <span class="comment">#多个空格为bool值为True</span></div><div class="line"><span class="comment"># 结果：['A', 'B', 'C']</span></div></pre></td></tr></table></figure></p>
-<hr>
-<blockquote>
-<p>sorted()</p>
-</blockquote>
-<p>函数参数返回一个要排序的内容</p>
-<p>1、普通排序<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted([<span class="number">36</span>, <span class="number">5</span>, <span class="number">-12</span>, <span class="number">9</span>, <span class="number">-21</span>])</div><div class="line">[<span class="number">-21</span>, <span class="number">-12</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">36</span>]</div></pre></td></tr></table></figure></p>
-<p>2、接收一个 <code>key函数</code> 实现自定义排序（返回结果不做传入函数的处理）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted([<span class="number">36</span>, <span class="number">5</span>, <span class="number">-12</span>, <span class="number">9</span>, <span class="number">-21</span>], key=abs)</div><div class="line">[<span class="number">5</span>, <span class="number">9</span>, <span class="number">-12</span>, <span class="number">-21</span>, <span class="number">36</span>]</div></pre></td></tr></table></figure></p>
-<p>3、字符串排序<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 根据`ASCII`大小比较，大写字母`小于`小写字母</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted([<span class="string">'bob'</span>, <span class="string">'about'</span>, <span class="string">'Zoo'</span>, <span class="string">'Credit'</span>])</div><div class="line">[<span class="string">'Credit'</span>, <span class="string">'Zoo'</span>, <span class="string">'about'</span>, <span class="string">'bob'</span>]</div><div class="line"></div><div class="line"><span class="comment"># 忽略大小写的排序</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted([<span class="string">'bob'</span>, <span class="string">'about'</span>, <span class="string">'Zoo'</span>, <span class="string">'Credit'</span>], key=str.lower)</div><div class="line">[<span class="string">'about'</span>, <span class="string">'bob'</span>, <span class="string">'Credit'</span>, <span class="string">'Zoo'</span>]</div><div class="line"></div><div class="line"><span class="comment"># 反向排序，传入第三个参数reverse=True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted([<span class="string">'bob'</span>, <span class="string">'about'</span>, <span class="string">'Zoo'</span>, <span class="string">'Credit'</span>], key=str.lower, reverse=<span class="keyword">True</span>)</div><div class="line">[<span class="string">'Zoo'</span>, <span class="string">'Credit'</span>, <span class="string">'bob'</span>, <span class="string">'about'</span>]</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>type()</p>
-</blockquote>
-<p>判断对象类型<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; type(123)</div><div class="line">&lt;class 'int'&gt;</div><div class="line">&gt;&gt;&gt; type('str')</div><div class="line">&lt;class 'str'&gt;</div><div class="line">&gt;&gt;&gt; type(abs)</div><div class="line">&lt;class 'builtin_function_or_method'&gt;</div><div class="line"></div><div class="line">&gt;&gt;&gt; type(123)==type(456)</div><div class="line">True</div><div class="line">&gt;&gt;&gt; type(123)==int</div><div class="line">True</div><div class="line">&gt;&gt;&gt; type('abc')==type('123')</div><div class="line">True</div><div class="line">&gt;&gt;&gt; type('abc')==str</div><div class="line">True</div></pre></td></tr></table></figure></p>
-<p>判断对象是否为函数，使用<code>types</code>模块中定义的常量<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> types</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">()</span>:</span></div><div class="line"><span class="meta">... </span>    <span class="keyword">pass</span></div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>type(fn)==types.FunctionType</div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>type(abs)==types.BuiltinFunctionType</div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>type(<span class="keyword">lambda</span> x: x)==types.LambdaType</div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>type((x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>)))==types.GeneratorType</div><div class="line"><span class="keyword">True</span></div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>isinstance</p>
-</blockquote>
-<p>如果是继承类型，传入父类参数也返回<code>True</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>a = Animal()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>d = Dog()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>h = Husky()</div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>isinstance(h, Husky)</div><div class="line"><span class="keyword">True</span></div></pre></td></tr></table></figure></p>
-<p>也可以判断基本类型<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>isinstance(<span class="string">'a'</span>, str)</div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>isinstance(<span class="number">123</span>, int)</div><div class="line"><span class="keyword">True</span></div></pre></td></tr></table></figure></p>
-<p>判断变量是否是某些类型中的一种<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>isinstance([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], (list, tuple))</div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>isinstance((<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>), (list, tuple))</div><div class="line"><span class="keyword">True</span></div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>dir()</p>
-</blockquote>
-<p>获取一个对象的所有属性和方法<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>dir(<span class="string">'ABC'</span>)</div><div class="line">[<span class="string">'__add__'</span>, ...]</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>hasattr()、getattr()、setattr()</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">MyObject</span><span class="params">()</span>:</span></div><div class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line"><span class="meta">... </span>        self.x = <span class="number">9</span></div><div class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">power</span><span class="params">(self)</span>:</span></div><div class="line"><span class="meta">... </span>        <span class="keyword">return</span> self.x * self.x</div><div class="line">...</div><div class="line">&gt;&gt;&gt;obj = MyObject()</div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>hasattr(obj, <span class="string">'x'</span>) <span class="comment"># 有属性'x'吗？</span></div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>obj.x</div><div class="line"><span class="number">9</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>hasattr(obj, <span class="string">'y'</span>) <span class="comment"># 有属性'y'吗？</span></div><div class="line"><span class="keyword">False</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>setattr(obj, <span class="string">'y'</span>, <span class="number">19</span>) <span class="comment"># 设置一个属性'y'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>hasattr(obj, <span class="string">'y'</span>) <span class="comment"># 有属性'y'吗？</span></div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>getattr(obj, <span class="string">'y'</span>) <span class="comment"># 获取属性'y'</span></div><div class="line"><span class="number">19</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>obj.y <span class="comment"># 获取属性'y'</span></div><div class="line"><span class="number">19</span></div></pre></td></tr></table></figure>
-<p>传入一个default参数，如果属性不存在，就返回默认值：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>getattr(obj, <span class="string">'z'</span>, <span class="number">404</span>) <span class="comment"># 获取属性'z'，如果不存在，返回默认值404</span></div><div class="line"><span class="number">404</span></div></pre></td></tr></table></figure></p>
-<p>也可以获得对象的方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>hasattr(obj, <span class="string">'power'</span>) <span class="comment"># 有属性'power'吗？</span></div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>getattr(obj, <span class="string">'power'</span>) <span class="comment"># 获取属性'power'</span></div><div class="line">&lt;bound method MyObject.power of &lt;__main__.MyObject object at <span class="number">0x10077a6a0</span>&gt;&gt;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>fn = getattr(obj, <span class="string">'power'</span>) <span class="comment"># 获取属性'power'并赋值到变量fn</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>fn <span class="comment"># fn指向obj.power</span></div><div class="line">&lt;bound method MyObject.power of &lt;__main__.MyObject object at <span class="number">0x10077a6a0</span>&gt;&gt;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>fn() <span class="comment"># 调用fn()与调用obj.power()是一样的</span></div><div class="line"><span class="number">81</span></div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;python 函数&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="python" scheme="https://nancelglap.github.io/categories/python/"/>
-    
-    
-      <category term="python" scheme="https://nancelglap.github.io/tags/python/"/>
-    
-      <category term="function" scheme="https://nancelglap.github.io/tags/function/"/>
     
   </entry>
   
