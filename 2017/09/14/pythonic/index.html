@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2017/09/14/pythonic/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="如何写出 pythonic 代码">
-<meta property="og:updated_time" content="2017-09-19T11:49:12.000Z">
+<meta property="og:updated_time" content="2017-10-11T06:59:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pythonic">
 <meta name="twitter:description" content="如何写出 pythonic 代码">
@@ -390,6 +390,21 @@
 <p>2、python实现switch语法</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">func1</span><span class="params">()</span>:</span></div><div class="line">    ...</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">func2</span><span class="params">()</span>:</span></div><div class="line">    ...</div><div class="line"></div><div class="line">dicts = &#123;</div><div class="line">    <span class="string">'A'</span>: func1,</div><div class="line">    <span class="string">'B'</span>: func2,</div><div class="line">    ...</div><div class="line">&#125;;</div><div class="line">func = dicts[value]</div><div class="line">func();</div></pre></td></tr></table></figure>
+<blockquote>
+<p>3、enumerate</p>
+</blockquote>
+<ul>
+<li>用于取列表索引还有内容</li>
+<li>第二个参数表示索引的开始数字</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">L = [i * i <span class="keyword">for</span> i range(<span class="number">5</span>)]</div><div class="line"><span class="keyword">for</span> index, data <span class="keyword">in</span> enumberate(L, <span class="number">1</span>):    </div><div class="line">    print(index, data)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>4、文件的x模式</p>
+</blockquote>
+<ul>
+<li>如果要写的目标文件已经存在就不写，不存在则写入内容</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">'somefile'</span>, <span class="string">'xt'</span>) <span class="keyword">as</span> f:</div><div class="line">    f.write(<span class="string">'Hello\n'</span>)</div></pre></td></tr></table></figure>
 
       
     </div>

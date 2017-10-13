@@ -97,7 +97,7 @@
   <entry>
     <title><![CDATA[pythonic]]></title>
     <url>%2F2017%2F09%2F14%2Fpythonic%2F</url>
-    <content type="text"><![CDATA[如何写出 pythonic 代码 1、传参 12345int('123', base = 2)# 等于以下kw = &#123;'base': 2&#125;int('123', **kw) 2、python实现switch语法 123456789101112def func1(): ...def func2(): ...dicts = &#123; 'A': func1, 'B': func2, ...&#125;;func = dicts[value]func();]]></content>
+    <content type="text"><![CDATA[如何写出 pythonic 代码 1、传参 12345int('123', base = 2)# 等于以下kw = &#123;'base': 2&#125;int('123', **kw) 2、python实现switch语法 123456789101112def func1(): ...def func2(): ...dicts = &#123; 'A': func1, 'B': func2, ...&#125;;func = dicts[value]func(); 3、enumerate 用于取列表索引还有内容 第二个参数表示索引的开始数字 123L = [i * i for i range(5)]for index, data in enumberate(L, 1): print(index, data) 4、文件的x模式 如果要写的目标文件已经存在就不写，不存在则写入内容 12with open('somefile', 'xt') as f: f.write('Hello\n')]]></content>
       <categories>
         <category>python</category>
       </categories>
@@ -206,7 +206,7 @@
   <entry>
     <title><![CDATA[laravel-admin]]></title>
     <url>%2F2017%2F07%2F17%2Flaravel-admin%2F</url>
-    <content type="text"><![CDATA[laravel-admin 脚手架相关 添加路由 命令会创建路由器文件app/Admin/Controllers/UserController.php1php artisan admin:make UserController --model=App\\User 添加路由配置 在laravel-admin的路由配置文件app/Admin/routes.php里添加一行1$router-&gt;resource('users', UserController::class); 添加菜单链接 打开http://localhost:8000/admin/auth/menu,添加对应的menu 控制展示图片大小 1$grid-&gt;picture()-&gt;image('http://localhost:8000/upload', 100, 100); 展示关联模型 http://z-song.github.io/laravel-admin/#/zh/model-grid?id=%e5%85%b3%e8%81%94%e6%a8%a1%e5%9e%8b form建立一对多 http://z-song.github.io/laravel-admin/#/zh/model-form-fields?id=%e4%b8%80%e5%af%b9%e5%a4%9a 上传图片 1注意创建文件夹 1、创建存储配置，config/filesystems.php 添加一项 disk，设置上传的路径为public/upload：1234567'admin' =&gt; [ 'driver' =&gt; 'local', 'root' =&gt; public_path('upload'), 'visibility' =&gt; 'public', ],``` 2、选择上传的`disk`，修改`config/admin.php` ‘upload’ =&gt; [ &apos;disk&apos; =&gt; &apos;admin&apos;, &apos;directory&apos; =&gt; [ &apos;image&apos; =&gt; &apos;image&apos;, &apos;file&apos; =&gt; &apos;file&apos;, ], &apos;host&apos; =&gt; &apos;http://localhost:8000/upload/&apos;, ],```]]></content>
+    <content type="text"><![CDATA[laravel-admin 脚手架相关 添加路由 命令会创建路由器文件app/Admin/Controllers/UserController.php1php artisan admin:make UserController --model=App\\User 添加路由配置 在laravel-admin的路由配置文件app/Admin/routes.php里添加一行1$router-&gt;resource('users', UserController::class); 添加菜单链接 打开http://localhost:8000/admin/auth/menu,添加对应的menu 控制展示图片大小 1$grid-&gt;picture()-&gt;image('http://www.ustopmoving.xin/upload/image/', 100, 100); 展示关联模型 http://z-song.github.io/laravel-admin/#/zh/model-grid?id=%e5%85%b3%e8%81%94%e6%a8%a1%e5%9e%8b form建立一对多 http://z-song.github.io/laravel-admin/#/zh/model-form-fields?id=%e4%b8%80%e5%af%b9%e5%a4%9a 上传图片 1注意创建文件夹 1、创建存储配置，config/filesystems.php 添加一项 disk，设置上传的路径为public/upload：1234567'admin' =&gt; [ 'driver' =&gt; 'local', 'root' =&gt; public_path('upload'), 'visibility' =&gt; 'public', ],``` 2、选择上传的`disk`，修改`config/admin.php` ‘upload’ =&gt; [ &apos;disk&apos; =&gt; &apos;admin&apos;, &apos;directory&apos; =&gt; [ &apos;image&apos; =&gt; &apos;image&apos;, &apos;file&apos; =&gt; &apos;file&apos;, ], &apos;host&apos; =&gt; &apos;http://localhost:8000/upload/&apos;, ],```]]></content>
       <categories>
         <category>admin</category>
       </categories>
