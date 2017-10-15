@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2017/06/12/Laravel-项目实战相关/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="与 Laravel 实际项目相关内容">
-<meta property="og:updated_time" content="2017-08-15T02:41:54.000Z">
+<meta property="og:updated_time" content="2017-10-15T08:37:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Laravel 项目实战相关">
 <meta name="twitter:description" content="与 Laravel 实际项目相关内容">
@@ -453,6 +453,9 @@
 <p>在 <code>config\app.php</code> 中的 <code>aliases</code> 数组中加入<br><figure class="highlight moonscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">'Image'</span> =&gt; Intervention\Image\Facades\Image::<span class="class"><span class="keyword">class</span></span></div></pre></td></tr></table></figure></p>
 <p>3、生成配置<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> php artisan vendor:publish --provider=<span class="string">"Intervention\Image\ImageServiceProviderLaravel5"</span></span></div></pre></td></tr></table></figure></p>
 <p>4、使用<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* 此操作会将指定的图片 resize 后覆盖原图</div><div class="line">*/</div><div class="line">$img = Image::make(<span class="string">'./upload/images/name.jpg'</span>)-&gt;resize(<span class="number">200</span>, <span class="number">300</span>)-&gt;save(<span class="string">'./upload/images/name.jpg'</span>);</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>DB:update当有字段为空时无法使用</p>
+</blockquote>
 
       
     </div>
