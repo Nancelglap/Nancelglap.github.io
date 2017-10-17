@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[mysql数据备份和还原]]></title>
     <url>%2F2017%2F10%2F11%2Fmysql%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD%E5%92%8C%E8%BF%98%E5%8E%9F%2F</url>
-    <content type="text"><![CDATA[数据备份 1$ mysqldump -u root database table1 table2 ... &gt; ~/Documents/admin_menu.sql 数据还原 1$ mysql -u root -p &lt; ~/Documents/quanzi.sql]]></content>
+    <content type="text"><![CDATA[数据备份 1$ mysqldump -u root -p database table1 table2 ... &gt; ~/Documents/admin_menu.sql 数据还原 1$ mysql -u root -p database &lt; ~/Documents/quanzi.sql]]></content>
       <categories>
         <category>mysql</category>
       </categories>

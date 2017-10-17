@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="数据备份  1$ mysqldump -u root database table1 table2 ... &amp;gt; ~/Documents/admin_menu.sql  数据还原  1$ mysql -u root -p &amp;lt; ~/Documents/quanzi.sql">
+<meta name="description" content="数据备份  1$ mysqldump -u root -p database table1 table2 ... &amp;gt; ~/Documents/admin_menu.sql  数据还原  1$ mysql -u root -p database &amp;lt; ~/Documents/quanzi.sql">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql数据备份和还原">
 <meta property="og:url" content="https://nancelglap.github.io/2017/10/11/mysql数据备份和还原/index.html">
 <meta property="og:site_name" content="Nancelglap">
-<meta property="og:description" content="数据备份  1$ mysqldump -u root database table1 table2 ... &amp;gt; ~/Documents/admin_menu.sql  数据还原  1$ mysql -u root -p &amp;lt; ~/Documents/quanzi.sql">
-<meta property="og:updated_time" content="2017-10-11T05:22:19.000Z">
+<meta property="og:description" content="数据备份  1$ mysqldump -u root -p database table1 table2 ... &amp;gt; ~/Documents/admin_menu.sql  数据还原  1$ mysql -u root -p database &amp;lt; ~/Documents/quanzi.sql">
+<meta property="og:updated_time" content="2017-10-17T00:49:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql数据备份和还原">
-<meta name="twitter:description" content="数据备份  1$ mysqldump -u root database table1 table2 ... &amp;gt; ~/Documents/admin_menu.sql  数据还原  1$ mysql -u root -p &amp;lt; ~/Documents/quanzi.sql">
+<meta name="twitter:description" content="数据备份  1$ mysqldump -u root -p database table1 table2 ... &amp;gt; ~/Documents/admin_menu.sql  数据还原  1$ mysql -u root -p database &amp;lt; ~/Documents/quanzi.sql">
 
 
 
@@ -381,11 +381,11 @@
         <blockquote>
 <p>数据备份</p>
 </blockquote>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>mysqldump -u root database table1 table2 ... &gt; ~<span class="regexp">/Documents/admin</span>_menu.sql</div></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>mysqldump -u root -p database table1 table2 ... &gt; ~<span class="regexp">/Documents/admin</span>_menu.sql</div></pre></td></tr></table></figure>
 <blockquote>
 <p>数据还原</p>
 </blockquote>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>mysql -u root -p &lt; ~<span class="regexp">/Documents/quanzi</span>.sql</div></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>mysql -u root -p database &lt; ~<span class="regexp">/Documents/quanzi</span>.sql</div></pre></td></tr></table></figure>
 
       
     </div>
