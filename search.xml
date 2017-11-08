@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[mysql 命令相关]]></title>
+    <url>%2F2017%2F11%2F08%2Fmysql-%E5%91%BD%E4%BB%A4%E7%9B%B8%E5%85%B3%2F</url>
+    <content type="text"><![CDATA[mysql命令相关 设为默认1alter table tableName alter column col set default value; 设为可空1alter table tableName modify col varchar(100) null; 插入数据1insert into tableName (col1, col2..) values (&apos;value1&apos;, &apos;value2&apos;...), [(&apos;value1&apos;, &apos;value2&apos;...)]; 更新数据1update tableName set col = &apos;value&apos; where col = &apos;value&apos;; 删除数据1delete from tableName where col = &apos;value&apos;; 清空表(id从1开始)1tuncate table tableName; 创建表123456create table tableName( col1 INT NOT NULL AUTO_INCREMENT, col2 VARCHAR(100) NOT NULL, col3 VARCHAR(40) NOT NULL, PRIMARY KEY ( col1 ));]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[mysql数据备份和还原]]></title>
     <url>%2F2017%2F10%2F11%2Fmysql%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD%E5%92%8C%E8%BF%98%E5%8E%9F%2F</url>
     <content type="text"><![CDATA[数据备份 1$ mysqldump -u root -p database table1 table2 ... &gt; ~/Documents/admin_menu.sql 数据还原 1$ mysql -u root -p database &lt; ~/Documents/quanzi.sql]]></content>
@@ -336,8 +347,8 @@
       <tags>
         <tag>laravel</tag>
         <tag>database</tag>
-        <tag>table</tag>
         <tag>mysql</tag>
+        <tag>table</tag>
       </tags>
   </entry>
   <entry>
@@ -452,8 +463,8 @@
         <category>Wechat</category>
       </categories>
       <tags>
-        <tag>Mini Programes</tag>
         <tag>Wechat</tag>
+        <tag>Mini Programes</tag>
       </tags>
   </entry>
   <entry>

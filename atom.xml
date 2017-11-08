@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2017-10-17T00:49:45.000Z</updated>
+  <updated>2017-11-08T14:01:34.000Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql 命令相关</title>
+    <link href="https://nancelglap.github.io/2017/11/08/mysql-%E5%91%BD%E4%BB%A4%E7%9B%B8%E5%85%B3/"/>
+    <id>https://nancelglap.github.io/2017/11/08/mysql-命令相关/</id>
+    <published>2017-11-08T13:15:37.000Z</published>
+    <updated>2017-11-08T14:01:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>mysql命令相关</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="设为默认"><a href="#设为默认" class="headerlink" title="设为默认"></a>设为默认</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alter table tableName alter column col set default value;</div></pre></td></tr></table></figure>
+<h3 id="设为可空"><a href="#设为可空" class="headerlink" title="设为可空"></a>设为可空</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alter table tableName modify col varchar(100) null;</div></pre></td></tr></table></figure>
+<h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">insert into tableName (col1, col2..) values (&apos;value1&apos;, &apos;value2&apos;...), [(&apos;value1&apos;, &apos;value2&apos;...)];</div></pre></td></tr></table></figure>
+<h3 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">update tableName set col = &apos;value&apos; where col = &apos;value&apos;;</div></pre></td></tr></table></figure>
+<h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">delete from tableName where col = &apos;value&apos;;</div></pre></td></tr></table></figure>
+<h3 id="清空表-id从1开始"><a href="#清空表-id从1开始" class="headerlink" title="清空表(id从1开始)"></a>清空表(id从1开始)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tuncate table tableName;</div></pre></td></tr></table></figure>
+<h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">create table tableName(</div><div class="line">   col1 INT NOT NULL AUTO_INCREMENT,</div><div class="line">   col2 VARCHAR(100) NOT NULL,</div><div class="line">   col3 VARCHAR(40) NOT NULL,</div><div class="line">   PRIMARY KEY ( col1 )</div><div class="line">);</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;mysql命令相关&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="mysql" scheme="https://nancelglap.github.io/categories/mysql/"/>
+    
+    
+      <category term="mysql" scheme="https://nancelglap.github.io/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>mysql数据备份和还原</title>
@@ -1259,149 +1293,6 @@
     
       &lt;blockquote&gt;
 &lt;p&gt;python 语法相关&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="python" scheme="https://nancelglap.github.io/categories/python/"/>
-    
-    
-      <category term="python" scheme="https://nancelglap.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python 相关</title>
-    <link href="https://nancelglap.github.io/2017/07/06/Python-%E7%9B%B8%E5%85%B3/"/>
-    <id>https://nancelglap.github.io/2017/07/06/Python-相关/</id>
-    <published>2017-07-06T03:13:49.000Z</published>
-    <updated>2017-09-22T13:36:34.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>与 python 相关知识</p>
-</blockquote>
-<a id="more"></a>
-<blockquote>
-<p>保存文件</p>
-</blockquote>
-<p>当 <code>.py</code> 文件中包含中文，在文件开头加上两行<br>1、第一行注释是为了告诉Linux/OS X系统，这是一个Python可执行程序<br>2、第二行注释是为了告诉Python解释器，按照UTF-8编码读取源代码，否则，你在源代码中写的中文输出可能会有乱码。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python3</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>序列</p>
-</blockquote>
-<ul>
-<li>python包含 6 种内建的序列，包括列表、元组、字符串、Unicode字符串、buffer对象和xrange对象。</li>
-</ul>
-<blockquote>
-<p>不变对象</p>
-</blockquote>
-<ul>
-<li>不变对象一旦创建，对象内部的数据就不能修改，这样就减少了由于修改数据导致的错误。此外，由于对象不变，多任务环境下同时读取对象不需要加锁，同时读一点问题都没有。</li>
-</ul>
-<blockquote>
-<p>计算机（Computer）和计算（Compute）</p>
-</blockquote>
-<p>1、在<code>计算机</code>的层次上，CPU执行的是<code>加减乘除</code>的指令代码，以及<code>各种条件判断和跳转指令</code>，所以，汇编语言是最贴近计算机的语言。<br>2、而<code>计算</code>则指数学意义上的计算，越是抽象的计算，离计算机硬件越远。<br>3、对应到编程语言，就是越<code>低级</code>的语言，越贴近<code>计算机</code>，<code>抽象程度低</code>，<code>执行效率高</code>，比如C语言；越<code>高级</code>的语言，越贴近<code>计算</code>，<code>抽象程度高</code>，<code>执行效率低</code>，比如Lisp语言。</p>
-<blockquote>
-<p>函数式编程</p>
-</blockquote>
-<p>1、函数式编程就是一种抽象程度很高的编程范式，纯粹的函数式编程语言编写的函数没有变量。<br>2、任意一个函数，只要<code>输入</code>是<code>确定</code>的，<code>输出</code>就是<code>确定</code>的，这种纯函数我们称之为<code>没有副作用</code>。<br>3、允许使用变量的程序设计语言，由于函数内部的<code>变量状态不确定</code>，<code>同样的输入</code>，可能得到<code>不同的输出</code>，因此，这种函数是<code>有副作用</code>的。<br>4、函数式编程的一个特点就是，允许把函数本身作为参数传入另一个函数，还允许返回一个函数</p>
-<blockquote>
-<p>模块和包</p>
-</blockquote>
-<p>1、一个.py文件就称之为一个模块（Module）<br>2、包目录必须包含一个 <code>__init__.py</code> 文件，否则会被视为普通目录<br>3、不同包中可以有相同的模块名，此时模块名为 <code>packageName.moduleName</code><br>4、任何模块代码的第一个字符串都被视为模块的文档注释</p>
-<blockquote>
-<p><strong>name</strong></p>
-</blockquote>
-<ul>
-<li>如果 import 一个模块，那么模块<code>__name__</code>的值通常为模块文件名，不带路径或者文件扩展名</li>
-<li>在命令行中直接运行.py文件,则<code>__name__</code>的值是<code>__main__</code>;</li>
-<li>而在import 一个.py文件后,<code>__name__</code>的值就不是<code>__main__</code>了;</li>
-<li>从而用<code>if __name__ == &#39;__main__&#39;</code>来判断是否是在直接运行该.py文件</li>
-</ul>
-<blockquote>
-<p>I/O</p>
-</blockquote>
-<ul>
-<li><code>Input Stream</code>就是数据从外面（磁盘、网络）流进内存，<code>Output Stream</code>就是数据从内存流到外面去</li>
-<li>在<code>I/O</code>编程中，因为CPU和内存速度远高于外设速度，所有有了<code>同步</code>和<code>异步</code></li>
-<li><p>操作IO的能力都是由<strong>操作系统</strong>提供的，每一种编程语言都会把操作系统提供的低级C接口封装起来方便使用</p>
-</li>
-<li><p>调用<code>open()</code>，<code>read()</code>等完成文件操作时要调用<code>close()</code><strong>关闭文件，因为文件对象会占用操作系统的资源，并且操作系统同一时间能打开的文件数量也是有限的</strong></p>
-</li>
-<li>由于文件读写时都有可能产生<code>IOError</code>，一旦出错，后面的<code>f.close()</code>就不会调用,引入了<code>with语句</code>来自动帮我们调用<code>close()</code>方法</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">'/path/to/file'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</div><div class="line">    print(f.read())</div></pre></td></tr></table></figure>
-<ul>
-<li>调用<code>read()</code>会一次性读取文件的全部内容，如果文件有10G，内存就爆了，保险起见，可以反复调用<code>read(size)</code>方法，每次最多读取size个字节的内容</li>
-<li>调用<code>readline()</code>可以每次读取一行内容，调用<code>readlines()</code>一次读取所有内容并按行返回list</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 读取配置文件</span></div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</div><div class="line">    print(line.strip()) <span class="comment"># 把末尾的'\n'删掉</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>file-like Object</p>
-</blockquote>
-<ul>
-<li>像<code>open()</code>函数返回的这种有个<code>read()</code>方法的对象，在Python中统称为<code>file-like Object</code>,除了file外，还可以是内存的字节流，网络流，自定义流等等</li>
-<li><code>file-like Object</code>不要求从特定类继承，只要写个<code>read()</code>方法就行</li>
-<li><code>StringIO</code>就是在内存中创建的<code>file-like Object</code>，常用作临时缓冲</li>
-</ul>
-<blockquote>
-<p>写文件</p>
-</blockquote>
-<ul>
-<li>当我们写文件时，操作系统往往不会立刻把数据写入磁盘，而是<code>放到内存缓存起来</code>，<code>空闲的时候</code>再慢慢写入</li>
-<li>只有调用<code>close()</code>方法时，操作系统才保证把没有写入的数据全部写入磁盘</li>
-<li>忘记调用<code>close()</code>的后果是数据可能只写了一部分到磁盘，剩下的丢失了。所以，还是用<code>with语句</code>来得保险（出错时自动调用<code>close()</code>）</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">'/Users/michael/test.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> f:</div><div class="line">    f.write(<span class="string">'Hello, world!'</span>)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>操作文件和目录</p>
-</blockquote>
-<ul>
-<li>两个路径合成一个时，不要直接拼字符串，而要通过<code>os.path.join()</code>函数，这样可以正确处理不同操作系统的路径分隔符</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看当前目录的绝对路径:</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.abspath(<span class="string">'.'</span>)</div><div class="line"><span class="string">'/Users/michael'</span></div><div class="line"><span class="comment"># 在某个目录下创建一个新目录，首先把新目录的完整路径表示出来:</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.join(<span class="string">'/Users/michael'</span>, <span class="string">'testdir'</span>)</div><div class="line"><span class="string">'/Users/michael/testdir'</span></div><div class="line"><span class="comment"># 然后创建一个目录:</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>os.mkdir(<span class="string">'/Users/michael/testdir'</span>)</div><div class="line"><span class="comment"># 删掉一个目录:</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>os.rmdir(<span class="string">'/Users/michael/testdir'</span>)</div></pre></td></tr></table></figure>
-<ul>
-<li>要拆分路径时，要通过<code>os.path.split()</code>函数，这样可以把一个路径拆分为两部分，后一部分总是最后级别的目录或文件名</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.split(<span class="string">'/Users/michael/testdir/file.txt'</span>)</div><div class="line">(<span class="string">'/Users/michael/testdir'</span>, <span class="string">'file.txt'</span>)</div></pre></td></tr></table></figure>
-<ul>
-<li><code>os.path.splitext()</code> 得到文件扩展名</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 对文件重命名:</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>os.rename(<span class="string">'test.txt'</span>, <span class="string">'test.py'</span>)</div><div class="line"><span class="comment"># 删掉文件:</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>os.remove(<span class="string">'test.py'</span>)</div></pre></td></tr></table></figure>
-<ul>
-<li>列出当前目录下的所有目录</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>[x <span class="keyword">for</span> x <span class="keyword">in</span> os.listdir(<span class="string">'.'</span>) <span class="keyword">if</span> os.path.isdir(x)]</div></pre></td></tr></table></figure>
-<ul>
-<li>列出当前目录所有<code>.php</code>文件</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>[x <span class="keyword">for</span> x <span class="keyword">in</span> os.listdir(<span class="string">'.'</span>) <span class="keyword">if</span> os.isfile(x) <span class="keyword">and</span> os.path.splitext(x)[<span class="number">1</span>]==<span class="string">'.php'</span>]</div></pre></td></tr></table></figure>
-<blockquote>
-<p>序列化</p>
-</blockquote>
-<ul>
-<li>把变量从内存中变成可存储或传输的过程称之为序列化</li>
-</ul>
-<blockquote>
-<p>多线程和多进程</p>
-</blockquote>
-<ul>
-<li>多进程同一个变量各自拷贝一份存在于每个进程，互不影响</li>
-<li>多线程所有变量由所有线程共享，任何一个变量都可以被任何一个线程修改</li>
-<li>高级语言的一条语句在CPU执行时是若干条语句，当两个线程同时运行进行数据交互时，不会按顺序执行，会造成结果错误</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 计算 balance = balance + n 分两步</span></div><div class="line"><span class="comment"># 先计算 balance + n，存入临时变量中</span></div><div class="line"><span class="comment"># 再将临时变量赋值给 balance</span></div><div class="line">x = balance + n</div><div class="line">balance = x</div></pre></td></tr></table></figure>
-<ul>
-<li>线程锁阻止多线程并发执行，效率降低</li>
-<li><code>死锁</code>：多线程不同线程的锁<em>视图获取对方持有的锁</em>时可能会造成死锁，导致多个线程全部挂起，既<strong>不能执行也无法结束</strong></li>
-<li>如果有几千个任务同时进行，操作系统可能就主要<code>忙着切换任务</code>，根本没有多少时间去执行任务了，这种情况最常见的就是硬盘狂响，点窗口无反应，系统处于假死状态</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;与 python 相关知识&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
