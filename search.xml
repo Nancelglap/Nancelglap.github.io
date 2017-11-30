@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[mysql 命令相关]]></title>
     <url>%2F2017%2F11%2F08%2Fmysql-%E5%91%BD%E4%BB%A4%E7%9B%B8%E5%85%B3%2F</url>
-    <content type="text"><![CDATA[mysql命令相关 设为默认1alter table tableName alter column col set default value; 设为可空1alter table tableName modify col varchar(100) null; 插入数据1insert into tableName (col1, col2..) values (&apos;value1&apos;, &apos;value2&apos;...), [(&apos;value1&apos;, &apos;value2&apos;...)]; 更新数据1update tableName set col = &apos;value&apos; where col = &apos;value&apos;; 删除数据1delete from tableName where col = &apos;value&apos;; 清空表(id从1开始)1tuncate table tableName; 创建表123456create table tableName( col1 INT NOT NULL AUTO_INCREMENT, col2 VARCHAR(100) NOT NULL, col3 VARCHAR(40) NOT NULL, PRIMARY KEY ( col1 ));]]></content>
+    <content type="text"><![CDATA[mysql命令相关 设为默认1alter table tableName alter column col set default value; 设为可空1alter table tableName modify col varchar(100) null; 插入数据1insert into tableName (col1, col2..) values (&apos;value1&apos;, &apos;value2&apos;...), [(&apos;value1&apos;, &apos;value2&apos;...)]; 更新数据1update tableName set col = &apos;value&apos; where col = &apos;value&apos;; 删除数据1delete from tableName where col = &apos;value&apos;; 清空表(id从1开始)1truncate table tableName; 创建表12345678CREATE TABLE info( id INT UNSIGNED AUTO_INCREMENT, phone VARCHAR(20) NOT NULL, name VARCHAR(20) NOT NULL, sex VARCHAR(10) NOT NULL, department VARCHAR(10) NOT NULL, PRIMARY KEY (id))ENGINE=InnoDB DEFAULT CHARSET=utf8;]]></content>
       <categories>
         <category>mysql</category>
       </categories>
