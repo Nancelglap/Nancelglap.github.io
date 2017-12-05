@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2017/07/06/Python-语法/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="python 语法相关">
-<meta property="og:updated_time" content="2017-09-24T13:42:33.000Z">
+<meta property="og:updated_time" content="2017-12-05T13:56:11.069Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 语法">
 <meta name="twitter:description" content="python 语法相关">
@@ -383,6 +383,17 @@
 </blockquote>
 <a id="more"></a>
 <blockquote>
+<p>逻辑运算符</p>
+</blockquote>
+<p><code>x and y</code></p>
+<ul>
+<li>如果x为False，x和y就返回False；否则返回y的计算值</li>
+</ul>
+<p><code>x or y</code></p>
+<ul>
+<li>如果x非0，返回x的值；否则返回y的计算值</li>
+</ul>
+<blockquote>
 <p>格式化输出</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Hello, %s'</span> % <span class="string">'world'</span></div><div class="line"><span class="string">'Hello, world'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Hi, %s, you have $%d.'</span> % (<span class="string">'Michael'</span>, <span class="number">1000000</span>)</div><div class="line"><span class="string">'Hi, Michael, you have $1000000.'</span></div></pre></td></tr></table></figure>
@@ -391,12 +402,14 @@
 <p>lists(列表)</p>
 </blockquote>
 <p>1、lists中有lists可以看为<code>二维数组</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>p = [<span class="string">'asp'</span>, <span class="string">'php'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s = [<span class="string">'python'</span>, <span class="string">'java'</span>, p, <span class="string">'scheme'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s[<span class="number">2</span>][<span class="number">0</span>]</div><div class="line"><span class="string">'asp'</span></div></pre></td></tr></table></figure></p>
+<p>2、删除列表中的元素<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 从列表中删除名为listName的列表下标为index的元素</span></div><div class="line"><span class="keyword">del</span> listName[index]</div></pre></td></tr></table></figure></p>
 <hr>
 <blockquote>
 <p>tuple(元组)</p>
 </blockquote>
 <p><strong>一旦初始化不能修改(tuple的每个元素指向不变)</strong><br>1、如果要定义一个元素的 <em><code>tuple</code></em>，要用<code>,</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>t = (<span class="number">1</span>,)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t</div><div class="line">(<span class="number">1</span>,)</div></pre></td></tr></table></figure></p>
-<p>2、<em><code>tuple</code></em> 中的 <em><code>lists</code></em> 可变<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>t = (<span class="string">'a'</span>, <span class="string">'b'</span>, [<span class="string">'A'</span>, <span class="string">'B'</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t[<span class="number">2</span>][<span class="number">0</span>] = <span class="string">'X'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t[<span class="number">2</span>][<span class="number">1</span>] = <span class="string">'Y'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t</div><div class="line">(<span class="string">'a'</span>, <span class="string">'b'</span>, [<span class="string">'X'</span>, <span class="string">'Y'</span>])</div></pre></td></tr></table></figure></p>
+<p>2、<em><code>tuple</code></em> 中的 <em><code>lists</code></em> 可变<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tuple的<span class="string">"不变"</span>指的是每个元素的指向永远不变，但是其指向的<span class="built_in">list</span>本身是可变的</div></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>t = (<span class="string">'a'</span>, <span class="string">'b'</span>, [<span class="string">'A'</span>, <span class="string">'B'</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t[<span class="number">2</span>][<span class="number">0</span>] = <span class="string">'X'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t[<span class="number">2</span>][<span class="number">1</span>] = <span class="string">'Y'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t</div><div class="line">(<span class="string">'a'</span>, <span class="string">'b'</span>, [<span class="string">'X'</span>, <span class="string">'Y'</span>])</div></pre></td></tr></table></figure>
 <hr>
 <blockquote>
 <p>dict（字典）</p>
@@ -490,6 +503,7 @@
 <p>2、基本切片<br>（1）<em><code>[n ,m]</code></em>：从索引 <code>n</code> 开始，知道索引 <code>m</code> ，但不包括索引 <code>m</code><br>（2）如果第一个索引是 <code>0</code>，可以省略：<code>[:3]</code></p>
 <p>3、倒数切片<br>（1）<code>L[-2:-1]</code>取倒数第二个元素<br>（2）<code>L[-2:]</code>取倒数两个元素</p>
 <p>4、间隔切片<br>（1）<code>L[::5]</code>：所有数每5个取一个<br>（2）<code>L[:10:2]</code>：前10个数每两个取一个</p>
+<p><code>步数为负的时候，第二个参数必须为空才能取到第一个元素</code></p>
 <hr>
 <blockquote>
 <p>迭代</p>
