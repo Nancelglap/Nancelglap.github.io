@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2017/07/06/Python-函数/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="python 函数">
-<meta property="og:updated_time" content="2017-12-05T15:02:33.041Z">
+<meta property="og:updated_time" content="2017-12-08T13:31:57.398Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 函数">
 <meta name="twitter:description" content="python 函数">
@@ -397,7 +397,7 @@
 </blockquote>
 <p>1、将序列转换成 <em><code>list</code></em><br>2、将 <code>Iterator</code> 计算出整个序列并返回一个 <code>list</code><br>3、将字符串变为一个<code>list</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">name = list(<span class="string">"李卓奕"</span>)</div><div class="line">print(name)</div><div class="line"><span class="comment"># ["李", "卓", "奕"]</span></div></pre></td></tr></table></figure></p>
 <blockquote>
-<p>name.index()</p>
+<p>name.index(str)</p>
 </blockquote>
 <p>从列表中找出某个值第一个匹配项的索引位置</p>
 <blockquote>
@@ -471,6 +471,21 @@
 </blockquote>
 <p>计算列表元素个数</p>
 <h3 id="dict函数"><a href="#dict函数" class="headerlink" title="dict函数"></a>dict函数</h3><blockquote>
+<p>dict2.keys()</p>
+</blockquote>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">获取名为 dict2 字典的所有<span class="built_in">key</span></div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>dict2.values()</p>
+</blockquote>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">获取名为 dict<span class="number">2</span> 字典的所有<span class="keyword">value</span></div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>list(dict2)[list(dict2.values()).index(value)]</p>
+</blockquote>
+<p>获取名为 dict2 字典的值为 value 的 key 值</p>
+<hr>
+<blockquote>
 <p>get()</p>
 </blockquote>
 <p>如果 <em><code>key</code></em> 不存在，可以返回自定义的内容<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>d.get(<span class="string">'Thomas'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>d.get(<span class="string">'Thomas'</span>, <span class="string">'not found'</span>)</div><div class="line"><span class="string">'not found'</span></div></pre></td></tr></table></figure></p>
