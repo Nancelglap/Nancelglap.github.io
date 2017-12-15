@@ -1131,7 +1131,7 @@
     <link href="https://nancelglap.github.io/2017/07/06/Python-%E8%AF%AD%E6%B3%95/"/>
     <id>https://nancelglap.github.io/2017/07/06/Python-语法/</id>
     <published>2017-07-06T03:27:41.000Z</published>
-    <updated>2017-12-05T13:56:11.069Z</updated>
+    <updated>2017-12-15T01:13:23.507Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>python 语法相关</p>
@@ -1309,6 +1309,11 @@
 <p>作用域</p>
 </blockquote>
 <p>1、<strong>外部不需要引用的函数全部定义成private，只有外部需要引用的函数才定义为public</strong><br>2、正常的函数和变量名是公开的（public），可以被直接引用，比如：abc，x123，PI等；<br>3、似_xxx和<strong>xxx这样的函数或变量就是非公开的（private），不应该被直接引用，比如_abc，</strong>abc等；<br>4、<code>private</code> 变量和函数的运用<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 模块公开greeting()函数，内部逻辑用private函数隐藏起来了</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">_private_1</span><span class="params">(name)</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="string">'Hello, %s'</span> % name</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">_private_2</span><span class="params">(name)</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="string">'Hi, %s'</span> % name</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">greeting</span><span class="params">(name)</span>:</span></div><div class="line">    <span class="keyword">if</span> len(name) &gt; <span class="number">3</span>:</div><div class="line">        <span class="keyword">return</span> _private_1(name)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">return</span> _private_2(name)</div></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
+<p>引入模块重命名</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> math <span class="keyword">as</span> m</div><div class="line"><span class="keyword">from</span> math <span class="keyword">import</span> pi <span class="keyword">as</span> a</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
