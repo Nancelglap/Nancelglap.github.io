@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2017/07/06/Python-语法/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="python 语法相关">
-<meta property="og:updated_time" content="2017-12-15T01:13:23.507Z">
+<meta property="og:updated_time" content="2017-12-22T02:34:45.063Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 语法">
 <meta name="twitter:description" content="python 语法相关">
@@ -518,6 +518,10 @@
 <blockquote>
 <p>列表生成式</p>
 </blockquote>
+<ul>
+<li>如果为赋值等操作，列表生成式返回全为None的list<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># print函数返回None</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>[print(<span class="string">"num"</span>,x) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">3</span>)]</div><div class="line">[<span class="keyword">None</span>, <span class="keyword">None</span>, <span class="keyword">None</span>]</div></pre></td></tr></table></figure>
+</li>
+</ul>
 <p>1、基本列表生成式<br><em><code>[操作式 for x in 可迭代对象]</code></em><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>[x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">11</span>)]</div><div class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">49</span>, <span class="number">64</span>, <span class="number">81</span>, <span class="number">100</span>]</div></pre></td></tr></table></figure></p>
 <p>2、加判断的列表生成式<br><em><code>[操作式 for x in 可迭代对象 if 判断条件]</code></em><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>[x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">11</span>) <span class="keyword">if</span> x % <span class="number">2</span> == <span class="number">0</span>]</div><div class="line">[<span class="number">4</span>, <span class="number">16</span>, <span class="number">36</span>, <span class="number">64</span>, <span class="number">100</span>]</div></pre></td></tr></table></figure></p>
 <p>3、两层循环，生成全排列<br><em><code>[操作式 for n in 可迭代对象1 for m in 可迭代对象2]</code></em><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>[n + m <span class="keyword">for</span> n <span class="keyword">in</span> <span class="string">'ABC'</span> <span class="keyword">for</span> m <span class="keyword">in</span> <span class="string">'XYZ'</span>]</div><div class="line">[<span class="string">'AX'</span>, <span class="string">'AY'</span>, <span class="string">'AZ'</span>, <span class="string">'BX'</span>, <span class="string">'BY'</span>, <span class="string">'BZ'</span>, <span class="string">'CX'</span>, <span class="string">'CY'</span>, <span class="string">'CZ'</span>]</div></pre></td></tr></table></figure></p>
