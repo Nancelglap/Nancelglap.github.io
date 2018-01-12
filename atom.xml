@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2018-01-12T03:48:34.678Z</updated>
+  <updated>2018-01-12T07:20:42.517Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -14,6 +14,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mac/linux 命令</title>
+    <link href="https://nancelglap.github.io/2018/01/12/mac-linux-%E5%91%BD%E4%BB%A4/"/>
+    <id>https://nancelglap.github.io/2018/01/12/mac-linux-命令/</id>
+    <published>2018-01-12T07:18:33.000Z</published>
+    <updated>2018-01-12T07:20:42.517Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>mac/linux 终端命令</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>mac查看端口占用</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lsof -<span class="selector-tag">i</span>:端口号</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;mac/linux 终端命令&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://nancelglap.github.io/tags/linux/"/>
+    
+      <category term="terminal" scheme="https://nancelglap.github.io/tags/terminal/"/>
+    
+  </entry>
   
   <entry>
     <title>mac nginx</title>
@@ -732,7 +764,7 @@
 <p>composer.json 或 composer require zgldh/qiniu-laravel-storage&gt; </p>
 </blockquote>
 <hr>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"zgldh/qiniu-laravel-storage"</span>: <span class="string">"^0.8.1"</span></div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"zgldh/qiniu-laravel-storage"</span>: <span class="string">"^0.8.1"</span></div></pre></td></tr></table></figure>
 <blockquote>
 <p>config/app.php</p>
 </blockquote>
@@ -742,7 +774,7 @@
 <p>config/filesystems.php</p>
 </blockquote>
 <hr>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="string">'qiniu'</span> =&gt; [</div><div class="line">            <span class="string">'driver'</span>  =&gt; <span class="string">'qiniu'</span>,</div><div class="line">            <span class="string">'domains'</span> =&gt; [</div><div class="line">                <span class="string">'default'</span>   =&gt; <span class="string">'ovmscef5i.bkt.clouddn.com'</span>, <span class="comment">//你的七牛域名</span></div><div class="line">                <span class="string">'https'</span>     =&gt; <span class="string">''</span>,         <span class="comment">//你的HTTPS域名</span></div><div class="line">                <span class="string">'custom'</span>    =&gt; <span class="string">''</span>,     <span class="comment">//你的自定义域名</span></div><div class="line">             ],</div><div class="line">            <span class="string">'access_key'</span>=&gt; <span class="string">'lqXMMY6JYjGEM-x0WgoJ84i35fc3BW2sMtOZXyzM'</span>,  <span class="comment">//AccessKey</span></div><div class="line">            <span class="string">'secret_key'</span>=&gt; <span class="string">'zRMFaIJ44i2KQZrN32GxWpO0_1ceU1heUsMSuLlH'</span>,  <span class="comment">//SecretKey</span></div><div class="line">            <span class="string">'bucket'</span>    =&gt; <span class="string">'quanzi'</span>,  <span class="comment">//Bucket名字</span></div><div class="line">            <span class="string">'notify_url'</span>=&gt; <span class="string">''</span>,  <span class="comment">//持久化处理回调地址</span></div><div class="line">        ],</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="string">'qiniu'</span> =&gt; [</div><div class="line">            <span class="string">'driver'</span>  =&gt; <span class="string">'qiniu'</span>,</div><div class="line">            <span class="string">'domains'</span> =&gt; [</div><div class="line">                <span class="string">'default'</span>   =&gt; <span class="string">'ovmscef5i.bkt.clouddn.com'</span>, <span class="comment">//你的七牛域名</span></div><div class="line">                <span class="string">'https'</span>     =&gt; <span class="string">''</span>,         <span class="comment">//你的HTTPS域名</span></div><div class="line">                <span class="string">'custom'</span>    =&gt; <span class="string">''</span>,     <span class="comment">//你的自定义域名</span></div><div class="line">             ],</div><div class="line">            <span class="string">'access_key'</span>=&gt; <span class="string">'lqXMMY6JYjGEM-x0WgoJ84i35fc3BW2sMtOZXyzM'</span>,  <span class="comment">//AccessKey</span></div><div class="line">            <span class="string">'secret_key'</span>=&gt; <span class="string">'zRMFaIJ44i2KQZrN32GxWpO0_1ceU1heUsMSuLlH'</span>,  <span class="comment">//SecretKey</span></div><div class="line">            <span class="string">'bucket'</span>    =&gt; <span class="string">'quanzi'</span>,  <span class="comment">//Bucket名字</span></div><div class="line">            <span class="string">'notify_url'</span>=&gt; <span class="string">''</span>,  <span class="comment">//持久化处理回调地址</span></div><div class="line">        ],</div></pre></td></tr></table></figure>
 <blockquote>
 <p>语法</p>
 </blockquote>
@@ -1091,75 +1123,6 @@
       <category term="Node.js" scheme="https://nancelglap.github.io/tags/Node-js/"/>
     
       <category term="Request" scheme="https://nancelglap.github.io/tags/Request/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>laravel-admin</title>
-    <link href="https://nancelglap.github.io/2017/07/17/laravel-admin/"/>
-    <id>https://nancelglap.github.io/2017/07/17/laravel-admin/</id>
-    <published>2017-07-17T02:27:29.000Z</published>
-    <updated>2017-10-13T03:11:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>laravel-admin 脚手架相关</p>
-</blockquote>
-<a id="more"></a>
-<blockquote>
-<p>添加路由</p>
-</blockquote>
-<p>命令会创建路由器文件app/Admin/Controllers/UserController.php<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php artisan admin:make UserController <span class="comment">--model=App\\User</span></div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>添加路由配置</p>
-</blockquote>
-<p>在laravel-admin的路由配置文件app/Admin/routes.php里添加一行<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$router-&gt;resource(<span class="string">'users'</span>, UserController::<span class="class"><span class="keyword">class</span>);</span></div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>添加菜单链接</p>
-</blockquote>
-<p>打开<a href="http://localhost:8000/admin/auth/menu,添加对应的menu" target="_blank" rel="external">http://localhost:8000/admin/auth/menu,添加对应的menu</a></p>
-<blockquote>
-<p>控制展示图片大小</p>
-</blockquote>
-<figure class="highlight xl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$<span class="function"><span class="title">grid</span>-&gt;</span><span class="function"><span class="title">picture</span>()-&gt;</span>image(<span class="string">'http://www.ustopmoving.xin/upload/image/'</span>, <span class="number">100</span>, <span class="number">100</span>);</div></pre></td></tr></table></figure>
-<blockquote>
-<p>展示关联模型</p>
-</blockquote>
-<p><code>http://z-song.github.io/laravel-admin/#/zh/model-grid?id=%e5%85%b3%e8%81%94%e6%a8%a1%e5%9e%8b</code></p>
-<blockquote>
-<p>form建立一对多</p>
-</blockquote>
-<p><code>http://z-song.github.io/laravel-admin/#/zh/model-form-fields?id=%e4%b8%80%e5%af%b9%e5%a4%9a</code></p>
-<blockquote>
-<p>上传图片</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">注意创建文件夹</div></pre></td></tr></table></figure>
-<p>1、创建存储配置，<code>config/filesystems.php</code> 添加一项 <code>disk</code>，设置上传的路径为<code>public/upload</code>：<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="string">'admin'</span> =&gt; [</div><div class="line">        <span class="string">'driver'</span> =&gt; <span class="string">'local'</span>,</div><div class="line">        <span class="string">'root'</span> =&gt; public_path(<span class="string">'upload'</span>),</div><div class="line">        <span class="string">'visibility'</span> =&gt; <span class="string">'public'</span>,</div><div class="line">    ],</div><div class="line">``` </div><div class="line"><span class="number">2</span>、选择上传的`disk`，修改`config/admin.php`</div></pre></td></tr></table></figure></p>
-<p>‘upload’  =&gt; [</p>
-<pre><code>&apos;disk&apos; =&gt; &apos;admin&apos;,
-
-&apos;directory&apos;  =&gt; [
-    &apos;image&apos;  =&gt; &apos;image&apos;,
-    &apos;file&apos;   =&gt; &apos;file&apos;,
-],
-
-&apos;host&apos; =&gt; &apos;http://localhost:8000/upload/&apos;,
-</code></pre><p>],<br>```</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;laravel-admin 脚手架相关&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="admin" scheme="https://nancelglap.github.io/categories/admin/"/>
-    
-    
-      <category term="laravel" scheme="https://nancelglap.github.io/tags/laravel/"/>
-    
-      <category term="admin" scheme="https://nancelglap.github.io/tags/admin/"/>
     
   </entry>
   
