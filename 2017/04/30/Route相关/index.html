@@ -385,7 +385,7 @@
 <h2 id="项目中一般不用Route-resource"><a href="#项目中一般不用Route-resource" class="headerlink" title="项目中一般不用Route::resource( )"></a><strong>项目中一般不用Route::resource( )</strong></h2><p>Http方法<code>patch</code>对应Controller的<code>update</code>函数<br>Http方法<code>delete</code>对应Controller的<code>destory</code>函数<br>Http方法<code>post</code>对应Controller的<code>store</code>函数<br>Http方法<code>get</code>且路径为<code>/path/create</code>对应Controller的<code>create</code>函数<br><em>特殊:get</em>路径为<code>/path/{参数}/edit</code>对应Controller的<code>edit</code>函数</p>
 <hr>
 <h2 id="部分资源路由（Resource）"><a href="#部分资源路由（Resource）" class="headerlink" title="部分资源路由（Resource）"></a><strong>部分资源路由（Resource）</strong></h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Route::resource(<span class="string">'new'</span>, <span class="string">'newController'</span>, [<span class="string">'only'</span>=&gt;[<span class="string">'index'</span>, <span class="string">'show'</span>]]);   <span class="comment">//只处理index和show方法</span></div><div class="line">Route::resource(<span class="string">'new'</span>, <span class="string">'newController'</span>, [<span class="string">'except'</span>=&gt;[<span class="string">'create'</span>, <span class="string">'store'</span>]]);   <span class="comment">//处理除了create和store的方法</span></div></pre></td></tr></table></figure>
-<h2 id="重定向到Controller-Action"><a href="#重定向到Controller-Action" class="headerlink" title="重定向到Controller Action"></a><strong>重定向到Controller Action</strong></h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//第二个参数为可选参数</span></div><div class="line"><span class="keyword">return</span> redirect() -&gt; action(<span class="string">'MyController@index'</span>, [<span class="string">'id'</span> =&gt; <span class="number">1</span>]);</div></pre></td></tr></table></figure>
+<h2 id="重定向到Controller-Action"><a href="#重定向到Controller-Action" class="headerlink" title="重定向到Controller Action"></a><strong>重定向到Controller Action</strong></h2><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//第二个参数为可选参数</span></div><div class="line"><span class="keyword">return</span> redirect() -&gt; action(<span class="string">'MyController@index'</span>, [<span class="string">'id'</span> =&gt; <span class="number">1</span>]);</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -481,7 +481,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
