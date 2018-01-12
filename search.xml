@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[mac nginx]]></title>
     <url>%2F2018%2F01%2F12%2Fmac-nginx%2F</url>
-    <content type="text"><![CDATA[配置文件路径 1/usr/local/etc/nginx 根目录路径 1/usr/local/var/www]]></content>
+    <content type="text"><![CDATA[配置文件路径 1/usr/local/etc/nginx 根目录路径 1/usr/local/var/www 配置下载文件 12345678location / &#123; if ($request_filename ~* ^.*?\.(txt|doc|pdf|rar|gz|zip|docx|exe|xlsx|ppt|pptx)$)&#123; add_header Content-Disposition: 'attachment;'; &#125; autoindex on; autoindex_exact_size off; autoindex_localtime on;&#125;]]></content>
       <tags>
         <tag>mac</tag>
         <tag>nginx</tag>
