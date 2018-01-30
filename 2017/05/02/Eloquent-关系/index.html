@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2017/05/02/Eloquent-关系/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="Eloquent 一对一等关系">
-<meta property="og:updated_time" content="2017-07-05T13:14:43.000Z">
+<meta property="og:updated_time" content="2018-01-30T08:30:08.503Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Eloquent 关系">
 <meta name="twitter:description" content="Eloquent 一对一等关系">
@@ -408,6 +408,14 @@
 <p>只获取指定的字段</p>
 </blockquote>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> <span class="keyword">$this</span>-&gt;belongsToMany(Permission::class)-&gt;select(<span class="keyword">array</span>(<span class="string">'name'</span>, <span class="string">'description'</span>));</div></pre></td></tr></table></figure>
+<blockquote>
+<p>只有在请求值存在情况下才应用查询语句</p>
+</blockquote>
+<ul>
+<li>when 方法只有在第一个参数为 true 的时候才执行给定闭包，如果第一个参数为 false，则闭包不执行。</li>
+<li>下列查询如果不传role就等于执行<code>DB::table(&#39;users&#39;)-&gt;get()</code><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$role = $request-&gt;input(<span class="string">'role'</span>);</div><div class="line"></div><div class="line">$users = DB::table(<span class="string">'users'</span>)</div><div class="line">                -&gt;when($role, <span class="function"><span class="keyword">function</span> <span class="params">($query)</span> <span class="title">use</span> <span class="params">($role)</span> </span>&#123;</div><div class="line">                    <span class="keyword">return</span> $query-&gt;where(<span class="string">'role_id'</span>, $role);</div><div class="line">                &#125;)</div><div class="line">                -&gt;get();</div></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div>
