@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2018-01-12T07:20:42.517Z</updated>
+  <updated>2018-01-30T03:55:35.825Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -14,6 +14,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>composer自动加载</title>
+    <link href="https://nancelglap.github.io/2018/01/30/composer%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD/"/>
+    <id>https://nancelglap.github.io/2018/01/30/composer自动加载/</id>
+    <published>2018-01-30T03:28:05.000Z</published>
+    <updated>2018-01-30T03:55:35.825Z</updated>
+    
+    <content type="html"><![CDATA[<p>如果<code>psr-4</code>规定如下（自动加载/project/app下的文件）</p>
+<ul>
+<li><code>&quot;App\\&quot;: &quot;app/&quot;</code>只负责自动加载到<code>/project/app/</code>，并且被自动加载的文件要<code>在这个文件夹下</code></li>
+<li>如果要在规定的文件夹子文件夹下自动加载，命名空间要加上子文件夹名<code>/project/app/Hello</code></li>
+<li>被加载文件名要与类名一致</li>
+<li>引用被自动加载的文件时要new完整的namespace名<code>$hello = new App\Hello\hello();</code><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">"autoload": &#123;</div><div class="line">         "psr-4": &#123;</div><div class="line">             "App\\": "app/"</div><div class="line">         &#125;</div><div class="line">     &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>用于自动加载的类的文件名和类名要一样</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">// haha.php </span></div><div class="line"><span class="comment">// 存在/project/app/Hello这个文件夹</span></div><div class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Hello</span>;</div><div class="line"><span class="class"><span class="keyword">Class</span> <span class="title">haha</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">echo</span> <span class="string">"this is hello"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>用自动加载的文件new相应类时，使用命名空间相同的名称</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">// index.php （项目根目录）</span></div><div class="line"><span class="keyword">require_once</span> <span class="keyword">__DIR__</span>.<span class="string">'/vendor/autoload.php'</span>;</div><div class="line"></div><div class="line">$hello = <span class="keyword">new</span> App\Hello\haha();</div><div class="line">$hello-&gt;index();        <span class="comment">// 输出 this is hello</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如果&lt;code&gt;psr-4&lt;/code&gt;规定如下（自动加载/project/app下的文件）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;App\\&amp;quot;: &amp;quot;app/&amp;quot;&lt;/code&gt;只负责自动加载到&lt;code&gt;/project/app/&lt;/
+    
+    </summary>
+    
+    
+      <category term="composer" scheme="https://nancelglap.github.io/tags/composer/"/>
+    
+  </entry>
   
   <entry>
     <title>mac/linux 命令</title>
@@ -764,7 +802,7 @@
 <p>composer.json 或 composer require zgldh/qiniu-laravel-storage&gt; </p>
 </blockquote>
 <hr>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"zgldh/qiniu-laravel-storage"</span>: <span class="string">"^0.8.1"</span></div></pre></td></tr></table></figure>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"zgldh/qiniu-laravel-storage"</span>: <span class="string">"^0.8.1"</span></div></pre></td></tr></table></figure>
 <blockquote>
 <p>config/app.php</p>
 </blockquote>
@@ -774,7 +812,7 @@
 <p>config/filesystems.php</p>
 </blockquote>
 <hr>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="string">'qiniu'</span> =&gt; [</div><div class="line">            <span class="string">'driver'</span>  =&gt; <span class="string">'qiniu'</span>,</div><div class="line">            <span class="string">'domains'</span> =&gt; [</div><div class="line">                <span class="string">'default'</span>   =&gt; <span class="string">'ovmscef5i.bkt.clouddn.com'</span>, <span class="comment">//你的七牛域名</span></div><div class="line">                <span class="string">'https'</span>     =&gt; <span class="string">''</span>,         <span class="comment">//你的HTTPS域名</span></div><div class="line">                <span class="string">'custom'</span>    =&gt; <span class="string">''</span>,     <span class="comment">//你的自定义域名</span></div><div class="line">             ],</div><div class="line">            <span class="string">'access_key'</span>=&gt; <span class="string">'lqXMMY6JYjGEM-x0WgoJ84i35fc3BW2sMtOZXyzM'</span>,  <span class="comment">//AccessKey</span></div><div class="line">            <span class="string">'secret_key'</span>=&gt; <span class="string">'zRMFaIJ44i2KQZrN32GxWpO0_1ceU1heUsMSuLlH'</span>,  <span class="comment">//SecretKey</span></div><div class="line">            <span class="string">'bucket'</span>    =&gt; <span class="string">'quanzi'</span>,  <span class="comment">//Bucket名字</span></div><div class="line">            <span class="string">'notify_url'</span>=&gt; <span class="string">''</span>,  <span class="comment">//持久化处理回调地址</span></div><div class="line">        ],</div></pre></td></tr></table></figure>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="string">'qiniu'</span> =&gt; [</div><div class="line">            <span class="string">'driver'</span>  =&gt; <span class="string">'qiniu'</span>,</div><div class="line">            <span class="string">'domains'</span> =&gt; [</div><div class="line">                <span class="string">'default'</span>   =&gt; <span class="string">'ovmscef5i.bkt.clouddn.com'</span>, <span class="comment">//你的七牛域名</span></div><div class="line">                <span class="string">'https'</span>     =&gt; <span class="string">''</span>,         <span class="comment">//你的HTTPS域名</span></div><div class="line">                <span class="string">'custom'</span>    =&gt; <span class="string">''</span>,     <span class="comment">//你的自定义域名</span></div><div class="line">             ],</div><div class="line">            <span class="string">'access_key'</span>=&gt; <span class="string">'lqXMMY6JYjGEM-x0WgoJ84i35fc3BW2sMtOZXyzM'</span>,  <span class="comment">//AccessKey</span></div><div class="line">            <span class="string">'secret_key'</span>=&gt; <span class="string">'zRMFaIJ44i2KQZrN32GxWpO0_1ceU1heUsMSuLlH'</span>,  <span class="comment">//SecretKey</span></div><div class="line">            <span class="string">'bucket'</span>    =&gt; <span class="string">'quanzi'</span>,  <span class="comment">//Bucket名字</span></div><div class="line">            <span class="string">'notify_url'</span>=&gt; <span class="string">''</span>,  <span class="comment">//持久化处理回调地址</span></div><div class="line">        ],</div></pre></td></tr></table></figure>
 <blockquote>
 <p>语法</p>
 </blockquote>
@@ -1079,50 +1117,6 @@
       <category term="Node.js" scheme="https://nancelglap.github.io/tags/Node-js/"/>
     
       <category term="Express" scheme="https://nancelglap.github.io/tags/Express/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Node.js Request</title>
-    <link href="https://nancelglap.github.io/2017/07/19/Node-js-Request/"/>
-    <id>https://nancelglap.github.io/2017/07/19/Node-js-Request/</id>
-    <published>2017-07-19T03:17:53.000Z</published>
-    <updated>2017-07-19T14:42:20.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>Node.js GET and POST</p>
-</blockquote>
-<a id="more"></a>
-<p>参考 <code>http://www.runoob.com/nodejs/node-js-get-post.html</code></p>
-<blockquote>
-<p>GET</p>
-</blockquote>
-<p>1、引入 <code>util</code> 、<code>url</code> 模块<br>2、用 <code>url.parse()</code> 解析 <code>url参数</code><br>3、<code>url.inspect()</code> 将对象转换为字符串</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</div><div class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">"url"</span>);</div><div class="line"><span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">"util"</span>);</div><div class="line"></div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    res.writeHead(<span class="number">200</span>, &#123;</div><div class="line">        <span class="string">'Content-Type'</span>: <span class="string">'text/plain; charset=utf-8'</span></div><div class="line">    &#125;);</div><div class="line">    res.end(util.inspect(url.parse(req.url, <span class="literal">true</span>)));</div><div class="line">&#125;).listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
-<p>获取URL的参数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</div><div class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">"url"</span>);</div><div class="line"></div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">    res.writeHead(<span class="number">200</span>, &#123;</div><div class="line">        <span class="string">'Content-Type'</span>: <span class="string">'text/plain; charset = UTF-8'</span></div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="comment">// 解析 url 参数</span></div><div class="line">    <span class="keyword">var</span> params = url.parse(req.url, <span class="literal">true</span>).query;</div><div class="line">    res.write(<span class="string">"网站名: "</span> + params.name);</div><div class="line">    res.write(<span class="string">"\n"</span>);</div><div class="line">    res.write(<span class="string">"网站URL: "</span> + params.url);</div><div class="line">    res.end();</div><div class="line">&#125;).listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>POST</p>
-</blockquote>
-<p>1、先用 <code>data</code> 事件监听函数，接收请求体的数据，并累加到变量中<br>2、引入 <code>querystring</code> 模块解析请求体信息<br>3、通过 <code>res.write(变量名.字段名)</code> 引用信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">var http = require(&quot;http&quot;);</div><div class="line">var querystring = require(&quot;querystring&quot;);</div><div class="line"></div><div class="line">var postHTML =</div><div class="line">    &apos;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;title&gt;菜鸟教程 Node.js 实例&lt;/title&gt;&lt;/head&gt;&apos; +</div><div class="line">    &apos;&lt;body&gt;&apos; +</div><div class="line">    &apos;&lt;form method=&quot;post&quot;&gt;&apos; +</div><div class="line">    &apos;网站名： &lt;input name=&quot;name&quot;&gt;&lt;br&gt;&apos; +</div><div class="line">    &apos;网站 URL： &lt;input name=&quot;url&quot;&gt;&lt;br&gt;&apos; +</div><div class="line">    &apos;&lt;input type=&quot;submit&quot;&gt;&apos; +</div><div class="line">    &apos;&lt;/form&gt;&apos; +</div><div class="line">    &apos;&lt;/body&gt;&lt;/html&gt;&apos;;</div><div class="line"></div><div class="line">http.createServer(function(req, res)&#123;</div><div class="line">    var body = &quot;&quot;;</div><div class="line">    req.on(&quot;data&quot;, function(chunk) &#123;</div><div class="line">        body += chunk;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    req.on(&quot;end&quot;, function() &#123;</div><div class="line">        body = querystring.parse(body);</div><div class="line">        if(body.name &amp;&amp; body.url)</div><div class="line">        &#123;</div><div class="line">            res.write(&quot;网站名:&quot; + body.name);</div><div class="line">            res.write(&quot;URL:&quot; + body.url);</div><div class="line">        &#125;</div><div class="line">        else</div><div class="line">        &#123;</div><div class="line">            res.write(postHTML);</div><div class="line">        &#125;</div><div class="line">        res.end();</div><div class="line">    &#125;);</div><div class="line">&#125;).listen(3000);</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;Node.js GET and POST&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Request" scheme="https://nancelglap.github.io/categories/Request/"/>
-    
-      <category term="Node.js" scheme="https://nancelglap.github.io/categories/Request/Node-js/"/>
-    
-    
-      <category term="Node.js" scheme="https://nancelglap.github.io/tags/Node-js/"/>
-    
-      <category term="Request" scheme="https://nancelglap.github.io/tags/Request/"/>
     
   </entry>
   

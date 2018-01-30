@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[composer自动加载]]></title>
+    <url>%2F2018%2F01%2F30%2Fcomposer%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%2F</url>
+    <content type="text"><![CDATA[如果psr-4规定如下（自动加载/project/app下的文件） &quot;App\\&quot;: &quot;app/&quot;只负责自动加载到/project/app/，并且被自动加载的文件要在这个文件夹下 如果要在规定的文件夹子文件夹下自动加载，命名空间要加上子文件夹名/project/app/Hello 被加载文件名要与类名一致 引用被自动加载的文件时要new完整的namespace名$hello = new App\Hello\hello();12345"autoload": &#123; "psr-4": &#123; "App\\": "app/" &#125; &#125; 用于自动加载的类的文件名和类名要一样 123456789&lt;?php// haha.php // 存在/project/app/Hello这个文件夹namespace App\Hello;Class haha &#123; public function index() &#123; echo "this is hello"; &#125;&#125; 用自动加载的文件new相应类时，使用命名空间相同的名称 123456&lt;?php// index.php （项目根目录）require_once __DIR__.'/vendor/autoload.php';$hello = new App\Hello\haha();$hello-&gt;index(); // 输出 this is hello]]></content>
+      <tags>
+        <tag>composer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[mac/linux 命令]]></title>
     <url>%2F2018%2F01%2F12%2Fmac-linux-%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[mac/linux 终端命令 mac查看端口占用 1lsof -i:端口号]]></content>
@@ -323,8 +331,8 @@
         <category>laravel</category>
       </categories>
       <tags>
-        <tag>project</tag>
         <tag>laravel</tag>
+        <tag>project</tag>
         <tag>mixture</tag>
       </tags>
   </entry>
@@ -365,8 +373,8 @@
       <tags>
         <tag>laravel</tag>
         <tag>database</tag>
-        <tag>mysql</tag>
         <tag>table</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -481,8 +489,8 @@
         <category>Wechat</category>
       </categories>
       <tags>
-        <tag>Wechat</tag>
         <tag>Mini Programes</tag>
+        <tag>Wechat</tag>
       </tags>
   </entry>
   <entry>
@@ -534,8 +542,8 @@
       </categories>
       <tags>
         <tag>php</tag>
-        <tag>nginx</tag>
         <tag>mysql</tag>
+        <tag>nginx</tag>
       </tags>
   </entry>
   <entry>
