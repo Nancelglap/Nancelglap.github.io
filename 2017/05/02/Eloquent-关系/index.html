@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2017/05/02/Eloquent-关系/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="Eloquent 一对一等关系">
-<meta property="og:updated_time" content="2018-01-30T08:30:08.503Z">
+<meta property="og:updated_time" content="2018-02-01T08:47:36.702Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Eloquent 关系">
 <meta name="twitter:description" content="Eloquent 一对一等关系">
@@ -389,7 +389,11 @@
 <h1 id="2、创建关系"><a href="#2、创建关系" class="headerlink" title="2、创建关系"></a><strong>2、创建关系</strong></h1><blockquote>
 <p>一对一关系</p>
 </blockquote>
-<p>如果一个<code>User</code>模型与另一个<code>model</code>模型对应，定义一个<code>method</code>方法在<code>User</code>模型中，<code>method</code>方法调用Eloquent模型基类上<code>hasOne</code>方法并返回结果<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">namespace</span> <span class="title">App</span>;</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Eloquent</span>\<span class="title">Model</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">Model</span></span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">method</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;hasOne(<span class="string">'App\model'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>默认用作关联的外键为主键所在表名单数形式加<code>_id</code></li>
+<li>如果一个<code>User</code>模型与另一个<code>model</code>模型对应，定义一个<code>method</code>方法在<code>User</code>模型中，<code>method</code>方法调用Eloquent模型基类上<code>hasOne</code>方法并返回结果<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">namespace</span> <span class="title">App</span>;</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Eloquent</span>\<span class="title">Model</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">Model</span></span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">method</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;hasOne(<span class="string">'App\model'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
 <p><code>hasOne</code>方法的第一个参数为关联模型的名称。通过动态属性访问关联方法：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$new = User::find(<span class="number">1</span>)-&gt;method;   <span class="comment">//返回结果集，可以进一步调用属性</span></div><div class="line">$new = User::find(<span class="number">1</span>)-&gt;method-&gt;name;   <span class="comment">//返回在models表中user_id为1的信息的名字</span></div></pre></td></tr></table></figure></p>
 <p><code>hasOne</code>方法默认关联外键为<code>user_id</code>，如果想让model的其他作为外键，传入第二个参数：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> <span class="keyword">$this</span> -&gt; hasOne(<span class="string">'App\model'</span>, <span class="string">'foreign_key'</span>);</div></pre></td></tr></table></figure></p>
 <p><code>hasOne</code>方法默认通过<code>id</code>值去<code>models</code>表中查询<code>user_id</code>与之匹配的记录，如果想换主键匹配，传递第三个参数给<code>hasOne</code>:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> <span class="keyword">$this</span>-&gt;hasOne(<span class="string">'App\model'</span>, <span class="string">'foreign_key'</span>, <span class="string">'local_key'</span>);</div></pre></td></tr></table></figure></p>
@@ -416,6 +420,27 @@
 <li>下列查询如果不传role就等于执行<code>DB::table(&#39;users&#39;)-&gt;get()</code><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$role = $request-&gt;input(<span class="string">'role'</span>);</div><div class="line"></div><div class="line">$users = DB::table(<span class="string">'users'</span>)</div><div class="line">                -&gt;when($role, <span class="function"><span class="keyword">function</span> <span class="params">($query)</span> <span class="title">use</span> <span class="params">($role)</span> </span>&#123;</div><div class="line">                    <span class="keyword">return</span> $query-&gt;where(<span class="string">'role_id'</span>, $role);</div><div class="line">                &#125;)</div><div class="line">                -&gt;get();</div></pre></td></tr></table></figure>
 </li>
 </ul>
+<blockquote>
+<p>按条件查询，如果有则返回查询结果，没有则创建</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$post = Post::firstOrNew([<span class="string">'content'</span> =&gt; <span class="string">'这是要查询的内容'</span>]);</div><div class="line"><span class="comment">//return $post['id'];</span></div><div class="line"><span class="keyword">if</span>($post[<span class="string">'id'</span>]) &#123;</div><div class="line">    <span class="keyword">return</span> [<span class="string">'status'</span> =&gt; <span class="string">'old'</span>, <span class="string">'info'</span> =&gt; $post];</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    $post-&gt;fill([<span class="string">'user_id'</span> =&gt; <span class="number">100</span>]);</div><div class="line">    $post-&gt;save();</div><div class="line">    <span class="keyword">return</span> [<span class="string">'status'</span> =&gt; <span class="string">'new'</span>, <span class="string">'info'</span> =&gt; $post];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>访问器</p>
+</blockquote>
+<ul>
+<li>获取指定字段的值时候执行约定的操作</li>
+<li><code>get字段名Attribute</code> 字段名用驼峰命名法</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取first_name字段的时候自动大写首字母</span></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getFirstNameAttribute</span><span class="params">($value)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> ucfirst($value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>修改器</p>
+</blockquote>
+<ul>
+<li>赋值某字段时执行约定的操作</li>
+<li>在赋值的时候就完成相应操作，不是插入的时候才进行相应操作</li>
+<li><code>set字段名Attribute</code></li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 赋值字段first_name时自动全部转化为小写</span></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setFirstNameAttribute</span><span class="params">($value)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">$this</span>-&gt;attributes[<span class="string">'first_name'</span>] = strtolower($value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
