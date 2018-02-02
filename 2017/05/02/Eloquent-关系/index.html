@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2017/05/02/Eloquent-关系/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="Eloquent 一对一等关系">
-<meta property="og:updated_time" content="2018-02-01T08:47:36.702Z">
+<meta property="og:updated_time" content="2018-02-02T02:12:56.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Eloquent 关系">
 <meta name="twitter:description" content="Eloquent 一对一等关系">
@@ -441,6 +441,16 @@
 <li><code>set字段名Attribute</code></li>
 </ul>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 赋值字段first_name时自动全部转化为小写</span></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setFirstNameAttribute</span><span class="params">($value)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">$this</span>-&gt;attributes[<span class="string">'first_name'</span>] = strtolower($value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>数据库Json转化数组</p>
+</blockquote>
+<ul>
+<li>如果数据库有字段为<code>JSON</code>格式，用<code>数组&amp;JSON转化</code></li>
+<li>如果不用这个转化，插入的时候数组都要用<code>json_encode</code>后才能插入数据库</li>
+<li><code>json</code>转数组<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">json_decode</span><span class="params">(<span class="variable">$json</span>, true)</span></span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 在model中定义image字段类型转化为array</span></div><div class="line"><span class="keyword">protected</span> $casts = [</div><div class="line">    <span class="string">'image'</span> =&gt; <span class="string">'array'</span></div><div class="line">];</div><div class="line"></div><div class="line"><span class="comment">// controller中不用json_encode就可以插入</span></div><div class="line">$post = Post::find(<span class="number">1</span>);</div><div class="line">$image = [</div><div class="line">    <span class="string">'hello'</span> =&gt; <span class="string">'u'</span>,</div><div class="line">    <span class="string">'bye'</span> =&gt; <span class="string">'hahahahahahah'</span></div><div class="line">];</div><div class="line"><span class="comment">//$image = json_encode($image);</span></div><div class="line">$post-&gt;image = $image;</div><div class="line">$post-&gt;save();</div><div class="line"><span class="keyword">return</span> <span class="string">'ok'</span>;</div></pre></td></tr></table></figure>
 
       
     </div>
