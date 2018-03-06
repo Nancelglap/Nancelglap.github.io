@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2018-01-30T03:55:35.825Z</updated>
+  <updated>2018-03-06T02:01:19.784Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>tornado</title>
+    <link href="https://nancelglap.github.io/2018/03/06/tornado/"/>
+    <id>https://nancelglap.github.io/2018/03/06/tornado/</id>
+    <published>2018-03-06T01:47:07.000Z</published>
+    <updated>2018-03-06T02:01:19.784Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>与tornado相关</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> tornado.ioloop</div><div class="line"><span class="keyword">import</span> tornado.web</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainHandler</span><span class="params">(tornado.web.RequestHandler)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initialize</span><span class="params">(self, db)</span>:</span></div><div class="line">        self.db = db</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self)</span>:</span></div><div class="line">        story_id = self.get_argument(<span class="string">"story_id"</span>)</div><div class="line">        self.write(<span class="string">"story_id: %s, and the db is %s"</span> % (story_id, self.db))</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    app = tornado.web.Application([</div><div class="line">        (<span class="string">r"/"</span>, MainHandler, dict(db = <span class="string">"mysql"</span>))</div><div class="line">    ])</div><div class="line">    app.listen(<span class="number">8888</span>)</div><div class="line">    tornado.ioloop.IOLoop.current().start()</div></pre></td></tr></table></figure>
+<ul>
+<li>实例<code>Application</code>中第三个参数将<code>dict</code>里的参数传给<code>initialize</code>方法，访问相应url时自动调用<code>initialize</code>方法</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;与tornado相关&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;d
+    
+    </summary>
+    
+      <category term="framework" scheme="https://nancelglap.github.io/categories/framework/"/>
+    
+    
+      <category term="python" scheme="https://nancelglap.github.io/tags/python/"/>
+    
+      <category term="tornado" scheme="https://nancelglap.github.io/tags/tornado/"/>
+    
+  </entry>
   
   <entry>
     <title>composer自动加载</title>
@@ -812,7 +846,7 @@
 <p>composer.json 或 composer require zgldh/qiniu-laravel-storage&gt; </p>
 </blockquote>
 <hr>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"zgldh/qiniu-laravel-storage"</span>: <span class="string">"^0.8.1"</span></div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"zgldh/qiniu-laravel-storage"</span>: <span class="string">"^0.8.1"</span></div></pre></td></tr></table></figure>
 <blockquote>
 <p>config/app.php</p>
 </blockquote>
@@ -822,7 +856,7 @@
 <p>config/filesystems.php</p>
 </blockquote>
 <hr>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="string">'qiniu'</span> =&gt; [</div><div class="line">            <span class="string">'driver'</span>  =&gt; <span class="string">'qiniu'</span>,</div><div class="line">            <span class="string">'domains'</span> =&gt; [</div><div class="line">                <span class="string">'default'</span>   =&gt; <span class="string">'ovmscef5i.bkt.clouddn.com'</span>, <span class="comment">//你的七牛域名</span></div><div class="line">                <span class="string">'https'</span>     =&gt; <span class="string">''</span>,         <span class="comment">//你的HTTPS域名</span></div><div class="line">                <span class="string">'custom'</span>    =&gt; <span class="string">''</span>,     <span class="comment">//你的自定义域名</span></div><div class="line">             ],</div><div class="line">            <span class="string">'access_key'</span>=&gt; <span class="string">'lqXMMY6JYjGEM-x0WgoJ84i35fc3BW2sMtOZXyzM'</span>,  <span class="comment">//AccessKey</span></div><div class="line">            <span class="string">'secret_key'</span>=&gt; <span class="string">'zRMFaIJ44i2KQZrN32GxWpO0_1ceU1heUsMSuLlH'</span>,  <span class="comment">//SecretKey</span></div><div class="line">            <span class="string">'bucket'</span>    =&gt; <span class="string">'quanzi'</span>,  <span class="comment">//Bucket名字</span></div><div class="line">            <span class="string">'notify_url'</span>=&gt; <span class="string">''</span>,  <span class="comment">//持久化处理回调地址</span></div><div class="line">        ],</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="string">'qiniu'</span> =&gt; [</div><div class="line">            <span class="string">'driver'</span>  =&gt; <span class="string">'qiniu'</span>,</div><div class="line">            <span class="string">'domains'</span> =&gt; [</div><div class="line">                <span class="string">'default'</span>   =&gt; <span class="string">'ovmscef5i.bkt.clouddn.com'</span>, <span class="comment">//你的七牛域名</span></div><div class="line">                <span class="string">'https'</span>     =&gt; <span class="string">''</span>,         <span class="comment">//你的HTTPS域名</span></div><div class="line">                <span class="string">'custom'</span>    =&gt; <span class="string">''</span>,     <span class="comment">//你的自定义域名</span></div><div class="line">             ],</div><div class="line">            <span class="string">'access_key'</span>=&gt; <span class="string">'lqXMMY6JYjGEM-x0WgoJ84i35fc3BW2sMtOZXyzM'</span>,  <span class="comment">//AccessKey</span></div><div class="line">            <span class="string">'secret_key'</span>=&gt; <span class="string">'zRMFaIJ44i2KQZrN32GxWpO0_1ceU1heUsMSuLlH'</span>,  <span class="comment">//SecretKey</span></div><div class="line">            <span class="string">'bucket'</span>    =&gt; <span class="string">'quanzi'</span>,  <span class="comment">//Bucket名字</span></div><div class="line">            <span class="string">'notify_url'</span>=&gt; <span class="string">''</span>,  <span class="comment">//持久化处理回调地址</span></div><div class="line">        ],</div></pre></td></tr></table></figure>
 <blockquote>
 <p>语法</p>
 </blockquote>
@@ -1072,61 +1106,6 @@
       <category term="database" scheme="https://nancelglap.github.io/tags/database/"/>
     
       <category term="mongodb" scheme="https://nancelglap.github.io/tags/mongodb/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Node.js Express</title>
-    <link href="https://nancelglap.github.io/2017/07/19/Node-js-Express/"/>
-    <id>https://nancelglap.github.io/2017/07/19/Node-js-Express/</id>
-    <published>2017-07-19T12:25:53.000Z</published>
-    <updated>2017-07-21T03:37:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>Express 框架应用</p>
-</blockquote>
-<a id="more"></a>
-<blockquote>
-<p>路由</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"></div><div class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"主页 GET 请求"</span>);</div><div class="line">    res.send(<span class="string">'Hello GET'</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.post(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"主页 POST 请求"</span>);</div><div class="line">    res.send(<span class="string">'Hello POST'</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>静态文件</p>
-</blockquote>
-<p>服务器文件必须跟 <code>public</code> 文件夹在 <code>同一个目录下</code></p>
-<p>设置静态路径方法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">app.use(express.static(<span class="string">'public'</span>));</div></pre></td></tr></table></figure></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"> </div><div class="line">app.use(express.static(<span class="string">'public'</span>));</div><div class="line"> </div><div class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">   res.send(<span class="string">'Hello World'</span>);</div><div class="line">&#125;)</div><div class="line"> </div><div class="line"><span class="keyword">var</span> server = app.listen(<span class="number">8081</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"> </div><div class="line">  <span class="keyword">var</span> host = server.address().address</div><div class="line">  <span class="keyword">var</span> port = server.address().port</div><div class="line"> </div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"应用实例，访问地址为 http://%s:%s"</span>, host, port)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>浏览器访问 <code>http://127.0.0.1:8081/images/logo.png</code></p>
-<blockquote>
-<p>GET 方法</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"></div><div class="line">app.use(express.static(<span class="string">'public'</span>));</div><div class="line"></div><div class="line">app.get(<span class="string">'/index.htm'</span>, functino(req, res) &#123;</div><div class="line">    res.sendFile(__dirname + <span class="string">'/'</span> + <span class="string">"index.htm"</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.get(<span class="string">'/process_get'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> response = [</div><div class="line">        <span class="string">"first_name"</span> : req.query.first_name,</div><div class="line">        <span class="string">"last_name"</span> : req.query.last_name</div><div class="line">    ]</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(response);</div><div class="line">    res.end(<span class="built_in">JSON</span>.stringify(response));</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">var</span> server = app.listen(<span class="number">8081</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> host = server.address().address</div><div class="line">    <span class="keyword">var</span> port = server.address().port</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"应用实例，访问地址为 http://%s:%s"</span>, host, port)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>POST 方法</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 创建 application/x-www-form-urlencoded 编码解析</span></div><div class="line"><span class="keyword">var</span> urlencodedParser = bodyParser.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">false</span> &#125;)</div><div class="line"></div><div class="line">app.use(express.static(<span class="string">'public'</span>));</div><div class="line"></div><div class="line">app.get(<span class="string">'/index.htm'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    res.sendFile(__dirname + <span class="string">'.'</span> + <span class="string">'index.htm'</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.post(<span class="string">'/process_post'</span>, urlencodedParser, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    <span class="comment">// 输出 JSON 格式</span></div><div class="line">    <span class="keyword">var</span> response = &#123;</div><div class="line">        <span class="string">"first_name"</span> : req.body.first_name,</div><div class="line">        <span class="string">"last_name"</span> : req.body.last_name</div><div class="line">    &#125;;</div><div class="line">    <span class="built_in">console</span>.log(response);</div><div class="line">    res.end(<span class="built_in">JSON</span>.stringify(response));</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">var</span> server = app.listen(<span class="number">8081</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> host = server.address().address</div><div class="line">    <span class="keyword">var</span> port = server.address().port</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"应用实例，访问地址为 http://%s:%s"</span>, host, port);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>文件上传</p>
-</blockquote>
-<p>上传到本地<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> multer = <span class="built_in">require</span>(<span class="string">"multer"</span>);</div><div class="line"></div><div class="line">app.use(multer(&#123;<span class="attr">dest</span>: <span class="string">'/tmp/'</span>&#125;).array(<span class="string">'image'</span>));</div><div class="line"></div><div class="line">app.get(<span class="string">'/index.htm'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    res.sendFile(__dirname + <span class="string">'/'</span> + <span class="string">'index.htm'</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.post(<span class="string">'/file_upload'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(req.files[<span class="number">0</span>]);  <span class="comment">//上传文件信息</span></div><div class="line"></div><div class="line">    <span class="keyword">var</span> des_file = __dirname + <span class="string">"/"</span> + req.files[<span class="number">0</span>].originalname;</div><div class="line">    fs.readFile(req.files[<span class="number">0</span>].path, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</div><div class="line">            fs.writeFile(des_file, data, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</div><div class="line">                    <span class="keyword">if</span>(err) &#123;</div><div class="line">                        <span class="built_in">console</span>.log(err);</div><div class="line">                        <span class="keyword">return</span>;</div><div class="line">                    &#125; <span class="keyword">else</span> &#123;</div><div class="line">                        response = &#123;</div><div class="line">                            <span class="attr">message</span> : <span class="string">'File uploaded successfully'</span>,</div><div class="line">                            <span class="attr">filename</span>: req.files[<span class="number">0</span>].originalname</div><div class="line">                        &#125;;</div><div class="line">                    &#125;</div><div class="line">                    <span class="built_in">console</span>.log(response);</div><div class="line">                    res.end(<span class="built_in">JSON</span>.stringify(response));</div><div class="line">                &#125;);</div><div class="line">        &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> server = app.listen(<span class="number">8081</span>);</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;Express 框架应用&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Express" scheme="https://nancelglap.github.io/categories/Express/"/>
-    
-      <category term="Node.js" scheme="https://nancelglap.github.io/categories/Express/Node-js/"/>
-    
-    
-      <category term="Node.js" scheme="https://nancelglap.github.io/tags/Node-js/"/>
-    
-      <category term="Express" scheme="https://nancelglap.github.io/tags/Express/"/>
     
   </entry>
   
