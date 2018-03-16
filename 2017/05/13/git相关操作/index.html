@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2017/05/13/git相关操作/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="与git相关的内容">
-<meta property="og:updated_time" content="2017-09-02T16:03:00.000Z">
+<meta property="og:updated_time" content="2018-03-16T04:58:36.625Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git相关">
 <meta name="twitter:description" content="与git相关的内容">
@@ -446,6 +446,14 @@
 <p>本地更新到远程服务器上</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> git add .</span></div><div class="line"><span class="meta">$</span><span class="bash"> git commit -m <span class="string">"描述内容"</span>     //只有更改文件的目录才会改描述内容</span></div><div class="line"><span class="meta">$</span><span class="bash"> git push</span></div><div class="line"></div><div class="line">//切到服务器，进入项目目录</div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> /var/www/laravel/</span></div><div class="line"><span class="meta">$</span><span class="bash"> git pull</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>下载分支</p>
+</blockquote>
+<ul>
+<li>先 <code>git clone</code> 主分支</li>
+<li><code>git checkout -b 远程仓库分支名字 origin/远程仓库分支名字</code></li>
+<li><code>git pull</code></li>
+</ul>
 
       
     </div>
