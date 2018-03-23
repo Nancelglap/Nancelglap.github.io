@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2018-03-23T13:41:08.458Z</updated>
+  <updated>2018-03-23T13:46:49.484Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -20,11 +20,12 @@
     <link href="https://nancelglap.github.io/2018/03/23/django/"/>
     <id>https://nancelglap.github.io/2018/03/23/django/</id>
     <published>2018-03-23T03:03:51.000Z</published>
-    <updated>2018-03-23T13:41:08.458Z</updated>
+    <updated>2018-03-23T13:46:49.484Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>Django框架相关</p>
 </blockquote>
+<a id="more"></a>
 <h3 id="配置mysql"><a href="#配置mysql" class="headerlink" title="配置mysql"></a>配置mysql</h3><ol>
 <li>编辑<code>setting.py</code><figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">DATABASES = &#123;</div><div class="line">    <span class="string">'default'</span>: &#123;</div><div class="line">        <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.mysql'</span>,</div><div class="line">        <span class="string">'NAME'</span>: <span class="string">'databaseName'</span>,</div><div class="line">        <span class="string">'USER'</span>: <span class="string">'userName'</span>,</div><div class="line">        <span class="string">'PASSWORD'</span>: <span class="string">'password'</span>,</div><div class="line">        <span class="string">'HOST'</span>: <span class="string">'localhost'</span>,</div><div class="line">        <span class="string">'PORT'</span>: <span class="string">''</span>,</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
@@ -43,8 +44,6 @@
       &lt;blockquote&gt;
 &lt;p&gt;Django框架相关&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&quot;配置mysql&quot;&gt;&lt;a href=&quot;#配置mysql&quot; class=&quot;headerlink&quot; title=&quot;配置mysql&quot;&gt;&lt;/a&gt;配置mysql&lt;/h3&gt;&lt;ol&gt;
-&lt;li
     
     </summary>
     
