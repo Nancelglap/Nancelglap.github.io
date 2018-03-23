@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nancelglap.github.io/2018/03/23/django/</loc>
+    
+    <lastmod>2018-03-23T13:41:08.458Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancelglap.github.io/2017/05/14/PHP-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/</loc>
+    
+    <lastmod>2018-03-19T05:10:47.643Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancelglap.github.io/2018/03/18/IoC%E5%92%8CDI/</loc>
+    
+    <lastmod>2018-03-18T02:37:33.539Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nancelglap.github.io/2017/05/13/git%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/</loc>
     
     <lastmod>2018-03-16T04:58:36.625Z</lastmod>
@@ -306,13 +327,6 @@
     <loc>https://nancelglap.github.io/2017/05/30/PhpStorm/</loc>
     
     <lastmod>2017-06-19T11:05:01.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancelglap.github.io/2017/05/14/PHP-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/</loc>
-    
-    <lastmod>2017-06-19T11:04:47.000Z</lastmod>
     
   </url>
   

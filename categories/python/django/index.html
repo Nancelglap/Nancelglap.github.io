@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="python,tornado," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -95,17 +95,15 @@
 
 
 
-<meta name="description" content="与tornado相关">
-<meta name="keywords" content="python,tornado">
-<meta property="og:type" content="article">
-<meta property="og:title" content="tornado">
-<meta property="og:url" content="https://nancelglap.github.io/2018/03/06/tornado/index.html">
+<meta name="description" content="不想正经">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nancelglap">
+<meta property="og:url" content="https://nancelglap.github.io/categories/python/django/index.html">
 <meta property="og:site_name" content="Nancelglap">
-<meta property="og:description" content="与tornado相关">
-<meta property="og:updated_time" content="2018-03-08T02:39:31.325Z">
+<meta property="og:description" content="不想正经">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tornado">
-<meta name="twitter:description" content="与tornado相关">
+<meta name="twitter:title" content="Nancelglap">
+<meta name="twitter:description" content="不想正经">
 
 
 
@@ -133,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="https://nancelglap.github.io/2018/03/06/tornado/"/>
+  <link rel="canonical" href="https://nancelglap.github.io/categories/python/django/"/>
 
 
 
 
 
-  <title>tornado | Nancelglap</title>
+  <title>分类: django | Nancelglap</title>
   
 
 
@@ -164,7 +162,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -282,199 +280,45 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://nancelglap.github.io/2018/03/06/tornado/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancelglap">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancelglap">
-    </span>
+  <section id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h1>django<small>分类</small>
+      </h1>
+    </div>
 
     
-      <header class="post-header">
+      
 
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2018/03/23/django/" itemprop="url">
+              
+                <span itemprop="name">django</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">tornado</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T09:47:07+08:00">
-                2018-03-06
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-03-23T11:03:51+08:00"
+              content="2018-03-23" >
+          03-23
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/framework/" itemprop="url" rel="index">
-                    <span itemprop="name">framework</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <blockquote>
-<p>与tornado相关</p>
-</blockquote>
-<a id="more"></a>
-<blockquote>
-<p>initialize()</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> tornado.ioloop</div><div class="line"><span class="keyword">import</span> tornado.web</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainHandler</span><span class="params">(tornado.web.RequestHandler)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initialize</span><span class="params">(self, db)</span>:</span></div><div class="line">        self.db = db</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self)</span>:</span></div><div class="line">        story_id = self.get_argument(<span class="string">"story_id"</span>)</div><div class="line">        self.write(<span class="string">"story_id: %s, and the db is %s"</span> % (story_id, self.db))</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    app = tornado.web.Application([</div><div class="line">        (<span class="string">r"/"</span>, MainHandler, dict(db = <span class="string">"mysql"</span>))</div><div class="line">    ])</div><div class="line">    app.listen(<span class="number">8888</span>)</div><div class="line">    tornado.ioloop.IOLoop.current().start()</div></pre></td></tr></table></figure>
-<ul>
-<li>实例<code>Application</code>中第三个参数将<code>dict</code>里的参数传给<code>initialize</code>方法，访问相应url时自动调用<code>initialize</code>方法</li>
-</ul>
-<blockquote>
-<p>prepare()</p>
-</blockquote>
-<ul>
-<li>在每个请求的最开始被调用，在<code>get/post</code>等方法之前</li>
-</ul>
-<blockquote>
-<p>on_finish()</p>
-</blockquote>
-<ul>
-<li>在一个请求结束后被调用，复写用来<code>执行清理，日志记录</code>等</li>
-<li>响应被送到客户端后才调用</li>
-</ul>
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/python/" rel="tag"># python</a>
-          
-            <a href="/tags/tornado/" rel="tag"># tornado</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/03/18/IoC和DI/" rel="next" title="IoC和DI">
-                <i class="fa fa-chevron-left"></i> IoC和DI
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/30/composer自动加载/" rel="prev" title="composer自动加载">
-                composer自动加载 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+
 
 
           </div>
@@ -482,10 +326,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -591,10 +431,10 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-
+  
 
   
 

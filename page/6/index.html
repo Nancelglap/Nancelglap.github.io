@@ -292,6 +292,290 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://nancelglap.github.io/2017/05/10/用户认证/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancelglap">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancelglap">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/10/用户认证/" itemprop="url">用户认证（Auth）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-10T22:12:12+08:00">
+                2017-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/laravel/" itemprop="url" rel="index">
+                    <span itemprop="name">laravel</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>一、auth.php文件配置(修改auth验证的表)</p>
+</blockquote>
+<p>在<code>guards</code>数组中的每一项都是一个角色，默认的有<code>web</code>和<code>api</code>两种，这就表示了当前有这两种角色会使用到认证系统。<br><code>driver</code>就是表示这个认证要怎么去保存用户状态，一般是保存在<code>session</code>中，<strong><code>provider</code>就是告诉Laravel你的用户信息保存在哪一张表里面</strong>，driver就是告诉了要使用那种方式来操作数据库。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="string">'guards'</span> =&gt; [</div><div class="line">    <span class="string">'web'</span> =&gt; [</div><div class="line">        <span class="string">'driver'</span> =&gt; <span class="string">'session'</span>,</div><div class="line">        <span class="string">'provider'</span> =&gt; <span class="string">'users'</span>,</div><div class="line">    ],</div><div class="line"></div><div class="line">    <span class="string">'api'</span> =&gt; [</div><div class="line">        <span class="string">'driver'</span> =&gt; <span class="string">'token'</span>,</div><div class="line">        <span class="string">'provider'</span> =&gt; <span class="string">'users'</span>,</div><div class="line">    ],</div><div class="line">],</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>二、具体运用</p>
+</blockquote>
+<h2 id="方法一：在Controller中增加middleware键值对"><a href="#方法一：在Controller中增加middleware键值对" class="headerlink" title="方法一：在Controller中增加middleware键值对"></a><strong>方法一：在Controller中增加<code>middleware</code>键值对</strong></h2><p>当路由中使用了保护路由：<code>&#39;middleware&#39; =&gt; &#39;auth&#39;</code>，此路由需先经过路由的路径名为’/login’执行后才跳转到此路由执行<br><strong>可以对路由组使用此中间件，以下组内所有路由的访问都需先经过路由路径为’/login’的认证</strong><br><strong>路由中的路径必须是根目录下的’/login’</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//如果路径前面再加任何的前缀就会出错'/admin/path'</span></div><div class="line">Route::get(<span class="string">'/login'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> view(<span class="string">'auth.login'</span>);    </div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Route::group([<span class="string">'namespace'</span>=&gt;<span class="string">'Admin'</span>, <span class="string">'middleware'</span>=&gt;<span class="string">'auth'</span>], <span class="function"><span class="keyword">function</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    Route::get(<span class="string">'admin/path1'</span>, <span class="string">'UploadController@method1'</span>);</div><div class="line">    Route::get(<span class="string">'admin/path2'</span>, <span class="string">'UploadController@method2'</span>);</div><div class="line">    Route::get(<span class="string">'admin/path3'</span>, <span class="string">'UploadController@method3'</span>);</div><div class="line">    Route::get(<span class="string">'admin/path4'</span>, <span class="string">'UploadController@method4'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="方法二：在控制器中增加构造方法-construct"><a href="#方法二：在控制器中增加构造方法-construct" class="headerlink" title="方法二：在控制器中增加构造方法__construct"></a><strong>方法二：在控制器中增加构造方法<code>__construct</code></strong></h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">$this</span>-&gt;middleware(<span class="string">'auth'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a><strong>补充</strong></h2><p>返回经过JWTAuth认证后的实例<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Route::get(<span class="string">'/user'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Request $request)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> $request-&gt;user();</div><div class="line">&#125;)-&gt;middleware(<span class="string">'jwt.api.auth'</span>);</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://nancelglap.github.io/2017/05/10/JWT-dingo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancelglap">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancelglap">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/10/JWT-dingo/" itemprop="url">JWT + dingo</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-10T20:01:07+08:00">
+                2017-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JWT-Dingo/" itemprop="url" rel="index">
+                    <span itemprop="name">JWT Dingo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>laravel 中JWT(Json Web Token)和dingo的使用</p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/10/JWT-dingo/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://nancelglap.github.io/2017/05/10/Shell脚本相关/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">

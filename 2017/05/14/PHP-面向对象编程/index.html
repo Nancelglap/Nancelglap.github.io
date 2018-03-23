@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="php,OOP,面向对象," />
+  <meta name="keywords" content="OOP,php,面向对象," />
 
 
 
@@ -96,13 +96,13 @@
 
 
 <meta name="description" content="PHP 面向对象相关">
-<meta name="keywords" content="php,OOP,面向对象">
+<meta name="keywords" content="OOP,php,面向对象">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP 面向对象编程">
 <meta property="og:url" content="https://nancelglap.github.io/2017/05/14/PHP-面向对象编程/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="PHP 面向对象相关">
-<meta property="og:updated_time" content="2017-06-19T11:04:47.000Z">
+<meta property="og:updated_time" content="2018-03-19T05:10:47.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP 面向对象编程">
 <meta name="twitter:description" content="PHP 面向对象相关">
@@ -417,6 +417,26 @@
 <p>面向接口编程</p>
 </blockquote>
 <p>在需要用到<strong>类作为参数</strong>的方法中将<strong>接口</strong>作为参数，过后传参数只需要传一个<strong>实现的接口的对象</strong>就可以<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* 创建一个接口</div><div class="line">*/</div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">hello</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">fun1</span><span class="params">($message)</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* 实现接口</div><div class="line">*/</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">class1</span> <span class="keyword">implements</span> <span class="title">hello</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">show</span><span class="params">($message)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> $message;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* 实现接口</div><div class="line">*/</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">class2</span> <span class="keyword">implements</span> <span class="title">hello</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">show</span><span class="params">($message)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> $message;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* 创建一个类</div><div class="line">*/</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Controller</span> </span>&#123;</div><div class="line">    <span class="keyword">protected</span> $hello;</div><div class="line"></div><div class="line">    <span class="comment">//参数为接口</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(hello $hello)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">$this</span>-&gt;hello = $hello;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">show</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        $message = <span class="string">"Nancelglap"</span>;</div><div class="line">        <span class="keyword">$this</span>-&gt;hello-&gt;show($message);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//当要切换类的时候就不用再更改construct方法中的hello接口，直接改实例化对象的类名</span></div><div class="line">$demo = <span class="keyword">new</span> Controller(<span class="keyword">new</span> class1);</div><div class="line">$demo -&gt; show();</div><div class="line"></div><div class="line">$demo = <span class="keyword">new</span> Controller(<span class="keyword">new</span> class2);</div><div class="line">$demo -&gt; show();</div></pre></td></tr></table></figure></p>
+<h3 id="魔术方法"><a href="#魔术方法" class="headerlink" title="魔术方法"></a>魔术方法</h3><blockquote>
+<p>__get($name)</p>
+</blockquote>
+<p>调用不存在的属性时自动调用，$name为调用的属性名</p>
+<blockquote>
+<p>__invoke($name)</p>
+</blockquote>
+<ul>
+<li>以调用函数的方式调用一个对象时，自动调用</li>
+<li>匿名函数等于重写了闭包对象的<code>__invoke()</code>函数</li>
+<li>array_map(闭包函数，array) 对array每个元素进行闭包函数操作</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Name</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__invoke</span><span class="params">($name)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"call myself"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">$var = <span class="keyword">new</span> Name();</div><div class="line">$var();</div></pre></td></tr></table></figure>
+<blockquote>
+<p>SplObjectStorage类</p>
+</blockquote>
+<ul>
+<li>实现了以<code>对象为键</code>的映射，可以直接删除指定对象，不用遍历整个集合</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$o1 = StdClsss;</div><div class="line">$s = SplObjectStorage();</div><div class="line">$s-&gt;attach($o1);</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -446,9 +466,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/php/" rel="tag"># php</a>
-          
             <a href="/tags/OOP/" rel="tag"># OOP</a>
+          
+            <a href="/tags/php/" rel="tag"># php</a>
           
             <a href="/tags/面向对象/" rel="tag"># 面向对象</a>
           

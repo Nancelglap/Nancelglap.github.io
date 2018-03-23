@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2018-03-08T02:39:31.325Z</updated>
+  <updated>2018-03-23T13:41:08.458Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -14,6 +14,84 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>django</title>
+    <link href="https://nancelglap.github.io/2018/03/23/django/"/>
+    <id>https://nancelglap.github.io/2018/03/23/django/</id>
+    <published>2018-03-23T03:03:51.000Z</published>
+    <updated>2018-03-23T13:41:08.458Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>Django框架相关</p>
+</blockquote>
+<h3 id="配置mysql"><a href="#配置mysql" class="headerlink" title="配置mysql"></a>配置mysql</h3><ol>
+<li>编辑<code>setting.py</code><figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">DATABASES = &#123;</div><div class="line">    <span class="string">'default'</span>: &#123;</div><div class="line">        <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.mysql'</span>,</div><div class="line">        <span class="string">'NAME'</span>: <span class="string">'databaseName'</span>,</div><div class="line">        <span class="string">'USER'</span>: <span class="string">'userName'</span>,</div><div class="line">        <span class="string">'PASSWORD'</span>: <span class="string">'password'</span>,</div><div class="line">        <span class="string">'HOST'</span>: <span class="string">'localhost'</span>,</div><div class="line">        <span class="string">'PORT'</span>: <span class="string">''</span>,</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>2.创建和迁移数据库到项目<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> python manage.py makemigrations</span></div><div class="line"><span class="meta">$</span><span class="bash"> python manage.py migrate</span></div><div class="line"><span class="meta"></span></div><div class="line">$<span class="bash"> python manage.py createsuperuser</span></div></pre></td></tr></table></figure></p>
+<p>3.运行测试<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> python manage.py runserver 0.0.0.0:8000</span></div></pre></td></tr></table></figure></p>
+<p>4.访问<code>127.0.0.0:8000/admin</code></p>
+<h3 id="创建应用以及创建表和model"><a href="#创建应用以及创建表和model" class="headerlink" title="创建应用以及创建表和model"></a>创建应用以及创建表和model</h3><p>1.创建应用，以下命令会创建一个polls目录<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> python manage.py startapp polls</span></div></pre></td></tr></table></figure></p>
+<p>2.修改<code>models.py</code>，创建表</p>
+<p>3.编辑<code>setting.py</code>，在<code>INSTALL_APPS</code>中加入之前<code>startapp</code>的应用名<code>polls</code><br><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">INSTALL_APPS = (</div><div class="line">    ...,</div><div class="line">    <span class="string">'polls'</span>,</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p>4.运行<code>migrate</code>生成表，以下生成<code>prefix_className</code>的表，className为model中声明的类名<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> python manage.py makemigrations prefix</span></div><div class="line"><span class="meta">$</span><span class="bash"> python manage.py migrate</span></div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Django框架相关&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;配置mysql&quot;&gt;&lt;a href=&quot;#配置mysql&quot; class=&quot;headerlink&quot; title=&quot;配置mysql&quot;&gt;&lt;/a&gt;配置mysql&lt;/h3&gt;&lt;ol&gt;
+&lt;li
+    
+    </summary>
+    
+      <category term="python" scheme="https://nancelglap.github.io/categories/python/"/>
+    
+      <category term="django" scheme="https://nancelglap.github.io/categories/python/django/"/>
+    
+    
+      <category term="python" scheme="https://nancelglap.github.io/tags/python/"/>
+    
+      <category term="django" scheme="https://nancelglap.github.io/tags/django/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IoC和DI</title>
+    <link href="https://nancelglap.github.io/2018/03/18/IoC%E5%92%8CDI/"/>
+    <id>https://nancelglap.github.io/2018/03/18/IoC和DI/</id>
+    <published>2018-03-18T02:32:33.000Z</published>
+    <updated>2018-03-18T02:37:33.539Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>控制反转和依赖注入容器</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="IoC（控制反转）"><a href="#IoC（控制反转）" class="headerlink" title="IoC（控制反转）"></a>IoC（控制反转）</h3><ul>
+<li>当类里面需要实现另一个类的时候，将最高层的类不变，其中的类去实现一个接口<code>interface</code></li>
+<li>这样最高层的类就不再依赖于特定的类，而是依赖抽象的接口</li>
+<li>以下代码同样可用<code>__construct()</code>方法改写</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 接口</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IDeviceWriter</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">saveToDevice</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 高层</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Business</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@var</span> IDeviceWriter</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> $writer;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 可改为__construct()方法</div><div class="line">     * <span class="doctag">@param</span> IDeviceWriter $writer</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setWriter</span><span class="params">($writer)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">$this</span>-&gt;writer = $writer;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">save</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">$this</span>-&gt;writer-&gt;saveToDevice();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 低层，软盘存储</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">FloppyWriter</span> <span class="keyword">implements</span> <span class="title">IDeviceWriter</span></span></div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">saveToDevice</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">echo</span> <span class="keyword">__METHOD__</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 低层，USB盘存储</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">UsbDiskWriter</span> <span class="keyword">implements</span> <span class="title">IDeviceWriter</span></span></div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">saveToDevice</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">echo</span> <span class="keyword">__METHOD__</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">$biz = <span class="keyword">new</span> Business();</div><div class="line">$biz-&gt;setWriter(<span class="keyword">new</span> UsbDiskWriter());</div><div class="line">$biz-&gt;save(); <span class="comment">// UsbDiskWriter::saveToDevice</span></div><div class="line"></div><div class="line">$biz-&gt;setWriter(<span class="keyword">new</span> FloppyWriter());</div><div class="line">$biz-&gt;save(); <span class="comment">// FloppyWriter::saveToDevice</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;控制反转和依赖注入容器&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="OOP" scheme="https://nancelglap.github.io/tags/OOP/"/>
+    
+      <category term="php" scheme="https://nancelglap.github.io/tags/php/"/>
+    
+  </entry>
   
   <entry>
     <title>tornado</title>
@@ -1020,108 +1098,6 @@
       <category term="Node.js" scheme="https://nancelglap.github.io/tags/Node-js/"/>
     
       <category term="modules" scheme="https://nancelglap.github.io/tags/modules/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js 语法</title>
-    <link href="https://nancelglap.github.io/2017/07/22/js-%E5%9B%9E%E8%B0%83%E4%B8%8E%E5%BC%82%E6%AD%A5/"/>
-    <id>https://nancelglap.github.io/2017/07/22/js-回调与异步/</id>
-    <published>2017-07-22T01:25:50.000Z</published>
-    <updated>2017-08-27T08:57:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>JS 语法相关问题</p>
-</blockquote>
-<a id="more"></a>
-<blockquote>
-<p>变量</p>
-</blockquote>
-<p>函数内部变量不用 <code>var</code> 声明就默认视为 <code>全局变量</code></p>
-<blockquote>
-<p>回调</p>
-</blockquote>
-<p>1、如果一个函数的参数有回调函数，那么会 <code>先执行完</code> 这个函数再执行回调函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun1</span> (<span class="params">callback</span>)</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">var</span> e = ...;</div><div class="line">    <span class="comment">// 执行一些操作</span></div><div class="line">    callback(e);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 传参方法1，用匿名函数传参</span></div><div class="line">fun1(<span class="function"><span class="keyword">function</span> (<span class="params">var</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">var</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 传参方法2，先定义函数后传参</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun2</span> (<span class="params">var</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">var</span>);</div><div class="line">&#125;</div><div class="line">fun1(fun2);</div></pre></td></tr></table></figure></p>
-<p>2、如果函数自带回调函数的参数，会先执行完这个函数的全部（包括延迟操作）才执行回调函数<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">* collection.<span class="built_in">find</span>().toArray()是个有延迟操作的函数</div><div class="line">* 必须等到延迟操作完成，即查询完成才会把err，result两个参数返回给回调执行</div><div class="line">*/</div><div class="line">collection.<span class="built_in">find</span>(whereStr).toArray(<span class="function"><span class="keyword">function</span><span class="params">(err, result)</span></span> &#123;</div><div class="line">    <span class="keyword">if</span>(err)</div><div class="line">    &#123;</div><div class="line">      console.<span class="built_in">log</span>(<span class="string">'Error:'</span>+ err);</div><div class="line">      <span class="keyword">return</span>;</div><div class="line">    &#125;     </div><div class="line">    console.<span class="built_in">log</span>(result);</div><div class="line">  &#125;);</div></pre></td></tr></table></figure></p>
-<p>3、一个函数最后返回的值对下一个函数有用，下一个函数可以加到上一个函数的一个参数（回调函数）内部<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> MongoClient = <span class="built_in">require</span>(<span class="string">"mongodb"</span>).MongoClient;</div><div class="line"><span class="keyword">var</span> DB_CNN_STR = <span class="string">'mongodb://localhost:27017/test'</span>;  <span class="comment">//连接test数据库</span></div><div class="line"></div><div class="line">Mogoclient.connect(DB_CNN_STR, <span class="function"><span class="keyword">function</span>(<span class="params">err, db</span>)</span>&#123;</div><div class="line">    <span class="comment">// 连接 site 表</span></div><div class="line">    <span class="keyword">var</span> collection = db.collection(<span class="string">'site'</span>);</div><div class="line"></div><div class="line">    collection.find().toArray(<span class="function"><span class="keyword">function</span> (<span class="params">err, result</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (err) &#123;</div><div class="line">            <span class="built_in">console</span>.log(err);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">console</span>.log(result);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* 因为上面返回的 collection 要用作后面的查询</div><div class="line">* 可以改写为以下</div><div class="line">*/</div><div class="line">db.collection(<span class="string">'site'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, collection</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(err) <span class="keyword">throw</span> error;</div><div class="line">    collection.find().toArray(<span class="function"><span class="keyword">function</span> (<span class="params">err, result</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span>(err) <span class="keyword">throw</span> err;</div><div class="line">        <span class="built_in">console</span>.log(result);</div><div class="line">    &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>异步</p>
-</blockquote>
-<p><code>js</code> 为单线程异步处理，所以有延迟操作的都会被放入 <code>任务队列</code> 中，异步操作完成后会在 <code>任务队列</code> 放置一个事件，当 <code>主进程完成时</code> 才会去执行 <code>任务队列</code> 中 <code>已完成</code> 并在 <code>等待</code> 的 <code>异步事件</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 因为函数内容有回调函数，所以会在等数据库查询操作完成时才会去执行回调函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">callback</span>)</span></div><div class="line">&#123;</div><div class="line">    asyncFn(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> result = 数据库查询操作;</div><div class="line">        callback(result);</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* 错误例子</div><div class="line">* asyncFn为一个查询数据库的异步函数，此函数还没执行完就直接执行return</div><div class="line">* 所以 result 还没被查询出来就被return了</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span></div><div class="line">&#123;</div><div class="line">    asyncFn(<span class="function"><span class="keyword">function</span> </span>&#123;</div><div class="line">        <span class="keyword">var</span> result = 数据库查询操作;</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>Promise</p>
-</blockquote>
-<p>1、用 <code>Promise</code> 解决异步问题，<code>Promise</code> 的三个状态 <code>Pending(等待)</code>， <code>fulfilled(完成)</code>， <code>rejected(失败)</code><br>帮助更好地执行异步</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* fs.readFile为异步读取文件函数</div><div class="line">* 如果不用 promise，在fs.readFile函数外直接调用他返回的data，此时data还未被完全读出</div><div class="line">* 使用 promise，在 promise 回调函数里异步函数在未完成前，promise都处于 "pending" 状态，不会进行下一步操作</div><div class="line">* 只有当异步完成，成功时调用resolve()，将 Promise状态设为 fulfilled；失败时调用reject()，将 Promise状态设为 rejected</div><div class="line">* 当状态为 fulfilled 时执行 result.then() 回调函数的内容，函数参数就是 resolve() 的内部参数</div><div class="line">* 当状态为 rejected 时执行 result.catch() 回调函数的内容，函数参数就是 reject() 的内部参数</div><div class="line">*/</div><div class="line"></div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</div><div class="line"><span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    fs.readFile(<span class="string">'filename'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</div><div class="line">        resolve(data.toString());</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line">result.then(<span class="function"><span class="keyword">function</span>(<span class="params">result</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(result);</div><div class="line">&#125;)</div><div class="line">.catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(err);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>2、<code>Promise</code> 写法有两种：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 第一种</span></div><div class="line"><span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    ...;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 第二种</span></div><div class="line"><span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">    ...;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>3、在 <code>Promise</code> then 中使用 <code>Promise</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* 在第一个Promise执行成功后执行他对应的then</div><div class="line">* fun1 是个 Promise对象（在外部定义），执行成功后返回的 e 传给后面的 then 作为参数</div><div class="line">* message 是值就是 e 的值</div><div class="line">*/</div><div class="line"><span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    ...;</div><div class="line">    resolve(d);</div><div class="line">&#125;);</div><div class="line">result.then(<span class="function"><span class="keyword">function</span>(<span class="params">result</span>)</span>&#123;</div><div class="line">    fun1(var1, var2).then(<span class="function"><span class="keyword">function</span>(<span class="params">message</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(message);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun1</span>(<span class="params">var1, var2</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> e = var1 + var2;</div><div class="line">        resolve(e);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>闭包</p>
-</blockquote>
-<p>主要作用：从外部读取函数内部 <code>局部变量</code></p>
-<p><code>1</code> 由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。</p>
-<p><code>2</code> 闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">　　<span class="keyword">var</span> name = <span class="string">"The Window"</span>;</div><div class="line">　　<span class="keyword">var</span> object = &#123;</div><div class="line">　　　　<span class="attr">name</span> : <span class="string">"My Object"</span>,</div><div class="line">　　　　<span class="attr">getNameFunc</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　　　<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　　　　　<span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">　　　　　　&#125;;</div><div class="line">　　　　&#125;</div><div class="line">　　&#125;;</div><div class="line">　　alert(object.getNameFunc()());</div><div class="line"></div><div class="line"><span class="comment">// undefined</span></div><div class="line"><span class="comment">// 外部变量改变了内部属性值，所以 this 指向的原来对象改变，找不到原来对象</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</div><div class="line">　　<span class="keyword">var</span> object = &#123;</div><div class="line">　　　　<span class="attr">name</span> : <span class="string">"My Object"</span>,</div><div class="line">　　　　<span class="attr">getNameFunc</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　　　<span class="keyword">var</span> that = <span class="keyword">this</span>;</div><div class="line">　　　　　　<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　　　　　<span class="keyword">return</span> that.name;</div><div class="line">　　　　　　&#125;;</div><div class="line">　　　　&#125;</div><div class="line">　　&#125;;</div><div class="line">　　alert(object.getNameFunc()());</div><div class="line"><span class="comment">// My object</span></div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;JS 语法相关问题&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="javascript" scheme="https://nancelglap.github.io/categories/javascript/"/>
-    
-    
-      <category term="javascript" scheme="https://nancelglap.github.io/tags/javascript/"/>
-    
-      <category term="callback" scheme="https://nancelglap.github.io/tags/callback/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mongodb</title>
-    <link href="https://nancelglap.github.io/2017/07/21/Mongodb/"/>
-    <id>https://nancelglap.github.io/2017/07/21/Mongodb/</id>
-    <published>2017-07-21T00:57:48.000Z</published>
-    <updated>2017-07-21T01:09:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>Mongodb相关</p>
-</blockquote>
-<a id="more"></a>
-<blockquote>
-<p>启动 Mongodb</p>
-</blockquote>
-<p>root用户启动<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">sudo mongod </span></div><div class="line">mongo</div></pre></td></tr></table></figure></p>
-<p>普通用户启动<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo mongod <span class="comment">--auth</span></div><div class="line">mongo</div><div class="line"></div><div class="line">#交互界面</div><div class="line"><span class="keyword">use</span> admin</div><div class="line">db.auth(<span class="symbol">'username</span>', <span class="symbol">'password</span>')</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>创建用户</p>
-</blockquote>
-<p>账号权限只针对数据库，在相应数据库下创建用户，在 <code>test</code> 数据库下创建一个用户<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="keyword">use</span> <span class="keyword">test</span></div><div class="line">switched to <span class="keyword">db</span> <span class="keyword">test</span></div><div class="line">&gt; <span class="keyword">db</span>.createUser(</div><div class="line">...&#123;</div><div class="line">...user:<span class="string">"username"</span>,</div><div class="line">...<span class="keyword">pwd</span>:<span class="string">"password"</span>,</div><div class="line">...roles:[&#123;role:<span class="string">"userAdminAnyDatabase"</span>, <span class="keyword">db</span>:<span class="string">"test"</span>&#125;] </div><div class="line">...&#125;</div><div class="line">...)</div></pre></td></tr></table></figure></p>
-<p>角色：</p>
-<blockquote>
-<p>Read：允许用户读取指定数据库<br>readWrite：允许用户读写指定数据库<br>dbAdmin：允许用户在指定数据库中执行管理函数，如索引创建、删除，查看统计或访问system.profile<br>userAdmin：允许用户向system.users集合写入，可以找指定数据库里创建、删除和管理用户<br>clusterAdmin：只在admin数据库中可用，赋予用户所有分片和复制集相关函数的管理权限。<br>readAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的读权限<br>readWriteAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的读写权限<br>userAdminAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的userAdmin权限<br>dbAdminAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的dbAdmin权限。<br>root：只在admin数据库中可用。超级账号，超级权限</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;Mongodb相关&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="database" scheme="https://nancelglap.github.io/categories/database/"/>
-    
-    
-      <category term="database" scheme="https://nancelglap.github.io/tags/database/"/>
-    
-      <category term="mongodb" scheme="https://nancelglap.github.io/tags/mongodb/"/>
     
   </entry>
   
