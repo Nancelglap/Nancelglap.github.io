@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2018-03-24T09:36:23.199Z</updated>
+  <updated>2018-03-24T09:38:22.605Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://nancelglap.github.io/2018/03/23/django/"/>
     <id>https://nancelglap.github.io/2018/03/23/django/</id>
     <published>2018-03-23T03:03:51.000Z</published>
-    <updated>2018-03-24T09:36:23.199Z</updated>
+    <updated>2018-03-24T09:38:22.605Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>Django框架相关</p>
@@ -37,6 +37,56 @@
 <p>2.修改<code>models.py</code>，创建表</p>
 <p>3.编辑<code>setting.py</code>，在<code>INSTALL_APPS</code>中加入之前<code>startapp</code>的应用名<code>polls</code><br><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">INSTALL_APPS = (</div><div class="line">    ...,</div><div class="line">    <span class="string">'polls'</span>,</div><div class="line">)</div></pre></td></tr></table></figure></p>
 <p>4.运行<code>migrate</code>生成表，以下生成<code>prefix_className</code>的表，className为model中声明的类名<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> python manage.py makemigrations prefix</span></div><div class="line"><span class="meta">$</span><span class="bash"> python manage.py migrate</span></div></pre></td></tr></table></figure></p>
+<h3 id="时区问题"><a href="#时区问题" class="headerlink" title="时区问题"></a>时区问题</h3><p><code>setting.py</code>的<code>USE_TZ</code>设为<code>False</code></p>
+<h3 id="给model实例编写方法"><a href="#给model实例编写方法" class="headerlink" title="给model实例编写方法"></a>给model实例编写方法</h3><p>1.在<code>models.py</code>中编写方法<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Class Poll(models.Model):</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">was_published_recently</span><span class="params">(<span class="keyword">self</span>)</span></span>:</div><div class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.pub_date &gt;= timezone.now() - datetime.timedelta(days=<span class="number">1</span>)</div></pre></td></tr></table></figure></p>
+<p>2.在<code>shell</code>交互中示例<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ python manage<span class="selector-class">.py</span> shell</div><div class="line"></div><div class="line">&gt;&gt;&gt; from polls<span class="selector-class">.models</span> import Poll</div><div class="line">&gt;&gt;&gt; <span class="selector-tag">p</span> = Poll<span class="selector-class">.objects</span><span class="selector-class">.get</span>(pk=<span class="number">1</span>)</div><div class="line">&gt;&gt;&gt; <span class="selector-tag">p</span>.was_published_recently()</div><div class="line">True</div></pre></td></tr></table></figure></p>
+<h3 id="操作queryset获取数据库信息"><a href="#操作queryset获取数据库信息" class="headerlink" title="操作queryset获取数据库信息"></a>操作queryset获取数据库信息</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> python manage.py shell</span></div><div class="line"><span class="meta"></span></div><div class="line">&gt;<span class="bash">&gt;&gt; from polls.models import Poll</span></div><div class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; from django.utils import timezone</span></div><div class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; current_year = timezone.now().year</span></div><div class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; p = Poll.objects.filter(pub_date__year=current_year)</span></div><div class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; q = Poll.objects.filter(question__startswith=<span class="string">'what'</span>)</span></div></pre></td></tr></table></figure>
+<p>筛选所有相应时间的集合<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Poll<span class="selector-class">.objects</span><span class="selector-class">.filter</span>(pub_date__lte=<span class="string">"2018-03-24 08:00:10"</span>).values()</div></pre></td></tr></table></figure></p>
+<h3 id="格式化时间输出"><a href="#格式化时间输出" class="headerlink" title="格式化时间输出"></a>格式化时间输出</h3><p>如果输出的<code>datetime</code>时间后面有小数点<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Poll.objects.get(pk=<span class="number">1</span>).values()[<span class="string">'pub_date'</span>].strftime(<span class="string">"%Y-%m-%d %H:%M:%S"</span>)</div></pre></td></tr></table></figure></p>
+<h3 id="queryset查询"><a href="#queryset查询" class="headerlink" title="queryset查询"></a>queryset查询</h3><ol>
+<li><p>计数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">models.modelName.objects.filter(name=<span class="string">'lzy'</span>).count()</div></pre></td></tr></table></figure>
+</li>
+<li><p>查询大于:<code>field__gt</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">models.modelName.objects.filter(id__gt = <span class="number">1</span>)</div></pre></td></tr></table></figure>
+</li>
+<li><p>查询小于:<code>field__lt</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">models.modelName.objects.filter(id__lt = <span class="number">10</span>)</div></pre></td></tr></table></figure>
+</li>
+<li><p>查询大于且小于:<code>field__lt</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">models.modelName.objects.filter(id__lt = <span class="number">10</span>, id__gt = <span class="number">1</span>)</div></pre></td></tr></table></figure>
+</li>
+<li><p>查询符合数组条件:<code>field__in</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">models.modelName.objects.filter(id__in=[<span class="number">11</span>, <span class="number">22</span> ,<span class="number">33</span>])    <span class="comment"># 获取id等于11，22，33数据</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>查询不符合数组条件:<code>field__in</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">models.modelName.objects.exclude(id__in=[<span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>])</div></pre></td></tr></table></figure>
+</li>
+<li><p>查询字段包含:<code>field__contains</code>,<code>icontains</code>大小写不敏感</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">model.modelName.objects.filter(name__contains=<span class="string">"ven"</span>)</div></pre></td></tr></table></figure>
+</li>
+<li><p>查询指定范围:<code>field__range</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">models.modelName.objects.filter(id__range=[<span class="number">1</span>, <span class="number">5</span>])</div></pre></td></tr></table></figure>
+</li>
+<li><p>查询按顺序排列:<code>queryset.order_by()</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">models.modelName.objects.filter(name=<span class="string">'ven'</span>).order_by(<span class="string">'id'</span>)  <span class="comment"># asc 从小到大</span></div><div class="line">models.modelName.objects.filter(name=<span class="string">'ven'</span>).order_by(<span class="string">'-id'</span>)  <span class="comment"># desc 从大到小</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>查询限制:分片</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">models.modelName.objects.all()[<span class="number">10</span>:<span class="number">20</span>]</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="queryset增，删，改"><a href="#queryset增，删，改" class="headerlink" title="queryset增，删，改"></a>queryset增，删，改</h3><blockquote>
+<p>增</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 1</span></div><div class="line">models.modelName.create(field1=<span class="string">'content'</span>, field2=<span class="string">'content2'</span>)    </div><div class="line"></div><div class="line"><span class="comment"># 2</span></div><div class="line">obj = models.modelName(field1=<span class="string">'content'</span>, field2=<span class="string">'content2'</span>)</div><div class="line">obj.save()</div><div class="line"></div><div class="line"><span class="comment"># 3</span></div><div class="line">dic = &#123;<span class="string">'field1'</span>: <span class="string">'xx'</span>, <span class="string">'filed2'</span>: <span class="string">'00'</span>&#125;</div><div class="line">models.modelName.objects.create(**dic)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>删</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">models.modelName.objects.filter(name=<span class="string">'ven'</span>).delete()</div></pre></td></tr></table></figure>
+<blockquote>
+<p>改</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">models.modelName.objects.filter(name=<span class="string">'ven'</span>).update(filed = <span class="string">'content'</span>)</div><div class="line"></div><div class="line">obj = models.modelName.objects.get(id=<span class="number">1</span>)</div><div class="line">obj.field = <span class="string">'content'</span></div><div class="line">obj.save()</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
