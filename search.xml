@@ -3,6 +3,32 @@
   
     
     <entry>
+      <title><![CDATA[Django开发相关]]></title>
+      <url>/2018/03/25/Django%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>关于Django实际开发的一些问题</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="解决json-dumps-中文变成乱码问题"><a href="#解决json-dumps-中文变成乱码问题" class="headerlink" title="解决json.dumps()中文变成乱码问题"></a>解决json.dumps()中文变成乱码问题</h3><p>给<code>json.dumps</code>加第二个参数<code>ensure_ascii=False</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> HttpResponse(json.dumps(&#123;<span class="string">"name"</span>:request.POST.get(<span class="string">'name'</span>)&#125;, ensure_ascii=<span class="keyword">False</span>))</div></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> Django </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Django </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Django Admin]]></title>
       <url>/2018/03/25/Django-Admin/</url>
       <content type="html"><![CDATA[<blockquote>

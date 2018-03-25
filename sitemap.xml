@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://nancelglap.github.io/2018/03/25/Django-Admin/</loc>
+    <loc>https://nancelglap.github.io/2018/03/25/Django%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/</loc>
     
-    <lastmod>2018-03-25T03:23:00.374Z</lastmod>
+    <lastmod>2018-03-25T13:38:16.927Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nancelglap.github.io/2018/03/23/django/</loc>
     
-    <lastmod>2018-03-25T02:36:40.524Z</lastmod>
+    <lastmod>2018-03-25T08:36:23.795Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancelglap.github.io/2018/03/25/Django-Admin/</loc>
+    
+    <lastmod>2018-03-25T03:23:00.374Z</lastmod>
     
   </url>
   
