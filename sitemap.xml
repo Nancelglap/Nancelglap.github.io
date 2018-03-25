@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nancelglap.github.io/2018/03/25/Django-Admin/</loc>
+    
+    <lastmod>2018-03-25T03:23:00.374Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nancelglap.github.io/2018/03/23/django/</loc>
     
-    <lastmod>2018-03-24T09:38:22.605Z</lastmod>
+    <lastmod>2018-03-25T02:36:40.524Z</lastmod>
     
   </url>
   
