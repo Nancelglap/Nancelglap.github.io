@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nancelglap.github.io/2017/05/10/JWT-dingo/</loc>
+    
+    <lastmod>2018-03-30T08:54:20.574Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nancelglap.github.io/2018/03/30/Django-uwsgi-nginx%E9%83%A8%E7%BD%B2/</loc>
     
     <lastmod>2018-03-30T06:43:26.404Z</lastmod>
@@ -138,13 +145,6 @@
     <loc>https://nancelglap.github.io/2017/07/17/laravel-admin/</loc>
     
     <lastmod>2017-10-13T03:11:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancelglap.github.io/2017/05/10/JWT-dingo/</loc>
-    
-    <lastmod>2017-10-11T01:31:56.000Z</lastmod>
     
   </url>
   
