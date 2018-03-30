@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nancelglap.github.io/2018/03/30/Django-uwsgi-nginx%E9%83%A8%E7%BD%B2/</loc>
+    
+    <lastmod>2018-03-30T06:43:26.404Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nancelglap.github.io/2018/03/25/Django%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/</loc>
     
     <lastmod>2018-03-25T13:38:16.927Z</lastmod>

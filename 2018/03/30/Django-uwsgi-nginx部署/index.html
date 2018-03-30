@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Django,uwsgi,nginx," />
 
 
 
@@ -95,15 +95,17 @@
 
 
 
-<meta name="description" content="不想正经">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Nancelglap">
-<meta property="og:url" content="https://nancelglap.github.io/tags/nginx/index.html">
+<meta name="description" content="关于ubuntu部署Django">
+<meta name="keywords" content="Django,uwsgi,nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django+uwsgi+nginx部署">
+<meta property="og:url" content="https://nancelglap.github.io/2018/03/30/Django-uwsgi-nginx部署/index.html">
 <meta property="og:site_name" content="Nancelglap">
-<meta property="og:description" content="不想正经">
+<meta property="og:description" content="关于ubuntu部署Django">
+<meta property="og:updated_time" content="2018-03-30T06:43:26.404Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nancelglap">
-<meta name="twitter:description" content="不想正经">
+<meta name="twitter:title" content="Django+uwsgi+nginx部署">
+<meta name="twitter:description" content="关于ubuntu部署Django">
 
 
 
@@ -131,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://nancelglap.github.io/tags/nginx/"/>
+  <link rel="canonical" href="https://nancelglap.github.io/2018/03/30/Django-uwsgi-nginx部署/"/>
 
 
 
 
 
-  <title>标签: nginx | Nancelglap</title>
+  <title>Django+uwsgi+nginx部署 | Nancelglap</title>
   
 
 
@@ -162,7 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -280,100 +282,208 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>nginx<small>标签</small>
-      </h1>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/30/Django-uwsgi-nginx部署/" itemprop="url">
-              
-                <span itemprop="name">Django+uwsgi+nginx部署</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-30T14:24:59+08:00"
-              content="2018-03-30" >
-          03-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/12/mac-nginx/" itemprop="url">
-              
-                <span itemprop="name">mac nginx</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-12T09:30:49+08:00"
-              content="2018-01-12" >
-          01-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/12/安装LEMP环境/" itemprop="url">
-              
-                <span itemprop="name">安装LEMP环境</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-12T20:04:53+08:00"
-              content="2017-05-12" >
-          05-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://nancelglap.github.io/2018/03/30/Django-uwsgi-nginx部署/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancelglap">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancelglap">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Django+uwsgi+nginx部署</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-30T14:24:59+08:00">
+                2018-03-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx/Django/" itemprop="url" rel="index">
+                    <span itemprop="name">Django</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>关于ubuntu部署Django</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="一、装Django"><a href="#一、装Django" class="headerlink" title="一、装Django"></a><strong>一、装Django</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo pip install django==1.8</span></div></pre></td></tr></table></figure>
+<h3 id="二、装uWSGI"><a href="#二、装uWSGI" class="headerlink" title="二、装uWSGI"></a><strong>二、装uWSGI</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo pip install uwsgi</span></div></pre></td></tr></table></figure>
+<h3 id="三、测试uWSGI"><a href="#三、测试uWSGI" class="headerlink" title="三、测试uWSGI"></a><strong>三、测试uWSGI</strong></h3><p><code>项目根目录/项目名/wsgi.py</code><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo uwsgi --http 0.0.0.0:8000 --wsgi-file wsgi.py</div></pre></td></tr></table></figure></p>
+<p>访问ip</p>
+<p>如果端口占用，列出程序pid号，再杀掉所有占用端口的程序<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> lsof -i :8000</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo <span class="built_in">kill</span> -9 pid</span></div></pre></td></tr></table></figure></p>
+<h3 id="四、配置nginx"><a href="#四、配置nginx" class="headerlink" title="四、配置nginx"></a><strong>四、配置nginx</strong></h3><p>1、拷贝配置文件到项目根目录<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> cp /etc/nginx/site-available/default /var/www/project/destiny.conf</span></div></pre></td></tr></table></figure></p>
+<p>2、确保有<code>/etc/nginx/uwsgi_params</code>文件，没有的话根据连接获取</p>
+<p>3、修改配置文件为以下<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="section">server</span> &#123;</div><div class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</div><div class="line">    <span class="attribute">server_name</span> localhost;</div><div class="line">    <span class="attribute">charset</span>     utf-<span class="number">8</span>;</div><div class="line">    <span class="attribute">access_log</span>      /var/www/project/log/nginx_access.log;</div><div class="line">    <span class="attribute">error_log</span>       /var/www/project/log/nginx_error.log;</div><div class="line">    <span class="attribute">client_max_body_size</span> <span class="number">75M</span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="attribute">location</span> /static &#123;</div><div class="line">        <span class="attribute">alias</span> /var/www/project/project/static;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="attribute">location</span> / &#123;</div><div class="line">        <span class="attribute">include</span>     /etc/nginx/uwsgi_params;</div><div class="line">        <span class="attribute">uwsgi_pass</span>  <span class="number">127.0.0.1:9090</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li><code>location /static</code>中的<code>/static</code>是自己定义的项目引用静态文件时，浏览器中显示的静态资源所在的根目录名;这样的话，用户在浏览器中查看到的所有image、css或js资源都是处在<code>http://127.0.0.1/static</code>下的</li>
+<li><code>location /</code>是指访问项目根目录时，nginx要做的事。其中需要指定 uwsgi_params文件的绝对路径，上面已经提到了</li>
+<li><code>127.0.0.1:9090</code>是指uWSGI绑定的监听地址</li>
+</ul>
+<h3 id="五、将目录权限给nginx"><a href="#五、将目录权限给nginx" class="headerlink" title="五、将目录权限给nginx"></a><strong>五、将目录权限给nginx</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo chown -R www-data:www-data /var/www/project</span></div></pre></td></tr></table></figure>
+<h3 id="六、在项目跟目录建立uWSGI配置文件uwsgi-ini"><a href="#六、在项目跟目录建立uWSGI配置文件uwsgi-ini" class="headerlink" title="六、在项目跟目录建立uWSGI配置文件uwsgi.ini"></a><strong>六、在项目跟目录建立uWSGI配置文件<code>uwsgi.ini</code></strong></h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="section">[uwsgi]</span></div><div class="line"><span class="attr">socket</span> = <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9090</span></div><div class="line"><span class="attr">chdir</span>=/var/www/project</div><div class="line"><span class="attr">module</span>=project.wsgi</div><div class="line"><span class="attr">master</span> = <span class="literal">true</span>         </div><div class="line"><span class="attr">processes</span>=<span class="number">2</span></div><div class="line"><span class="attr">threads</span>=<span class="number">2</span></div><div class="line"><span class="attr">max-requests</span>=<span class="number">2000</span></div><div class="line"><span class="attr">chmod-socket</span>=<span class="number">664</span></div><div class="line"><span class="attr">vacuum</span>=<span class="literal">true</span></div><div class="line"><span class="attr">daemonize</span> = /var/www/project/log/uwsgi.log</div></pre></td></tr></table></figure>
+<h3 id="七、去掉-etc-nginx-nginx-conf注释"><a href="#七、去掉-etc-nginx-nginx-conf注释" class="headerlink" title="七、去掉/etc/nginx/nginx.conf注释"></a><strong>七、去掉<code>/etc/nginx/nginx.conf</code>注释</strong></h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">include</span> <span class="regexp">/etc/</span>nginx<span class="regexp">/conf.d/</span>*.conf;  </div><div class="line"><span class="keyword">include</span> <span class="regexp">/etc/</span>nginx<span class="regexp">/sites-enabled/</span>*;</div></pre></td></tr></table></figure>
+<h3 id="八、启动uWSGI"><a href="#八、启动uWSGI" class="headerlink" title="八、启动uWSGI"></a><strong>八、启动uWSGI</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo uwsgi --ini /var/www/project/uwsgi.ini</span></div></pre></td></tr></table></figure>
+<h3 id="九、拷贝mime-type"><a href="#九、拷贝mime-type" class="headerlink" title="九、拷贝mime.type"></a><strong>九、拷贝<code>mime.type</code></strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo cp /etc/nginx/mime.types /var/www/mime.types</span></div></pre></td></tr></table></figure>
+<h3 id="十、启动nginx"><a href="#十、启动nginx" class="headerlink" title="十、启动nginx"></a><strong>十、启动nginx</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo service nginx stop</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo -c /var/www/project/destiny.conf</span></div></pre></td></tr></table></figure>
+<p><code>-c</code> 表示加载配置文件启动</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Django/" rel="tag"># Django</a>
+          
+            <a href="/tags/uwsgi/" rel="tag"># uwsgi</a>
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/25/Django开发相关/" rel="prev" title="Django开发相关">
+                Django开发相关 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -381,6 +491,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -486,10 +600,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
