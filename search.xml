@@ -38,16 +38,16 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[django]]></title>
+    <title><![CDATA[Django]]></title>
     <url>%2F2018%2F03%2F23%2Fdjango%2F</url>
     <content type="text"><![CDATA[Django QuerySet 配置mysql 编辑setting.py12345678910DATABASES = &#123; 'default': &#123; 'ENGINE': 'django.db.backends.mysql', 'NAME': 'databaseName', 'USER': 'userName', 'PASSWORD': 'password', 'HOST': 'localhost', 'PORT': '', &#125;&#125; 2.创建和迁移数据库到项目1234$ python manage.py makemigrations$ python manage.py migrate$ python manage.py createsuperuser 3.运行测试1$ python manage.py runserver 0.0.0.0:8000 4.访问127.0.0.0:8000/admin 创建应用以及创建表和model1.创建应用，以下命令会创建一个polls目录1$ python manage.py startapp polls 2.修改models.py，创建表 3.编辑setting.py，在INSTALL_APPS中加入之前startapp的应用名polls1234INSTALL_APPS = ( ..., 'polls',) 4.运行migrate生成表，以下生成prefix_className的表，className为model中声明的类名12$ python manage.py makemigrations prefix$ python manage.py migrate 时区问题setting.py的USE_TZ设为False 给model实例编写方法1.在models.py中编写方法123Class Poll(models.Model): def was_published_recently(self): return self.pub_date &gt;= timezone.now() - datetime.timedelta(days=1) 2.在shell交互中示例123456$ python manage.py shell&gt;&gt;&gt; from polls.models import Poll&gt;&gt;&gt; p = Poll.objects.get(pk=1)&gt;&gt;&gt; p.was_published_recently()True model的关联1.如果在model中创建了ForeignKey的关联，可以使用QuerySet增加关联2.如果有ForeignKey字段，自动给数据库增加为关联model_id的字段123456789class Poll(models.Model): question = models.CharField(max_length=200) pub_date = models.DateTimeField('date published') ...class Choice(models.Model): poll = models.ForeignKey(Poll) choice_text = models.CharField(max_length=200) votes = models.IntegerField(default=0) 12345&gt;&gt;&gt; p = Poll.objects.get(pk=1)&gt;&gt;&gt; p.choice_set.create(choice_text = 'Not much', votes = 0)&gt;&gt;&gt; p.choice_set.create(choice_text = 'The sky', votes = 0)&gt;&gt;&gt; p.choice_set.all()[&lt;Choice: Not much&gt;, &lt;Choice: The sky&gt;] 操作queryset获取数据库信息1234567$ python manage.py shell&gt;&gt;&gt; from polls.models import Poll&gt;&gt;&gt; from django.utils import timezone&gt;&gt;&gt; current_year = timezone.now().year&gt;&gt;&gt; p = Poll.objects.filter(pub_date__year=current_year)&gt;&gt;&gt; q = Poll.objects.filter(question__startswith='what') 筛选所有相应时间的集合1Poll.objects.filter(pub_date__lte="2018-03-24 08:00:10").values() 格式化时间输出如果输出的datetime时间后面有小数点1Poll.objects.get(pk=1).values()['pub_date'].strftime("%Y-%m-%d %H:%M:%S") queryset查询 计数 1models.modelName.objects.filter(name='lzy').count() 查询大于:field__gt 1models.modelName.objects.filter(id__gt = 1) 查询小于:field__lt 1models.modelName.objects.filter(id__lt = 10) 查询大于且小于:field__lt 1models.modelName.objects.filter(id__lt = 10, id__gt = 1) 查询符合数组条件:field__in 1models.modelName.objects.filter(id__in=[11, 22 ,33]) # 获取id等于11，22，33数据 查询不符合数组条件:field__in 1models.modelName.objects.exclude(id__in=[11, 22, 33]) 查询字段包含:field__contains,icontains大小写不敏感 1model.modelName.objects.filter(name__contains="ven") 查询指定范围:field__range 1models.modelName.objects.filter(id__range=[1, 5]) 查询按顺序排列:queryset.order_by() 12models.modelName.objects.filter(name='ven').order_by('id') # asc 从小到大models.modelName.objects.filter(name='ven').order_by('-id') # desc 从大到小 查询限制:分片 1models.modelName.objects.all()[10:20] queryset增，删，改 增 12345678910# 1models.modelName.create(field1='content', field2='content2') # 2obj = models.modelName(field1='content', field2='content2')obj.save()# 3dic = &#123;'field1': 'xx', 'filed2': '00'&#125;models.modelName.objects.create(**dic) 删 1models.modelName.objects.filter(name='ven').delete() 改 12345models.modelName.objects.filter(name='ven').update(filed = 'content')obj = models.modelName.objects.get(id=1)obj.field = 'content'obj.save()]]></content>
       <categories>
         <category>python</category>
-        <category>django</category>
+        <category>Django</category>
       </categories>
       <tags>
+        <tag>Django</tag>
         <tag>python</tag>
-        <tag>django</tag>
       </tags>
   </entry>
   <entry>

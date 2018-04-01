@@ -138,11 +138,11 @@
   </entry>
   
   <entry>
-    <title>django</title>
+    <title>Django</title>
     <link href="https://nancelglap.github.io/2018/03/23/django/"/>
     <id>https://nancelglap.github.io/2018/03/23/django/</id>
     <published>2018-03-23T03:03:51.000Z</published>
-    <updated>2018-03-25T08:36:23.795Z</updated>
+    <updated>2018-04-01T02:32:28.130Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>Django QuerySet</p>
@@ -223,12 +223,12 @@
     
       <category term="python" scheme="https://nancelglap.github.io/categories/python/"/>
     
-      <category term="django" scheme="https://nancelglap.github.io/categories/python/django/"/>
+      <category term="Django" scheme="https://nancelglap.github.io/categories/python/Django/"/>
     
+    
+      <category term="Django" scheme="https://nancelglap.github.io/tags/Django/"/>
     
       <category term="python" scheme="https://nancelglap.github.io/tags/python/"/>
-    
-      <category term="django" scheme="https://nancelglap.github.io/tags/django/"/>
     
   </entry>
   
