@@ -491,7 +491,7 @@
   <entry>
     <title><![CDATA[vim常用操作]]></title>
     <url>%2F2017%2F06%2F07%2Fvim%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%2F</url>
-    <content type="text"><![CDATA[插入 在当前位置前插入：i在当前行首插入：I在当前位置后插入：a在当前行尾插入：A在当前行之后插入一行：o在当前行之前插入一行：O 跳转 跳到到行尾：$跳到到行首：0跳到n行：nG跳到文本末尾：G向下翻页：Control + f向上翻页：Control + b下一个单词：w上一个单词：b下一行行首：+上一行行首：- 删除 删除到行首：d$删除到行尾：D删除光标字符：x删除光标后的单词：de 复制粘贴 复制当前行：yy复制从光标到行尾的内容：y$复制从光标到行首的内容：y^粘贴到光标右侧：p粘贴到光标左侧：P 查找 查找：/content（ n 跳到下一个内容 ）]]></content>
+    <content type="text"><![CDATA[插入 在当前位置前插入：i在当前行首插入：I在当前位置后插入：a在当前行尾插入：A在当前行之后插入一行：o在当前行之前插入一行：O 跳转 跳到到行尾：$跳到到行首：0跳到n行：nG跳到文本末尾：G向下翻页：Control + f向上翻页：Control + b下一个单词：w上一个单词：b下一行行首：+上一行行首：- 删除 删除到行首：d$删除到行尾：D删除光标字符：x删除光标后的单词：de删除光标所在的单词: diw delete inner word删除光标单词所在的句子: das delete around sentence替换光标所在的单词: ciw change inner word 复制粘贴 复制当前行：yy复制从光标到行尾的内容：y$复制从光标到行首的内容：y^粘贴到光标右侧：p粘贴到光标左侧：P 查找 查找：/content（ n 跳到下一个内容 ） 移动 在行间移动: gj/gk移动到页面的顶端: H移动到页面的中端: M移动到页面的低端: L移动到一个段落的后面: } 配合dap删除一个段落后用}移动到下一个段落然后p粘贴移动到一个段落的前面: { 其他 重复上个命令: . （替换一个单词后再替换其他）整块操作: v/control+v 选择整块进行操作]]></content>
       <categories>
         <category>vim</category>
       </categories>
