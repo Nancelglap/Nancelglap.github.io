@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2018-03-30T06:43:26.404Z</updated>
+  <updated>2018-06-05T12:33:03.259Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -16,22 +16,169 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Java 基础知识</title>
+    <link href="https://nancelglap.github.io/2018/06/05/Java-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    <id>https://nancelglap.github.io/2018/06/05/Java-基础知识/</id>
+    <published>2018-06-05T11:38:54.000Z</published>
+    <updated>2018-06-05T12:33:03.259Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>有关Java的基础知识</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="内置数据类型"><a href="#内置数据类型" class="headerlink" title="内置数据类型"></a>内置数据类型</h3><p><strong>byte</strong>:</p>
+<ul>
+<li>默认值是0</li>
+<li>范围为<code>-128 ~ 127</code></li>
+<li><strong>主要用于替代整数，节省空间</strong>，空间只有int的四分之一</li>
+</ul>
+<p><strong>short</strong>:</p>
+<ul>
+<li>范围<code>-32768 ~ 32767</code></li>
+<li>默认为0</li>
+<li>依然可以节省空间，只有int的二分之一</li>
+</ul>
+<p><strong>int</strong>:</p>
+<ul>
+<li>范围<code>-2147483648 ~ 2147483647</code></li>
+<li>默认为0</li>
+</ul>
+<p><strong>long</strong>:</p>
+<ul>
+<li>默认值为0L</li>
+<li><code>long a = 100000L</code></li>
+</ul>
+<p><strong>float</strong>:</p>
+<ul>
+<li>默认值是0.0f</li>
+<li><code>float f1 = 234.5f</code></li>
+</ul>
+<p><strong>double</strong>:</p>
+<ul>
+<li>默认值是0.0d</li>
+<li><code>double d1 = 123.4</code></li>
+</ul>
+<p><strong>booleam</strong>:</p>
+<ul>
+<li>true/flase</li>
+</ul>
+<p><strong>char</strong>:</p>
+<ul>
+<li>单一的16位Unicode字符</li>
+<li>可以存储任何字符</li>
+</ul>
+<h3 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h3><p><strong>final</strong></p>
+<ul>
+<li><strong>final变量的对象引用不能改变，但是里面的值可以改变</strong></li>
+<li>final方法可以被自类继承，但是不可以被修改</li>
+<li>final类不能被继承</li>
+</ul>
+<p><strong>synchronized</strong></p>
+<ul>
+<li>被声明的方法同一时间只能被一个线程访问</li>
+</ul>
+<p><strong>volatile</strong></p>
+<ul>
+<li>修饰的成员变量在每次被线程访问时，都强制从共享内存中重新读取该成员变量的值，当成员变量发生变化时，会强制线程将变化值写回共享内存</li>
+<li>保证任何时刻，两个不同的线程总是看到某个成员变量的同一个值<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyRunnable</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">boolean</span> active;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        active = <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">while</span> (active) <span class="comment">// 第一行</span></div><div class="line">        &#123;</div><div class="line">            <span class="comment">// 代码</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        active = <span class="keyword">false</span>; <span class="comment">// 第二行</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">/*</span></div><div class="line">如果是一个线程调用run()方法，另一个线程调用stop()方法，run中一旦拿到了active=true就一直循环，即使调用了stop()方法</div><div class="line">但是如果用volatile，当调用stop方法的时候就会去改共享内存中的active=false，run就会退出循环</div><div class="line">*/</div></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;有关Java的基础知识&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="java" scheme="https://nancelglap.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python核心编程</title>
+    <link href="https://nancelglap.github.io/2018/05/27/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/"/>
+    <id>https://nancelglap.github.io/2018/05/27/python核心编程/</id>
+    <published>2018-05-27T00:56:12.000Z</published>
+    <updated>2018-05-27T15:32:42.475Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>python核心编程第三版相关知识</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>正则表达式</p>
+</blockquote>
+<ol>
+<li>在匹配模式发生之前，正则表达式模式必须编译成正则表达式对象，因为正则表达式在执行过程中进行多次比较操作，因此要使用预编译<strong>re.compile()</strong></li>
+<li><em>re.match()</em>返回的是一个匹配对象，要用<em>group()</em>显示成功的匹配；不能匹配字符串（不能找pattern在其中的）</li>
+<li><em>re.search()</em>会从左到右搜索匹配的字符串，返回第一个匹配成功的，<strong>配合group()使用</strong></li>
+<li><p>使用括号匹配时将括号的内容放到元组中,配合<strong>group()/group()s</strong>使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">'(\w\w\w)-(\d\d\d)'</span>, <span class="string">'abc-123'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group()</div><div class="line"><span class="string">'abc-123'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">1</span>)</div><div class="line"><span class="string">'abc'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">2</span>)</div><div class="line"><span class="string">'123'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.groups()</div><div class="line">(<span class="string">'abc'</span>, <span class="string">'123'</span>)</div></pre></td></tr></table></figure>
+</li>
+<li><p><em>re.sub(pattern, substring, string)/re.subn()</em>匹配替换相应字符</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>re.sub(<span class="string">'[ae]'</span>, <span class="string">'X'</span>, <span class="string">'abcdef'</span>)</div><div class="line"><span class="string">'XbcdXf'</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><em>os.popen(command, ‘r’)</em>获取command输出的内容作为迭代对象，配合<em>with … as …</em>使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> os.popen(<span class="string">'who'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</div><div class="line">    <span class="keyword">for</span> eachLine <span class="keyword">in</span> f:</div><div class="line">        print(re.split(<span class="string">r'\s\s+ | \t'</span>, eachLine.strip()))</div></pre></td></tr></table></figure>
+</li>
+<li><p><em>with … as …</em>不管在处理文件过程中是否发生异常，都能保证 with 语句执行完毕后已经关闭了打开的文件句柄(<em>f.close()</em>)</p>
+</li>
+<li><p>生成随机数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randrange()</div><div class="line">randrange(<span class="number">100</span>)      <span class="comment"># 生成一百以内的随机数</span></div><div class="line">randrange(<span class="number">1</span>, <span class="number">10</span>)    <span class="comment"># 生成1-9的随机数</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>随机生成26个小写字母中的一个</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> string <span class="keyword">import</span> ascii_lowercase <span class="keyword">as</span> lc       <span class="comment"># lc是一个包含26个字母的字符串</span></div><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> choice                      <span class="comment"># 随机返回序列中的一个元素</span></div><div class="line"></div><div class="line">choice(lc)</div></pre></td></tr></table></figure>
+</li>
+<li><p>用指定字符串连接各个元素<em>string.join()</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">'--'</span>.join(choice(lc) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">7</span>))      <span class="comment"># 随机选择7个字母用'--'相连</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>TCP/UDP 网络编程</p>
+</blockquote>
+<ol>
+<li><p>TCP服务端</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</div><div class="line"><span class="keyword">from</span> time <span class="keyword">import</span> time</div><div class="line"></div><div class="line">HOST = <span class="string">''</span></div><div class="line">PORT = <span class="number">21567</span></div><div class="line">BUFSIZE = <span class="number">1024</span></div><div class="line">ADDR = (HOST, PORT)</div><div class="line"></div><div class="line">tcpSerSock = socket(AF_INET, SOCK_STREAM)</div><div class="line">tcpSerSock.bind(ADDR)</div><div class="line">tcpSerSock.listen(<span class="number">5</span>)</div><div class="line"></div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    print(<span class="string">'waiting for connection...'</span>)</div><div class="line">    tcpCliSock, addr = tcpSerSock.accept()</div><div class="line">    print(<span class="string">'connected from:'</span>, addr)</div><div class="line"></div><div class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">        data = tcpCliSock.recv(BUFSIZE)     <span class="comment"># 阻塞程序，一直等待客户端传来信息</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> data:</div><div class="line">            <span class="keyword">break</span></div><div class="line">        tcpCliSock.send(bytes(<span class="string">'[%s] %s'</span> % (bytes(ctime(), <span class="string">'gbk'</span>), data),<span class="string">'gbk'</span>))</div><div class="line"></div><div class="line">    tcpCliSock.close()</div><div class="line">tcpSerSock.close()</div></pre></td></tr></table></figure>
+</li>
+<li><p>TCP客户端程序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</div><div class="line"></div><div class="line">HOST = <span class="string">'127.0.0.1'</span></div><div class="line">PORT = <span class="number">21567</span></div><div class="line">BUFSIZE = <span class="number">1024</span></div><div class="line">ADDR = (HOST, PORT)</div><div class="line"></div><div class="line">tcpCliSock = socket(AF_INET, SOCK_STREAM)</div><div class="line">tcpCliSock.connect(ADDR)</div><div class="line"></div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    data = input(<span class="string">'&gt; '</span>)</div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> data:</div><div class="line">        <span class="keyword">break</span></div><div class="line">    tcpCliSock.send(bytes(data, <span class="string">'utf-8'</span>)</div><div class="line">    data = tcpCliSock.recv(BUFSIZE)</div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> data:</div><div class="line">        <span class="keyword">break</span></div><div class="line">    print(data.decode(<span class="string">'utf-8'</span>)</div><div class="line"></div><div class="line">tcpCliSock.close()</div></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;python核心编程第三版相关知识&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://nancelglap.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Django+uwsgi+nginx部署</title>
     <link href="https://nancelglap.github.io/2018/03/30/Django-uwsgi-nginx%E9%83%A8%E7%BD%B2/"/>
     <id>https://nancelglap.github.io/2018/03/30/Django-uwsgi-nginx部署/</id>
     <published>2018-03-30T06:24:59.000Z</published>
-    <updated>2018-03-30T06:43:26.404Z</updated>
+    <updated>2018-03-30T06:43:35.146Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>关于ubuntu部署Django</p>
 </blockquote>
 <a id="more"></a>
-<h3 id="一、装Django"><a href="#一、装Django" class="headerlink" title="一、装Django"></a><strong>一、装Django</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo pip install django==1.8</span></div></pre></td></tr></table></figure>
-<h3 id="二、装uWSGI"><a href="#二、装uWSGI" class="headerlink" title="二、装uWSGI"></a><strong>二、装uWSGI</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo pip install uwsgi</span></div></pre></td></tr></table></figure>
+<h3 id="一、装Django"><a href="#一、装Django" class="headerlink" title="一、装Django"></a><strong>一、装Django</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo pip install django==1.8</div></pre></td></tr></table></figure>
+<h3 id="二、装uWSGI"><a href="#二、装uWSGI" class="headerlink" title="二、装uWSGI"></a><strong>二、装uWSGI</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo pip install uwsgi</div></pre></td></tr></table></figure>
 <h3 id="三、测试uWSGI"><a href="#三、测试uWSGI" class="headerlink" title="三、测试uWSGI"></a><strong>三、测试uWSGI</strong></h3><p><code>项目根目录/项目名/wsgi.py</code><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo uwsgi --http 0.0.0.0:8000 --wsgi-file wsgi.py</div></pre></td></tr></table></figure></p>
 <p>访问ip</p>
-<p>如果端口占用，列出程序pid号，再杀掉所有占用端口的程序<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> lsof -i :8000</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo <span class="built_in">kill</span> -9 pid</span></div></pre></td></tr></table></figure></p>
-<h3 id="四、配置nginx"><a href="#四、配置nginx" class="headerlink" title="四、配置nginx"></a><strong>四、配置nginx</strong></h3><p>1、拷贝配置文件到项目根目录<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> cp /etc/nginx/site-available/default /var/www/project/destiny.conf</span></div></pre></td></tr></table></figure></p>
+<p>如果端口占用，列出程序pid号，再杀掉所有占用端口的程序<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> lsof -i :8000</div><div class="line"><span class="meta">$</span> sudo kill -9 pid</div></pre></td></tr></table></figure></p>
+<h3 id="四、配置nginx"><a href="#四、配置nginx" class="headerlink" title="四、配置nginx"></a><strong>四、配置nginx</strong></h3><p>1、拷贝配置文件到项目根目录<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> cp /etc/nginx/site-available/default /var/www/project/destiny.conf</div></pre></td></tr></table></figure></p>
 <p>2、确保有<code>/etc/nginx/uwsgi_params</code>文件，没有的话根据连接获取</p>
 <p>3、修改配置文件为以下<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="section">server</span> &#123;</div><div class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</div><div class="line">    <span class="attribute">server_name</span> localhost;</div><div class="line">    <span class="attribute">charset</span>     utf-<span class="number">8</span>;</div><div class="line">    <span class="attribute">access_log</span>      /var/www/project/log/nginx_access.log;</div><div class="line">    <span class="attribute">error_log</span>       /var/www/project/log/nginx_error.log;</div><div class="line">    <span class="attribute">client_max_body_size</span> <span class="number">75M</span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="attribute">location</span> /static &#123;</div><div class="line">        <span class="attribute">alias</span> /var/www/project/project/static;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="attribute">location</span> / &#123;</div><div class="line">        <span class="attribute">include</span>     /etc/nginx/uwsgi_params;</div><div class="line">        <span class="attribute">uwsgi_pass</span>  <span class="number">127.0.0.1:9090</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <ul>
@@ -74,7 +221,7 @@
     <link href="https://nancelglap.github.io/2018/03/25/Django%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/"/>
     <id>https://nancelglap.github.io/2018/03/25/Django开发相关/</id>
     <published>2018-03-25T08:42:26.000Z</published>
-    <updated>2018-04-13T00:16:07.603Z</updated>
+    <updated>2018-04-16T09:08:33.675Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>关于Django实际开发的一些问题</p>
@@ -165,7 +312,7 @@
     <link href="https://nancelglap.github.io/2018/03/23/django/"/>
     <id>https://nancelglap.github.io/2018/03/23/django/</id>
     <published>2018-03-23T03:03:51.000Z</published>
-    <updated>2018-04-07T02:04:18.888Z</updated>
+    <updated>2018-04-08T01:53:45.226Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>Django QuerySet</p>
@@ -385,7 +532,7 @@
     <link href="https://nancelglap.github.io/2018/01/12/mac-linux-%E5%91%BD%E4%BB%A4/"/>
     <id>https://nancelglap.github.io/2018/01/12/mac-linux-命令/</id>
     <published>2018-01-12T07:18:33.000Z</published>
-    <updated>2018-04-08T01:53:46.145Z</updated>
+    <updated>2018-04-08T01:54:49.643Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>mac/linux 终端命令</p>
@@ -1074,115 +1221,6 @@
       <category term="OOP" scheme="https://nancelglap.github.io/tags/OOP/"/>
     
       <category term="python" scheme="https://nancelglap.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pythonic</title>
-    <link href="https://nancelglap.github.io/2017/09/14/pythonic/"/>
-    <id>https://nancelglap.github.io/2017/09/14/pythonic/</id>
-    <published>2017-09-14T02:16:44.000Z</published>
-    <updated>2017-12-05T12:48:53.778Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>如何写出 pythonic 代码</p>
-</blockquote>
-<a id="more"></a>
-<blockquote>
-<p>1、传参</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">int(<span class="string">'123'</span>, base = <span class="number">2</span>)</div><div class="line"></div><div class="line"><span class="comment"># 等于以下</span></div><div class="line">kw = &#123;<span class="string">'base'</span>: <span class="number">2</span>&#125;</div><div class="line">int(<span class="string">'123'</span>, **kw)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>2、python实现switch语法</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">func1</span><span class="params">()</span>:</span></div><div class="line">    ...</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">func2</span><span class="params">()</span>:</span></div><div class="line">    ...</div><div class="line"></div><div class="line">dicts = &#123;</div><div class="line">    <span class="string">'A'</span>: func1,</div><div class="line">    <span class="string">'B'</span>: func2,</div><div class="line">    ...</div><div class="line">&#125;;</div><div class="line">func = dicts[value]</div><div class="line">func();</div></pre></td></tr></table></figure>
-<blockquote>
-<p>3、enumerate</p>
-</blockquote>
-<ul>
-<li>用于取列表索引还有内容</li>
-<li>第二个参数表示索引的开始数字</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">L = [i * i <span class="keyword">for</span> i range(<span class="number">5</span>)]</div><div class="line"><span class="keyword">for</span> index, data <span class="keyword">in</span> enumberate(L, <span class="number">1</span>):    </div><div class="line">    print(index, data)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>4、文件的x模式</p>
-</blockquote>
-<ul>
-<li>如果要写的目标文件已经存在就不写，不存在则写入内容</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">'somefile'</span>, <span class="string">'xt'</span>) <span class="keyword">as</span> f:</div><div class="line">    f.write(<span class="string">'Hello\n'</span>)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>5、大小判断条件</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># GOOD</span></div><div class="line"><span class="keyword">if</span> a&gt;b&gt;c:</div><div class="line">    <span class="keyword">pass</span></div><div class="line"></div><div class="line"><span class="comment"># BAD</span></div><div class="line"><span class="keyword">if</span> a&gt;b <span class="keyword">and</span> b&gt;c:</div><div class="line">    <span class="keyword">pass</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>6、按次数循环增加字符</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 输入一个数字，不够八位前面补0</span></div><div class="line">num = input(<span class="string">"please enter a number"</span>)</div><div class="line">lack = <span class="number">8</span>-len(num)</div><div class="line">out = <span class="string">'0'</span>*lack+num</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;如何写出 pythonic 代码&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="python" scheme="https://nancelglap.github.io/categories/python/"/>
-    
-    
-      <category term="python" scheme="https://nancelglap.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>配置七牛云</title>
-    <link href="https://nancelglap.github.io/2017/09/05/%E9%85%8D%E7%BD%AE%E4%B8%83%E7%89%9B%E4%BA%91/"/>
-    <id>https://nancelglap.github.io/2017/09/05/配置七牛云/</id>
-    <published>2017-09-05T09:13:01.000Z</published>
-    <updated>2017-09-05T09:22:29.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>laravel 配置七牛云</p>
-</blockquote>
-<a id="more"></a>
-<blockquote>
-<p>composer.json 或 composer require zgldh/qiniu-laravel-storage&gt; </p>
-</blockquote>
-<hr>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"zgldh/qiniu-laravel-storage"</span>: <span class="string">"^0.8.1"</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>config/app.php</p>
-</blockquote>
-<hr>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zgldh\QiniuStorage\QiniuFilesystemServiceProvider::<span class="class"><span class="keyword">class</span>,</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>config/filesystems.php</p>
-</blockquote>
-<hr>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="string">'qiniu'</span> =&gt; [</div><div class="line">            <span class="string">'driver'</span>  =&gt; <span class="string">'qiniu'</span>,</div><div class="line">            <span class="string">'domains'</span> =&gt; [</div><div class="line">                <span class="string">'default'</span>   =&gt; <span class="string">'ovmscef5i.bkt.clouddn.com'</span>, <span class="comment">//你的七牛域名</span></div><div class="line">                <span class="string">'https'</span>     =&gt; <span class="string">''</span>,         <span class="comment">//你的HTTPS域名</span></div><div class="line">                <span class="string">'custom'</span>    =&gt; <span class="string">''</span>,     <span class="comment">//你的自定义域名</span></div><div class="line">             ],</div><div class="line">            <span class="string">'access_key'</span>=&gt; <span class="string">'lqXMMY6JYjGEM-x0WgoJ84i35fc3BW2sMtOZXyzM'</span>,  <span class="comment">//AccessKey</span></div><div class="line">            <span class="string">'secret_key'</span>=&gt; <span class="string">'zRMFaIJ44i2KQZrN32GxWpO0_1ceU1heUsMSuLlH'</span>,  <span class="comment">//SecretKey</span></div><div class="line">            <span class="string">'bucket'</span>    =&gt; <span class="string">'quanzi'</span>,  <span class="comment">//Bucket名字</span></div><div class="line">            <span class="string">'notify_url'</span>=&gt; <span class="string">''</span>,  <span class="comment">//持久化处理回调地址</span></div><div class="line">        ],</div></pre></td></tr></table></figure>
-<blockquote>
-<p>语法</p>
-</blockquote>
-<hr>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">zgldh</span>\<span class="title">QiniuStorage</span>\<span class="title">QiniuStorage</span>;</div><div class="line"></div><div class="line">$disk = QiniuStorage::disk(<span class="string">'qiniu'</span>);</div><div class="line">$disk-&gt;exists(<span class="string">'file.jpg'</span>);                      <span class="comment">//文件是否存在</span></div><div class="line">$disk-&gt;get(<span class="string">'file.jpg'</span>);                         <span class="comment">//获取文件内容</span></div><div class="line">$disk-&gt;put(<span class="string">'file.jpg'</span>,$contents);               <span class="comment">//上传文件</span></div><div class="line">$disk-&gt;put(<span class="string">'file.jpg'</span>,fopen(<span class="string">'path/to/big.jpg'</span>,<span class="string">'r+'</span>)); <span class="comment">//分段上传文件。建议大文件&gt;10Mb使用。</span></div><div class="line">$disk-&gt;prepend(<span class="string">'file.log'</span>, <span class="string">'Prepended Text'</span>);   <span class="comment">//附加内容到文件开头</span></div><div class="line">$disk-&gt;append(<span class="string">'file.log'</span>, <span class="string">'Appended Text'</span>);     <span class="comment">//附加内容到文件结尾</span></div><div class="line">$disk-&gt;delete(<span class="string">'file.jpg'</span>);                      <span class="comment">//删除文件</span></div><div class="line">$disk-&gt;delete([<span class="string">'file1.jpg'</span>, <span class="string">'file2.jpg'</span>]);</div><div class="line">$disk-&gt;copy(<span class="string">'old/file1.jpg'</span>, <span class="string">'new/file1.jpg'</span>);  <span class="comment">//复制文件到新的路径</span></div><div class="line">$disk-&gt;move(<span class="string">'old/file1.jpg'</span>, <span class="string">'new/file1.jpg'</span>);  <span class="comment">//移动文件到新的路径</span></div><div class="line">$size = $disk-&gt;size(<span class="string">'file1.jpg'</span>);               <span class="comment">//取得文件大小</span></div><div class="line">$time = $disk-&gt;lastModified(<span class="string">'file1.jpg'</span>);       <span class="comment">//取得最近修改时间 (UNIX)</span></div><div class="line">$files = $disk-&gt;files($directory);              <span class="comment">//取得目录下所有文件</span></div><div class="line">$files = $disk-&gt;allFiles($directory);               <span class="comment">//这个没实现。。。</span></div><div class="line">$directories = $disk-&gt;directories($directory);      <span class="comment">//这个也没实现。。。</span></div><div class="line">$directories = $disk-&gt;allDirectories($directory);   <span class="comment">//这个也没实现。。。</span></div><div class="line">$disk-&gt;makeDirectory($directory);               <span class="comment">//这个其实没有任何作用</span></div><div class="line">$disk-&gt;deleteDirectory($directory);             <span class="comment">//删除目录，包括目录下所有子文件子目录</span></div><div class="line"></div><div class="line">$disk-&gt;uploadToken();                           <span class="comment">//获取上传Token</span></div><div class="line">$disk-&gt;uploadToken(<span class="string">'file.jpg'</span>);                 <span class="comment">//获取上传Token</span></div><div class="line">    </div><div class="line">$disk-&gt;withUploadToken($token);                 <span class="comment">// 使用自定义的 uploadToken 进行上传，</span></div><div class="line">$disk-&gt;put(<span class="string">'file.jpg'</span>,$content);                <span class="comment">// 则本次的 put 操作，将使用上述的 $token 进行上传。</span></div><div class="line">                                                    <span class="comment">// 常用于自动触发持久化处理 https://github.com/qiniu/php-sdk/blob/master/examples/upload_and_pfop.php</span></div><div class="line">    </div><div class="line">$disk-&gt;downloadUrl(<span class="string">'file.jpg'</span>);                     <span class="comment">//获取下载地址</span></div><div class="line">$disk-&gt;downloadUrl(<span class="string">'file.jpg'</span>)</div><div class="line">         -&gt;setDownload(<span class="string">'foo.jpg'</span>);                      <span class="comment">//获取下载地址，文件名为 foo.jpg</span></div><div class="line">$disk-&gt;downloadUrl(<span class="string">'file.jpg'</span>, <span class="string">'https'</span>);            <span class="comment">//获取HTTPS下载地址</span></div><div class="line">$disk-&gt;privateDownloadUrl(<span class="string">'file.jpg'</span>);              <span class="comment">//获取私有bucket下载地址</span></div><div class="line">$disk-&gt;privateDownloadUrl(<span class="string">'file.jpg?attname=foo.jpg'</span>);         </div><div class="line">                                                                <span class="comment">//获取私有bucket下载地址，文件名为 foo.jpg</span></div><div class="line">$disk-&gt;privateDownloadUrl(<span class="string">'file.jpg'</span>, <span class="string">'https'</span>);     <span class="comment">//获取私有bucket的HTTPS下载地址</span></div><div class="line">$disk-&gt;privateDownloadUrl(<span class="string">'file.jpg'</span>,</div><div class="line">                            [</div><div class="line">                                <span class="string">'domain'</span>=&gt;<span class="string">'https'</span>,</div><div class="line">                                <span class="string">'expires'</span>=&gt;<span class="number">3600</span></div><div class="line">                            ]);                         <span class="comment">//获取私有bucket的HTTPS下载地址。超时 3600 秒。</span></div><div class="line">$disk-&gt;avInfo(<span class="string">'file.mp3'</span>);                          <span class="comment">//获取多媒体文件信息</span></div><div class="line">$disk-&gt;imageInfo(<span class="string">'file.jpg'</span>);                       <span class="comment">//获取图片信息</span></div><div class="line">$disk-&gt;imageExif(<span class="string">'file.jpg'</span>);                       <span class="comment">//获取图片EXIF信息</span></div><div class="line">$disk-&gt;imagePreviewUrl(<span class="string">'file.jpg'</span>,<span class="string">'imageView2/0/w/100/h/200'</span>);                          <span class="comment">//获取图片预览URL</span></div><div class="line">$disk-&gt;privateImagePreviewUrl(<span class="string">'file.jpg'</span>,<span class="string">'imageView2/0/w/100/h/200'</span>);                   <span class="comment">//获取私有bucket图片预览URL</span></div><div class="line">$disk-&gt;verifyCallback(<span class="string">'application/x-www-form-urlencoded'</span>, $request-&gt;header(<span class="string">'Authorization'</span>), <span class="string">'callback url'</span>, $request-&gt;getContent());<span class="comment">//验证回调内容是否合法</span></div><div class="line">$disk-&gt;persistentFop(<span class="string">'file.flv'</span>,<span class="string">'avthumb/m3u8/segtime/40/vcodec/libx264/s/320x240'</span>);    <span class="comment">//执行持久化数据处理</span></div><div class="line">$disk-&gt;persistentFop(<span class="string">'file.flv'</span>,<span class="string">'fop'</span>,<span class="string">'队列名'</span>);    <span class="comment">//使用私有队列执行持久化数据处理</span></div><div class="line">$disk-&gt;persistentStatus($persistent_fop_id);        <span class="comment">//查看持久化数据处理的状态。</span></div><div class="line"></div><div class="line">$disk-&gt;fetch(<span class="string">'http://abc.com/foo.jpg'</span>, <span class="string">'bar.jpg'</span>); <span class="comment">//调用fetch将 foo.jpg 数据以 bar.jpg 的名字储存起来。</span></div><div class="line">$disk-&gt;qetag();     <span class="comment">//得到最后一次执行 put, copy, append 等写入操作后，得到的hash值。详见 https://github.com/qiniu/qetag</span></div><div class="line">$disk-&gt;lastReturn();<span class="comment">//得到最后一次执行 put, copy, append 等写入操作后，得到的返回值。</span></div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;laravel 配置七牛云&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="cloud" scheme="https://nancelglap.github.io/categories/cloud/"/>
-    
-    
-      <category term="laravel" scheme="https://nancelglap.github.io/tags/laravel/"/>
-    
-      <category term="qiniuyun" scheme="https://nancelglap.github.io/tags/qiniuyun/"/>
     
   </entry>
   

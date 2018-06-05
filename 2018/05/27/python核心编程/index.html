@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="python," />
 
 
 
@@ -95,15 +95,17 @@
 
 
 
-<meta name="description" content="不想正经">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Nancelglap">
-<meta property="og:url" content="https://nancelglap.github.io/archives/2018/index.html">
+<meta name="description" content="python核心编程第三版相关知识">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python核心编程">
+<meta property="og:url" content="https://nancelglap.github.io/2018/05/27/python核心编程/index.html">
 <meta property="og:site_name" content="Nancelglap">
-<meta property="og:description" content="不想正经">
+<meta property="og:description" content="python核心编程第三版相关知识">
+<meta property="og:updated_time" content="2018-05-27T15:32:42.475Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nancelglap">
-<meta name="twitter:description" content="不想正经">
+<meta name="twitter:title" content="python核心编程">
+<meta name="twitter:description" content="python核心编程第三版相关知识">
 
 
 
@@ -131,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://nancelglap.github.io/archives/2018/"/>
+  <link rel="canonical" href="https://nancelglap.github.io/2018/05/27/python核心编程/"/>
 
 
 
 
 
-  <title>归档 | Nancelglap</title>
+  <title>python核心编程 | Nancelglap</title>
   
 
 
@@ -162,7 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -280,402 +282,194 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-       
-        
-      好! 目前共计 65 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://nancelglap.github.io/2018/05/27/python核心编程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancelglap">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancelglap">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python核心编程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-27T08:56:12+08:00">
+                2018-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <blockquote>
+<p>python核心编程第三版相关知识</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>正则表达式</p>
+</blockquote>
+<ol>
+<li>在匹配模式发生之前，正则表达式模式必须编译成正则表达式对象，因为正则表达式在执行过程中进行多次比较操作，因此要使用预编译<strong>re.compile()</strong></li>
+<li><em>re.match()</em>返回的是一个匹配对象，要用<em>group()</em>显示成功的匹配；不能匹配字符串（不能找pattern在其中的）</li>
+<li><em>re.search()</em>会从左到右搜索匹配的字符串，返回第一个匹配成功的，<strong>配合group()使用</strong></li>
+<li><p>使用括号匹配时将括号的内容放到元组中,配合<strong>group()/group()s</strong>使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">'(\w\w\w)-(\d\d\d)'</span>, <span class="string">'abc-123'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group()</div><div class="line"><span class="string">'abc-123'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">1</span>)</div><div class="line"><span class="string">'abc'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">2</span>)</div><div class="line"><span class="string">'123'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.groups()</div><div class="line">(<span class="string">'abc'</span>, <span class="string">'123'</span>)</div></pre></td></tr></table></figure>
+</li>
+<li><p><em>re.sub(pattern, substring, string)/re.subn()</em>匹配替换相应字符</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>re.sub(<span class="string">'[ae]'</span>, <span class="string">'X'</span>, <span class="string">'abcdef'</span>)</div><div class="line"><span class="string">'XbcdXf'</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><em>os.popen(command, ‘r’)</em>获取command输出的内容作为迭代对象，配合<em>with … as …</em>使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> os.popen(<span class="string">'who'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</div><div class="line">    <span class="keyword">for</span> eachLine <span class="keyword">in</span> f:</div><div class="line">        print(re.split(<span class="string">r'\s\s+ | \t'</span>, eachLine.strip()))</div></pre></td></tr></table></figure>
+</li>
+<li><p><em>with … as …</em>不管在处理文件过程中是否发生异常，都能保证 with 语句执行完毕后已经关闭了打开的文件句柄(<em>f.close()</em>)</p>
+</li>
+<li><p>生成随机数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randrange()</div><div class="line">randrange(<span class="number">100</span>)      <span class="comment"># 生成一百以内的随机数</span></div><div class="line">randrange(<span class="number">1</span>, <span class="number">10</span>)    <span class="comment"># 生成1-9的随机数</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>随机生成26个小写字母中的一个</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> string <span class="keyword">import</span> ascii_lowercase <span class="keyword">as</span> lc       <span class="comment"># lc是一个包含26个字母的字符串</span></div><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> choice                      <span class="comment"># 随机返回序列中的一个元素</span></div><div class="line"></div><div class="line">choice(lc)</div></pre></td></tr></table></figure>
+</li>
+<li><p>用指定字符串连接各个元素<em>string.join()</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">'--'</span>.join(choice(lc) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">7</span>))      <span class="comment"># 随机选择7个字母用'--'相连</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>TCP/UDP 网络编程</p>
+</blockquote>
+<ol>
+<li><p>TCP服务端</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</div><div class="line"><span class="keyword">from</span> time <span class="keyword">import</span> time</div><div class="line"></div><div class="line">HOST = <span class="string">''</span></div><div class="line">PORT = <span class="number">21567</span></div><div class="line">BUFSIZE = <span class="number">1024</span></div><div class="line">ADDR = (HOST, PORT)</div><div class="line"></div><div class="line">tcpSerSock = socket(AF_INET, SOCK_STREAM)</div><div class="line">tcpSerSock.bind(ADDR)</div><div class="line">tcpSerSock.listen(<span class="number">5</span>)</div><div class="line"></div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    print(<span class="string">'waiting for connection...'</span>)</div><div class="line">    tcpCliSock, addr = tcpSerSock.accept()</div><div class="line">    print(<span class="string">'connected from:'</span>, addr)</div><div class="line"></div><div class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">        data = tcpCliSock.recv(BUFSIZE)     <span class="comment"># 阻塞程序，一直等待客户端传来信息</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> data:</div><div class="line">            <span class="keyword">break</span></div><div class="line">        tcpCliSock.send(bytes(<span class="string">'[%s] %s'</span> % (bytes(ctime(), <span class="string">'gbk'</span>), data),<span class="string">'gbk'</span>))</div><div class="line"></div><div class="line">    tcpCliSock.close()</div><div class="line">tcpSerSock.close()</div></pre></td></tr></table></figure>
+</li>
+<li><p>TCP客户端程序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</div><div class="line"></div><div class="line">HOST = <span class="string">'127.0.0.1'</span></div><div class="line">PORT = <span class="number">21567</span></div><div class="line">BUFSIZE = <span class="number">1024</span></div><div class="line">ADDR = (HOST, PORT)</div><div class="line"></div><div class="line">tcpCliSock = socket(AF_INET, SOCK_STREAM)</div><div class="line">tcpCliSock.connect(ADDR)</div><div class="line"></div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    data = input(<span class="string">'&gt; '</span>)</div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> data:</div><div class="line">        <span class="keyword">break</span></div><div class="line">    tcpCliSock.send(bytes(data, <span class="string">'utf-8'</span>)</div><div class="line">    data = tcpCliSock.recv(BUFSIZE)</div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> data:</div><div class="line">        <span class="keyword">break</span></div><div class="line">    print(data.decode(<span class="string">'utf-8'</span>)</div><div class="line"></div><div class="line">tcpCliSock.close()</div></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
         </div>
       
+
+      
+      
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/05/Java-基础知识/" rel="next" title="Java 基础知识">
+                <i class="fa fa-chevron-left"></i> Java 基础知识
+              </a>
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/06/05/Java-基础知识/" itemprop="url">
-              
-                <span itemprop="name">Java 基础知识</span>
-              
-            </a>
-        
-      </h2>
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/30/Django-uwsgi-nginx部署/" rel="prev" title="Django+uwsgi+nginx部署">
+                Django+uwsgi+nginx部署 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-05T19:38:54+08:00"
-              content="2018-06-05" >
-          06-05
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/27/python核心编程/" itemprop="url">
-              
-                <span itemprop="name">python核心编程</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-27T08:56:12+08:00"
-              content="2018-05-27" >
-          05-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/30/Django-uwsgi-nginx部署/" itemprop="url">
-              
-                <span itemprop="name">Django+uwsgi+nginx部署</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-30T14:24:59+08:00"
-              content="2018-03-30" >
-          03-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/25/Django开发相关/" itemprop="url">
-              
-                <span itemprop="name">Django开发相关</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-25T16:42:26+08:00"
-              content="2018-03-25" >
-          03-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/25/Django-Admin/" itemprop="url">
-              
-                <span itemprop="name">Django Admin</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-25T10:37:02+08:00"
-              content="2018-03-25" >
-          03-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/23/django/" itemprop="url">
-              
-                <span itemprop="name">Django QuerySet</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-23T11:03:51+08:00"
-              content="2018-03-23" >
-          03-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/18/IoC和DI/" itemprop="url">
-              
-                <span itemprop="name">IoC和DI</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-18T10:32:33+08:00"
-              content="2018-03-18" >
-          03-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/06/tornado/" itemprop="url">
-              
-                <span itemprop="name">tornado</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-06T09:47:07+08:00"
-              content="2018-03-06" >
-          03-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/30/composer自动加载/" itemprop="url">
-              
-                <span itemprop="name">composer自动加载</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-30T11:28:05+08:00"
-              content="2018-01-30" >
-          01-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/12/mac-linux-命令/" itemprop="url">
-              
-                <span itemprop="name">mac/linux 命令</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-12T15:18:33+08:00"
-              content="2018-01-12" >
-          01-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
@@ -683,6 +477,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -788,11 +586,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   

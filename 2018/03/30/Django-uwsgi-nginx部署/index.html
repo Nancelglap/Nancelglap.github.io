@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2018/03/30/Django-uwsgi-nginx部署/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="关于ubuntu部署Django">
-<meta property="og:updated_time" content="2018-03-30T06:43:26.404Z">
+<meta property="og:updated_time" content="2018-03-30T06:43:35.146Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django+uwsgi+nginx部署">
 <meta name="twitter:description" content="关于ubuntu部署Django">
@@ -393,12 +393,12 @@
 <p>关于ubuntu部署Django</p>
 </blockquote>
 <a id="more"></a>
-<h3 id="一、装Django"><a href="#一、装Django" class="headerlink" title="一、装Django"></a><strong>一、装Django</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo pip install django==1.8</span></div></pre></td></tr></table></figure>
-<h3 id="二、装uWSGI"><a href="#二、装uWSGI" class="headerlink" title="二、装uWSGI"></a><strong>二、装uWSGI</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo pip install uwsgi</span></div></pre></td></tr></table></figure>
+<h3 id="一、装Django"><a href="#一、装Django" class="headerlink" title="一、装Django"></a><strong>一、装Django</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo pip install django==1.8</div></pre></td></tr></table></figure>
+<h3 id="二、装uWSGI"><a href="#二、装uWSGI" class="headerlink" title="二、装uWSGI"></a><strong>二、装uWSGI</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo pip install uwsgi</div></pre></td></tr></table></figure>
 <h3 id="三、测试uWSGI"><a href="#三、测试uWSGI" class="headerlink" title="三、测试uWSGI"></a><strong>三、测试uWSGI</strong></h3><p><code>项目根目录/项目名/wsgi.py</code><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo uwsgi --http 0.0.0.0:8000 --wsgi-file wsgi.py</div></pre></td></tr></table></figure></p>
 <p>访问ip</p>
-<p>如果端口占用，列出程序pid号，再杀掉所有占用端口的程序<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> lsof -i :8000</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo <span class="built_in">kill</span> -9 pid</span></div></pre></td></tr></table></figure></p>
-<h3 id="四、配置nginx"><a href="#四、配置nginx" class="headerlink" title="四、配置nginx"></a><strong>四、配置nginx</strong></h3><p>1、拷贝配置文件到项目根目录<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> cp /etc/nginx/site-available/default /var/www/project/destiny.conf</span></div></pre></td></tr></table></figure></p>
+<p>如果端口占用，列出程序pid号，再杀掉所有占用端口的程序<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> lsof -i :8000</div><div class="line"><span class="meta">$</span> sudo kill -9 pid</div></pre></td></tr></table></figure></p>
+<h3 id="四、配置nginx"><a href="#四、配置nginx" class="headerlink" title="四、配置nginx"></a><strong>四、配置nginx</strong></h3><p>1、拷贝配置文件到项目根目录<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> cp /etc/nginx/site-available/default /var/www/project/destiny.conf</div></pre></td></tr></table></figure></p>
 <p>2、确保有<code>/etc/nginx/uwsgi_params</code>文件，没有的话根据连接获取</p>
 <p>3、修改配置文件为以下<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="section">server</span> &#123;</div><div class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</div><div class="line">    <span class="attribute">server_name</span> localhost;</div><div class="line">    <span class="attribute">charset</span>     utf-<span class="number">8</span>;</div><div class="line">    <span class="attribute">access_log</span>      /var/www/project/log/nginx_access.log;</div><div class="line">    <span class="attribute">error_log</span>       /var/www/project/log/nginx_error.log;</div><div class="line">    <span class="attribute">client_max_body_size</span> <span class="number">75M</span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="attribute">location</span> /static &#123;</div><div class="line">        <span class="attribute">alias</span> /var/www/project/project/static;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="attribute">location</span> / &#123;</div><div class="line">        <span class="attribute">include</span>     /etc/nginx/uwsgi_params;</div><div class="line">        <span class="attribute">uwsgi_pass</span>  <span class="number">127.0.0.1:9090</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <ul>
@@ -458,6 +458,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/27/python核心编程/" rel="next" title="python核心编程">
+                <i class="fa fa-chevron-left"></i> python核心编程
+              </a>
             
           </div>
 
