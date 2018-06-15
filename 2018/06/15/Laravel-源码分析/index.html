@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2018/06/15/Laravel-源码分析/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="对laravel源码的分析记录">
-<meta property="og:updated_time" content="2018-06-15T16:31:12.940Z">
+<meta property="og:updated_time" content="2018-06-15T16:34:25.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Laravel 源码分析">
 <meta name="twitter:description" content="对laravel源码的分析记录">
@@ -375,10 +375,7 @@
 </li>
 </ol>
 <hr>
-<blockquote>
-<p>Model的where方法实现</p>
-</blockquote>
-<ul>
+<h2 id="Model的where方法实现"><a href="#Model的where方法实现" class="headerlink" title="Model的where方法实现"></a>Model的where方法实现</h2><ul>
 <li>Model类里面没有<code>where</code>方法，看源码知道，当调用<code>Model::where()</code>方法的时候，因为类中没有相应静态方法，所以会调用<code>__callStatic()</code>方法</li>
 <li><code>__callStatic()</code>方法调用类实例的<code>where</code>方法，实例还是没有<code>where</code>方法，所以调用类中的<code>__call()</code>方法，返回一个处理过的<code>Illuminate\Database\Eloquent\Builder</code>实例，这个实例里面有<code>where</code>方法</li>
 </ul>
