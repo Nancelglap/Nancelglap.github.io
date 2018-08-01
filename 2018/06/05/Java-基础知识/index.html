@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2018/06/05/Java-基础知识/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="有关Java的基础知识">
-<meta property="og:updated_time" content="2018-07-17T01:50:33.817Z">
+<meta property="og:updated_time" content="2018-07-31T12:35:20.565Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 基础知识">
 <meta name="twitter:description" content="有关Java的基础知识">
@@ -443,7 +443,8 @@
 </li>
 </ul>
 <h2 id="多态的虚方法"><a href="#多态的虚方法" class="headerlink" title="多态的虚方法"></a>多态的虚方法</h2><ul>
-<li>当引用为父类，对象为子类的时候，引用<strong>调用的方法会先去检查父类是否有此方法，没有编译错误；有的话调用</strong><code>子类的方法</code><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Salary是Employee的子类</span></div><div class="line">Salary s = <span class="keyword">new</span> Salary(<span class="string">"员工 A"</span>, <span class="string">"背景"</span>, <span class="number">3</span>, <span class="number">3600.00</span>);</div><div class="line">Employee e = <span class="keyword">new</span> Salary(<span class="string">"员工 B"</span>, <span class="string">"上海"</span>, <span class="number">2</span>, <span class="number">2400.0</span>);</div><div class="line">s.mailCheck();</div><div class="line">e.mailCheck();      <span class="comment">// 当Employee有mailCheck方法时，调用Salary的mailCheck方法</span></div></pre></td></tr></table></figure>
+<li>当引用为父类，对象为子类的时候，引用<strong>调用的方法会先去检查父类是否有此方法，没有编译错误；有的话调用</strong><code>子类的方法</code></li>
+<li>编译的时候，编译器用引用的类的方法验证；运行的使用调用的是对象的方法<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Salary是Employee的子类</span></div><div class="line">Salary s = <span class="keyword">new</span> Salary(<span class="string">"员工 A"</span>, <span class="string">"背景"</span>, <span class="number">3</span>, <span class="number">3600.00</span>);</div><div class="line">Employee e = <span class="keyword">new</span> Salary(<span class="string">"员工 B"</span>, <span class="string">"上海"</span>, <span class="number">2</span>, <span class="number">2400.0</span>);</div><div class="line">s.mailCheck();</div><div class="line">e.mailCheck();      <span class="comment">// 当Employee有mailCheck方法时，调用Salary的mailCheck方法</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="接口特性"><a href="#接口特性" class="headerlink" title="接口特性"></a>接口特性</h2><ul>
