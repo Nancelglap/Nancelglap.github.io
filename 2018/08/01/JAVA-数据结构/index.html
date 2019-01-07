@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2018/08/01/JAVA-数据结构/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="JAVA 数据结构相关">
-<meta property="og:updated_time" content="2018-08-01T02:06:17.426Z">
+<meta property="og:updated_time" content="2018-09-19T05:13:58.543Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA 数据结构">
 <meta name="twitter:description" content="JAVA 数据结构相关">
@@ -376,6 +376,22 @@
 <li><code>int search(Object element)</code>：返回对象在栈中的位置</li>
 <li>Stack变量可以直接输出</li>
 </ul>
+<h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><ul>
+<li>不支持并发</li>
+<li>是一个维护<strong>Entry</strong>单向链表的数组<br>= 数组容量始终保持<strong>2^n</strong>，扩容后容量变成原来两倍</li>
+</ul>
+<blockquote>
+<p>put 过程</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> V <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123;</div><div class="line">    <span class="comment">// 如果数组为空，初始化数组</span></div><div class="line">    <span class="keyword">if</span> (table == EMPTY_TABLE) &#123;</div><div class="line">        inflateTable(threshold);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 如果 key 为 null， 放到 table[0] 中</span></div><div class="line">    <span class="keyword">if</span> (key == <span class="keyword">null</span>)</div><div class="line">        <span class="keyword">return</span> putForNullKey(value);</div><div class="line">    <span class="comment">// 求 key 的 hash 值</span></div><div class="line">    <span class="keyword">int</span> hash = hash(key);</div><div class="line">    <span class="comment">// 找到对应的数组下标</span></div><div class="line">    <span class="keyword">int</span> i = indexFor(hash, table.length);</div><div class="line">    <span class="comment">// 遍历对应下标的单向链表，看key是否已经存在，</span></div><div class="line">    <span class="comment">// 如果有，直接覆盖，put方法返回旧值结束</span></div><div class="line">    <span class="keyword">for</span> (Entry&lt;K,V&gt; e = table[i]; e != <span class="keyword">null</span>; e = e.next) &#123;</div><div class="line">        Object k;</div><div class="line">        <span class="keyword">if</span> (e.hash == hash &amp;&amp; ((k = e.key) == key || key.equals(k))) &#123;</div><div class="line">            V oldValue = e.value;</div><div class="line">            e.value = value;</div><div class="line">            e.recordAccess(<span class="keyword">this</span>);</div><div class="line">            <span class="keyword">return</span> oldValue;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    modCount++;</div><div class="line">    <span class="comment">// 不存在重复的key，将此entry添加到链表中</span></div><div class="line">    addEntry(hash, key, value, i);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>数组的初始化</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">inflateTable</span><span class="params">(<span class="keyword">int</span> toSize)</span> </span>&#123;</div><div class="line">    <span class="comment">// 保证数组大小一定是2的n次方。如new HashMap(10),初始化成大小为16</span></div><div class="line">    <span class="keyword">int</span> capacity = roundUpToPowerOf2(toSize);</div><div class="line">    <span class="comment">// 计算扩容阈值：capacity * loadFactor</span></div><div class="line">    threshold = (<span class="keyword">int</span>) Math.min(capacity * loadFactor, MAXIMUM_CAPACITY + <span class="number">1</span>);</div><div class="line">    table = <span class="keyword">new</span> Entry[capacity];</div><div class="line">    initHashSeedAsNeeded(capacity); </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>添加节点到链表中</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">addEntry</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">int</span> bucketIndex)</span> </span>&#123;</div><div class="line">    <span class="comment">// 如果当前HashMap已经达到了阈值，并且新值要插入的数组位置已经有元素了，扩容</span></div><div class="line">    <span class="keyword">if</span> ((size &gt;= threshold) &amp;&amp; (<span class="keyword">null</span> != table[bucketIndex])) &#123;</div><div class="line">        <span class="comment">// 扩容，后面会介绍一下</span></div><div class="line">        resize(<span class="number">2</span> * table.length);</div><div class="line">        <span class="comment">// 扩容以后，重新计算 hash 值</span></div><div class="line">        hash = (<span class="keyword">null</span> != key) ? hash(key) : <span class="number">0</span>;</div><div class="line">        <span class="comment">// 重新计算扩容后的新的下标</span></div><div class="line">        bucketIndex = indexFor(hash, table.length);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 往下看</span></div><div class="line">    createEntry(hash, key, value, bucketIndex);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 这个很简单，其实就是将新值放到链表的表头，然后 size++</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">createEntry</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">int</span> bucketIndex)</span> </span>&#123;</div><div class="line">    Entry&lt;K,V&gt; e = table[bucketIndex];</div><div class="line">    table[bucketIndex] = <span class="keyword">new</span> Entry&lt;&gt;(hash, key, value, e);</div><div class="line">    size++;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -417,6 +433,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/07/校招笔试相关/" rel="next" title="校招笔试相关">
+                <i class="fa fa-chevron-left"></i> 校招笔试相关
+              </a>
             
           </div>
 
@@ -465,7 +485,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

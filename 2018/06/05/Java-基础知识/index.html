@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2018/06/05/Java-基础知识/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="有关Java的基础知识">
-<meta property="og:updated_time" content="2018-07-31T12:35:20.565Z">
+<meta property="og:updated_time" content="2018-08-17T00:24:59.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 基础知识">
 <meta name="twitter:description" content="有关Java的基础知识">
@@ -437,6 +437,7 @@
 <h2 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h2><ul>
 <li>如果子类的构造方法没有显示调用<code>super()</code>，系统会自动隐式调用父类的无参构造函数，<strong>如果父类没有无参构造方法就会编译错误</strong></li>
 <li>如果父类只有有参构造方法，子类必须显式调用该构造方法</li>
+<li><code>this()</code>调用该类中形参相同的构造方法</li>
 </ul>
 <h2 id="引用类型和对象"><a href="#引用类型和对象" class="headerlink" title="引用类型和对象"></a>引用类型和对象</h2><ul>
 <li>方法的调用根据引用类型来决定<strong>（可以将引用类型的子类赋值给引用类型）</strong><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Animal a = <span class="keyword">new</span> Animal();    <span class="comment">// Animal对象</span></div><div class="line">Animal b = <span class="keyword">new</span> Dog();       <span class="comment">// Dog对象</span></div><div class="line"></div><div class="line">a.move();       <span class="comment">// 执行Animal类的方法</span></div><div class="line">b.move();       <span class="comment">// 执行Dog类的方法</span></div><div class="line">b.bark();       <span class="comment">// 编译错误，引用类型Animal没有bark方法</span></div></pre></td></tr></table></figure>
@@ -451,6 +452,27 @@
 <li>接口中的方法默认为<code>public abstract</code></li>
 <li>接口中的变量默认为<code>public static final</code>，且变量必须被赋值</li>
 </ul>
+<h2 id="泛型-1"><a href="#泛型-1" class="headerlink" title="泛型"></a>泛型</h2><ul>
+<li><p>一般情况</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;E&gt; <span class="function"><span class="keyword">void</span> <span class="title">printArray</span><span class="params">(E[] arrName)</span> </span>&#123;</div><div class="line">    <span class="comment">//TODO</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>接收某个类的子类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T extends Comparable&lt;T&gt;&gt; <span class="function">T <span class="title">returnMax</span><span class="params">(T x, T y, T z)</span> </span>&#123;</div><div class="line">    <span class="comment">//TODO</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>类型通配符</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method</span> <span class="params">(List&lt;? extends Number&gt; data)</span> </span>&#123;</div><div class="line">    <span class="comment">//TODO</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    List&lt;String&gt; name = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">    name.add(<span class="string">"hello"</span>);</div><div class="line">    method(data.get(<span class="number">0</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="创建线程"><a href="#创建线程" class="headerlink" title="创建线程"></a>创建线程</h2><p><strong>所有创建的方法都要涉及调用Thread的start方法，只是第一种方法在实现类中调用了</strong></p>
+<h3 id="1-实现Runnable接口"><a href="#1-实现Runnable接口" class="headerlink" title="1. 实现Runnable接口"></a>1. 实现Runnable接口</h3><ul>
+<li>必须重写<code>start</code>方法，方法里要调用Thread类的<code>start方法</code><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">className</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Thread t;</div><div class="line">    <span class="keyword">private</span> String threadName;</div><div class="line"></div><div class="line">    className(String name) &#123;</div><div class="line">        threadName = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//TODO</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</div><div class="line">        t = <span class="keyword">new</span> Thread(<span class="keyword">this</span>, threadName);</div><div class="line">        t.start();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="title">void</span> <span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        className R1 = <span class="keyword">new</span> className(<span class="string">"thread1"</span>);</div><div class="line">        R1.start();</div><div class="line"></div><div class="line">        className R2 = <span class="keyword">new</span> className(<span class="string">"thread2"</span>);</div><div class="line">        R2.start();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-继承Thread类"><a href="#2-继承Thread类" class="headerlink" title="2. 继承Thread类"></a>2. 继承Thread类</h3><ul>
+<li>继承类中必须重写<code>run</code>方法，也必须调用<code>start()</code>方法才能执行</li>
+<li>如果重写了<code>start</code>方法，方法里要调用Thread类的<code>start方法</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">threadClass</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String threadName;</div><div class="line">    <span class="keyword">private</span> Thread t;</div><div class="line"></div><div class="line">    threadClass(String name) &#123;</div><div class="line">        threadName = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//TODO</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"thread start"</span>);</div><div class="line">        t = <span class="keyword">new</span> Thread(<span class="keyword">this</span>, threadName);</div><div class="line">        t.start();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -544,7 +566,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
