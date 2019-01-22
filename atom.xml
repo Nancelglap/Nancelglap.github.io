@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2018-09-19T05:13:58.543Z</updated>
+  <updated>2019-01-22T14:37:36.143Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -16,11 +16,67 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>hello</title>
+    <link href="https://nancelglap.github.io/2019/01/22/hello/"/>
+    <id>https://nancelglap.github.io/2019/01/22/hello/</id>
+    <published>2019-01-22T14:37:36.000Z</published>
+    <updated>2019-01-22T14:37:36.143Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://nancelglap.github.io/2019/01/22/PhpStorm/"/>
+    <id>https://nancelglap.github.io/2019/01/22/PhpStorm/</id>
+    <published>2019-01-22T14:18:53.000Z</published>
+    <updated>2019-01-22T14:18:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<hr>
+<p>title: PhpStorm<br>date: 2017-05-30 21:32:47<br>tags:</p>
+<ul>
+<li>ide</li>
+<li>PhpStorm<br>categories: </li>
+<li>phpstorm</li>
+</ul>
+<hr>
+<blockquote>
+<p>PhpStorm快捷键等</p>
+</blockquote>
+<a id="more"></a>
+<p>一、通用类<br>1、*<code>Command + Shift + A</code>：搜索配置项（搜索<code>keymap</code>改快捷键）<br>2、<code>Command + P</code>：文件之间跳转<br>3、<code>Command + B</code>：查看类的关系<br>4、<code>Command + Control + S</code>：查看类里面的方法等</p>
+<p>二、编辑类<br>1、<code>Command + Delete</code>：删除光标行<br>2、<code>Shift + Delete</code>：删除光标后面所有内容<br>3、<code>Control + Delete</code>：删除光标前面所有内容<br>4、<code>Control + Shift + Delete</code>：删除光标所在单词<br>5、<code>Command + Shift+ D</code>：复制当前行到下一行<br>6、<code>Command + D</code>：逐个选相同的词（多点编辑）<br>7、<code>Command + Control + D</code>：全选相同的词（多点编辑）<br>8、<code>Command + G</code>：选中下一个光标所在一样的词<br>9、<code>Command + Shift + G</code>：选中上一个光标所在一样的词</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;p&gt;title: PhpStorm&lt;br&gt;date: 2017-05-30 21:32:47&lt;br&gt;tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ide&lt;/li&gt;
+&lt;li&gt;PhpStorm&lt;br&gt;categories: &lt;/li&gt;
+&lt;li&gt;phpstorm&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PhpStorm快捷键等&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>JAVA 数据结构</title>
     <link href="https://nancelglap.github.io/2018/08/01/JAVA-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     <id>https://nancelglap.github.io/2018/08/01/JAVA-数据结构/</id>
     <published>2018-08-01T01:29:00.000Z</published>
-    <updated>2018-09-19T05:13:58.543Z</updated>
+    <updated>2019-01-22T14:18:53.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>JAVA 数据结构相关</p>
@@ -78,7 +134,7 @@
     <link href="https://nancelglap.github.io/2018/06/15/Laravel-%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
     <id>https://nancelglap.github.io/2018/06/15/Laravel-源码分析/</id>
     <published>2018-06-15T15:14:03.000Z</published>
-    <updated>2018-06-17T09:13:46.758Z</updated>
+    <updated>2019-01-22T14:18:53.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>对laravel源码的分析记录</p>
@@ -186,7 +242,7 @@
     <link href="https://nancelglap.github.io/2018/06/05/Java-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
     <id>https://nancelglap.github.io/2018/06/05/Java-基础知识/</id>
     <published>2018-06-05T11:38:54.000Z</published>
-    <updated>2018-08-17T00:24:59.017Z</updated>
+    <updated>2019-01-22T14:18:53.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>有关Java的基础知识</p>
@@ -325,7 +381,7 @@
     <link href="https://nancelglap.github.io/2018/05/27/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/"/>
     <id>https://nancelglap.github.io/2018/05/27/python核心编程/</id>
     <published>2018-05-27T00:56:12.000Z</published>
-    <updated>2018-05-27T15:32:42.475Z</updated>
+    <updated>2019-01-22T14:18:53.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>python核心编程第三版相关知识</p>
@@ -390,7 +446,7 @@
     <link href="https://nancelglap.github.io/2018/03/30/Django-uwsgi-nginx%E9%83%A8%E7%BD%B2/"/>
     <id>https://nancelglap.github.io/2018/03/30/Django-uwsgi-nginx部署/</id>
     <published>2018-03-30T06:24:59.000Z</published>
-    <updated>2018-03-30T06:43:35.146Z</updated>
+    <updated>2019-01-22T14:18:53.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>关于ubuntu部署Django</p>
@@ -444,7 +500,7 @@
     <link href="https://nancelglap.github.io/2018/03/25/Django%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/"/>
     <id>https://nancelglap.github.io/2018/03/25/Django开发相关/</id>
     <published>2018-03-25T08:42:26.000Z</published>
-    <updated>2018-04-16T09:08:33.675Z</updated>
+    <updated>2019-01-22T14:18:53.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>关于Django实际开发的一些问题</p>
@@ -497,7 +553,7 @@
     <link href="https://nancelglap.github.io/2018/03/25/Django-Admin/"/>
     <id>https://nancelglap.github.io/2018/03/25/Django-Admin/</id>
     <published>2018-03-25T02:37:02.000Z</published>
-    <updated>2018-03-25T03:23:00.374Z</updated>
+    <updated>2019-01-22T14:18:53.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>Django Admin</p>
@@ -535,7 +591,7 @@
     <link href="https://nancelglap.github.io/2018/03/23/django/"/>
     <id>https://nancelglap.github.io/2018/03/23/django/</id>
     <published>2018-03-23T03:03:51.000Z</published>
-    <updated>2018-04-08T01:53:45.226Z</updated>
+    <updated>2019-01-22T14:18:53.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>Django QuerySet</p>
@@ -633,7 +689,7 @@
     <link href="https://nancelglap.github.io/2018/03/18/IoC%E5%92%8CDI/"/>
     <id>https://nancelglap.github.io/2018/03/18/IoC和DI/</id>
     <published>2018-03-18T02:32:33.000Z</published>
-    <updated>2018-03-18T02:37:33.539Z</updated>
+    <updated>2019-01-22T14:18:53.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>控制反转和依赖注入容器</p>
@@ -667,7 +723,7 @@
     <link href="https://nancelglap.github.io/2018/03/06/tornado/"/>
     <id>https://nancelglap.github.io/2018/03/06/tornado/</id>
     <published>2018-03-06T01:47:07.000Z</published>
-    <updated>2018-03-08T02:39:31.325Z</updated>
+    <updated>2019-01-22T14:18:53.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>与tornado相关</p>
@@ -717,7 +773,7 @@
     <link href="https://nancelglap.github.io/2018/01/30/composer%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD/"/>
     <id>https://nancelglap.github.io/2018/01/30/composer自动加载/</id>
     <published>2018-01-30T03:28:05.000Z</published>
-    <updated>2018-01-30T03:55:35.825Z</updated>
+    <updated>2019-01-22T14:18:53.000Z</updated>
     
     <content type="html"><![CDATA[<p>如果<code>psr-4</code>规定如下（自动加载/project/app下的文件）</p>
 <ul>
@@ -755,7 +811,7 @@
     <link href="https://nancelglap.github.io/2018/01/12/mac-linux-%E5%91%BD%E4%BB%A4/"/>
     <id>https://nancelglap.github.io/2018/01/12/mac-linux-命令/</id>
     <published>2018-01-12T07:18:33.000Z</published>
-    <updated>2018-04-08T01:54:49.643Z</updated>
+    <updated>2019-01-22T14:18:53.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>mac/linux 终端命令</p>
@@ -795,7 +851,7 @@
     <link href="https://nancelglap.github.io/2018/01/12/mac-nginx/"/>
     <id>https://nancelglap.github.io/2018/01/12/mac-nginx/</id>
     <published>2018-01-12T01:30:49.000Z</published>
-    <updated>2018-01-12T03:48:34.678Z</updated>
+    <updated>2019-01-22T14:18:53.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>配置文件路径</p>
@@ -832,7 +888,7 @@
     <link href="https://nancelglap.github.io/2017/11/08/mysql-%E5%91%BD%E4%BB%A4%E7%9B%B8%E5%85%B3/"/>
     <id>https://nancelglap.github.io/2017/11/08/mysql-命令相关/</id>
     <published>2017-11-08T13:15:37.000Z</published>
-    <updated>2018-04-30T05:09:26.916Z</updated>
+    <updated>2019-01-22T14:18:53.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>mysql命令相关</p>
@@ -870,7 +926,7 @@
     <link href="https://nancelglap.github.io/2017/10/11/mysql%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD%E5%92%8C%E8%BF%98%E5%8E%9F/"/>
     <id>https://nancelglap.github.io/2017/10/11/mysql数据备份和还原/</id>
     <published>2017-10-11T05:20:11.000Z</published>
-    <updated>2017-10-17T00:49:45.000Z</updated>
+    <updated>2019-01-22T14:18:53.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>数据备份</p>
@@ -903,7 +959,7 @@
     <link href="https://nancelglap.github.io/2017/09/29/python-%E7%88%AC%E8%99%AB/"/>
     <id>https://nancelglap.github.io/2017/09/29/python-爬虫/</id>
     <published>2017-09-29T02:40:45.000Z</published>
-    <updated>2017-09-29T02:47:44.000Z</updated>
+    <updated>2019-01-22T14:18:53.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>python 爬虫相关内容</p>
@@ -938,7 +994,7 @@
     <link href="https://nancelglap.github.io/2017/09/26/python-%E8%BF%9E%E6%8E%A5mysql/"/>
     <id>https://nancelglap.github.io/2017/09/26/python-连接mysql/</id>
     <published>2017-09-26T12:52:41.000Z</published>
-    <updated>2017-09-26T14:13:17.000Z</updated>
+    <updated>2019-01-22T14:18:53.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="安装MySQL驱动"><a href="#安装MySQL驱动" class="headerlink" title="安装MySQL驱动"></a>安装MySQL驱动</h3><hr>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> pip install mysql-connector==2.1.4</span></div></pre></td></tr></table></figure>
@@ -971,7 +1027,7 @@
     <link href="https://nancelglap.github.io/2017/09/24/python-%E5%86%85%E5%BB%BA%E6%A8%A1%E5%9D%97/"/>
     <id>https://nancelglap.github.io/2017/09/24/python-内建模块/</id>
     <published>2017-09-24T12:12:52.000Z</published>
-    <updated>2017-09-26T07:49:13.000Z</updated>
+    <updated>2019-01-22T14:18:53.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>python 内建模块使用</p>
@@ -1048,148 +1104,6 @@
     
     
       <category term="python" scheme="https://nancelglap.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python 正则表达式</title>
-    <link href="https://nancelglap.github.io/2017/09/24/python-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    <id>https://nancelglap.github.io/2017/09/24/python-正则表达式/</id>
-    <published>2017-09-24T11:48:49.000Z</published>
-    <updated>2017-09-24T12:09:14.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>python 正则表达式相关</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="匹配规则"><a href="#匹配规则" class="headerlink" title="匹配规则"></a>匹配规则</h3><hr>
-<ul>
-<li><code>d{3}</code>表示匹配3个数字，例如<code>&#39;010&#39;</code></li>
-<li><code>\d{3,8}</code>表示3-8个数字，例如<code>&#39;1234567&#39;</code></li>
-<li><code>*</code>表示任意个字符（包括0个），</li>
-<li><code>+</code>表示至少一个字符</li>
-<li><code>?</code>表示0个或1个字符</li>
-<li><code>{n}</code>表示n个字符</li>
-<li><code>{n,m}</code>表示n-m个字符</li>
-<li><code>^</code>表示行的开头，<code>^\d</code>表示必须以数字开头</li>
-<li><code>$</code>表示行的结束，<code>\d$</code>表示必须以数字结束</li>
-</ul>
-<h3 id="匹配"><a href="#匹配" class="headerlink" title="匹配"></a>匹配</h3><hr>
-<ul>
-<li>用<code>r</code>参数可以不考虑转义问题</li>
-<li><code>match()</code>方法判断是否匹配，如果匹配成功，返回一个<code>Match对象</code>，否则返回<code>None</code></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> re</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r'^\d&#123;3&#125;\-\d&#123;3,8&#125;$'</span>, <span class="string">'010-12345'</span>)</div><div class="line">&lt;_sre.SRE_Match object; span=(<span class="number">0</span>, <span class="number">9</span>), match=<span class="string">'010-12345'</span>&gt;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r'^\d&#123;3&#125;\-\d&#123;3,8&#125;$'</span>, <span class="string">'010 12345'</span>)</div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure>
-<h3 id="切分字符串"><a href="#切分字符串" class="headerlink" title="切分字符串"></a>切分字符串</h3><hr>
-<ul>
-<li>按多个字符切割字符串</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>re.split(<span class="string">r'[\s\,\;]+'</span>, <span class="string">'a,b;; c  d'</span>)</div><div class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div></pre></td></tr></table></figure>
-<h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><hr>
-<ul>
-<li><code>m.group(index)</code></li>
-<li>0永远为原字符串</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">r'^(\d&#123;3&#125;)-(\d&#123;3,8&#125;)$'</span>, <span class="string">'010-12345'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m</div><div class="line">&lt;_sre.SRE_Match object; span=(<span class="number">0</span>, <span class="number">9</span>), match=<span class="string">'010-12345'</span>&gt;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">0</span>)</div><div class="line"><span class="string">'010-12345'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">1</span>)</div><div class="line"><span class="string">'010'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">2</span>)</div><div class="line"><span class="string">'12345'</span></div></pre></td></tr></table></figure>
-<h3 id="贪婪匹配"><a href="#贪婪匹配" class="headerlink" title="贪婪匹配"></a>贪婪匹配</h3><hr>
-<ul>
-<li>默认匹配尽可能多的字符串</li>
-<li>以下例子<code>0*</code>只能匹配空字符串</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r'^(\d+)(0*)$'</span>, <span class="string">'102300'</span>).groups()</div><div class="line">(<span class="string">'102300'</span>, <span class="string">''</span>)</div></pre></td></tr></table></figure>
-<ul>
-<li>加一个<code>?</code>让<code>\d+</code>采用费贪婪匹配:</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r'^(\d+?)(0*)$'</span>, <span class="string">'102300'</span>).groups()</div><div class="line">(<span class="string">'1023'</span>, <span class="string">'00'</span>)</div></pre></td></tr></table></figure>
-<h3 id="预编译正则表达式"><a href="#预编译正则表达式" class="headerlink" title="预编译正则表达式"></a>预编译正则表达式</h3><hr>
-<ul>
-<li>如果要正则表达式要使用很多次，可以先编译</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> re</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re_telephone = re.compile(<span class="string">r'^(\d&#123;3&#125;)-(\d&#123;3,8&#125;)$'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re_telephone.match(<span class="string">'010-12345'</span>).groups()</div><div class="line">(<span class="string">'010'</span>, <span class="string">'12345'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re_telephone.match(<span class="string">'010-808'</span>).groups</div><div class="line">(<span class="string">'010'</span>, <span class="string">'808'</span>)</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;python 正则表达式相关&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="python" scheme="https://nancelglap.github.io/categories/python/"/>
-    
-    
-      <category term="python" scheme="https://nancelglap.github.io/tags/python/"/>
-    
-      <category term="Regular Expression" scheme="https://nancelglap.github.io/tags/Regular-Expression/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python 多进程和多线程</title>
-    <link href="https://nancelglap.github.io/2017/09/21/python-%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-    <id>https://nancelglap.github.io/2017/09/21/python-多进程和多线程/</id>
-    <published>2017-09-21T02:16:08.000Z</published>
-    <updated>2017-10-10T08:42:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>python 多进程和多线程编程</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h3><hr>
-<ul>
-<li><code>multiprocessing</code> 模块 <code>Pcoess</code> 类代表一个进程对象</li>
-<li><code>start()</code> 方法启动</li>
-<li><code>join()</code> 方法等待子进程结束后再继续往下运行</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process</div><div class="line"><span class="keyword">import</span> os</div><div class="line"></div><div class="line"><span class="comment"># 子进程要执行的代码</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_proc</span><span class="params">(name)</span>:</span></div><div class="line">    <span class="comment"># 代码运行时已经是子进程的pid</span></div><div class="line">    print(<span class="string">'Run child process %s (%s)...'</span> % (name, os.getpid()))</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</div><div class="line">    <span class="comment"># 代码运行时是父进程的pid</span></div><div class="line">    print(<span class="string">'Parent process %s.'</span> % os.getpid())</div><div class="line">    p = Process(target=run_proc, args=(<span class="string">'test'</span>,))</div><div class="line">    print(<span class="string">'Child process will start.'</span>)</div><div class="line">    p.start()</div><div class="line">    p.join()</div><div class="line">    print(<span class="string">'Child process end.'</span>)</div></pre></td></tr></table></figure>
-<ul>
-<li><code>进程池</code>：如果要启动大量子进程，用进程池批量创建子进程</li>
-<li>一个<code>p.apply_async()</code>只能处理一个函数</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</div><div class="line"><span class="keyword">import</span> os, time, random</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">long_time_task</span><span class="params">(name)</span>:</span></div><div class="line">    print(<span class="string">'Run task %s (%s)...'</span> % (name, os.getpid()))</div><div class="line">    start = time.time()</div><div class="line">    time.sleep(random.random() * <span class="number">3</span>)</div><div class="line">    end = time.time()</div><div class="line">    print(<span class="string">'Task %s runs %0.2f seconds.'</span> % (name, (end - start)))</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</div><div class="line">    print(<span class="string">'Parent process %s.'</span> % os.getpid())</div><div class="line">    p = Pool()      <span class="comment"># 默认大小为电脑CPU的核数</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">        p.apply_async(long_time_task, args=(i,))</div><div class="line">    print(<span class="string">'Waiting for all subprocesses done...'</span>)</div><div class="line">    p.close()</div><div class="line">    p.join()</div><div class="line">    print(<span class="string">'All subprocesses done.'</span>)</div></pre></td></tr></table></figure>
-<ul>
-<li><code>subprocesses</code> 模块启动一个子进程，控制输入和输出</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 在python代码运行 ls -a，和命令行直接运行的效果一样</span></div><div class="line"><span class="keyword">import</span> subprocesses</div><div class="line"></div><div class="line">r = subprocesses.call([<span class="string">'ls'</span>, <span class="string">'-a'</span>])</div><div class="line">print(<span class="string">'Exit code:'</span>, r)</div></pre></td></tr></table></figure>
-<h3 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h3><hr>
-<ul>
-<li><code>multiprocessing</code> 模块提供<code>Queue</code>、<code>Pipes</code>等方式交换数据</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 在父进程中创建两个子进程，一个往Queue里写数据，一个从Queue里读数据</span></div><div class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process, Queue</div><div class="line"><span class="keyword">import</span> os, time, random</div><div class="line"></div><div class="line"><span class="comment"># 写数据进程执行的代码:</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">write</span><span class="params">(q)</span>:</span></div><div class="line">    print(<span class="string">'Process to write: %s'</span> % os.getpid())</div><div class="line">    <span class="keyword">for</span> value <span class="keyword">in</span> [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>]:</div><div class="line">        print(<span class="string">'Put %s to queue...'</span> % value)</div><div class="line">        q.put(value)</div><div class="line">        time.sleep(random.random())</div><div class="line"></div><div class="line"><span class="comment"># 读数据进程执行的代码:</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">read</span><span class="params">(q)</span>:</span></div><div class="line">    print(<span class="string">'Process to read: %s'</span> % os.getpid())</div><div class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">        value = q.get(<span class="keyword">True</span>)</div><div class="line">        print(<span class="string">'Get %s from queue.'</span> % value)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</div><div class="line">    <span class="comment"># 父进程创建Queue，并传给各个子进程：</span></div><div class="line">    q = Queue()</div><div class="line">    pw = Process(target=write, args=(q,))</div><div class="line">    pr = Process(target=read, args=(q,))</div><div class="line">    <span class="comment"># 启动子进程pw，写入:</span></div><div class="line">    pw.start()</div><div class="line">    <span class="comment"># 启动子进程pr，读取:</span></div><div class="line">    pr.start()</div><div class="line">    <span class="comment"># 等待pw结束:</span></div><div class="line">    pw.join()</div><div class="line">    <span class="comment"># pr进程里是死循环，无法等待其结束，只能强行终止:</span></div><div class="line">    pr.terminate()</div></pre></td></tr></table></figure>
-<h3 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h3><hr>
-<ul>
-<li>使用 <code>threading</code> 模块，启动一个线程就是创建一个<code>Thread</code>实例，然后调用<code>start()</code>开始执行</li>
-<li><code>threading.current_thread()</code> 返回当前线程的实例</li>
-<li>主线程实例的名字叫<code>MainThread</code>，子线程的命名可以作为创建<code>Thread</code>实例时第二个参数传入</li>
-<li>如果子线程不起名字，默认命名为<code>Thread-1</code>，<code>Thread-2</code></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> time, threading</div><div class="line"></div><div class="line"><span class="comment"># 新线程执行的代码:</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">loop</span><span class="params">()</span>:</span></div><div class="line">    print(<span class="string">'thread %s is running...'</span> % threading.current_thread().name)</div><div class="line">    n = <span class="number">0</span></div><div class="line">    <span class="keyword">while</span> n &lt; <span class="number">5</span>:</div><div class="line">        n = n + <span class="number">1</span></div><div class="line">        print(<span class="string">'thread %s &gt;&gt;&gt; %s'</span> % (threading.current_thread().name, n))</div><div class="line">        time.sleep(<span class="number">1</span>)</div><div class="line">    print(<span class="string">'thread %s ended.'</span> % threading.current_thread().name)</div><div class="line"></div><div class="line">print(<span class="string">'thread %s is running...'</span> % threading.current_thread().name)</div><div class="line">t = threading.Thread(target=loop, name=<span class="string">'LoopThread'</span>)</div><div class="line">t.start()</div><div class="line">t.join()</div><div class="line">print(<span class="string">'thread %s ended.'</span> % threading.current_thread().name)</div></pre></td></tr></table></figure>
-<ul>
-<li>高级语言的一条语句在CPU执行时是若干条语句，当两个线程同时运行进行数据交互时，不会按顺序执行，会造成结果错误</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> time, threading</div><div class="line"></div><div class="line"><span class="comment"># 假定这是你的银行存款:</span></div><div class="line">balance = <span class="number">0</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">change_it</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="comment"># 先存后取，结果应该为0:</span></div><div class="line">    <span class="keyword">global</span> balance</div><div class="line">    balance = balance + n</div><div class="line">    balance = balance - n</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_thread</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100000</span>):</div><div class="line">        change_it(n)</div><div class="line"></div><div class="line">t1 = threading.Thread(target=run_thread, args=(<span class="number">5</span>,))</div><div class="line">t2 = threading.Thread(target=run_thread, args=(<span class="number">8</span>,))</div><div class="line">t1.start()</div><div class="line">t2.start()</div><div class="line">t1.join()</div><div class="line">t2.join()</div><div class="line">print(balance)</div><div class="line"><span class="comment"># t1，t2交替执行，不一定是预期结果</span></div></pre></td></tr></table></figure>
-<ul>
-<li>用<code>threading.Lock()</code>解决</li>
-<li>当多个线程同时执行lock.acquire()时，只有一个线程能成功地获取锁，然后继续执行代码，其他线程就继续等待直到获得锁为止</li>
-<li>获得锁的线程用完后一定要释放锁，否则那些苦苦等待锁的线程将永远等待下去，成为死线程<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">balance = <span class="number">0</span></div><div class="line">lock = threading.Lock()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_thread</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100000</span>):</div><div class="line">        <span class="comment"># 先要获取锁:</span></div><div class="line">        lock.acquire()</div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            <span class="comment"># 放心地改吧:</span></div><div class="line">            change_it(n)</div><div class="line">        <span class="keyword">finally</span>:</div><div class="line">            <span class="comment"># 改完了一定要释放锁:</span></div><div class="line">            lock.release()</div></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;python 多进程和多线程编程&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="python" scheme="https://nancelglap.github.io/categories/python/"/>
-    
-    
-      <category term="python" scheme="https://nancelglap.github.io/tags/python/"/>
-    
-      <category term="process" scheme="https://nancelglap.github.io/tags/process/"/>
     
   </entry>
   
