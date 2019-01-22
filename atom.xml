@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2019-01-22T14:37:36.143Z</updated>
+  <updated>2019-01-22T14:18:53.000Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -14,20 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>hello</title>
-    <link href="https://nancelglap.github.io/2019/01/22/hello/"/>
-    <id>https://nancelglap.github.io/2019/01/22/hello/</id>
-    <published>2019-01-22T14:37:36.000Z</published>
-    <updated>2019-01-22T14:37:36.143Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title></title>
@@ -1104,6 +1090,79 @@
     
     
       <category term="python" scheme="https://nancelglap.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python 正则表达式</title>
+    <link href="https://nancelglap.github.io/2017/09/24/python-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>https://nancelglap.github.io/2017/09/24/python-正则表达式/</id>
+    <published>2017-09-24T11:48:49.000Z</published>
+    <updated>2019-01-22T14:18:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>python 正则表达式相关</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="匹配规则"><a href="#匹配规则" class="headerlink" title="匹配规则"></a>匹配规则</h3><hr>
+<ul>
+<li><code>d{3}</code>表示匹配3个数字，例如<code>&#39;010&#39;</code></li>
+<li><code>\d{3,8}</code>表示3-8个数字，例如<code>&#39;1234567&#39;</code></li>
+<li><code>*</code>表示任意个字符（包括0个），</li>
+<li><code>+</code>表示至少一个字符</li>
+<li><code>?</code>表示0个或1个字符</li>
+<li><code>{n}</code>表示n个字符</li>
+<li><code>{n,m}</code>表示n-m个字符</li>
+<li><code>^</code>表示行的开头，<code>^\d</code>表示必须以数字开头</li>
+<li><code>$</code>表示行的结束，<code>\d$</code>表示必须以数字结束</li>
+</ul>
+<h3 id="匹配"><a href="#匹配" class="headerlink" title="匹配"></a>匹配</h3><hr>
+<ul>
+<li>用<code>r</code>参数可以不考虑转义问题</li>
+<li><code>match()</code>方法判断是否匹配，如果匹配成功，返回一个<code>Match对象</code>，否则返回<code>None</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> re</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r'^\d&#123;3&#125;\-\d&#123;3,8&#125;$'</span>, <span class="string">'010-12345'</span>)</div><div class="line">&lt;_sre.SRE_Match object; span=(<span class="number">0</span>, <span class="number">9</span>), match=<span class="string">'010-12345'</span>&gt;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r'^\d&#123;3&#125;\-\d&#123;3,8&#125;$'</span>, <span class="string">'010 12345'</span>)</div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure>
+<h3 id="切分字符串"><a href="#切分字符串" class="headerlink" title="切分字符串"></a>切分字符串</h3><hr>
+<ul>
+<li>按多个字符切割字符串</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>re.split(<span class="string">r'[\s\,\;]+'</span>, <span class="string">'a,b;; c  d'</span>)</div><div class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div></pre></td></tr></table></figure>
+<h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><hr>
+<ul>
+<li><code>m.group(index)</code></li>
+<li>0永远为原字符串</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">r'^(\d&#123;3&#125;)-(\d&#123;3,8&#125;)$'</span>, <span class="string">'010-12345'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m</div><div class="line">&lt;_sre.SRE_Match object; span=(<span class="number">0</span>, <span class="number">9</span>), match=<span class="string">'010-12345'</span>&gt;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">0</span>)</div><div class="line"><span class="string">'010-12345'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">1</span>)</div><div class="line"><span class="string">'010'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">2</span>)</div><div class="line"><span class="string">'12345'</span></div></pre></td></tr></table></figure>
+<h3 id="贪婪匹配"><a href="#贪婪匹配" class="headerlink" title="贪婪匹配"></a>贪婪匹配</h3><hr>
+<ul>
+<li>默认匹配尽可能多的字符串</li>
+<li>以下例子<code>0*</code>只能匹配空字符串</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r'^(\d+)(0*)$'</span>, <span class="string">'102300'</span>).groups()</div><div class="line">(<span class="string">'102300'</span>, <span class="string">''</span>)</div></pre></td></tr></table></figure>
+<ul>
+<li>加一个<code>?</code>让<code>\d+</code>采用费贪婪匹配:</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r'^(\d+?)(0*)$'</span>, <span class="string">'102300'</span>).groups()</div><div class="line">(<span class="string">'1023'</span>, <span class="string">'00'</span>)</div></pre></td></tr></table></figure>
+<h3 id="预编译正则表达式"><a href="#预编译正则表达式" class="headerlink" title="预编译正则表达式"></a>预编译正则表达式</h3><hr>
+<ul>
+<li>如果要正则表达式要使用很多次，可以先编译</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> re</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re_telephone = re.compile(<span class="string">r'^(\d&#123;3&#125;)-(\d&#123;3,8&#125;)$'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re_telephone.match(<span class="string">'010-12345'</span>).groups()</div><div class="line">(<span class="string">'010'</span>, <span class="string">'12345'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re_telephone.match(<span class="string">'010-808'</span>).groups</div><div class="line">(<span class="string">'010'</span>, <span class="string">'808'</span>)</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;python 正则表达式相关&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://nancelglap.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://nancelglap.github.io/tags/python/"/>
+    
+      <category term="Regular Expression" scheme="https://nancelglap.github.io/tags/Regular-Expression/"/>
     
   </entry>
   
