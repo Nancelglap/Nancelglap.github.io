@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="nginx负载均衡相关配置">
+<meta name="description" content="nginx工作模式和负载均衡">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nginx负载均衡">
+<meta property="og:title" content="nginx的基本工作模式和负载均衡">
 <meta property="og:url" content="https://nancelglap.github.io/2019/01/30/nginx负载均衡/index.html">
 <meta property="og:site_name" content="Nancelglap">
-<meta property="og:description" content="nginx负载均衡相关配置">
-<meta property="og:updated_time" content="2019-01-30T01:07:18.181Z">
+<meta property="og:description" content="nginx工作模式和负载均衡">
+<meta property="og:updated_time" content="2019-01-30T01:40:55.621Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="nginx负载均衡">
-<meta name="twitter:description" content="nginx负载均衡相关配置">
+<meta name="twitter:title" content="nginx的基本工作模式和负载均衡">
+<meta name="twitter:description" content="nginx工作模式和负载均衡">
 
 
 
@@ -139,7 +139,7 @@
 
 
 
-  <title>nginx负载均衡 | Nancelglap</title>
+  <title>nginx的基本工作模式和负载均衡 | Nancelglap</title>
   
 
 
@@ -309,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">nginx负载均衡</h1>
+          <h1 class="post-title" itemprop="name headline">nginx的基本工作模式和负载均衡</h1>
         
 
         <div class="post-meta">
@@ -357,10 +357,15 @@
 
       
         <blockquote>
-<p>nginx负载均衡相关配置</p>
+<p>nginx工作模式和负载均衡</p>
 </blockquote>
 <a id="more"></a>
-<ul>
+<h2 id="工作模式"><a href="#工作模式" class="headerlink" title="工作模式"></a>工作模式</h2><ul>
+<li>一个master进程生成一个或多个worker进程，master主要负责启动worker，加载配置文件</li>
+<li>worker被启动之后，只是负责简单的web工作，其他工作由worker中调用的模块实现</li>
+<li>一个用户请求，由多个模块各自功能依次完成</li>
+</ul>
+<h2 id="负载均衡配置"><a href="#负载均衡配置" class="headerlink" title="负载均衡配置"></a>负载均衡配置</h2><ul>
 <li>配置<code>upstream</code>和<code>location /</code>里的<code>proxy_pass</code><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">upstream</span> xxx.com &#123;</div><div class="line">	<span class="attribute">server</span> ip:port;		</div><div class="line">	<span class="attribute">server</span> ip:port;</div><div class="line">&#125;</div><div class="line"><span class="section">server</span> &#123;</div><div class="line">	<span class="attribute">listen</span> <span class="number">80</span>;</div><div class="line">	<span class="attribute">server_name</span> ip;</div><div class="line">	<span class="attribute">location</span> / &#123;</div><div class="line">		<span class="attribute">proxy_pass</span> http://xxx.com;</div><div class="line">		<span class="attribute">proxy_redirect</span> default;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>

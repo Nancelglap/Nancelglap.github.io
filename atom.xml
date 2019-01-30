@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancelglap.github.io/"/>
-  <updated>2019-01-30T01:07:18.181Z</updated>
+  <updated>2019-01-30T01:40:55.621Z</updated>
   <id>https://nancelglap.github.io/</id>
   
   <author>
@@ -16,17 +16,22 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>nginx负载均衡</title>
+    <title>nginx的基本工作模式和负载均衡</title>
     <link href="https://nancelglap.github.io/2019/01/30/nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"/>
     <id>https://nancelglap.github.io/2019/01/30/nginx负载均衡/</id>
     <published>2019-01-30T01:05:26.000Z</published>
-    <updated>2019-01-30T01:07:18.181Z</updated>
+    <updated>2019-01-30T01:40:55.621Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
-<p>nginx负载均衡相关配置</p>
+<p>nginx工作模式和负载均衡</p>
 </blockquote>
 <a id="more"></a>
-<ul>
+<h2 id="工作模式"><a href="#工作模式" class="headerlink" title="工作模式"></a>工作模式</h2><ul>
+<li>一个master进程生成一个或多个worker进程，master主要负责启动worker，加载配置文件</li>
+<li>worker被启动之后，只是负责简单的web工作，其他工作由worker中调用的模块实现</li>
+<li>一个用户请求，由多个模块各自功能依次完成</li>
+</ul>
+<h2 id="负载均衡配置"><a href="#负载均衡配置" class="headerlink" title="负载均衡配置"></a>负载均衡配置</h2><ul>
 <li>配置<code>upstream</code>和<code>location /</code>里的<code>proxy_pass</code><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">upstream</span> xxx.com &#123;</div><div class="line">	<span class="attribute">server</span> ip:port;		</div><div class="line">	<span class="attribute">server</span> ip:port;</div><div class="line">&#125;</div><div class="line"><span class="section">server</span> &#123;</div><div class="line">	<span class="attribute">listen</span> <span class="number">80</span>;</div><div class="line">	<span class="attribute">server_name</span> ip;</div><div class="line">	<span class="attribute">location</span> / &#123;</div><div class="line">		<span class="attribute">proxy_pass</span> http://xxx.com;</div><div class="line">		<span class="attribute">proxy_redirect</span> default;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -53,7 +58,7 @@
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;nginx负载均衡相关配置&lt;/p&gt;
+&lt;p&gt;nginx工作模式和负载均衡&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
