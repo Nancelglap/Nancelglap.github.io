@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nancelglap.github.io/2017/05/02/Laravel%E6%96%87%E4%BB%B6%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9/</loc>
+    
+    <lastmod>2019-01-30T01:43:08.209Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nancelglap.github.io/2019/01/30/nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</loc>
     
     <lastmod>2019-01-30T01:40:55.621Z</lastmod>
@@ -58,14 +65,7 @@
   </url>
   
   <url>
-    <loc>https://nancelglap.github.io/2017/05/13/git%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/</loc>
-    
-    <lastmod>2019-01-22T14:18:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancelglap.github.io/2018/06/05/Java-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
+    <loc>https://nancelglap.github.io/2017/07/22/js-%E5%9B%9E%E8%B0%83%E4%B8%8E%E5%BC%82%E6%AD%A5/</loc>
     
     <lastmod>2019-01-22T14:18:53.000Z</lastmod>
     
@@ -198,14 +198,14 @@
   </url>
   
   <url>
-    <loc>https://nancelglap.github.io/2018/03/30/Django-uwsgi-nginx%E9%83%A8%E7%BD%B2/</loc>
+    <loc>https://nancelglap.github.io/2017/05/13/git%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/</loc>
     
     <lastmod>2019-01-22T14:18:53.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancelglap.github.io/2017/07/22/js-%E5%9B%9E%E8%B0%83%E4%B8%8E%E5%BC%82%E6%AD%A5/</loc>
+    <loc>https://nancelglap.github.io/2018/03/30/Django-uwsgi-nginx%E9%83%A8%E7%BD%B2/</loc>
     
     <lastmod>2019-01-22T14:18:53.000Z</lastmod>
     
@@ -381,6 +381,13 @@
   
   <url>
     <loc>https://nancelglap.github.io/2017/09/05/%E9%85%8D%E7%BD%AE%E4%B8%83%E7%89%9B%E4%BA%91/</loc>
+    
+    <lastmod>2019-01-22T14:18:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancelglap.github.io/2018/06/05/Java-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
     
     <lastmod>2019-01-22T14:18:53.000Z</lastmod>
     
