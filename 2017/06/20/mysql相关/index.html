@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="mysql," />
 
 
 
@@ -95,15 +95,17 @@
 
 
 
-<meta name="description" content="不想正经">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Nancelglap">
-<meta property="og:url" content="https://nancelglap.github.io/tags/linux/index.html">
+<meta name="description" content="mysql 相关问题">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql 相关">
+<meta property="og:url" content="https://nancelglap.github.io/2017/06/20/mysql相关/index.html">
 <meta property="og:site_name" content="Nancelglap">
-<meta property="og:description" content="不想正经">
+<meta property="og:description" content="mysql 相关问题">
+<meta property="og:updated_time" content="2019-01-30T00:53:00.847Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nancelglap">
-<meta name="twitter:description" content="不想正经">
+<meta name="twitter:title" content="mysql 相关">
+<meta name="twitter:description" content="mysql 相关问题">
 
 
 
@@ -131,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://nancelglap.github.io/tags/linux/"/>
+  <link rel="canonical" href="https://nancelglap.github.io/2017/06/20/mysql相关/"/>
 
 
 
 
 
-  <title>标签: linux | Nancelglap</title>
+  <title>mysql 相关 | Nancelglap</title>
   
 
 
@@ -162,7 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -280,44 +282,213 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>linux<small>标签</small>
-      </h1>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://nancelglap.github.io/2017/06/20/mysql相关/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancelglap">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancelglap">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">mysql 相关</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-20T22:48:28+08:00">
+                2017-06-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <blockquote>
+<p>mysql 相关问题</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>2019.1.30 合并命令相关和数据备份和还原</p>
+</blockquote>
+<h2 id="定时备份"><a href="#定时备份" class="headerlink" title="定时备份"></a>定时备份</h2><p>1、创建备份文件夹<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir <span class="built_in">name</span></div></pre></td></tr></table></figure></p>
+<p>2、创建备份Shell脚本<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> vim filename.sh</span></div></pre></td></tr></table></figure></p>
+<p>3、加入以下内容<br>（1）username 替换为实际的用户名(保留-u)<br>（2）password 替换为实际的密码（保留-p）<br>（3）DatabaseName 替换为实际的数据库名<br>（4）/home/back改为自己的路径<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">mysqldump -uusername -ppassword DatabaseName &gt; /home/backup/DatabaseName_$(date +%Y%m%d_%H%M%S).sql</div></pre></td></tr></table></figure></p>
+<p>4、添加可执行权限<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> chmod u+x bkDatabaseName.sh</span></div></pre></td></tr></table></figure></p>
+<p>5、添加计划任务（改为自己创建的文件信息）<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>crontab -e</div><div class="line"></div><div class="line">*<span class="regexp">/1 * * * * /home</span><span class="regexp">/backup/bk</span>DatabaseName.sh</div></pre></td></tr></table></figure></p>
+<p>6、执行时间<br>前面五个*号代表五个数字，数字的取值范围和含义如下：</p>
+<p>分钟　（0-59）<br>小時　（0-23）<br>日期　（1-31）<br>月份　（1-12）<br>星期　（0-6）//0代表星期天</p>
+<hr>
+<h2 id="数据备份和还原"><a href="#数据备份和还原" class="headerlink" title="数据备份和还原"></a>数据备份和还原</h2><blockquote>
+<p>数据备份</p>
+</blockquote>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>mysqldump -u root -p database table1 table2 ... &gt; ~<span class="regexp">/Documents/admin</span>_menu.sql</div></pre></td></tr></table></figure>
+<blockquote>
+<p>数据还原</p>
+</blockquote>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>mysql -u root -p database &lt; ~<span class="regexp">/Documents/quanzi</span>.sql</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="解决中文乱码问题"><a href="#解决中文乱码问题" class="headerlink" title="解决中文乱码问题"></a>解决中文乱码问题</h2><p>找到<code>/etc/mysql/my.cnf</code><br><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="section">[client]</span></div><div class="line"><span class="attr">default-character-set</span>=utf8</div><div class="line"><span class="section"></span></div><div class="line">[mysql]</div><div class="line"><span class="attr">default-character-set</span>=utf8</div><div class="line"><span class="section"></span></div><div class="line">[mysqld]</div><div class="line"><span class="attr">character-set-server</span>=utf8</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="设置可插入emoji"><a href="#设置可插入emoji" class="headerlink" title="设置可插入emoji"></a>设置可插入emoji</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ALTER DATABASE 数据库名称 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;</div><div class="line">ALTER TABLE 数据表名称 CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;</div><div class="line">数据表名称 CHANGE 字段列名称 VARCHAR(n) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="命令相关"><a href="#命令相关" class="headerlink" title="命令相关"></a>命令相关</h2><blockquote>
+<p>设为默认<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alter table tableName alter column col set default value;</div></pre></td></tr></table></figure></p>
+<p>设为可空<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alter table tableName modify col varchar(100) null;</div></pre></td></tr></table></figure></p>
+<p>插入数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">insert into tableName (col1, col2..) values (&apos;value1&apos;, &apos;value2&apos;...), [(&apos;value1&apos;, &apos;value2&apos;...)];</div></pre></td></tr></table></figure></p>
+<p>更新数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">update tableName set col = &apos;value&apos; where col = &apos;value&apos;;</div></pre></td></tr></table></figure></p>
+<p>删除数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">delete from tableName where col = &apos;value&apos;;</div></pre></td></tr></table></figure></p>
+<p>清空表(id从1开始)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">truncate table tableName;</div></pre></td></tr></table></figure></p>
+<p>创建表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE info(</div><div class="line">   id INT UNSIGNED AUTO_INCREMENT,</div><div class="line">   phone VARCHAR(20) NOT NULL,</div><div class="line">   name VARCHAR(20) NOT NULL,</div><div class="line">   sex VARCHAR(10) NOT NULL,</div><div class="line">   department VARCHAR(10) NOT NULL,</div><div class="line">   PRIMARY KEY (id)</div><div class="line">)ENGINE=InnoDB DEFAULT CHARSET=utf8;</div></pre></td></tr></table></figure></p>
+<p>修改字段<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE tableName CHANGE oldName newName TYPE;</div></pre></td></tr></table></figure></p>
+<p>SQL注入：查看表信息</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT title, slogan, id FROM series WHERE outBg like &quot;%baidu%&quot; UNION (SELECT TABLE_NAME, TABLE_SCHEMA, 3 FROM information_schema.tables);</div></pre></td></tr></table></figure>
 
-      <h2 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2018/01/12/mac-linux-命令/" itemprop="url">
-              
-                <span itemprop="name">mac/linux 命令</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-12T15:18:33+08:00"
-              content="2018-01-12" >
-          01-12
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/06/Python-函数/" rel="next" title="Python 函数">
+                <i class="fa fa-chevron-left"></i> Python 函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/16/Laravel-ACL/" rel="prev" title="Laravel ACL">
+                Laravel ACL <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -325,6 +496,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -430,10 +605,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 

@@ -57,7 +57,7 @@
   <entry>
     <title><![CDATA[Django开发相关]]></title>
     <url>%2F2018%2F03%2F25%2FDjango%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%2F</url>
-    <content type="text"><![CDATA[关于Django实际开发的一些问题 更新代码后重启uwsgi和nginx才生效1234$ sudo killall -9 uwsgi$ sudo service nginx stop$ sudo uwsgi --ini /var/www/sponsor/uwsgi.ini$ sudo nginx -c /var/www/sponsor/destiny.conf 解决json.dumps()中文变成乱码问题给json.dumps加第二个参数ensure_ascii=False 1return HttpResponse(json.dumps(&#123;"name":request.POST.get('name')&#125;, ensure_ascii=False)) MySQL增12345678910111213141516171819202122232425262728293031323334# views.pyfrom django.shortcuts import renderfrom django.http import HttpResponsefrom users.models import Userimport jsondef login(request): if request.method == "POST": nickname = request.POST.get('nickname', '') avatar = request.POST.get('avatar', 'www.baidu.com') counts = request.POST.get('counts', '0') bg = request.POST.get('bg', 'www.baidu.com') info = request.POST.get('info', '') sex = request.POST.get('sex', 'unknow') openid = request.POST.get('openid', 'sdjhf343rfjsdhkjf') province = request.POST.get('province', 'unknow') city = request.POST.get('city', 'unknow') input = &#123; "nickname" : nickname, "avatar" : avatar, "counts" : counts, "bg" : bg, "info" : info, "sex" : sex, "openid" : openid, "province" : province, "city" : city &#125; message = User.objects.create(**input) input['id'] = message.id return HttpResponse(json.dumps(input, ensure_ascii=False)) 使用log 在setting.py中增加以下配置 12345678910111213141516171819202122232425262728293031323334LOGGING = &#123; 'version': 1, 'disable_existing_loggers': False, 'formatters': &#123; 'verbose': &#123; 'format': '[%(asctime)s] [%(levelname)s] %(message)s' &#125;, &#125;, 'handlers': &#123; 'console':&#123; 'level':'INFO', 'class':'logging.StreamHandler', 'formatter': 'verbose' &#125;, 'file': &#123; 'level': 'INFO', 'class': 'logging.FileHandler', 'filename': '/Users/Nancelglap/codes/python/sponsor/log/app_log.log', # 自己的log文件路径 'formatter': 'verbose' &#125;, 'email': &#123; 'level': 'ERROR', 'class': 'django.utils.log.AdminEmailHandler', 'include_html' : True, &#125; &#125;, 'loggers': &#123; 'django': &#123; # 使用的时候会用到 'handlers': ['console', 'file', 'email'], 'level': 'INFO', 'propagate': True, &#125;, &#125;,&#125; 使用 1234import logginglogger = logging.getLogger("django") # 在setting中loggers里面的名字logger.info("some messages") 连接redis 装一下 1pip install redis 用一下 1234import redispool = redis.ConnectionPool(host='127.0.0.1', port=6379)r = redis.Redis(connection_pool=pool) 具体操作参考连接 1https://www.cnblogs.com/melonjiang/p/5342505.html 序列化和遍历QuerySetObject神tm不能遍历，要先序列化，再遍历插入数组（写到Base类里面复用） 123456789101112from django.core import serializersdef getRank(request): info = User.objects.order_by('-counts') info = serializers.serialize("json", info)[1:-1] info = eval(info) # 换成字典 data = [] for i in range(0, len(info)): # 遍历字典 插入数组 data.append(info[i]['fields']) return HttpResponse(json.dumps(data))]]></content>
+    <content type="text"><![CDATA[关于Django实际开发的一些问题 赞助小程序开发中遇到的坑 通过querySet拿到的数据不能直接返回，要通过序列化再遍历，详见Base中的dataJson函数 1234567891011'''# 序列化QuerySet并返回数据的json格式'''def dataJson(info): serial = eval(serializers.serialize("json", info)[1:-1]) data = [] for i in range(0, len(serial)): id = serial[i]['pk'] serial[i]['fields']['id'] = id data.append(serial[i]['fields']) return data 序列化的时候数据库任何字段都不可以为null，但是可以为字符串空，否则会报错 Object的自增id被放在post[i][‘pk’]中 post[i][‘fields’]中没有id字段 如果在数据库中删了字段，把model中的对应字段注释掉，否则会报错 lte小于等于、lt小于；gt、gte 计算redis键长度scard如果键不存在会报错，要先用exists检查 如果本来只有一条数据，filter取出来的数据序列化后长度为3，不能用下标取，参考allPost函数 token解析出来的要json.dumps()一下才能拿到json数据 构造query的时候get只能获取单个数据，并且可以用model_to_dict转成dict 构造query的时候用filter必须用serializers序列化 数据库查询删除等尽量都用try except，否则会报错 两个字符串不能直接用于运算符运算，要用bool()函数转化一下, bool(a) &amp; bool(b) 查询的时候objects的filter后面可以接raw，但是反过来不行 raw查询会报超过ascii错误，查uwsgi的log，注释掉错误的行（/usr/lib/python3.4/traceback.py的print_exception函数） 更新代码后重启uwsgi和nginx才生效1234$ sudo killall -9 uwsgi$ sudo service nginx stop$ sudo uwsgi --ini /var/www/sponsor/uwsgi.ini$ sudo nginx -c /var/www/sponsor/destiny.conf 解决json.dumps()中文变成乱码问题给json.dumps加第二个参数ensure_ascii=False 1return HttpResponse(json.dumps(&#123;"name":request.POST.get('name')&#125;, ensure_ascii=False)) MySQL增12345678910111213141516171819202122232425262728293031323334# views.pyfrom django.shortcuts import renderfrom django.http import HttpResponsefrom users.models import Userimport jsondef login(request): if request.method == "POST": nickname = request.POST.get('nickname', '') avatar = request.POST.get('avatar', 'www.baidu.com') counts = request.POST.get('counts', '0') bg = request.POST.get('bg', 'www.baidu.com') info = request.POST.get('info', '') sex = request.POST.get('sex', 'unknow') openid = request.POST.get('openid', 'sdjhf343rfjsdhkjf') province = request.POST.get('province', 'unknow') city = request.POST.get('city', 'unknow') input = &#123; "nickname" : nickname, "avatar" : avatar, "counts" : counts, "bg" : bg, "info" : info, "sex" : sex, "openid" : openid, "province" : province, "city" : city &#125; message = User.objects.create(**input) input['id'] = message.id return HttpResponse(json.dumps(input, ensure_ascii=False)) 使用log 在setting.py中增加以下配置 12345678910111213141516171819202122232425262728293031323334LOGGING = &#123; 'version': 1, 'disable_existing_loggers': False, 'formatters': &#123; 'verbose': &#123; 'format': '[%(asctime)s] [%(levelname)s] %(message)s' &#125;, &#125;, 'handlers': &#123; 'console':&#123; 'level':'INFO', 'class':'logging.StreamHandler', 'formatter': 'verbose' &#125;, 'file': &#123; 'level': 'INFO', 'class': 'logging.FileHandler', 'filename': '/Users/Nancelglap/codes/python/sponsor/log/app_log.log', # 自己的log文件路径 'formatter': 'verbose' &#125;, 'email': &#123; 'level': 'ERROR', 'class': 'django.utils.log.AdminEmailHandler', 'include_html' : True, &#125; &#125;, 'loggers': &#123; 'django': &#123; # 使用的时候会用到 'handlers': ['console', 'file', 'email'], 'level': 'INFO', 'propagate': True, &#125;, &#125;,&#125; 使用 1234import logginglogger = logging.getLogger("django") # 在setting中loggers里面的名字logger.info("some messages") 连接redis 装一下 1pip install redis 用一下 1234import redispool = redis.ConnectionPool(host='127.0.0.1', port=6379)r = redis.Redis(connection_pool=pool) 具体操作参考连接 1https://www.cnblogs.com/melonjiang/p/5342505.html 序列化和遍历QuerySetObject神tm不能遍历，要先序列化，再遍历插入数组（写到Base类里面复用） 123456789101112from django.core import serializersdef getRank(request): info = User.objects.order_by('-counts') info = serializers.serialize("json", info)[1:-1] info = eval(info) # 换成字典 data = [] for i in range(0, len(info)): # 遍历字典 插入数组 data.append(info[i]['fields']) return HttpResponse(json.dumps(data))]]></content>
       <categories>
         <category>Django</category>
       </categories>
@@ -120,43 +120,12 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[mac/linux 命令]]></title>
-    <url>%2F2018%2F01%2F12%2Fmac-linux-%E5%91%BD%E4%BB%A4%2F</url>
-    <content type="text"><![CDATA[mac/linux 终端命令 mac查看端口占用 1$ lsof -i:端口号 开redis 1$ redis-server 开php-fpm 1$ php-fpm]]></content>
-      <tags>
-        <tag>linux</tag>
-        <tag>terminal</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[mac nginx]]></title>
     <url>%2F2018%2F01%2F12%2Fmac-nginx%2F</url>
     <content type="text"><![CDATA[配置文件路径 1/usr/local/etc/nginx 根目录路径 1/usr/local/var/www 配置下载文件 12345678location / &#123; if ($request_filename ~* ^.*?\.(txt|doc|pdf|rar|gz|zip|docx|exe|xlsx|ppt|pptx)$)&#123; add_header Content-Disposition: 'attachment;'; &#125; autoindex on; autoindex_exact_size off; autoindex_localtime on;&#125;]]></content>
       <tags>
         <tag>nginx</tag>
         <tag>mac</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[mysql 命令相关]]></title>
-    <url>%2F2017%2F11%2F08%2Fmysql-%E5%91%BD%E4%BB%A4%E7%9B%B8%E5%85%B3%2F</url>
-    <content type="text"><![CDATA[mysql命令相关 解决中文乱码问题找到/etc/mysql/my.cnf12345678[client]default-character-set=utf8[mysql]default-character-set=utf8[mysqld]character-set-server=utf8 设置可插入emoji123ALTER DATABASE 数据库名称 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;ALTER TABLE 数据表名称 CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;数据表名称 CHANGE 字段列名称 VARCHAR(n) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; 设为默认1alter table tableName alter column col set default value; 设为可空1alter table tableName modify col varchar(100) null; 插入数据1insert into tableName (col1, col2..) values (&apos;value1&apos;, &apos;value2&apos;...), [(&apos;value1&apos;, &apos;value2&apos;...)]; 更新数据1update tableName set col = &apos;value&apos; where col = &apos;value&apos;; 删除数据1delete from tableName where col = &apos;value&apos;; 清空表(id从1开始)1truncate table tableName; 创建表12345678CREATE TABLE info( id INT UNSIGNED AUTO_INCREMENT, phone VARCHAR(20) NOT NULL, name VARCHAR(20) NOT NULL, sex VARCHAR(10) NOT NULL, department VARCHAR(10) NOT NULL, PRIMARY KEY (id))ENGINE=InnoDB DEFAULT CHARSET=utf8; 修改字段1ALTER TABLE tableName CHANGE oldName newName TYPE; SQL注入：查看表信息1SELECT title, slogan, id FROM series WHERE outBg like &quot;%baidu%&quot; UNION (SELECT TABLE_NAME, TABLE_SCHEMA, 3 FROM information_schema.tables);]]></content>
-      <categories>
-        <category>mysql</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[mysql数据备份和还原]]></title>
-    <url>%2F2017%2F10%2F11%2Fmysql%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD%E5%92%8C%E8%BF%98%E5%8E%9F%2F</url>
-    <content type="text"><![CDATA[数据备份 1$ mysqldump -u root -p database table1 table2 ... &gt; ~/Documents/admin_menu.sql 数据还原 1$ mysql -u root -p database &lt; ~/Documents/quanzi.sql]]></content>
-      <categories>
-        <category>mysql</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -263,18 +232,6 @@
       <tags>
         <tag>laravel</tag>
         <tag>qiniuyun</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[接口需要的参数]]></title>
-    <url>%2F2017%2F08%2F25%2F%E6%8E%A5%E5%8F%A3%E9%9C%80%E8%A6%81%E7%9A%84%E5%8F%82%E6%95%B0%2F</url>
-    <content type="text"><![CDATA[项目中接口需要的参数 提交评论接口 1、被评论条目的 id（作为 parent_id）2、评论所属文章或其他的 id（用 attach 与所属文章建立关系）]]></content>
-      <categories>
-        <category>api</category>
-      </categories>
-      <tags>
-        <tag>api</tag>
-        <tag>params</tag>
       </tags>
   </entry>
   <entry>
@@ -398,26 +355,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[mysql 定时备份]]></title>
-    <url>%2F2017%2F06%2F20%2Fmysql-%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BD%2F</url>
-    <content type="text"><![CDATA[实现mysql定时备份 1、创建备份文件夹1mkdir name 2、创建备份Shell脚本1$ vim filename.sh 3、加入以下内容（1）username 替换为实际的用户名(保留-u)（2）password 替换为实际的密码（保留-p）（3）DatabaseName 替换为实际的数据库名（4）/home/back改为自己的路径12#!/bin/bashmysqldump -uusername -ppassword DatabaseName &gt; /home/backup/DatabaseName_$(date +%Y%m%d_%H%M%S).sql 4、添加可执行权限1$ chmod u+x bkDatabaseName.sh 5、添加计划任务（改为自己创建的文件信息）123$ crontab -e*/1 * * * * /home/backup/bkDatabaseName.sh 6、执行时间前面五个*号代表五个数字，数字的取值范围和含义如下： 分钟 （0-59）小時 （0-23）日期 （1-31）月份 （1-12）星期 （0-6）//0代表星期天]]></content>
+    <title><![CDATA[mysql 相关]]></title>
+    <url>%2F2017%2F06%2F20%2Fmysql%08%E7%9B%B8%E5%85%B3%2F</url>
+    <content type="text"><![CDATA[mysql 相关问题 2019.1.30 合并命令相关和数据备份和还原 定时备份1、创建备份文件夹1mkdir name 2、创建备份Shell脚本1$ vim filename.sh 3、加入以下内容（1）username 替换为实际的用户名(保留-u)（2）password 替换为实际的密码（保留-p）（3）DatabaseName 替换为实际的数据库名（4）/home/back改为自己的路径12#!/bin/bashmysqldump -uusername -ppassword DatabaseName &gt; /home/backup/DatabaseName_$(date +%Y%m%d_%H%M%S).sql 4、添加可执行权限1$ chmod u+x bkDatabaseName.sh 5、添加计划任务（改为自己创建的文件信息）123$ crontab -e*/1 * * * * /home/backup/bkDatabaseName.sh 6、执行时间前面五个*号代表五个数字，数字的取值范围和含义如下： 分钟 （0-59）小時 （0-23）日期 （1-31）月份 （1-12）星期 （0-6）//0代表星期天 数据备份和还原 数据备份 1$ mysqldump -u root -p database table1 table2 ... &gt; ~/Documents/admin_menu.sql 数据还原 1$ mysql -u root -p database &lt; ~/Documents/quanzi.sql 解决中文乱码问题找到/etc/mysql/my.cnf12345678[client]default-character-set=utf8[mysql]default-character-set=utf8[mysqld]character-set-server=utf8 设置可插入emoji123ALTER DATABASE 数据库名称 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;ALTER TABLE 数据表名称 CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;数据表名称 CHANGE 字段列名称 VARCHAR(n) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; 命令相关 设为默认1alter table tableName alter column col set default value; 设为可空1alter table tableName modify col varchar(100) null; 插入数据1insert into tableName (col1, col2..) values (&apos;value1&apos;, &apos;value2&apos;...), [(&apos;value1&apos;, &apos;value2&apos;...)]; 更新数据1update tableName set col = &apos;value&apos; where col = &apos;value&apos;; 删除数据1delete from tableName where col = &apos;value&apos;; 清空表(id从1开始)1truncate table tableName; 创建表12345678CREATE TABLE info( id INT UNSIGNED AUTO_INCREMENT, phone VARCHAR(20) NOT NULL, name VARCHAR(20) NOT NULL, sex VARCHAR(10) NOT NULL, department VARCHAR(10) NOT NULL, PRIMARY KEY (id))ENGINE=InnoDB DEFAULT CHARSET=utf8; 修改字段1ALTER TABLE tableName CHANGE oldName newName TYPE; SQL注入：查看表信息 1SELECT title, slogan, id FROM series WHERE outBg like &quot;%baidu%&quot; UNION (SELECT TABLE_NAME, TABLE_SCHEMA, 3 FROM information_schema.tables);]]></content>
       <categories>
         <category>mysql</category>
       </categories>
       <tags>
         <tag>mysql</tag>
-        <tag>backup</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[微信公众号]]></title>
-    <url>%2F2017%2F06%2F20%2F%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%2F</url>
-    <content type="text"><![CDATA[微信公众号开发相关 参考资料：https://easywechat.org/https://github.com/overtrue/laravel-wechat 配置 1、注册相应路由和创建 Controller12345678910111213class WechatController extends Controller&#123; public function serve() &#123; $wechat = app('wechat'); $wechat-&gt;server-&gt;setMessageHandler(function($message)&#123; return "您好！欢迎关注我!"; &#125;); return $wechat-&gt;server-&gt;serve();&#125; 2、改 接口授权 -&gt; 网页授权获取用户基本信息 url 为服务器的域名 返回信息类 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051&lt;?phpnamespace App\Http\Controllers;class WechatController extends Controller&#123; /** * 处理微信的请求消息 * * @return string */ public function serve() &#123; $wechat = app('wechat'); $userApi = $wechat-&gt;user; $wechat-&gt;server-&gt;setMessageHandler(function($message) use ($userApi)&#123; switch ($message-&gt;MsgType) &#123; case 'event': return '收到事件消息'; break; case 'text': return $userApi-&gt;get($message-&gt;FromUserName)-&gt;nickname; break; case 'image': return '收到图片消息'; break; case 'voice': return '收到语音消息'; break; case 'video': return '收到视频消息'; break; case 'location': return '收到坐标消息'; break; case 'link': return '收到链接消息'; break; // ... 其它消息 default: return '收到其它消息'; break; &#125; &#125;); return $wechat-&gt;server-&gt;serve(); &#125;&#125; 操作用户信息 1、自行完成路由注册，Controller 创建等操作2、更多用户操作见文档 https://easywechat.org/zh-cn/docs/user.html1234567891011121314151617181920212223242526272829303132333435363738394041use EasyWeChat\Foundation\Applications;class ControllerName extends Controller&#123; public $wechat; public function __construct(Applications $wechat) &#123; $this-wechat = $wechat; &#125; /** * 返回所有关注用户的openId */ public function users() &#123; $users = $this-&gt;wechat-&gt;user-&gt;lists(); return $users; &#125; /** * 返回单个已关注用户的信息 */ public function user($openId) &#123; $user = $this-&gt;wechat-&gt;user-&gt;get($openId); return $user; &#125; /** * 修改用户备注 （remark方法） */ public function remark($openId) &#123; $this-&gt;wechat-&gt;remark($openId, '备注信息'); return 'OK'; &#125;&#125; 管理公众号素材 1、自行注册路由和创建 Controller2、参考文档内容https://easywechat.org/zh-cn/docs/material.html1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253use EasyWeChat\Foundation\Applications;class ControllerName extends Controller&#123; public $material; public function __construct(Applications $material) &#123; $this-material = $material-&gt;material; &#125; /** * 上传public目录下的图片 */ public function image() &#123; $image = $this-&gt;material-&gt;uploadImage(public_path(). '/images/imageName.jpg'); return $image; &#125; /** * 上传public目录下的音频 */ public function audio() &#123; $audio = $this-&gt;material-&gt;uploadVoice(public_path. '/images/audioName.mp3'); //注意支持的格式 return $audio; return $user; &#125; /** * 查看所有上传了的图片信息 */ public function materials() &#123; $materials = $this-&gt;material-&gt;lists('image'); //返回其他素材看文档 return $materials; &#125; /** * 拿到特定素材信息 */ public function media($mediaId) &#123; $media = $this-&gt;material-&gt;get($mediaId); return $media; &#125;&#125; 3、当用户发音频信息，以客服身份返回信息（其他类型的信息类似）1234567891011121314151617181920212223242526272829303132333435363738&lt;?phpnamespace App\Http\Controllers;class WechatController extends Controller&#123; /** * 处理微信的请求消息 * * @return string */ public function serve() &#123; $wechat = app('wechat'); $userApi = $wechat-&gt;user; $wechat-&gt;server-&gt;setMessageHandler(function($message) use ($userApi, $wechat)&#123; switch ($message-&gt;MsgType) &#123; ... case 'voice': $message = new Voice(['media_id'] =&gt; '要返回的mediaId值'); //$message-&gt;FromUserName拿到用户的openId $wechat-&gt;staff-&gt;message($message)-&gt;to($message-&gt;FromUserName)-&gt;send(); return 'string'; break; ... &#125; &#125;); return $wechat-&gt;server-&gt;serve(); &#125;&#125;]]></content>
-      <categories>
-        <category>Wechat</category>
-      </categories>
-      <tags>
-        <tag>Wechat</tag>
       </tags>
   </entry>
   <entry>
@@ -515,20 +460,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[php命名空间和自动加载]]></title>
-    <url>%2F2017%2F06%2F08%2Fphp%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E5%92%8C%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%2F</url>
-    <content type="text"><![CDATA[解决包含 Class 要用多个 require 问题 1、在项目目录下创建 composer.json 文件，加入以下内容1234567&#123; "autoload":&#123; "psr-4":&#123; "namespace的名\\":"实际路径名/" &#125; &#125;&#125; 2、在要被加载的文件加入1namespace namespace的名; 3、生成 autoload 文件并加载1composer dump-autoload 4、在加载其他文件的文件中加入123require 'vendor/autoload.php';use namespace的名\Class文件名;]]></content>
-      <categories>
-        <category>php</category>
-      </categories>
-      <tags>
-        <tag>php</tag>
-        <tag>namespace</tag>
-        <tag>require</tag>
-        <tag>autoload</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[vim常用操作]]></title>
     <url>%2F2017%2F06%2F07%2Fvim%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%2F</url>
     <content type="text"><![CDATA[插入 在当前位置前插入：i在当前行首插入：I在当前位置后插入：a在当前行尾插入：A在当前行之后插入一行：o在当前行之前插入一行：O 跳转 跳到到行尾：$跳到到行首：0跳到n行：nG跳到文本末尾：G向下翻页：Control + f向上翻页：Control + b下一个单词：w上一个单词：b下一行行首：+上一行行首：- 删除 删除到行首：d$删除到行尾：D删除光标字符：x删除光标后的单词：de删除光标所在的单词: diw delete inner word删除光标单词所在的句子: das delete around sentence替换光标所在的单词: ciw change inner word 复制粘贴 复制当前行：yy复制从光标到行尾的内容：y$复制从光标到行首的内容：y^粘贴到光标右侧：p粘贴到光标左侧：P 查找 查找：/content（ n 跳到下一个内容 ） 移动 在行间移动: gj/gk移动到页面的顶端: H移动到页面的中端: M移动到页面的低端: L移动到一个段落的后面: } 配合dap删除一个段落后用}移动到下一个段落然后p粘贴移动到一个段落的前面: { 其他 重复上个命令: . （替换一个单词后再替换其他）整块操作: v/control+v 选择整块进行操作]]></content>
@@ -588,18 +519,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[微信小程序相关文档]]></title>
-    <url>%2F2017%2F05%2F20%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9B%B8%E5%85%B3%E6%96%87%E6%A1%A3%2F</url>
-    <content type="text"><![CDATA[与小程序相关网站 文档类 微信小程序官方文档：https://mp.weixin.qq.com/debug/wxadoc/dev/&lt;简书&gt;小程序开发专栏：http://www.jianshu.com/c/dfdc2bbd1315W3Cschool文档：http://www.w3cschool.cn/weixinapp/weixinapp-app.html 各功能实现 功能合集：http://weixin1024.cn/forum.php?mod=viewthread&amp;tid=1027&amp;extra=page%3D1 小程序账号申请 &lt;有道云笔记&gt;：http://note.youdao.com/share/?id=744b94b02c28321c8f930e1f495624e5&amp;type=note#/ 项目案例 项目列表：http://blog.csdn.net/qq137722697/article/details/52988719小黄车小程序：http://www.jianshu.com/p/68e3b8927a77项目：http://www.cnblogs.com/tuyile006/p/6268961.html 登录注册实现 维护用户登录态可以用JWT完成1、注意设置JWT过去时间123456$payload = [ 'email' =&gt; $request-&gt;get('email'), 'password' =&gt; $request-&gt;get('password')， 'exp' =&gt; time()+60*60 //设置token过期时间 ];$token = JWTAuth::attempt($payload) &lt;简书&gt;后台登录文章：http://www.jianshu.com/p/6096e8522c4c注册登录实现：http://blog.csdn.net/qq_19558705/article/details/65935818?utm_source=gold_browser_extension http站点转https站点 在nginx服务器下配置和安装阿里云购买的SSL证书：http://sanwen.net/a/hmdfcoo.html request请求(前端后台数据交互) request请求：http://blog.csdn.net/qq_19558705/article/details/60783448]]></content>
-      <categories>
-        <category>Wechat</category>
-      </categories>
-      <tags>
-        <tag>Mini Programes</tag>
-        <tag>Wechat</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[PHP OOP]]></title>
     <url>%2F2017%2F05%2F14%2FPHP-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[PHP 面向对象相关 final关键字final关键字只能用来标记类和方法1、final标记的类不能被继承2、final标记的方法不能被子类覆盖，是最终版本 static 和 const 1、static（1）static的成员在类第一次被加载的时候分配空间，被实例化的对象共用，属于类，无法用$this访问（2）在类内部访问static成员1self::$变量名 //有'$' （3）在类外部访问static成员1ClassName::$变量名 //有'$' 2、const（1）const为在类内部定义常量的方法（2）在类内部访问const属性1self::变量名 //没有'$' （3）在类外部访问const属性1ClassName::变量名 //没有'$' trait解决代码重用问题1234567891011121314151617trait NameTrait &#123; public function fun() &#123; var_dump('something'); &#125;&#125;class className1 &#123; use NameTrait;&#125;class className2 &#123; use NameTrait;&#125;new ClassName1()-&gt;fun();new ClassName2()-&gt;fun(); public、protected、privateprotected方法不能直接在继承的类的对象中访问，要在继承类中重新定义一个方法里面调用 $this-&gt;method1、public声明的成员可以在任何位置调用2、protected声明的成员只有在类的内部还有子类中可以调用3、private声明的成员只有在类的内部可以调用4、调用方法为12$this -&gt; name; //调用成员属性$this -&gt; function(); //调用成员方法 注：子类的权限只能大于等于父类 接口（Interface）定义：类里面所有的方法都为抽象方法的类称为接口1、接口内不能声明变量，但可以声明常量constant2、所有成员都是public权限3、声明接口使用关键字interface123456789101112&lt;?phpinterface One &#123; //定义一个常量 const constant = 'constant value'; //定义一个抽象方法"fun1" public function fun1(); //定义了抽象方法"fun2" public function fun2();&#125;?&gt; 4、定义接口的子类实现接口中全部抽象方法使用关键字implements123456789101112&lt;?phpclass Three implements One &#123; function fun1() &#123; ... &#125; function fun2() &#123; ... &#125;&#125;&#125;?&gt; 5、子类必须实现所有的抽象方法才能被实例化6、一个类可以实现多个接口12345&lt;?phpclass Four implements interface1, interface2, ... &#123; //必须把所有接口中的方法都实现才可以实例化对象&#125;?&gt; 7、在继承一个类的同时实现多个接口，先继承再实现123456&lt;?phpclass Four extends ClassName1 implements interface1, interface2, ... &#123; //所有接口中的方法都要实现才可以实例化对象 ...&#125;?&gt; 面向接口编程在需要用到类作为参数的方法中将接口作为参数，过后传参数只需要传一个实现的接口的对象就可以12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152/*** 创建一个接口*/interface hello &#123; public function fun1($message);&#125;/*** 实现接口*/class class1 implements hello &#123; public function show($message) &#123; return $message; &#125;&#125;/*** 实现接口*/class class2 implements hello &#123; public function show($message) &#123; return $message; &#125;&#125;/*** 创建一个类*/class Controller &#123; protected $hello; //参数为接口 public function __construct(hello $hello) &#123; $this-&gt;hello = $hello; &#125; public function show() &#123; $message = "Nancelglap"; $this-&gt;hello-&gt;show($message); &#125;&#125;//当要切换类的时候就不用再更改construct方法中的hello接口，直接改实例化对象的类名$demo = new Controller(new class1);$demo -&gt; show();$demo = new Controller(new class2);$demo -&gt; show(); 魔术方法 __get($name) 调用不存在的属性时自动调用，$name为调用的属性名 __invoke($name) 以调用函数的方式调用一个对象时，自动调用 匿名函数等于重写了闭包对象的__invoke()函数 array_map(闭包函数，array) 对array每个元素进行闭包函数操作 1234567class Name &#123; function __invoke($name) &#123; return "call myself" &#125;&#125;$var = new Name();$var(); SplObjectStorage类 实现了以对象为键的映射，可以直接删除指定对象，不用遍历整个集合 123$o1 = StdClsss;$s = SplObjectStorage();$s-&gt;attach($o1); static::和self:: static::为静态绑定，不会解析为定义当前方法所在的类，而是实际运行的类 self::写在哪就调用哪个类 12345678910111213141516171819202122class person &#123; public static function getName() &#123; echo "person"; &#125; public static function getInfoByStatic() &#123; self::getName(); &#125; public static function getInfoBySelf() &#123; static::getName(); &#125;&#125;class Man extends person &#123; public static function getName() &#123; echo "Man"; &#125;&#125;Man::getInfoBySelf(); // 输出personMan::getInfoByStatic(); // 输出Manff]]></content>
@@ -623,20 +542,6 @@
         <tag>server</tag>
         <tag>git</tag>
         <tag>github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[VPS上配置和域名解析]]></title>
-    <url>%2F2017%2F05%2F13%2FVPS%E4%B8%8A%E9%85%8D%E7%BD%AE%E5%92%8C%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%2F</url>
-    <content type="text"><![CDATA[1、更改/etc/nginx/sites-avaliable/default修改server中的server_name1server_name elective.com www.elective.com; 2、重启nginx使配置文件生效1sudo service nginx restart 3、解析域名（1）复制IP地址（2）打开dnspod进行域名解析https://www.dnspod.cn/（3）将记录类型为A的记录值修改为IP地址（4）复制上方的DNS修改内容，到godaddy网站https://sg.godaddy.com/zh?isc=gennbacn29&amp;countrview=1&amp;currencytype=CNY&amp;mkwid=WFSMCUdy&amp;cvosrc=ppc.baidu（5）到mydomain里修改Nameservers，nameservers type改为Custom，两个Nameserver内容粘贴刚才复制的两条内容]]></content>
-      <categories>
-        <category>laravel</category>
-      </categories>
-      <tags>
-        <tag>laravel</tag>
-        <tag>VPS</tag>
-        <tag>server</tag>
-        <tag>Domain</tag>
       </tags>
   </entry>
   <entry>
@@ -667,7 +572,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[用户认证（Auth）]]></title>
+    <title><![CDATA[Laravel用户认证（Auth）]]></title>
     <url>%2F2017%2F05%2F10%2F%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%2F</url>
     <content type="text"><![CDATA[一、auth.php文件配置(修改auth验证的表) 在guards数组中的每一项都是一个角色，默认的有web和api两种，这就表示了当前有这两种角色会使用到认证系统。driver就是表示这个认证要怎么去保存用户状态，一般是保存在session中，provider就是告诉Laravel你的用户信息保存在哪一张表里面，driver就是告诉了要使用那种方式来操作数据库。1234567891011'guards' =&gt; [ 'web' =&gt; [ 'driver' =&gt; 'session', 'provider' =&gt; 'users', ], 'api' =&gt; [ 'driver' =&gt; 'token', 'provider' =&gt; 'users', ],], 二、具体运用 方法一：在Controller中增加middleware键值对当路由中使用了保护路由：&#39;middleware&#39; =&gt; &#39;auth&#39;，此路由需先经过路由的路径名为’/login’执行后才跳转到此路由执行可以对路由组使用此中间件，以下组内所有路由的访问都需先经过路由路径为’/login’的认证路由中的路径必须是根目录下的’/login’1234//如果路径前面再加任何的前缀就会出错'/admin/path'Route::get('/login', function() &#123; return view('auth.login'); &#125;) 1234567Route::group(['namespace'=&gt;'Admin', 'middleware'=&gt;'auth'], function()&#123; Route::get('admin/path1', 'UploadController@method1'); Route::get('admin/path2', 'UploadController@method2'); Route::get('admin/path3', 'UploadController@method3'); Route::get('admin/path4', 'UploadController@method4');&#125; 方法二：在控制器中增加构造方法__construct1234public function __construct()&#123; $this-&gt;middleware('auth');&#125; 补充返回经过JWTAuth认证后的实例123Route::get('/user', function (Request $request) &#123; return $request-&gt;user();&#125;)-&gt;middleware('jwt.api.auth');]]></content>
       <categories>
@@ -693,20 +598,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Shell脚本相关]]></title>
-    <url>%2F2017%2F05%2F10%2FShell%E8%84%9A%E6%9C%AC%E7%9B%B8%E5%85%B3%2F</url>
-    <content type="text"><![CDATA[本文内容为bash操作相关 参数 1、echo -e：包含转义序列的字符串形式输出2、echo -n：echo会将一个换行符追加到输出文本的尾部，可以使用-n忽略结尾换行符 其他 1、要输出感叹号的时候不要放在双引号内，如果要的话要加“\”反斜杠2、查看PATH变量1echo $PATH 3、添加环境变量1export PATH="$PATH:/Users/..." 4、获取字符串长度1length=$&#123;#var&#125;]]></content>
-      <categories>
-        <category>shell</category>
-      </categories>
-      <tags>
-        <tag>Shell</tag>
-        <tag>Terminal</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[JWT的使用（中间件的坑）]]></title>
-    <url>%2F2017%2F05%2F06%2F%E5%88%9B%E5%BB%BAtoken%2F</url>
+    <url>%2F2017%2F05%2F06%2FJWT%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%9D%91%2F</url>
     <content type="text"><![CDATA[关于JWT的坑 原理 验证机制（需用到 GetUserFromToken 中间件）1、根据用户信息，还有后面加入的信息创建token，并将token保存在后台的缓存，可加入 $user[&#39;now&#39;]=time() 等信息 2、将token发给客户端，存在客户端的缓存中 3、需要验证的操作或者请求使用jwt中间件验证（将存在客户端缓存中的token取出并放在 header 中发回给后台） 4、请求通过jwt中间件将 header 中的 token 值与后台缓存的token对比，确认一致后继续进行下一步操作 使用注意事项 一、使用中间件jwt.api.auth参考资料：http://blog.csdn.net/qq_28666081/article/details/52188549 1、改 config/auth.php 中的 &#39;providers&#39; 数组中的 model 为相应要验证的model名12345'providers' =&gt; [ 'users' =&gt; [ 'driver' =&gt; 'eloquent', 'model' =&gt; App\Client::class, //Client为自己需要的model名 ], 2、model修改在创建的新 model 中加入以下1use Illuminate\Foundation\Auth\User as Authenticatable; 修改新 model 继承的类123class Client extends Authenticatable &#123; //Authenticatale替换原来的model ....&#125; 二、其他2、修改 config/jwt.php 文件的 &#39;user&#39; 项，改为要验证的model3、config/jwt.php 中的 &#39;ttl&#39; 属性为token的有效时间，根据需要设置 创建Token 方法1：用户登录的时候返回123456789101112131415161718192021222324use JWTAuth;use Tymon\JWTAuth\Exceptions\JWTException;class AuthenticateController extends Controller&#123; public function authenticate(Request $request) &#123; // grab credentials from the request $credentials = $request-&gt;only('email', 'password'); try &#123; // attempt to verify the credentials and create a token for the user if (! $token = JWTAuth::attempt($credentials)) &#123; return response()-&gt;json(['error' =&gt; 'invalid_credentials'], 401); &#125; &#125; catch (JWTException $e) &#123; // something went wrong whilst attempting to encode the token return response()-&gt;json(['error' =&gt; 'could_not_create_token'], 500); &#125; // all good so return the token return response()-&gt;json(compact('token')); &#125;&#125; 如果验证的密码字段不是 ‘password’，在要验证表的 model 中加入以下函数123public function getAuthPassword() &#123; return $this-&gt;user_password; //user_password为字段名&#125; 如果验证的用户字段字段不是 ‘email’ 是 ‘name’，在 ‘AuthController’ 中声明12345678//要这样验证$credentials = [ 'name' =&gt; $request-&gt;get('name'), 'password' =&gt; $request-&gt;get('password'), ];//加声明public $username = 'name'; （首选）方法2：通过用户对象实例创建token12$user = User::first(); //先获取用户$token = JWTAuth::fromUser($user);]]></content>
       <categories>
         <category>laravel</category>
@@ -751,42 +644,6 @@
       </categories>
       <tags>
         <tag>laravel</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Route 相关]]></title>
-    <url>%2F2017%2F04%2F30%2FRoute%E7%9B%B8%E5%85%B3%2F</url>
-    <content type="text"><![CDATA[Route相关知识 项目中一般不用Route::resource( )Http方法patch对应Controller的update函数Http方法delete对应Controller的destory函数Http方法post对应Controller的store函数Http方法get且路径为/path/create对应Controller的create函数特殊:get路径为/path/{参数}/edit对应Controller的edit函数 部分资源路由（Resource）12Route::resource('new', 'newController', ['only'=&gt;['index', 'show']]); //只处理index和show方法Route::resource('new', 'newController', ['except'=&gt;['create', 'store']]); //处理除了create和store的方法 重定向到Controller Action12//第二个参数为可选参数return redirect() -&gt; action('MyController@index', ['id' =&gt; 1]);]]></content>
-      <categories>
-        <category>laravel</category>
-      </categories>
-      <tags>
-        <tag>laravel</tag>
-        <tag>Route</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Blade 相关]]></title>
-    <url>%2F2017%2F04%2F29%2FBlade-Warning%2F</url>
-    <content type="text"><![CDATA[一、blade实现编辑页面自动填充表单1. 在Controller中1$content = model名::findOrFail($id); 2. 在视图文件中使用Form-Model-Binding1&#123;!! Form::model($content, [&apos;method&apos;=&gt;&apos;PATCH&apos;, &apos;url&apos;=&gt;&apos;/path/&apos;.$content-&gt;id]) !!&#125; 二、Blade模板中的注意事项 如果从Controller传过来的数组为一维关联数组，可以直接用数组中的键作为变量 重用的代码放到一个文件里，在需要用的视图文件用@include(&#39;view&#39;s name&#39;) 三、视图绑定变量1、一般在被其他视图文件包含的视图文件使用，不用额外再写代码2、创建一个类文件，比如在App\ClassName3、在视图文件中用 @inject(&#39;var&#39;, &#39;ClassFile_Path&#39;) 绑定变量123@inject('var', 'App\ClassName')$var-&gt;method(); //调用ClassName类中的方法]]></content>
-      <categories>
-        <category>laravel</category>
-      </categories>
-      <tags>
-        <tag>laravel</tag>
-        <tag>blade</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Laravel 函数]]></title>
-    <url>%2F2017%2F04%2F29%2FMy-New-Post%2F</url>
-    <content type="text"><![CDATA[有关laravel的函数 old( )函数old函数获取一次性从Session获取的值，如果有第二个参数，则代表函数当第一个参数不存在时取第二个参数 当表单被填充但是验证失败需要返回原始输入数据 12345//$fields为默认值的关联数组$data = [];foreach ($this-&gt;fields as $field =&gt; $default)&#123; $data[$field] = old($field, $default);&#125; array_except( )函数array_except方法从数组中移除给定键值对，第二个参数为[&#39;键名&#39;]1$array = array_except($array, ['price']); //移除array数组以`price`为键的键值对 array_keys( )函数array_keys函数返回包含数组中所有键名的一个新数组12$a = $array("name"=&gt;"lee", "sex"=&gt;"male");$b = array_keys($a); //b为array([0]=&gt;name, [1]=&gt;sex) withSuccess( )函数withSuccess函数参数为一个字符串语句，在重定向redirect( )后使用，在相应的视图文件中可用Session类获取12345//在控制器中 redirect('/path') -&gt; withSuccess('Succeed.');//在视图文件中 Session::has('success'); //判断是否存在 Session::get('success'); //获取控制器中withSuccess()中的字符串 strstr( )函数strstr函数查找第二个参数在第一个参数中第一次出现位置，并返回字符串剩余的部分12echo strstr('I love China.', 'love');//输出'love China' strtotime( )函数strtotime返回Unix时间戳1strtotime(date('Y-m-d H:i:s', time()));]]></content>
-      <categories>
-        <category>laravel</category>
-      </categories>
-      <tags>
-        <tag>laravel</tag>
-        <tag>blade</tag>
       </tags>
   </entry>
 </search>

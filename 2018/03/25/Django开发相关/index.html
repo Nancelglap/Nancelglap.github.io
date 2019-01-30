@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://nancelglap.github.io/2018/03/25/Django开发相关/index.html">
 <meta property="og:site_name" content="Nancelglap">
 <meta property="og:description" content="关于Django实际开发的一些问题">
-<meta property="og:updated_time" content="2019-01-22T14:18:53.000Z">
+<meta property="og:updated_time" content="2019-01-29T15:18:26.923Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django开发相关">
 <meta name="twitter:description" content="关于Django实际开发的一些问题">
@@ -382,6 +382,37 @@
 <p>关于Django实际开发的一些问题</p>
 </blockquote>
 <a id="more"></a>
+<h3 id="赞助小程序开发中遇到的坑"><a href="#赞助小程序开发中遇到的坑" class="headerlink" title="赞助小程序开发中遇到的坑"></a>赞助小程序开发中遇到的坑</h3><ol>
+<li><p>通过querySet拿到的数据不能直接返回，要通过序列化再遍历，详见Base中的dataJson函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="string">'''</span></div><div class="line"># 序列化QuerySet并返回数据的json格式</div><div class="line">'''</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">dataJson</span><span class="params">(info)</span>:</span></div><div class="line">    serial = eval(serializers.serialize(<span class="string">"json"</span>, info)[<span class="number">1</span>:<span class="number">-1</span>])</div><div class="line">    data = []</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(serial)):</div><div class="line">        id = serial[i][<span class="string">'pk'</span>]</div><div class="line">        serial[i][<span class="string">'fields'</span>][<span class="string">'id'</span>] = id</div><div class="line">        data.append(serial[i][<span class="string">'fields'</span>])</div><div class="line">    <span class="keyword">return</span> data</div></pre></td></tr></table></figure>
+</li>
+<li><p>序列化的时候数据库任何字段都不可以为null，但是可以为字符串空，否则会报错</p>
+</li>
+<li><p>Object的自增id被放在post[i][‘pk’]中 post[i][‘fields’]中没有id字段</p>
+</li>
+<li><p>如果在数据库中删了字段，把model中的对应字段注释掉，否则会报错</p>
+</li>
+<li><p>lte小于等于、lt小于；gt、gte</p>
+</li>
+<li><p>计算redis键长度scard如果键不存在会报错，要先用exists检查</p>
+</li>
+<li><p>如果本来只有一条数据，filter取出来的数据序列化后长度为3，不能用下标取，参考allPost函数</p>
+</li>
+<li><p>token解析出来的要json.dumps()一下才能拿到json数据</p>
+</li>
+<li><p>构造query的时候get只能获取单个数据，并且可以用model_to_dict转成dict</p>
+</li>
+<li><p>构造query的时候用filter必须用serializers序列化</p>
+</li>
+<li><p>数据库查询删除等尽量都用try except，否则会报错</p>
+</li>
+<li><p>两个字符串不能直接用于运算符运算，要用bool()函数转化一下, bool(a) &amp; bool(b)</p>
+</li>
+<li><p>查询的时候objects的filter后面可以接raw，但是反过来不行</p>
+</li>
+<li><p>raw查询会报超过ascii错误，查uwsgi的log，注释掉错误的行（/usr/lib/python3.4/traceback.py的print_exception函数）</p>
+</li>
+</ol>
 <h3 id="更新代码后重启uwsgi和nginx才生效"><a href="#更新代码后重启uwsgi和nginx才生效" class="headerlink" title="更新代码后重启uwsgi和nginx才生效"></a>更新代码后重启uwsgi和nginx才生效</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo killall -9 uwsgi</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo service nginx stop</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo uwsgi --ini /var/www/sponsor/uwsgi.ini</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo nginx -c /var/www/sponsor/destiny.conf</span></div></pre></td></tr></table></figure>
 <h3 id="解决json-dumps-中文变成乱码问题"><a href="#解决json-dumps-中文变成乱码问题" class="headerlink" title="解决json.dumps()中文变成乱码问题"></a>解决json.dumps()中文变成乱码问题</h3><p>给<code>json.dumps</code>加第二个参数<code>ensure_ascii=False</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> HttpResponse(json.dumps(&#123;<span class="string">"name"</span>:request.POST.get(<span class="string">'name'</span>)&#125;, ensure_ascii=<span class="keyword">False</span>))</div></pre></td></tr></table></figure>
